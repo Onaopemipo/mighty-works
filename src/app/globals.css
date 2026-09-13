@@ -203,3 +203,565 @@ body {
     align-items: center;
   }
 }
+
+/* MW-02B — Immersive Hero */
+
+.hero-title {
+  text-wrap: balance;
+}
+
+.hero-vignette {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 4, 12, 0.55),
+      rgba(3, 4, 12, 0.08) 48%,
+      rgba(3, 4, 12, 0.28)
+    );
+}
+
+.hero-depth-glow {
+  background:
+    radial-gradient(
+      circle at 72% 48%,
+      rgba(83, 59, 190, 0.2),
+      transparent 31%
+    );
+}
+
+.mighty-portal-stage {
+  perspective: 1300px;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.portal-ambient-glow {
+  background:
+    radial-gradient(
+      circle,
+      rgba(101, 73, 226, 0.2),
+      rgba(31, 22, 76, 0.08) 45%,
+      transparent 72%
+    );
+  filter: blur(15px);
+}
+
+.portal-particle {
+  position: absolute;
+  display: block;
+  border-radius: 999px;
+  background: var(--gold-light);
+  box-shadow:
+    0 0 10px rgba(255, 225, 160, 0.75),
+    0 0 20px rgba(229, 184, 91, 0.35);
+}
+
+.portal-ring {
+  border-radius: 9999px;
+  transform-style: preserve-3d;
+}
+
+.portal-ring-outer {
+  border: 1px dashed rgba(229, 184, 91, 0.27);
+  box-shadow: 0 0 60px rgba(229, 184, 91, 0.035);
+}
+
+.portal-ring-outer::before {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.portal-ring-mid {
+  border: 1px solid rgba(151, 128, 255, 0.14);
+}
+
+.portal-ring-mid::before {
+  content: "";
+  position: absolute;
+  inset: 11%;
+  border-radius: inherit;
+  border: 1px dashed rgba(255, 255, 255, 0.09);
+}
+
+.portal-ring-inner {
+  border: 1px dashed rgba(229, 184, 91, 0.17);
+}
+
+.portal-energy-line {
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 231, 173, 0.24);
+}
+
+.portal-energy-line::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: var(--gold-light);
+  box-shadow:
+    0 0 18px rgba(255, 225, 160, 0.9),
+    0 0 38px rgba(229, 184, 91, 0.55);
+}
+
+.portal-core {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background:
+    radial-gradient(
+      circle at 45% 35%,
+      rgba(76, 55, 171, 0.42),
+      rgba(13, 11, 45, 0.96) 51%,
+      rgba(3, 4, 13, 0.99) 75%
+    );
+  box-shadow:
+    0 0 48px rgba(101, 71, 220, 0.19),
+    0 0 100px rgba(74, 52, 172, 0.14);
+}
+
+.portal-core-halo {
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent,
+      rgba(255, 226, 158, 0.08),
+      transparent 30%,
+      rgba(115, 86, 224, 0.15),
+      transparent 61%,
+      rgba(255, 226, 158, 0.06),
+      transparent
+    );
+}
+
+.portal-eleven {
+  font-size: clamp(4.2rem, 6vw, 6.5rem);
+  line-height: 0.85;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  color: white;
+  text-shadow:
+    0 0 28px rgba(255, 255, 255, 0.07),
+    0 0 80px rgba(102, 75, 211, 0.26);
+}
+
+.portal-beam {
+  pointer-events: none;
+  width: 55%;
+  height: 1px;
+  left: 23%;
+  top: 50%;
+  transform-origin: center;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 225, 160, 0.34),
+      transparent
+    );
+}
+
+.portal-beam-one {
+  transform: rotate(24deg);
+}
+
+.portal-beam-two {
+  transform: rotate(-31deg);
+}
+
+.portal-caption {
+  min-width: 150px;
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  border-radius: 17px;
+  padding: 12px 15px;
+  background: rgba(8, 8, 24, 0.58);
+  backdrop-filter: blur(16px);
+}
+
+@media (max-width: 1279px) {
+  .hero-shell {
+    min-height: auto;
+    padding-top: 6.5rem;
+    padding-bottom: 6rem;
+  }
+
+  .mighty-portal-stage {
+    max-width: 430px;
+  }
+
+  .portal-caption {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .mighty-portal-stage {
+    max-width: 330px;
+  }
+
+  .primary-cta,
+  .secondary-cta {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* MW-02C — Everwinning brand system */
+
+:root {
+  --brand-indigo: #413d6f;
+  --brand-indigo-deep: #25223f;
+  --brand-indigo-soft: #696293;
+
+  --brand-red: #fc4a53;
+  --brand-red-deep: #c92f3a;
+  --brand-red-soft: #ff747b;
+
+  --background: #060714;
+  --foreground: #f8f8fb;
+
+  --gold: var(--brand-red);
+  --gold-light: var(--brand-red-soft);
+  --violet: var(--brand-indigo);
+  --indigo: var(--brand-indigo-deep);
+}
+
+body {
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(65, 61, 111, 0.24),
+      transparent 36%
+    ),
+    linear-gradient(
+      180deg,
+      #080918 0%,
+      #050611 53%,
+      #080817 100%
+    );
+}
+
+.hero-shell {
+  background:
+    radial-gradient(
+      circle at 76% 39%,
+      rgba(65, 61, 111, 0.34),
+      transparent 33%
+    ),
+    radial-gradient(
+      circle at 20% 16%,
+      rgba(252, 74, 83, 0.055),
+      transparent 24%
+    );
+}
+
+.hero-depth-glow {
+  background:
+    radial-gradient(
+      circle at 72% 48%,
+      rgba(65, 61, 111, 0.34),
+      transparent 31%
+    ),
+    radial-gradient(
+      circle at 72% 48%,
+      rgba(252, 74, 83, 0.055),
+      transparent 19%
+    );
+}
+
+.hero-orb-one {
+  background: rgba(65, 61, 111, 0.34);
+}
+
+.hero-orb-two {
+  background: rgba(252, 74, 83, 0.075);
+}
+
+.glory-text {
+  background:
+    linear-gradient(
+      105deg,
+      #ffffff 0%,
+      #dddaf0 18%,
+      #8d87b6 38%,
+      #696293 51%,
+      #b7b1d4 68%,
+      #ffffff 88%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  text-shadow:
+    0 0 72px rgba(65, 61, 111, 0.22);
+}
+
+.ministry-brand-lockup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 205px;
+  height: 76px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 16px;
+
+  padding: 5px 12px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 16px 55px rgba(0, 0, 0, 0.18),
+    0 0 45px rgba(65, 61, 111, 0.09);
+}
+
+.ministry-brand-logo {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  /*
+   * The supplied logo contains generous white canvas.
+   * Slight scaling lets the actual artwork occupy the
+   * lockup without destructively modifying the source.
+   */
+  transform: scale(1.55);
+}
+
+.primary-cta {
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--brand-red-soft),
+      var(--brand-red) 58%,
+      var(--brand-red-deep)
+    );
+
+  box-shadow:
+    0 14px 42px rgba(252, 74, 83, 0.15);
+}
+
+.primary-cta:hover {
+  box-shadow:
+    0 20px 62px rgba(252, 74, 83, 0.28);
+}
+
+.secondary-cta:hover {
+  border-color: rgba(105, 98, 147, 0.55);
+  background: rgba(65, 61, 111, 0.1);
+}
+
+.portal-ambient-glow {
+  background:
+    radial-gradient(
+      circle,
+      rgba(65, 61, 111, 0.38),
+      rgba(37, 34, 63, 0.12) 46%,
+      transparent 72%
+    );
+
+  box-shadow:
+    0 0 120px rgba(65, 61, 111, 0.2);
+}
+
+.portal-particle {
+  background: var(--brand-red-soft);
+
+  box-shadow:
+    0 0 9px rgba(255, 116, 123, 0.82),
+    0 0 22px rgba(252, 74, 83, 0.4);
+}
+
+.portal-ring-outer {
+  border-color: rgba(252, 74, 83, 0.32);
+
+  box-shadow:
+    0 0 62px rgba(252, 74, 83, 0.035);
+}
+
+.portal-ring-outer::before {
+  border-color: rgba(105, 98, 147, 0.22);
+}
+
+.portal-ring-mid {
+  border-color: rgba(105, 98, 147, 0.28);
+
+  box-shadow:
+    inset 0 0 60px rgba(65, 61, 111, 0.075),
+    0 0 82px rgba(65, 61, 111, 0.075);
+}
+
+.portal-ring-inner {
+  border-color: rgba(252, 74, 83, 0.22);
+}
+
+.portal-energy-line {
+  border-color: rgba(255, 116, 123, 0.38);
+
+  box-shadow:
+    0 0 18px rgba(252, 74, 83, 0.08);
+}
+
+.portal-energy-line::before {
+  background: var(--brand-red-soft);
+
+  box-shadow:
+    0 0 18px rgba(255, 116, 123, 0.92),
+    0 0 38px rgba(252, 74, 83, 0.58);
+}
+
+.portal-core {
+  background:
+    radial-gradient(
+      circle at 45% 35%,
+      rgba(65, 61, 111, 0.76),
+      rgba(24, 22, 52, 0.97) 50%,
+      rgba(5, 6, 17, 0.99) 76%
+    );
+
+  box-shadow:
+    0 0 48px rgba(65, 61, 111, 0.35),
+    0 0 110px rgba(65, 61, 111, 0.22),
+    inset 0 0 40px rgba(252, 74, 83, 0.035);
+}
+
+.portal-core-halo {
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent,
+      rgba(252, 74, 83, 0.09),
+      transparent 29%,
+      rgba(105, 98, 147, 0.24),
+      transparent 60%,
+      rgba(252, 74, 83, 0.08),
+      transparent
+    );
+}
+
+.portal-eleven {
+  text-shadow:
+    0 0 25px rgba(255, 255, 255, 0.08),
+    0 0 82px rgba(65, 61, 111, 0.44);
+}
+
+.portal-beam {
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(252, 74, 83, 0.36),
+      rgba(105, 98, 147, 0.28),
+      transparent
+    );
+}
+
+.portal-caption {
+  border-color: rgba(105, 98, 147, 0.2);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9, 9, 25, 0.76),
+      rgba(37, 34, 63, 0.42)
+    );
+}
+
+.section-kicker {
+  color: var(--brand-red);
+}
+
+.experience-card:hover {
+  border-color: rgba(252, 74, 83, 0.22);
+}
+
+.scripture-glow {
+  background:
+    radial-gradient(
+      circle,
+      rgba(65, 61, 111, 0.28),
+      rgba(252, 74, 83, 0.045) 45%,
+      transparent 70%
+    );
+}
+
+.final-glow {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(65, 61, 111, 0.22),
+      rgba(252, 74, 83, 0.025) 42%,
+      transparent 68%
+    );
+}
+
+@media (max-width: 640px) {
+  .ministry-brand-lockup {
+    width: 175px;
+    height: 66px;
+  }
+}
+
+/* MW-02C-R2 — transparent ministry identity */
+
+.ministry-brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: clamp(190px, 18vw, 255px);
+  height: auto;
+
+  overflow: visible;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 0;
+
+  background: transparent;
+
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.ministry-brand-logo {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  transform: none;
+
+  filter:
+    drop-shadow(0 10px 30px rgba(0, 0, 0, 0.22))
+    drop-shadow(0 0 25px rgba(65, 61, 111, 0.14));
+}
+
+@media (max-width: 640px) {
+  .ministry-brand-lockup {
+    width: 180px;
+    height: auto;
+  }
+}
