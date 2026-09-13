@@ -765,3 +765,544 @@ body {
     height: auto;
   }
 }
+
+/* MW-03 — The Nations Are Gathering */
+
+.nations-section {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 76% 46%,
+      rgba(65, 61, 111, 0.19),
+      transparent 31%
+    ),
+    radial-gradient(
+      circle at 24% 44%,
+      rgba(252, 74, 83, 0.035),
+      transparent 25%
+    );
+}
+
+.nations-glow {
+  pointer-events: none;
+  border-radius: 999px;
+  filter: blur(85px);
+}
+
+.nations-glow-one {
+  top: 14%;
+  right: 6%;
+
+  width: 28rem;
+  height: 28rem;
+
+  background:
+    rgba(65, 61, 111, 0.12);
+}
+
+.nations-glow-two {
+  bottom: 7%;
+  left: 7%;
+
+  width: 20rem;
+  height: 20rem;
+
+  background:
+    rgba(252, 74, 83, 0.035);
+}
+
+.nations-red-text {
+  color: var(--brand-red);
+}
+
+.live-pulse-dot {
+  display: inline-block;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.live-pulse-dot.is-live {
+  background: var(--brand-red);
+
+  box-shadow:
+    0 0 0 5px rgba(252, 74, 83, 0.07),
+    0 0 22px rgba(252, 74, 83, 0.65);
+
+  animation:
+    mighty-live-pulse 2s ease-in-out infinite;
+}
+
+.nations-main-number {
+  display: inline-block;
+
+  font-size: clamp(5rem, 10vw, 10rem);
+  line-height: 0.86;
+
+  font-weight: 900;
+
+  letter-spacing: -0.075em;
+
+  color: white;
+
+  text-shadow:
+    0 0 65px rgba(65, 61, 111, 0.26);
+}
+
+.nations-small-number {
+  display: block;
+
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1;
+
+  font-weight: 750;
+
+  letter-spacing: -0.055em;
+
+  color: white;
+}
+
+.nations-field {
+  min-height: 650px;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.075);
+
+  border-radius: 36px;
+
+  background:
+    radial-gradient(
+      circle at 50% 47%,
+      rgba(65, 61, 111, 0.22),
+      rgba(10, 10, 28, 0.72) 42%,
+      rgba(5, 6, 17, 0.94) 73%
+    );
+
+  box-shadow:
+    inset 0 0 85px rgba(65, 61, 111, 0.055),
+    0 32px 100px rgba(0, 0, 0, 0.17);
+
+  backdrop-filter: blur(20px);
+}
+
+.nations-field-grid {
+  opacity: 0.09;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    58px 58px;
+
+  mask-image:
+    radial-gradient(
+      circle at center,
+      black,
+      transparent 75%
+    );
+}
+
+.nations-orbit {
+  left: 50%;
+  top: 50%;
+
+  border-radius: 9999px;
+
+  transform-origin: center;
+}
+
+.nations-orbit-outer {
+  width: 69%;
+  aspect-ratio: 1;
+
+  margin-left: -34.5%;
+  margin-top: -34.5%;
+
+  border:
+    1px dashed rgba(252, 74, 83, 0.19);
+}
+
+.nations-orbit-outer::before {
+  content: "";
+
+  position: absolute;
+  inset: 11%;
+
+  border:
+    1px solid rgba(105, 98, 147, 0.15);
+
+  border-radius: inherit;
+}
+
+.nations-orbit-inner {
+  width: 45%;
+  aspect-ratio: 1;
+
+  margin-left: -22.5%;
+  margin-top: -22.5%;
+
+  border:
+    1px dashed rgba(105, 98, 147, 0.24);
+}
+
+.nations-world-core {
+  display: flex;
+
+  width: 145px;
+  height: 145px;
+
+  margin-left: -72px;
+  margin-top: -72px;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.09);
+
+  border-radius: 999px;
+
+  color:
+    rgba(255, 255, 255, 0.82);
+
+  background:
+    radial-gradient(
+      circle at 40% 30%,
+      rgba(105, 98, 147, 0.28),
+      rgba(13, 12, 35, 0.92) 60%
+    );
+
+  box-shadow:
+    0 0 55px rgba(65, 61, 111, 0.28),
+    inset 0 0 35px rgba(252, 74, 83, 0.025);
+}
+
+.nations-dormant-point {
+  position: absolute;
+
+  display: block;
+
+  border-radius: 999px;
+
+  background:
+    rgba(183, 177, 212, 0.78);
+
+  box-shadow:
+    0 0 14px rgba(105, 98, 147, 0.45);
+}
+
+.nation-live-point {
+  display: flex;
+
+  width: 46px;
+  height: 46px;
+
+  margin-left: -23px;
+  margin-top: -23px;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 999px;
+
+  background:
+    rgba(7, 8, 22, 0.78);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 9px 28px rgba(0, 0, 0, 0.23);
+}
+
+.nation-live-halo {
+  border-radius: inherit;
+
+  background:
+    rgba(252, 74, 83, 0.12);
+
+  box-shadow:
+    0 0 28px rgba(252, 74, 83, 0.26);
+
+  animation:
+    nation-halo 2.8s ease-in-out infinite;
+}
+
+.nations-field-caption {
+  border-top:
+    1px solid rgba(255, 255, 255, 0.07);
+
+  padding-top: 20px;
+}
+
+.nation-chip {
+  display: inline-flex;
+
+  min-height: 46px;
+
+  align-items: center;
+
+  gap: 10px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.075);
+
+  border-radius: 999px;
+
+  padding:
+    6px 14px 6px 9px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  backdrop-filter: blur(14px);
+
+  transition:
+    border-color 200ms ease,
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.nation-chip:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(252, 74, 83, 0.18);
+
+  background:
+    rgba(65, 61, 111, 0.07);
+}
+
+@keyframes mighty-live-pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes nation-halo {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.18);
+  }
+}
+
+@media (max-width: 1279px) {
+  .nations-field {
+    min-height: 590px;
+  }
+}
+
+@media (max-width: 640px) {
+  .nations-section {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+  .nations-field {
+    min-height: 500px;
+
+    border-radius: 26px;
+  }
+
+  .nations-world-core {
+    width: 110px;
+    height: 110px;
+
+    margin-left: -55px;
+    margin-top: -55px;
+  }
+
+  .nation-live-point {
+    width: 40px;
+    height: 40px;
+
+    margin-left: -20px;
+    margin-top: -20px;
+  }
+
+  .nations-field-caption {
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-pulse-dot.is-live,
+  .nation-live-halo {
+    animation: none;
+  }
+}
+
+/* MW-03B — Nations composition refinement */
+
+.nations-section .max-w-7xl {
+  position: relative;
+}
+
+.nations-heading {
+  max-width: 9ch;
+
+  font-size:
+    clamp(3.7rem, 5.8vw, 6.9rem);
+
+  line-height: 0.9;
+
+  font-weight: 800;
+
+  letter-spacing: -0.06em;
+
+  text-wrap: balance;
+}
+
+.nations-section > .relative.z-10 > .grid {
+  align-items: center;
+}
+
+.nations-main-number {
+  font-size:
+    clamp(4.6rem, 8vw, 8rem);
+}
+
+.nations-field {
+  min-height: 565px;
+
+  display: block;
+}
+
+.nations-field::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 8%;
+
+  border-radius: 999px;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(105, 98, 147, 0.13),
+      rgba(65, 61, 111, 0.035) 48%,
+      transparent 70%
+    );
+
+  filter: blur(22px);
+}
+
+.nations-world-core {
+  box-shadow:
+    0 0 55px rgba(65, 61, 111, 0.34),
+    0 0 95px rgba(105, 98, 147, 0.1),
+    inset 0 0 35px rgba(252, 74, 83, 0.035);
+}
+
+.nations-orbit-outer {
+  width: 74%;
+
+  margin-left: -37%;
+  margin-top: -37%;
+}
+
+.nations-orbit-inner {
+  width: 48%;
+
+  margin-left: -24%;
+  margin-top: -24%;
+}
+
+.nations-field-caption {
+  background:
+    linear-gradient(
+      to top,
+      rgba(5, 6, 17, 0.7),
+      transparent
+    );
+
+  margin:
+    0 -6px -6px;
+
+  padding:
+    22px 6px 6px;
+}
+
+.nations-dormant-point {
+  box-shadow:
+    0 0 14px rgba(105, 98, 147, 0.48),
+    0 0 26px rgba(65, 61, 111, 0.18);
+}
+
+@media (min-width: 1280px) {
+  .nations-section .xl\:grid-cols-\[0\.78fr_1\.22fr\] {
+    grid-template-columns:
+      minmax(0, 0.86fr)
+      minmax(0, 1.14fr);
+  }
+
+  .nations-section .xl\:sticky {
+    top: 7rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  .nations-heading {
+    max-width: 11ch;
+  }
+
+  .nations-field {
+    min-height: 540px;
+  }
+}
+
+@media (max-width: 640px) {
+  .nations-heading {
+    max-width: none;
+
+    font-size:
+      clamp(3.3rem, 14vw, 5rem);
+
+    line-height: 0.9;
+  }
+
+  .nations-main-number {
+    font-size:
+      clamp(4.3rem, 22vw, 6.7rem);
+  }
+
+  .nations-field {
+    min-height: 460px;
+  }
+}
