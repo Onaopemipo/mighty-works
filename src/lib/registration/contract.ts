@@ -38,6 +38,13 @@ export type RegistrationSuccess = {
   firstName: string;
   country: string;
   countryCode: string;
+
+  invitationUrl?: string;
+  emailStatus?:
+    | "pending"
+    | "sent"
+    | "failed"
+    | "skipped";
 };
 
 export type RegistrationFailure = {

@@ -12,6 +12,10 @@ import {
 } from "@/lib/registration/countries";
 import { createAdminClient } from "@/lib/supabase/admin";
 
+import {
+  issueInvitationForEmail,
+} from "@/lib/invitations/service";
+
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
@@ -398,6 +402,49 @@ export async function POST(
       );
     }
 
+    let invitationUrl:
+      | string
+      | undefined;
+
+    let emailStatus:
+      | "pending"
+      | "sent"
+      | "failed"
+      | "skipped"
+      | undefined;
+
+    try {
+      const origin =
+        process.env
+          .NEXT_PUBLIC_SITE_URL?.trim() ||
+        new URL(
+          request.url
+        ).origin;
+
+      const delivery =
+        await issueInvitationForEmail({
+          email,
+          origin,
+        });
+
+      invitationUrl =
+        delivery?.invitationUrl;
+
+      emailStatus =
+        delivery?.emailStatus;
+    } catch (invitationError) {
+      /*
+       * Registration is already
+       * confirmed at this point.
+       * Invitation/email failure must
+       * never roll back registration.
+       */
+      console.error(
+        "Registration invitation delivery failed",
+        invitationError
+      );
+    }
+
     const response: RegistrationResponse = {
       ok: true,
       registrationRef:
@@ -411,6 +458,8 @@ export async function POST(
       countryCode:
         data.country_code ??
         countryCode,
+      invitationUrl,
+      emailStatus,
     };
 
     return NextResponse.json(

@@ -19,6 +19,7 @@ import {
   getCountries,
 } from "@/lib/registration/countries";
 import { RegistrationInviteCard } from "@/components/home-v2/registration-invite-card";
+import { InvitationRecovery } from "@/components/home-v2/invitation-recovery";
 
 export function CompactRegistration() {
   const countries = useMemo(
@@ -191,6 +192,9 @@ export function CompactRegistration() {
           }
           countryCode={
             success.countryCode
+          }
+          invitationUrl={
+            success.invitationUrl
           }
         />
       </section>
@@ -460,6 +464,8 @@ export function CompactRegistration() {
           )}
         </button>
       </form>
+
+      <InvitationRecovery />
     </section>
   );
 }

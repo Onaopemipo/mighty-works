@@ -19,6 +19,7 @@ type RegistrationInviteCardProps = {
   registrationRef: string;
   country: string;
   countryCode: string;
+  invitationUrl?: string;
 };
 
 export function RegistrationInviteCard({
@@ -26,18 +27,15 @@ export function RegistrationInviteCard({
   registrationRef,
   country,
   countryCode,
+  invitationUrl,
 }: RegistrationInviteCardProps) {
   function printInvitation() {
-    const params =
-      new URLSearchParams({
-        name: attendeeName,
-        ref: registrationRef,
-        country,
-        countryCode,
-      });
+    if (!invitationUrl) {
+      return;
+    }
 
     window.open(
-      `/invite/print?${params.toString()}`,
+      `${invitationUrl}?print=1`,
       "_blank",
       "noopener,noreferrer"
     );
@@ -308,6 +306,7 @@ export function RegistrationInviteCard({
         <button
           type="button"
           onClick={printInvitation}
+          disabled={!invitationUrl}
         >
           <Printer size={16} />
 
