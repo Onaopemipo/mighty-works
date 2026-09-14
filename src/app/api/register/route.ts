@@ -187,6 +187,11 @@ export async function POST(
       60
     );
 
+    const attendanceMode =
+      raw.attendanceMode === "livestream"
+        ? "livestream"
+        : "in_person";
+
     const partySize = Number(
       raw.partySize ?? 1
     );
@@ -213,6 +218,7 @@ export async function POST(
     }
 
     if (
+      phone &&
       !PHONE_PATTERN.test(phone)
     ) {
       return failure(
@@ -332,7 +338,8 @@ export async function POST(
         first_name: firstName,
         last_name: lastName,
         email,
-        phone,
+        phone:
+          phone || null,
         country,
         country_code: countryCode,
         city: city || null,
@@ -343,7 +350,7 @@ export async function POST(
         attendee_type:
           attendeeType,
         ticket_type:
-          "in_person",
+          attendanceMode,
         party_size: partySize,
         consent_privacy: true,
         consent_updates:

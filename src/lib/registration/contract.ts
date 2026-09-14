@@ -11,6 +11,10 @@ export const ATTENDEE_TYPES = [
 export type AttendeeType =
   (typeof ATTENDEE_TYPES)[number];
 
+export type AttendanceMode =
+  | "in_person"
+  | "livestream";
+
 export type RegistrationPayload = {
   firstName: string;
   lastName: string;
@@ -21,6 +25,7 @@ export type RegistrationPayload = {
   stateRegion: string;
   churchMinistry: string;
   attendeeType: AttendeeType;
+  attendanceMode: AttendanceMode;
   partySize: number;
   consentPrivacy: boolean;
   consentUpdates: boolean;
