@@ -208,7 +208,7 @@ export function CompactRegistration() {
     >
       <div className="homev2-compact-invitation">
         <p className="homev2-kicker">
-          11th Edition · Your invitation
+          8th Edition · Your invitation
         </p>
 
         <h2>

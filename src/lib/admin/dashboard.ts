@@ -4,6 +4,10 @@ import {
   createAdminClient,
 } from "@/lib/supabase/admin";
 
+import {
+  resolvePartyAttendance,
+} from "@/lib/checkin/attendance";
+
 export type AdminRegistrationRow = {
   id: string;
   name: string;
@@ -56,6 +60,8 @@ export type AdminDashboardData = {
     countryCode: string | null;
     checkedInAt: string;
     partySize: number;
+    checkedInCount: number;
+    remainingCount: number;
   }[];
   countryArrivals: {
     country: string;
@@ -110,6 +116,8 @@ type RegistrationRecord = {
   registration_ref: string | null;
   checked_in: boolean;
   checked_in_at: string | null;
+  checked_in_count:
+    number | null;
   created_at: string;
 };
 
@@ -181,6 +189,7 @@ export async function getAdminDashboardData():
           "registration_ref",
           "checked_in",
           "checked_in_at",
+          "checked_in_count",
           "created_at",
         ].join(",")
       )
@@ -445,13 +454,37 @@ export async function getAdminDashboardData():
         invitation.email_status ===
         "failed"
     ).length;
+  const attendanceByRegistration =
+    new Map(
+      registrations.map(
+        (registration) => {
+          const attendance =
+            resolvePartyAttendance({
+              partySize:
+                registration.party_size ??
+                1,
+              checkedInCount:
+                registration.checked_in_count,
+              legacyCheckedIn:
+                registration.checked_in,
+            });
+
+          return [
+            registration.id,
+            attendance,
+          ] as const;
+        }
+      )
+    );
 
   const checkedInRegistrations =
     registrations.filter(
       (registration) =>
-        registration.checked_in
+        attendanceByRegistration.get(
+          registration.id
+        )?.checkedIn ??
+        false
     ).length;
-
   const checkedInAttendees =
     registrations.reduce(
       (
@@ -460,13 +493,10 @@ export async function getAdminDashboardData():
       ) =>
         total +
         (
-          registration.checked_in
-            ? Math.max(
-                registration.party_size ??
-                  1,
-                1
-              )
-            : 0
+          attendanceByRegistration.get(
+            registration.id
+          )?.checkedInCount ??
+          0
         ),
       0
     );
@@ -506,7 +536,12 @@ export async function getAdminDashboardData():
     registrations
       .filter(
         (registration) =>
-          registration.checked_in &&
+          (
+            attendanceByRegistration.get(
+              registration.id
+            )?.checkedIn ??
+            false
+          ) &&
           Boolean(
             registration.checked_in_at
           )
@@ -524,27 +559,40 @@ export async function getAdminDashboardData():
       )
       .slice(0, 12)
       .map(
-        (registration) => ({
-          id:
-            registration.id,
-          name:
-            registration.name,
-          registrationRef:
-            registration.registration_ref ??
-            "—",
-          country:
-            registration.country,
-          countryCode:
-            registration.country_code,
-          checkedInAt:
-            registration.checked_in_at!,
-          partySize:
-            Math.max(
-              registration.party_size ??
-                1,
-              1
-            ),
-        })
+        (registration) => {
+          const attendance =
+            attendanceByRegistration.get(
+              registration.id
+            );
+
+          if (!attendance) {
+            throw new Error(
+              "Attendance state missing for registration."
+            );
+          }
+
+          return {
+            id:
+              registration.id,
+            name:
+              registration.name,
+            registrationRef:
+              registration.registration_ref ??
+              "—",
+            country:
+              registration.country,
+            countryCode:
+              registration.country_code,
+            checkedInAt:
+              registration.checked_in_at!,
+            partySize:
+              attendance.partySize,
+            checkedInCount:
+              attendance.checkedInCount,
+            remainingCount:
+              attendance.remainingCount,
+          };
+        }
       );
 
   const countryArrivalMap =
@@ -598,12 +646,11 @@ export async function getAdminDashboardData():
     current.expectedAttendees +=
       partySize;
 
-    if (
-      registration.checked_in
-    ) {
-      current.checkedInAttendees +=
-        partySize;
-    }
+    current.checkedInAttendees +=
+      attendanceByRegistration.get(
+        registration.id
+      )?.checkedInCount ??
+      0;
 
     countryArrivalMap.set(
       key,

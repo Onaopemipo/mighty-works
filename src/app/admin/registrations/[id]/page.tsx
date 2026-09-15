@@ -144,9 +144,11 @@ export default async function AdminRegistrationDetailPage({
           />
 
           <span>
-            {attendee.checkedIn
-              ? "Checked in"
-              : "Not checked in"}
+            {attendee.attendanceComplete
+              ? "Full party checked in"
+              : attendee.attendancePartial
+                ? `${attendee.checkedInCount} of ${attendee.partySize} checked in`
+                : "Not checked in"}
           </span>
         </div>
       </section>
@@ -170,8 +172,14 @@ export default async function AdminRegistrationDetailPage({
           registrationId={
             attendee.id
           }
-          checkedIn={
-            attendee.checkedIn
+          partySize={
+            attendee.partySize
+          }
+          checkedInCount={
+            attendee.checkedInCount
+          }
+          remainingCount={
+            attendee.remainingCount
           }
         />
       </section>
@@ -316,6 +324,18 @@ export default async function AdminRegistrationDetailPage({
               }
               icon={
                 <UsersRound
+                  size={17}
+                />
+              }
+            />
+
+            <DetailItem
+              label="Present now"
+              value={
+                `${attendee.checkedInCount} / ${attendee.partySize}`
+              }
+              icon={
+                <CheckCircle2
                   size={17}
                 />
               }

@@ -18,13 +18,22 @@ export const dynamic =
 type AttendanceRpcRow = {
   outcome:
     | "check_in"
+    | "partial_check_in"
     | "check_out"
+    | "partial_check_out"
     | "already_checked_in"
     | "already_checked_out"
+    | "invalid_count"
     | "unavailable";
   checked_in: boolean;
   checked_in_at:
     string | null;
+  checked_in_count?:
+    number;
+  party_size?:
+    number;
+  remaining_count?:
+    number;
 };
 
 export async function POST(
@@ -55,12 +64,14 @@ export async function POST(
 
   let body: {
     action?: unknown;
+    attendanceCount?: unknown;
   };
 
   try {
     body =
       (await request.json()) as {
         action?: unknown;
+        attendanceCount?: unknown;
       };
   } catch {
     return NextResponse.json(
@@ -93,22 +104,69 @@ export async function POST(
     );
   }
 
+  const attendanceCount =
+    body.attendanceCount == null
+      ? null
+      : Number(
+          body.attendanceCount
+        );
+
+  if (
+    attendanceCount != null &&
+    (
+      !Number.isInteger(
+        attendanceCount
+      ) ||
+      attendanceCount < 1
+    )
+  ) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error:
+          "Invalid attendance count.",
+      },
+      {
+        status: 400,
+      }
+    );
+  }
+
   const admin =
     createAdminClient();
+
+  const rpcName =
+    attendanceCount == null
+      ? "set_registration_attendance_admin"
+      : "set_registration_attendance_admin_partial";
+
+  const rpcArgs =
+    attendanceCount == null
+      ? {
+          p_registration_id:
+            id,
+          p_action:
+            body.action,
+          p_actor_email:
+            session.email,
+        }
+      : {
+          p_registration_id:
+            id,
+          p_action:
+            body.action,
+          p_actor_email:
+            session.email,
+          p_count:
+            attendanceCount,
+        };
 
   const {
     data,
     error,
   } = await admin.rpc(
-    "set_registration_attendance_admin",
-    {
-      p_registration_id:
-        id,
-      p_action:
-        body.action,
-      p_actor_email:
-        session.email,
-    }
+    rpcName,
+    rpcArgs
   );
 
   if (error) {
@@ -139,6 +197,22 @@ export async function POST(
     rows[0];
 
   if (
+    result?.outcome ===
+      "invalid_count"
+  ) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error:
+          "Attendance count exceeds the available party count.",
+      },
+      {
+        status: 409,
+      }
+    );
+  }
+
+  if (
     !result ||
     result.outcome ===
       "unavailable"
@@ -164,6 +238,28 @@ export async function POST(
         result.checked_in,
       checkedInAt:
         result.checked_in_at,
+      attendance:
+        result.checked_in_count == null
+          ? null
+          : {
+              checkedInCount:
+                result.checked_in_count,
+              partySize:
+                result.party_size ?? 1,
+              remainingCount:
+                result.remaining_count ?? 0,
+              partial:
+                result.checked_in_count > 0 &&
+                (
+                  result.remaining_count ??
+                  0
+                ) > 0,
+              complete:
+                (
+                  result.remaining_count ??
+                  0
+                ) === 0,
+            },
     },
     {
       headers: {

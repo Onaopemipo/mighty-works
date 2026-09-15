@@ -38,11 +38,19 @@ type ScannerRegistrationRow = {
 type CheckInRpcRow = {
   outcome:
     | "check_in"
+    | "partial_check_in"
     | "duplicate_scan"
+    | "invalid_arrival_count"
     | "unavailable";
   checked_in: boolean;
   checked_in_at:
     string | null;
+  checked_in_count?:
+    number;
+  party_size?:
+    number;
+  remaining_count?:
+    number;
 };
 
 export async function POST(
@@ -64,12 +72,14 @@ export async function POST(
 
   let body: {
     payload?: unknown;
+    arrivalCount?: unknown;
   };
 
   try {
     body =
       (await request.json()) as {
         payload?: unknown;
+        arrivalCount?: unknown;
       };
   } catch {
     return NextResponse.json(
@@ -89,6 +99,34 @@ export async function POST(
     "string"
       ? body.payload.trim()
       : "";
+
+  const arrivalCount =
+    body.arrivalCount == null
+      ? null
+      : Number(
+          body.arrivalCount
+        );
+
+  if (
+    arrivalCount != null &&
+    (
+      !Number.isInteger(
+        arrivalCount
+      ) ||
+      arrivalCount < 1
+    )
+  ) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error:
+          "Invalid arrival count.",
+      },
+      {
+        status: 400,
+      }
+    );
+  }
 
   const credential =
     extractCheckInCredential(
@@ -129,19 +167,38 @@ export async function POST(
   const admin =
     createAdminClient();
 
+  const rpcName =
+    arrivalCount == null
+      ? "process_registration_checkin_scan"
+      : "process_registration_checkin_scan_partial";
+
+  const rpcArgs =
+    arrivalCount == null
+      ? {
+          p_registration_id:
+            resolved.registrationId,
+          p_credential_version:
+            resolved.credentialVersion,
+          p_actor_email:
+            session.email,
+        }
+      : {
+          p_registration_id:
+            resolved.registrationId,
+          p_credential_version:
+            resolved.credentialVersion,
+          p_actor_email:
+            session.email,
+          p_arrival_count:
+            arrivalCount,
+        };
+
   const {
     data: rpcData,
     error: rpcError,
   } = await admin.rpc(
-    "process_registration_checkin_scan",
-    {
-      p_registration_id:
-        resolved.registrationId,
-      p_credential_version:
-        resolved.credentialVersion,
-      p_actor_email:
-        session.email,
-    }
+    rpcName,
+    rpcArgs
   );
 
   if (rpcError) {
@@ -170,6 +227,22 @@ export async function POST(
 
   const state =
     rpcRows[0];
+
+  if (
+    state?.outcome ===
+      "invalid_arrival_count"
+  ) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error:
+          "Arrival count exceeds the number still expected.",
+      },
+      {
+        status: 409,
+      }
+    );
+  }
 
   if (
     !state ||
@@ -243,6 +316,31 @@ export async function POST(
         "duplicate_scan",
       auditEvent:
         state.outcome,
+      attendance:
+        state.checked_in_count == null
+          ? null
+          : {
+              checkedInCount:
+                state.checked_in_count,
+              partySize:
+                state.party_size ??
+                attendee.party_size,
+              remainingCount:
+                state.remaining_count ??
+                Math.max(
+                  attendee.party_size -
+                    state.checked_in_count,
+                  0
+                ),
+              partial:
+                state.outcome ===
+                "partial_check_in",
+              complete:
+                (
+                  state.remaining_count ??
+                  0
+                ) === 0,
+            },
       attendee: {
         id:
           attendee.id,

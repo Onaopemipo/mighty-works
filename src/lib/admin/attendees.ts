@@ -4,6 +4,10 @@ import {
   createAdminClient,
 } from "@/lib/supabase/admin";
 
+import {
+  resolvePartyAttendance,
+} from "@/lib/checkin/attendance";
+
 export type AdminAttendeeFilters = {
   search: string;
   country: string;
@@ -23,6 +27,11 @@ export type AdminAttendeeListRow = {
   ticketType: string;
   attendeeType: string | null;
   partySize: number;
+  checkedIn: boolean;
+  checkedInCount: number;
+  remainingCount: number;
+  attendancePartial: boolean;
+  attendanceComplete: boolean;
   registrationRef: string;
   registrationStatus: string;
   createdAt: string;
@@ -49,11 +58,15 @@ export type AdminAttendeeDetail = {
   attendeeType: string | null;
   ticketType: string;
   partySize: number;
+  checkedIn: boolean;
+  checkedInCount: number;
+  remainingCount: number;
+  attendancePartial: boolean;
+  attendanceComplete: boolean;
   registrationRef: string;
   registrationStatus: string;
   consentPrivacy: boolean;
   consentUpdates: boolean;
-  checkedIn: boolean;
   checkedInAt: string | null;
   createdAt: string;
   invitation: {
@@ -92,6 +105,8 @@ type RegistrationRow = {
   consent_updates: boolean;
   checked_in: boolean;
   checked_in_at: string | null;
+  checked_in_count:
+    number | null;
   created_at: string;
 };
 
@@ -182,6 +197,7 @@ export async function getAdminAttendeeList(
           "consent_updates",
           "checked_in",
           "checked_in_at",
+          "checked_in_count",
           "created_at",
         ].join(",")
       )
@@ -315,7 +331,18 @@ export async function getAdminAttendeeList(
     registrations.map(
       (
         registration
-      ): AdminAttendeeListRow => ({
+      ): AdminAttendeeListRow => {
+        const attendance =
+          resolvePartyAttendance({
+            partySize:
+              registration.party_size,
+            checkedInCount:
+              registration.checked_in_count,
+            legacyCheckedIn:
+              registration.checked_in,
+          });
+
+        return {
         id:
           registration.id,
         name:
@@ -346,7 +373,18 @@ export async function getAdminAttendeeList(
             registration.id
           )?.email_status ??
           null,
-      })
+        checkedIn:
+          attendance.checkedIn,
+        checkedInCount:
+          attendance.checkedInCount,
+        remainingCount:
+          attendance.remainingCount,
+        attendancePartial:
+          attendance.partial,
+        attendanceComplete:
+          attendance.complete,
+        };
+      }
     );
 
   if (
@@ -483,6 +521,16 @@ export async function getAdminAttendeeDetail(
         )
       : null;
 
+  const attendance =
+    resolvePartyAttendance({
+      partySize:
+        registration.party_size,
+      checkedInCount:
+        registration.checked_in_count,
+      legacyCheckedIn:
+        registration.checked_in,
+    });
+
   return {
     id:
       registration.id,
@@ -522,7 +570,15 @@ export async function getAdminAttendeeDetail(
     consentUpdates:
       registration.consent_updates,
     checkedIn:
-      registration.checked_in,
+      attendance.checkedIn,
+    checkedInCount:
+      attendance.checkedInCount,
+    remainingCount:
+      attendance.remainingCount,
+    attendancePartial:
+      attendance.partial,
+    attendanceComplete:
+      attendance.complete,
     checkedInAt:
       registration.checked_in_at,
     createdAt:

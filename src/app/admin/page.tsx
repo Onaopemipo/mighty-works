@@ -413,12 +413,17 @@ export default async function AdminPage({
                         }
                         {" · "}
                         {
+                          arrival.checkedInCount
+                        }
+                        {" of "}
+                        {
                           arrival.partySize
-                        } attendee
-                        {arrival.partySize ===
-                        1
-                          ? ""
-                          : "s"}
+                        }
+                        {" arrived"}
+                        {arrival.remainingCount >
+                        0
+                          ? ` · ${arrival.remainingCount} expected`
+                          : " · complete"}
                       </span>
                     </div>
 

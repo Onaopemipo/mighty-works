@@ -84,6 +84,9 @@ export async function GET(
     "Country Code",
     "Attendance Mode",
     "Party Size",
+    "Present Now",
+    "Remaining",
+    "Attendance Status",
     "Invitation Status",
     "Registered At",
   ];
@@ -106,6 +109,13 @@ export async function GET(
             ? "In person"
             : "Livestream",
           row.partySize,
+          row.checkedInCount,
+          row.remainingCount,
+          row.attendanceComplete
+            ? "Complete"
+            : row.attendancePartial
+              ? "Partial"
+              : "Not checked in",
           row.invitationStatus ??
             "Not sent",
           row.createdAt,

@@ -105,7 +105,7 @@ export function Hero() {
           </motion.div>
 
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.42em] text-[var(--brand-red)] sm:text-sm">
-            11th Edition
+            8th Edition
           </p>
 
           <h1 className="hero-title max-w-[760px] text-[clamp(4rem,8.7vw,9rem)] font-black uppercase leading-[0.76] tracking-[-0.07em]">
