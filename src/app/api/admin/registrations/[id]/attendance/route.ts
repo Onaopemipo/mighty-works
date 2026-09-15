@@ -12,6 +12,21 @@ import {
 export const runtime =
   "nodejs";
 
+export const dynamic =
+  "force-dynamic";
+
+type AttendanceRpcRow = {
+  outcome:
+    | "check_in"
+    | "check_out"
+    | "already_checked_in"
+    | "already_checked_out"
+    | "unavailable";
+  checked_in: boolean;
+  checked_in_at:
+    string | null;
+};
+
 export async function POST(
   request: Request,
   context: {
@@ -39,17 +54,13 @@ export async function POST(
   } = await context.params;
 
   let body: {
-    action?:
-      | "check_in"
-      | "check_out";
+    action?: unknown;
   };
 
   try {
     body =
       (await request.json()) as {
-        action?:
-          | "check_in"
-          | "check_out";
+        action?: unknown;
       };
   } catch {
     return NextResponse.json(
@@ -85,41 +96,27 @@ export async function POST(
   const admin =
     createAdminClient();
 
-  const checkedIn =
-    body.action ===
-    "check_in";
-
   const {
     data,
     error,
-  } = await admin
-    .from("registrations")
-    .update({
-      checked_in:
-        checkedIn,
-      checked_in_at:
-        checkedIn
-          ? new Date()
-              .toISOString()
-          : null,
-    })
-    .eq(
-      "id",
-      id
-    )
-    .eq(
-      "registration_status",
-      "confirmed"
-    )
-    .select(
-      "id,checked_in,checked_in_at"
-    )
-    .maybeSingle();
+  } = await admin.rpc(
+    "set_registration_attendance_admin",
+    {
+      p_registration_id:
+        id,
+      p_action:
+        body.action,
+      p_actor_email:
+        session.email,
+    }
+  );
 
-  if (
-    error ||
-    !data
-  ) {
+  if (error) {
+    console.error(
+      "Admin attendance transaction failure:",
+      error
+    );
+
     return NextResponse.json(
       {
         ok: false,
@@ -127,16 +124,52 @@ export async function POST(
           "Unable to update attendance.",
       },
       {
+        status: 500,
+      }
+    );
+  }
+
+  const rows =
+    (
+      data ??
+      []
+    ) as unknown as AttendanceRpcRow[];
+
+  const result =
+    rows[0];
+
+  if (
+    !result ||
+    result.outcome ===
+      "unavailable"
+  ) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error:
+          "Registration not found.",
+      },
+      {
         status: 404,
       }
     );
   }
 
-  return NextResponse.json({
-    ok: true,
-    checkedIn:
-      data.checked_in,
-    checkedInAt:
-      data.checked_in_at,
-  });
+  return NextResponse.json(
+    {
+      ok: true,
+      outcome:
+        result.outcome,
+      checkedIn:
+        result.checked_in,
+      checkedInAt:
+        result.checked_in_at,
+    },
+    {
+      headers: {
+        "Cache-Control":
+          "no-store",
+      },
+    }
+  );
 }

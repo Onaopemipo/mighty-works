@@ -8,6 +8,15 @@ import {
 import {
   resolveInvitationToken,
 } from "@/lib/invitations/service";
+import {
+  getOrCreateCheckInCredential,
+} from "@/lib/checkin/service";
+import {
+  createCheckInQrPayload,
+} from "@/lib/checkin/payload";
+import {
+  createCheckInQrDataUrl,
+} from "@/lib/checkin/qr";
 
 export const dynamic =
   "force-dynamic";
@@ -56,6 +65,21 @@ export default async function SecureInvitationPage({
     notFound();
   }
 
+  const checkInCredential =
+    await getOrCreateCheckInCredential(
+      registration.id
+    );
+
+  const qrPayload =
+    createCheckInQrPayload(
+      checkInCredential.credential
+    );
+
+  const qrDataUrl =
+    await createCheckInQrDataUrl(
+      qrPayload
+    );
+
   const attendeeName = [
     registration.first_name,
     registration.last_name,
@@ -83,6 +107,9 @@ export default async function SecureInvitationPage({
       }
       invitationUrl={
         `/invite/${token}`
+      }
+      qrDataUrl={
+        qrDataUrl
       }
       autoPrint={
         query.print ===

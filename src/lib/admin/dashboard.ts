@@ -63,6 +63,32 @@ export type AdminDashboardData = {
     expectedAttendees: number;
     checkedInAttendees: number;
   }[];
+  scanOperations: {
+    successfulScans: number;
+    duplicateScans: number;
+    checkOuts: number;
+    scansLastHour: number;
+    latestEvents: {
+      id: string;
+      registrationId: string;
+      eventType:
+        | "check_in"
+        | "duplicate_scan"
+        | "check_out";
+      source:
+        | "scanner"
+        | "admin_manual";
+      actorEmail: string;
+      credentialVersion:
+        number | null;
+      scannedAt: string;
+      attendeeName: string;
+      registrationRef: string;
+      country: string;
+      countryCode:
+        string | null;
+    }[];
+  };
   activity: {
     date: string;
     registrations: number;
@@ -96,6 +122,22 @@ type InvitationRecord = {
     | "skipped";
 };
 
+type CheckInEventRecord = {
+  id: string;
+  registration_id: string;
+  credential_version:
+    number | null;
+  event_type:
+    | "check_in"
+    | "duplicate_scan"
+    | "check_out";
+  source:
+    | "scanner"
+    | "admin_manual";
+  actor_email: string;
+  scanned_at: string;
+};
+
 function dayKey(
   value: string
 ) {
@@ -122,6 +164,7 @@ export async function getAdminDashboardData():
     registrationsResult,
     invitationsResult,
     countriesResult,
+    checkInEventsResult,
   ] = await Promise.all([
     admin
       .from("registrations")
@@ -173,6 +216,28 @@ export async function getAdminDashboardData():
           ascending: false,
         }
       ),
+    admin
+      .from(
+        "registration_checkin_events"
+      )
+      .select(
+        [
+          "id",
+          "registration_id",
+          "credential_version",
+          "event_type",
+          "source",
+          "actor_email",
+          "scanned_at",
+        ].join(",")
+      )
+      .order(
+        "scanned_at",
+        {
+          ascending: false,
+        }
+      )
+      .limit(250),
   ]);
 
   if (
@@ -199,6 +264,14 @@ export async function getAdminDashboardData():
     );
   }
 
+  if (
+    checkInEventsResult.error
+  ) {
+    throw new Error(
+      `Unable to load check-in operations: ${checkInEventsResult.error.message}`
+    );
+  }
+
   const registrations =
     (
       registrationsResult.data ??
@@ -220,6 +293,115 @@ export async function getAdminDashboardData():
         ]
       )
     );
+
+  const checkInEvents =
+    (
+      checkInEventsResult.data ??
+      []
+    ) as unknown as CheckInEventRecord[];
+
+  const registrationById =
+    new Map(
+      registrations.map(
+        (registration) => [
+          registration.id,
+          registration,
+        ]
+      )
+    );
+
+  const hourAgo =
+    Date.now() -
+    60 * 60 * 1000;
+
+  const successfulScans =
+    checkInEvents.filter(
+      (event) =>
+        event.event_type ===
+          "check_in" &&
+        event.source ===
+          "scanner"
+    ).length;
+
+  const duplicateScans =
+    checkInEvents.filter(
+      (event) =>
+        event.event_type ===
+          "duplicate_scan" &&
+        event.source ===
+          "scanner"
+    ).length;
+
+  const checkOuts =
+    checkInEvents.filter(
+      (event) =>
+        event.event_type ===
+        "check_out"
+    ).length;
+
+  const scansLastHour =
+    checkInEvents.filter(
+      (event) =>
+        event.source ===
+          "scanner" &&
+        (
+          event.event_type ===
+            "check_in" ||
+          event.event_type ===
+            "duplicate_scan"
+        ) &&
+        new Date(
+          event.scanned_at
+        ).getTime() >=
+          hourAgo
+    ).length;
+
+  const latestEvents =
+    checkInEvents
+      .slice(
+        0,
+        20
+      )
+      .flatMap(
+        (event) => {
+          const registration =
+            registrationById.get(
+              event.registration_id
+            );
+
+          if (!registration) {
+            return [];
+          }
+
+          return [
+            {
+              id:
+                event.id,
+              registrationId:
+                event.registration_id,
+              eventType:
+                event.event_type,
+              source:
+                event.source,
+              actorEmail:
+                event.actor_email,
+              credentialVersion:
+                event.credential_version,
+              scannedAt:
+                event.scanned_at,
+              attendeeName:
+                registration.name,
+              registrationRef:
+                registration.registration_ref ??
+                "—",
+              country:
+                registration.country,
+              countryCode:
+                registration.country_code,
+            },
+          ];
+        }
+      );
 
   const totalAttendees =
     registrations.reduce(
@@ -523,6 +705,14 @@ export async function getAdminDashboardData():
 
     recentCheckIns,
     countryArrivals,
+
+    scanOperations: {
+      successfulScans,
+      duplicateScans,
+      checkOuts,
+      scansLastHour,
+      latestEvents,
+    },
 
     recent:
       registrations

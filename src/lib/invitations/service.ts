@@ -9,6 +9,15 @@ import {
   sendInvitationEmail,
   type InvitationEmailResult,
 } from "@/lib/invitations/email";
+import {
+  getOrCreateCheckInCredential,
+} from "@/lib/checkin/service";
+import {
+  createCheckInQrPayload,
+} from "@/lib/checkin/payload";
+import {
+  createCheckInQrDataUrl,
+} from "@/lib/checkin/qr";
 
 type InvitationRegistration = {
   id: string;
@@ -23,6 +32,8 @@ type InvitationRegistration = {
 
 export type InvitationIssueResult = {
   invitationUrl: string;
+  qrPayload: string;
+  qrDataUrl: string;
   emailStatus:
     | "pending"
     | "sent"
@@ -162,6 +173,21 @@ export async function issueInvitationForEmail({
     throw invitationError;
   }
 
+  const checkInCredential =
+    await getOrCreateCheckInCredential(
+      registration.id
+    );
+
+  const qrPayload =
+    createCheckInQrPayload(
+      checkInCredential.credential
+    );
+
+  const qrDataUrl =
+    await createCheckInQrDataUrl(
+      qrPayload
+    );
+
   const emailResult:
     InvitationEmailResult =
     await sendInvitationEmail({
@@ -177,6 +203,7 @@ export async function issueInvitationForEmail({
       country:
         registration.country,
       invitationUrl,
+      qrDataUrl,
     });
 
   const {
@@ -227,6 +254,8 @@ export async function issueInvitationForEmail({
 
   return {
     invitationUrl,
+    qrPayload,
+    qrDataUrl,
     emailStatus:
       emailResult.status,
     registration,

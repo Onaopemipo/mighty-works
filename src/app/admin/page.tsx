@@ -3,10 +3,13 @@ import {
   CircleAlert,
   Clock3,
   DoorOpen,
+  Fingerprint,
   Globe2,
   LogOut,
   MailCheck,
   Radio,
+  ScanLine,
+  ScanSearch,
   ShieldCheck,
   UserCheck,
   UsersRound,
@@ -14,6 +17,7 @@ import {
 import {
   redirect,
 } from "next/navigation";
+import Link from "next/link";
 
 import {
   getAdminSession,
@@ -151,6 +155,16 @@ export default async function AdminPage({
         </div>
 
         <div className="mw-admin-header-actions">
+          <Link
+            href="/admin/checkin"
+            className="mw-admin-scanner-link"
+          >
+            <ScanLine
+              size={16}
+            />
+            Venue scanner
+          </Link>
+
           <AdminAutoRefresh />
 
           <span>
@@ -527,6 +541,240 @@ export default async function AdminPage({
             )}
           </div>
         </article>
+      </section>
+
+      <section className="mw-admin-scan-operations">
+        <header className="mw-admin-scan-operations-header">
+          <div>
+            <p>
+              Entrance intelligence
+            </p>
+
+            <h2>
+              Scanner operations
+            </h2>
+
+            <span>
+              Live operational activity from venue check-in.
+            </span>
+          </div>
+
+          <Link
+            href="/admin/checkin"
+            className="mw-admin-scan-open"
+          >
+            <ScanLine
+              size={15}
+            />
+
+            Open scanner
+          </Link>
+        </header>
+
+        <div className="mw-admin-scan-stat-grid">
+          <article>
+            <UserCheck
+              size={19}
+            />
+
+            <span>
+              Successful scans
+            </span>
+
+            <strong>
+              {
+                data.scanOperations
+                  .successfulScans
+              }
+            </strong>
+
+            <small>
+              QR arrivals
+            </small>
+          </article>
+
+          <article className="is-warning">
+            <ScanSearch
+              size={19}
+            />
+
+            <span>
+              Duplicate scans
+            </span>
+
+            <strong>
+              {
+                data.scanOperations
+                  .duplicateScans
+              }
+            </strong>
+
+            <small>
+              Already checked in
+            </small>
+          </article>
+
+          <article>
+            <DoorOpen
+              size={19}
+            />
+
+            <span>
+              Check-outs
+            </span>
+
+            <strong>
+              {
+                data.scanOperations
+                  .checkOuts
+              }
+            </strong>
+
+            <small>
+              Recorded exits
+            </small>
+          </article>
+
+          <article>
+            <Activity
+              size={19}
+            />
+
+            <span>
+              Scans last hour
+            </span>
+
+            <strong>
+              {
+                data.scanOperations
+                  .scansLastHour
+              }
+            </strong>
+
+            <small>
+              Entrance velocity
+            </small>
+          </article>
+        </div>
+
+        <div className="mw-admin-scan-feed">
+          <div className="mw-admin-scan-feed-heading">
+            <div>
+              <p>
+                Audit stream
+              </p>
+
+              <h3>
+                Latest entrance events
+              </h3>
+            </div>
+
+            <span>
+              {
+                data.scanOperations
+                  .latestEvents
+                  .length
+              } shown
+            </span>
+          </div>
+
+          {data.scanOperations
+            .latestEvents.length ? (
+            <div className="mw-admin-scan-event-list">
+              {data.scanOperations
+                .latestEvents
+                .map(
+                  (event) => (
+                    <div
+                      key={
+                        event.id
+                      }
+                      className={[
+                        "mw-admin-scan-event",
+                        `is-${event.eventType}`,
+                      ].join(
+                        " "
+                      )}
+                    >
+                      <div className="mw-admin-scan-event-icon">
+                        <Fingerprint
+                          size={17}
+                        />
+                      </div>
+
+                      <div className="mw-admin-scan-event-person">
+                        <strong>
+                          {countryFlag(
+                            event.countryCode
+                          )}{" "}
+                          {
+                            event.attendeeName
+                          }
+                        </strong>
+
+                        <span>
+                          {
+                            event.registrationRef
+                          }
+                          {" · "}
+                          {
+                            event.country
+                          }
+                        </span>
+                      </div>
+
+                      <div className="mw-admin-scan-event-type">
+                        <strong>
+                          {event.eventType ===
+                          "check_in"
+                            ? "Check in"
+                            : event.eventType ===
+                                "duplicate_scan"
+                              ? "Duplicate"
+                              : "Check out"}
+                        </strong>
+
+                        <span>
+                          {event.source ===
+                          "scanner"
+                            ? "QR scanner"
+                            : "Admin manual"}
+                        </span>
+                      </div>
+
+                      <div className="mw-admin-scan-event-operator">
+                        <strong>
+                          {
+                            event.actorEmail
+                          }
+                        </strong>
+
+                        <time>
+                          {formatAdminDate(
+                            event.scannedAt
+                          )}
+                        </time>
+                      </div>
+                    </div>
+                  )
+                )}
+            </div>
+          ) : (
+            <div className="mw-admin-scan-empty">
+              <ScanLine
+                size={23}
+              />
+
+              <strong>
+                No entrance activity yet
+              </strong>
+
+              <span>
+                Scanner and manual attendance events will appear here.
+              </span>
+            </div>
+          )}
+        </div>
       </section>
 
       <section className="mw-admin-dashboard-grid">

@@ -20,6 +20,7 @@ type RegistrationInviteCardProps = {
   country: string;
   countryCode: string;
   invitationUrl?: string;
+  qrDataUrl?: string;
 };
 
 export function RegistrationInviteCard({
@@ -28,6 +29,7 @@ export function RegistrationInviteCard({
   country,
   countryCode,
   invitationUrl,
+  qrDataUrl,
 }: RegistrationInviteCardProps) {
   function printInvitation() {
     if (!invitationUrl) {
@@ -252,6 +254,36 @@ export function RegistrationInviteCard({
             </span>
           </div>
         </section>
+
+        {qrDataUrl ? (
+          <section className="mw-invite-checkin">
+            <div className="mw-invite-checkin-copy">
+              <span>
+                Venue credential
+              </span>
+
+              <strong>
+                Your secure
+                <br />
+                check-in code
+              </strong>
+
+              <p>
+                Present this QR code at the entrance for fast check-in.
+              </p>
+            </div>
+
+            <div className="mw-invite-qr-shell">
+              <Image
+                src={qrDataUrl}
+                alt="Secure Mighty Works check-in QR code"
+                width={220}
+                height={220}
+                unoptimized
+              />
+            </div>
+          </section>
+        ) : null}
 
         <section className="mw-invite-scripture">
           <div className="mw-invite-scripture-mark">

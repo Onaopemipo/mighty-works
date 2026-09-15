@@ -5880,3 +5880,171 @@
       none !important;
   }
 }
+
+/* MW-10B — Secure check-in credential */
+
+.mw-invite-checkin {
+  display: grid;
+
+  grid-template-columns:
+    minmax(
+      0,
+      1fr
+    );
+
+  gap: 22px;
+
+  align-items: center;
+
+  margin-top: 18px;
+
+  border:
+    1px solid
+      rgba(
+        255,
+        255,
+        255,
+        0.08
+      );
+
+  border-radius: 18px;
+
+  padding: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(
+        255,
+        255,
+        255,
+        0.03
+      ),
+      rgba(
+        255,
+        255,
+        255,
+        0.01
+      )
+    );
+}
+
+.mw-invite-checkin-copy > span {
+  display: block;
+
+  font-size: 7px;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.18em;
+
+  color:
+    var(--home-red);
+}
+
+.mw-invite-checkin-copy > strong {
+  display: block;
+
+  margin-top: 8px;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(
+      1.8rem,
+      8vw,
+      3rem
+    );
+
+  line-height: 0.95;
+
+  font-weight: 400;
+}
+
+.mw-invite-checkin-copy > p {
+  max-width: 360px;
+
+  margin:
+    12px 0 0;
+
+  font-size: 9px;
+
+  line-height: 1.6;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.42
+    );
+}
+
+.mw-invite-qr-shell {
+  width:
+    min(
+      100%,
+      250px
+    );
+
+  justify-self: center;
+
+  border-radius: 20px;
+
+  padding: 14px;
+
+  background: white;
+
+  box-shadow:
+    0 20px 60px
+      rgba(
+        0,
+        0,
+        0,
+        0.28
+      );
+}
+
+.mw-invite-qr-shell img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  aspect-ratio: 1;
+
+  object-fit: contain;
+}
+
+@media (min-width: 700px) {
+  .mw-invite-checkin {
+    grid-template-columns:
+      minmax(
+        0,
+        1fr
+      )
+      230px;
+  }
+
+  .mw-invite-qr-shell {
+    justify-self: end;
+  }
+}
+
+@media print {
+  .mw-invite-checkin {
+    break-inside:
+      avoid;
+
+    page-break-inside:
+      avoid;
+  }
+
+  .mw-invite-qr-shell {
+    box-shadow: none;
+  }
+}

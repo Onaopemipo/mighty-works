@@ -14,6 +14,7 @@ export function SecureInvitationView({
   country,
   countryCode,
   invitationUrl,
+  qrDataUrl,
   autoPrint,
 }: {
   attendeeName: string;
@@ -21,6 +22,7 @@ export function SecureInvitationView({
   country: string;
   countryCode: string;
   invitationUrl: string;
+  qrDataUrl: string;
   autoPrint: boolean;
 }) {
   useEffect(() => {
@@ -58,6 +60,9 @@ export function SecureInvitationView({
         }
         invitationUrl={
           invitationUrl
+        }
+        qrDataUrl={
+          qrDataUrl
         }
       />
     </main>

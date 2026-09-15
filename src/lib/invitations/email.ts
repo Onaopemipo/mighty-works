@@ -4,6 +4,7 @@ type InvitationEmailInput = {
   registrationRef: string;
   country: string;
   invitationUrl: string;
+  qrDataUrl: string;
 };
 
 export type InvitationEmailResult =
@@ -171,6 +172,32 @@ export async function sendInvitationEmail(
                   62 Eastern Rd<br />
                   Browns Plains QLD 4118
                 </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center" style="padding:0 34px 30px;">
+              <table role="presentation" cellspacing="0" cellpadding="0" style="background:#ffffff;border-radius:20px;padding:18px;">
+                <tr>
+                  <td align="center">
+                    <img
+                      src="${input.qrDataUrl}"
+                      alt="Mighty Works secure check-in QR code"
+                      width="210"
+                      height="210"
+                      style="display:block;width:210px;height:210px;border:0;"
+                    />
+                  </td>
+                </tr>
+              </table>
+
+              <div style="margin-top:12px;font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#8d8997;">
+                Your secure venue check-in code
+              </div>
+
+              <div style="margin-top:6px;font-size:11px;color:#b6b2bf;line-height:1.6;">
+                Present this QR code at the conference entrance.
               </div>
             </td>
           </tr>
