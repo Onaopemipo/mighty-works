@@ -325,7 +325,7 @@ export function LiveBillboard({
               </div>
 
               <strong>
-                11
+                8
                 <small>
                   th edition
                 </small>

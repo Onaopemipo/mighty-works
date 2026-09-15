@@ -411,7 +411,7 @@ export function HeroV2() {
           </span>
 
           <strong>
-            11
+            8
             <sup>
               th
             </sup>

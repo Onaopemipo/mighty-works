@@ -251,7 +251,7 @@ export function CompactRegistration() {
             </span>
 
             <strong>
-              No. 11
+              No. 8
             </strong>
           </div>
 

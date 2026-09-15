@@ -80,7 +80,7 @@ const chapters = [
       "A season of kingdom identity, authority and dominion—raising men and women who understand their royal mandate and take their place in God’s purpose.",
   },
   {
-    number: "11",
+    number: "8",
     label: "2025",
     title: "Greater Exploits",
     body:

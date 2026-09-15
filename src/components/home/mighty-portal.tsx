@@ -184,7 +184,7 @@ export function MightyPortal({
           }}
           className="relative z-10 text-center"
         >
-          <p className="portal-eleven">11</p>
+          <p className="portal-eleven">8</p>
 
           <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.48em] text-[var(--brand-red)] sm:text-xs">
             Editions

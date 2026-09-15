@@ -26,7 +26,7 @@ const links = [
     href: "#experience",
   },
   {
-    label: "Nations",
+    label: "Around the World",
     href: "#nations",
   },
   {
