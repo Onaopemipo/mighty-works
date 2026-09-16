@@ -146,27 +146,6 @@ body {
       );
 }
 
-.mw-admin-login-brand {
-  display: flex;
-
-  align-items: center;
-
-  gap: 13px;
-
-  border-bottom:
-    1px solid
-      var(
-        --admin-border
-      );
-
-  padding-bottom:
-    20px;
-}
-
-.mw-admin-login-brand img {
-  width: 110px;
-  height: auto;
-}
 
 .mw-admin-login-brand strong,
 .mw-admin-login-brand span {
@@ -647,6 +626,22 @@ body {
       83,
       0.035
     );
+}
+
+.mw-admin-login-brand {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mw-admin-login-brand img {
+  display: block;
+  width: 180px;
+  height: auto;
+  object-fit: contain;
+  margin-inline: auto;
 }
 
 .mw-admin-security-banner > svg {

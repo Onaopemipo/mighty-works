@@ -27,22 +27,12 @@ export default async function AdminLoginPage() {
       <section className="mw-admin-login-card">
         <div className="mw-admin-login-brand">
           <Image
-            src="/brand/Logo.png"
-            alt="Everwinning Faith Ministries Australia"
+            src="/images/brand/mighty-works-conference-transparent.png"
+            alt="Mighty Works Conference"
             width={180}
             height={90}
             priority
           />
-
-          <div>
-            <strong>
-              Mighty Works
-            </strong>
-
-            <span>
-              Conference 2026
-            </span>
-          </div>
         </div>
 
         <div className="mw-admin-login-heading">
