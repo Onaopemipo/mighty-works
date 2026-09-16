@@ -458,6 +458,7 @@ export async function getAdminAttendeeDetail(
         "consent_updates",
         "checked_in",
         "checked_in_at",
+        "checked_in_count",
         "created_at",
       ].join(",")
     )
