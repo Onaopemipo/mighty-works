@@ -49,22 +49,14 @@ export function Navbar() {
             setOpen(false)
           }
         >
-          <Image
-            src="/brand/Logo.png"
-            alt="Everwinning Faith Ministries Australia"
-            width={180}
-            height={90}
-            priority
-          />
-
-          <div>
-            <strong>
-              Mighty Works
-            </strong>
-
-            <span>
-              Conference 2026
-            </span>
+          <div className="mw26-nav-conference-mark">
+            <Image
+              src="/images/brand/mighty-works-conference-transparent.png"
+              alt="Mighty Works Conference 2026"
+              width={360}
+              height={250}
+              priority
+            />
           </div>
         </Link>
 

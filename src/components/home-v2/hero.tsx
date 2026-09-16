@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
+import Image from "next/image";
 export function HeroV2() {
   const reducedMotion =
     useReducedMotion();
@@ -100,6 +101,31 @@ export function HeroV2() {
           <div className="mw26-mobile-globe-slot">
             <GlobeComposition />
           </div>
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 10,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              delay: 0.3,
+              duration: 0.7,
+            }}
+            className="mw26-host-signature"
+          >
+            <span>Hosted by</span>
+
+            <Image
+              src="/images/brand/everwinning-host-transparent.png"
+              alt="Everwinning Faith Ministries Australia"
+              width={250}
+              height={170}
+            />
+          </motion.div>
 
           <motion.div
             initial={{
@@ -249,17 +275,30 @@ export function HeroV2() {
           }}
           className="mw26-globe"
         >
-          <div className="mw26-globe-map" />
+          <div className="mw26-earth-image">
+            <Image
+              src="/images/hero/mighty-works-earth.jpg"
+              alt=""
+              fill
+              priority
+              sizes="(max-width: 900px) 88vw, 48vw"
+            />
+          </div>
 
-          <div className="mw26-globe-latitude latitude-one" />
-          <div className="mw26-globe-latitude latitude-two" />
+          <div
+            className="mw26-earth-atmosphere"
+            aria-hidden="true"
+          />
 
-          <div className="mw26-globe-longitude longitude-one" />
-          <div className="mw26-globe-longitude longitude-two" />
+          <div
+            className="mw26-earth-orbit orbit-one"
+            aria-hidden="true"
+          />
 
-          <span className="mw26-map-dot dot-one" />
-          <span className="mw26-map-dot dot-two" />
-          <span className="mw26-map-dot dot-three" />
+          <div
+            className="mw26-earth-orbit orbit-two"
+            aria-hidden="true"
+          />
         </motion.div>
 
         <motion.div

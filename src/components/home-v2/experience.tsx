@@ -70,7 +70,10 @@ export function ExperienceGrid() {
               className={`homev2-experience-card ${item.className}`}
             >
               <div className="homev2-experience-icon">
-                <Icon size={29} />
+                <Icon
+                  size={42}
+                  strokeWidth={1.7}
+                />
               </div>
 
               <div>
