@@ -4,7 +4,7 @@ type InvitationEmailInput = {
   registrationRef: string;
   country: string;
   invitationUrl: string;
-  qrDataUrl: string;
+  qrPngBase64: string;
 };
 
 export type InvitationEmailResult =
@@ -182,7 +182,7 @@ export async function sendInvitationEmail(
                 <tr>
                   <td align="center">
                     <img
-                      src="${input.qrDataUrl}"
+                      src="cid:mighty-works-checkin-qr"
                       alt="Mighty Works secure check-in QR code"
                       width="210"
                       height="210"
@@ -243,6 +243,18 @@ export async function sendInvitationEmail(
           subject:
             "You're registered — Mighty Works Conference 2026",
           html,
+          attachments: [
+            {
+              filename:
+                "mighty-works-checkin-qr.png",
+              content:
+                input.qrPngBase64,
+              content_type:
+                "image/png",
+              content_id:
+                "mighty-works-checkin-qr",
+            },
+          ],
         }),
       }
     );

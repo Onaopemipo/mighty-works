@@ -4783,3 +4783,346 @@ body {
       repeat(3, minmax(0, 1fr));
   }
 }
+
+/* MW-12B-P4 — Event-day resilience */
+
+.mw-event-health {
+  width: 100%;
+  margin: 0 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+  border: 1px solid rgba(246, 241, 231, 0.12);
+  border-radius: 14px;
+  background: rgba(246, 241, 231, 0.04);
+}
+
+.mw-event-health-main {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.mw-event-health-icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+}
+
+.mw-event-health-copy {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.mw-event-health-copy strong {
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.mw-event-health-copy span {
+  font-size: 10px;
+  line-height: 1.45;
+  color: var(--admin-muted);
+}
+
+.mw-event-health-meta {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.mw-event-health-meta > span {
+  font-size: 9px;
+  line-height: 1.35;
+  color: var(--admin-muted);
+}
+
+.mw-event-health-meta button {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 11px;
+  border: 1px solid rgba(246, 241, 231, 0.14);
+  border-radius: 9px;
+  background: rgba(246, 241, 231, 0.055);
+  color: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mw-event-health-meta button:hover:not(:disabled) {
+  background: rgba(246, 241, 231, 0.09);
+}
+
+.mw-event-health-meta button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mw-event-health.is-ready {
+  border-color: rgba(92, 211, 153, 0.25);
+  background: rgba(92, 211, 153, 0.055);
+}
+
+.mw-event-health.is-ready
+  .mw-event-health-icon {
+  color: #72dda7;
+  background: rgba(92, 211, 153, 0.12);
+}
+
+.mw-event-health.is-degraded,
+.mw-event-health.is-checking {
+  border-color: rgba(242, 180, 74, 0.26);
+  background: rgba(242, 180, 74, 0.055);
+}
+
+.mw-event-health.is-degraded
+  .mw-event-health-icon,
+.mw-event-health.is-checking
+  .mw-event-health-icon {
+  color: #f2b44a;
+  background: rgba(242, 180, 74, 0.11);
+}
+
+.mw-event-health.is-offline,
+.mw-event-health.is-unavailable {
+  border-color: rgba(239, 75, 91, 0.3);
+  background: rgba(239, 75, 91, 0.065);
+}
+
+.mw-event-health.is-offline
+  .mw-event-health-icon,
+.mw-event-health.is-unavailable
+  .mw-event-health-icon {
+  color: #ef6c78;
+  background: rgba(239, 75, 91, 0.12);
+}
+
+@media (max-width: 760px) {
+  .mw-event-health {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .mw-event-health-meta {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .mw-event-health {
+    padding: 11px;
+  }
+
+  .mw-event-health-meta > span:nth-of-type(2) {
+    display: none;
+  }
+
+  .mw-event-health-meta button {
+    margin-left: auto;
+  }
+}
+
+/* MW-12B-P4C — Safe scanner recovery */
+
+.mw-scanner-recoverable {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 28px;
+  text-align: center;
+}
+
+.mw-scanner-recoverable > svg {
+  color: #f2b44a;
+}
+
+.mw-scanner-recoverable > strong {
+  font-family:
+    Georgia,
+    serif;
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+.mw-scanner-recoverable > p {
+  max-width: 440px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--admin-text);
+}
+
+.mw-scanner-recoverable > span {
+  max-width: 440px;
+  font-size: 10px;
+  line-height: 1.55;
+  color: var(--admin-muted);
+}
+
+.mw-scanner-recovery-actions {
+  width: min(100%, 440px);
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+  gap: 9px;
+  margin-top: 8px;
+}
+
+.mw-scanner-recovery-actions
+  > button {
+  width: 100%;
+}
+
+@media (max-width: 560px) {
+  .mw-scanner-recovery-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MW-12B-P4C — Manual attendance recovery */
+
+.mw-admin-attendance-uncertain {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(242, 180, 74, 0.28);
+  border-radius: 12px;
+  background: rgba(242, 180, 74, 0.06);
+}
+
+.mw-admin-attendance-uncertain-copy {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.mw-admin-attendance-uncertain-copy > svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: #f2b44a;
+}
+
+.mw-admin-attendance-uncertain-copy > div {
+  display: grid;
+  gap: 3px;
+}
+
+.mw-admin-attendance-uncertain-copy strong {
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.mw-admin-attendance-uncertain-copy span {
+  font-size: 9px;
+  line-height: 1.5;
+  color: var(--admin-muted);
+}
+
+.mw-admin-attendance-uncertain
+  > button.is-retry {
+  width: 100%;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid rgba(242, 180, 74, 0.3);
+  border-radius: 9px;
+  background: rgba(242, 180, 74, 0.1);
+  color: inherit;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.mw-admin-attendance-uncertain
+  > button.is-retry:hover:not(:disabled) {
+  background: rgba(242, 180, 74, 0.16);
+}
+
+.mw-admin-attendance-uncertain
+  > button.is-retry:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.mw-admin-attendance-uncertain > p {
+  margin: 0;
+  font-size: 9px;
+  line-height: 1.45;
+  color: var(--admin-muted);
+}
+
+/* MW-12B-P4C — Known-offline attendance guard */
+
+.mw-admin-attendance-offline {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  padding: 9px 10px;
+  border: 1px solid rgba(239, 75, 91, 0.26);
+  border-radius: 9px;
+  background: rgba(239, 75, 91, 0.06);
+}
+
+.mw-admin-attendance-offline > svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: #ef6c78;
+}
+
+.mw-admin-attendance-offline > span {
+  font-size: 9px;
+  line-height: 1.45;
+  color: var(--admin-muted);
+}
+
+/* MW-12B-P4C — Scanner known-offline guard */
+
+.mw-scanner-offline-guard {
+  width: min(100%, 440px);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 11px;
+  border: 1px solid rgba(239, 75, 91, 0.28);
+  border-radius: 10px;
+  background: rgba(239, 75, 91, 0.065);
+}
+
+.mw-scanner-offline-guard > svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: #ef6c78;
+}
+
+.mw-scanner-offline-guard > span {
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--admin-muted);
+}
+
+.mw-scanner-party-option:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+}

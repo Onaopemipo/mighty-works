@@ -5,6 +5,8 @@ import {
   LogOut,
   LoaderCircle,
   UsersRound,
+  RefreshCw,
+  TriangleAlert,
 } from "lucide-react";
 import {
   useRef,
@@ -13,6 +15,9 @@ import {
 import {
   useRouter,
 } from "next/navigation";
+import {
+  useBrowserConnectivity,
+} from "@/hooks/use-browser-connectivity";
 
 type AttendanceResult = {
   ok?: boolean;
@@ -41,6 +46,11 @@ export function AttendanceAction({
   const router =
     useRouter();
 
+  const {
+    online,
+  } =
+    useBrowserConnectivity();
+
   const [loading, setLoading] =
     useState(false);
 
@@ -49,7 +59,18 @@ export function AttendanceAction({
       null
     );
 
-  const normalizedPartySize =
+  
+  const [
+    uncertainOperation,
+    setUncertainOperation,
+  ] = useState<{
+    action:
+      | "check_in"
+      | "check_out";
+    count: number;
+  } | null>(null);
+
+const normalizedPartySize =
     Math.max(
       partySize,
       1
@@ -96,6 +117,26 @@ export function AttendanceAction({
 
     const pending =
       pendingOperationRef.current;
+
+    const retryingPendingOperation =
+      Boolean(
+        uncertainOperation &&
+        pending &&
+        pending.action === action &&
+        pending.count ===
+          normalizedCount
+      );
+
+    if (
+      !online &&
+      !retryingPendingOperation
+    ) {
+      setMessage(
+        "Device offline. Reconnect before changing attendance."
+      );
+
+      return;
+    }
 
     const operation =
       pending &&
@@ -157,6 +198,10 @@ export function AttendanceAction({
       pendingOperationRef.current =
         null;
 
+      setUncertainOperation(
+        null
+      );
+
       if (
         !response.ok ||
         !result.ok
@@ -191,16 +236,112 @@ export function AttendanceAction({
 
       router.refresh();
     } catch {
-      // Transport failure is ambiguous: the server may
-      // already have committed. Keep the operation UUID
-      // so the same action/count can be retried safely.
+      // A transport failure is ambiguous: the server may
+      // already have committed this operation. Preserve
+      // the exact action/count and the pending operation
+      // UUID so the same logical operation can be retried.
+      setUncertainOperation({
+        action,
+        count:
+          normalizedCount,
+      });
+
       setMessage(
-        "Unable to reach the server."
+        "Connection interrupted. Attendance status is uncertain."
       );
     } finally {
       setLoading(false);
     }
   }
+
+  if (uncertainOperation) {
+    const retryLabel =
+      uncertainOperation.action ===
+        "check_in"
+        ? "check-in"
+        : "check-out";
+
+    return (
+      <div
+        className="mw-admin-attendance-action mw-admin-attendance-uncertain"
+        role="alert"
+      >
+        <div className="mw-admin-attendance-uncertain-copy">
+          <TriangleAlert
+            size={18}
+          />
+
+          <div>
+            <strong>
+              Attendance status uncertain
+            </strong>
+
+            <span>
+              Do not start another attendance
+              action. Retry this same{" "}
+              {retryLabel} operation safely.
+            </span>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          className="is-retry"
+          disabled={
+            loading ||
+            !online
+          }
+          onClick={() =>
+            void update(
+              uncertainOperation
+                .action,
+              uncertainOperation
+                .count
+            )
+          }
+        >
+          {loading ? (
+            <>
+              Retrying
+              <LoaderCircle
+                size={15}
+                className="animate-spin"
+              />
+            </>
+          ) : (
+            <>
+              <RefreshCw
+                size={15}
+              />
+              Retry{" "}
+              {retryLabel}
+            </>
+          )}
+        </button>
+
+        {message ? (
+          <p>{message}</p>
+        ) : null}
+      </div>
+    );
+  }
+
+  const offlineNotice =
+    !online ? (
+      <div
+        className="mw-admin-attendance-offline"
+        role="status"
+      >
+        <TriangleAlert
+          size={15}
+        />
+
+        <span>
+          Device offline. Attendance changes
+          are paused until connectivity returns.
+        </span>
+      </div>
+    ) : null;
 
   if (singlePerson) {
     const present =
@@ -208,6 +349,8 @@ export function AttendanceAction({
 
     return (
       <div className="mw-admin-attendance-action">
+        {offlineNotice}
+
         <button
           type="button"
           onClick={() =>
@@ -217,7 +360,10 @@ export function AttendanceAction({
                 : "check_in"
             )
           }
-          disabled={loading}
+          disabled={
+                    loading ||
+                    !online
+                  }
           className={
             present
               ? "is-checkout"
@@ -258,6 +404,8 @@ export function AttendanceAction({
 
   return (
     <div className="mw-admin-attendance-action mw-admin-party-attendance">
+      {offlineNotice}
+
       <div className="mw-admin-party-attendance-status">
         <UsersRound
           size={18}
@@ -301,7 +449,8 @@ export function AttendanceAction({
                   }
                   type="button"
                   disabled={
-                    loading
+                    loading ||
+                    !online
                   }
                   onClick={() =>
                     update(
@@ -356,7 +505,8 @@ export function AttendanceAction({
                   }
                   type="button"
                   disabled={
-                    loading
+                    loading ||
+                    !online
                   }
                   onClick={() =>
                     update(

@@ -12,6 +12,7 @@ import {
   UserCheck,
   Volume2,
   VolumeX,
+  RefreshCw,
 } from "lucide-react";
 import {
   useCallback,
@@ -22,6 +23,9 @@ import {
 import {
   triggerScannerFeedback,
 } from "@/components/checkin/scanner-feedback";
+import {
+  useBrowserConnectivity,
+} from "@/hooks/use-browser-connectivity";
 
 type Attendee = {
   id: string;
@@ -58,6 +62,14 @@ type ScannerState =
         boolean;
     }
   | {
+      status:
+        "recoverable_error";
+      message: string;
+      payload: string;
+      attendee: Attendee;
+      arrivalCount: number;
+    }
+  | {
       status: "error";
       message: string;
     };
@@ -91,6 +103,11 @@ function flag(
 }
 
 export function AdminCheckInScanner() {
+  const {
+    online,
+  } =
+    useBrowserConnectivity();
+
   const scannerRef =
     useRef<{
       stop:
@@ -357,28 +374,51 @@ export function AdminCheckInScanner() {
   ) {
     if (
       scannerState.status !==
-      "resolved"
+        "resolved" &&
+      scannerState.status !==
+        "recoverable_error"
     ) {
       return;
     }
 
     const {
       payload,
+      attendee,
     } =
       scannerState;
 
+    const retryingPendingOperation =
+      scannerState.status ===
+        "recoverable_error";
+
+    if (
+      !online &&
+      !retryingPendingOperation
+    ) {
+      setScannerState({
+        status:
+          "resolved",
+        payload,
+        attendee,
+      });
+
+      return;
+    }
+
     const arrivalCount =
-      Math.min(
-        Math.max(
-          requestedArrivalCount,
-          1
-        ),
-        Math.max(
-          scannerState.attendee
-            .remainingCount,
-          1
-        )
-      );
+      scannerState.status ===
+        "recoverable_error"
+        ? scannerState.arrivalCount
+        : Math.min(
+            Math.max(
+              requestedArrivalCount,
+              1
+            ),
+            Math.max(
+              attendee.remainingCount,
+              1
+            )
+          );
 
     const pending =
       pendingCheckInOperationRef.current;
@@ -474,13 +514,18 @@ export function AdminCheckInScanner() {
         alreadyCheckedIn,
       });
     } catch {
-      // Preserve the UUID after an ambiguous network
-      // failure so retrying this credential is safe.
+      // Transport failure is ambiguous: the attendance
+      // operation may already have committed. Keep the
+      // same payload + arrival count so the retained
+      // operation UUID can be replayed safely.
       setScannerState({
         status:
-          "error",
+          "recoverable_error",
         message:
-          "Unable to reach the check-in service.",
+          "Connection interrupted during check-in. The operation has been preserved.",
+        payload,
+        attendee,
+        arrivalCount,
       });
     }
   }
@@ -726,6 +771,24 @@ export function AdminCheckInScanner() {
               </div>
             </div>
 
+            {!online &&
+            scannerState.attendee
+              .remainingCount > 0 ? (
+              <div
+                className="mw-scanner-offline-guard"
+                role="status"
+              >
+                <TriangleAlert
+                  size={17}
+                />
+
+                <span>
+                  Device offline. Reconnect before
+                  confirming attendance.
+                </span>
+              </div>
+            ) : null}
+
             {scannerState.attendee
               .remainingCount === 0 ? (
               <div className="mw-scanner-already">
@@ -783,6 +846,7 @@ export function AdminCheckInScanner() {
                         key={`scanner-arrival-${count}`}
                         type="button"
                         className="mw-scanner-confirm mw-scanner-party-option"
+                        disabled={!online}
                         onClick={() =>
                           void confirmCheckIn(
                             count
@@ -951,6 +1015,49 @@ export function AdminCheckInScanner() {
               />
               Scan next attendee
             </button>
+          </div>
+        ) : null}
+
+        {scannerState.status ===
+        "recoverable_error" ? (
+          <div className="mw-scanner-recoverable">
+            <TriangleAlert
+              size={34}
+            />
+
+            <strong>
+              Check-in status uncertain
+            </strong>
+
+            <p>
+              {scannerState.message}
+            </p>
+
+            <span>
+              Do not scan another attendee.
+              Restore connectivity, then retry
+              this same attendance operation.
+            </span>
+
+            <div className="mw-scanner-recovery-actions">
+              <button
+                type="button"
+                className="mw-scanner-confirm"
+                disabled={!online}
+                onClick={() =>
+                  void confirmCheckIn(
+                    scannerState
+                      .arrivalCount
+                  )
+                }
+              >
+                <RefreshCw
+                  size={17}
+                />
+
+                Retry check-in
+              </button>
+            </div>
           </div>
         ) : null}
 

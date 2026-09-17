@@ -15,6 +15,10 @@ import {
   AdminCheckInScanner,
 } from "@/components/checkin/admin-checkin-scanner";
 
+import {
+  EventDayHealthStrip,
+} from "@/components/admin/event-day-health-strip";
+
 export const dynamic =
   "force-dynamic";
 
@@ -74,6 +78,8 @@ export default async function AdminCheckInPage() {
 
         Camera-based credential verification
       </div>
+
+      <EventDayHealthStrip />
 
       <AdminCheckInScanner />
     </main>

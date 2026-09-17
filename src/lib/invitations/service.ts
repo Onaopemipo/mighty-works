@@ -17,6 +17,7 @@ import {
 } from "@/lib/checkin/payload";
 import {
   createCheckInQrDataUrl,
+  createCheckInQrPng,
 } from "@/lib/checkin/qr";
 
 type InvitationRegistration = {
@@ -183,10 +184,18 @@ export async function issueInvitationForEmail({
       checkInCredential.credential
     );
 
-  const qrDataUrl =
-    await createCheckInQrDataUrl(
-      qrPayload
-    );
+  const [
+    qrDataUrl,
+    qrPng,
+  ] =
+    await Promise.all([
+      createCheckInQrDataUrl(
+        qrPayload
+      ),
+      createCheckInQrPng(
+        qrPayload
+      ),
+    ]);
 
   const emailResult:
     InvitationEmailResult =
@@ -203,7 +212,10 @@ export async function issueInvitationForEmail({
       country:
         registration.country,
       invitationUrl,
-      qrDataUrl,
+      qrPngBase64:
+        qrPng.toString(
+          "base64"
+        ),
     });
 
   const {
