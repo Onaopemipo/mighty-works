@@ -32,6 +32,8 @@ type Attendee = {
   countryCode:
     string | null;
   partySize: number;
+  checkedInCount: number;
+  remainingCount: number;
   checkedIn?: boolean;
   checkedInAt:
     string | null;
@@ -350,7 +352,9 @@ export function AdminCheckInScanner() {
       arrivalCount: number;
     } | null>(null);
 
-  async function confirmCheckIn() {
+  async function confirmCheckIn(
+    requestedArrivalCount = 1
+  ) {
     if (
       scannerState.status !==
       "resolved"
@@ -363,7 +367,18 @@ export function AdminCheckInScanner() {
     } =
       scannerState;
 
-    const arrivalCount = 1;
+    const arrivalCount =
+      Math.min(
+        Math.max(
+          requestedArrivalCount,
+          1
+        ),
+        Math.max(
+          scannerState.attendee
+            .remainingCount,
+          1
+        )
+      );
 
     const pending =
       pendingCheckInOperationRef.current;
@@ -711,30 +726,84 @@ export function AdminCheckInScanner() {
               </div>
             </div>
 
-            {scannerState
-              .attendee
-              .checkedIn ? (
+            {scannerState.attendee
+              .remainingCount === 0 ? (
               <div className="mw-scanner-already">
                 <CheckCircle2
                   size={19}
                 />
 
-                Already checked in
+                Full party is already on site
               </div>
             ) : (
-              <button
-                type="button"
-                onClick={() =>
-                  void confirmCheckIn()
-                }
-                className="mw-scanner-confirm"
-              >
-                <UserCheck
-                  size={19}
-                />
+              <div className="mw-scanner-party-checkin">
+                <div className="mw-scanner-party-status">
+                  <strong>
+                    {
+                      scannerState
+                        .attendee
+                        .checkedInCount
+                    }
+                    {" of "}
+                    {
+                      scannerState
+                        .attendee
+                        .partySize
+                    }
+                    {" present"}
+                  </strong>
 
-                Check in attendee
-              </button>
+                  <span>
+                    {
+                      scannerState
+                        .attendee
+                        .remainingCount
+                    }
+                    {" still expected"}
+                  </span>
+                </div>
+
+                <span className="mw-scanner-party-label">
+                  Arriving now
+                </span>
+
+                <div className="mw-scanner-party-options">
+                  {Array.from(
+                    {
+                      length:
+                        scannerState
+                          .attendee
+                          .remainingCount,
+                    },
+                    (_, index) =>
+                      index + 1
+                  ).map(
+                    (count) => (
+                      <button
+                        key={`scanner-arrival-${count}`}
+                        type="button"
+                        className="mw-scanner-confirm mw-scanner-party-option"
+                        onClick={() =>
+                          void confirmCheckIn(
+                            count
+                          )
+                        }
+                      >
+                        <UserCheck
+                          size={18}
+                        />
+
+                        {count ===
+                        scannerState
+                          .attendee
+                          .remainingCount
+                          ? `All ${count}`
+                          : count}
+                      </button>
+                    )
+                  )}
+                </div>
+              </div>
             )}
 
             <button
@@ -766,6 +835,31 @@ export function AdminCheckInScanner() {
             <CheckCircle2
               size={46}
             />
+
+            <div className="mw-scanner-success-attendance">
+              <strong>
+                {
+                  scannerState
+                    .attendee
+                    .checkedInCount
+                }
+                {" of "}
+                {
+                  scannerState
+                    .attendee
+                    .partySize
+                }
+                {" checked in"}
+              </strong>
+
+              <span>
+                {scannerState
+                  .attendee
+                  .remainingCount > 0
+                  ? `${scannerState.attendee.remainingCount} still expected`
+                  : "Full party is on site"}
+              </span>
+            </div>
 
             <span
               className={

@@ -33,6 +33,8 @@ type ScannerRegistrationRow = {
   checked_in: boolean;
   checked_in_at:
     string | null;
+  checked_in_count:
+    number | null;
 };
 
 type CheckInRpcRow = {
@@ -292,6 +294,7 @@ export async function POST(
         "party_size",
         "checked_in",
         "checked_in_at",
+        "checked_in_count",
       ].join(",")
     )
     .eq(
@@ -370,6 +373,47 @@ export async function POST(
           attendee.country_code,
         partySize:
           attendee.party_size,
+        checkedInCount:
+          Math.min(
+            Math.max(
+              attendee.checked_in_count ??
+                (attendee.checked_in
+                  ? Math.max(
+                      attendee.party_size,
+                      1
+                    )
+                  : 0),
+              0
+            ),
+            Math.max(
+              attendee.party_size,
+              1
+            )
+          ),
+        remainingCount:
+          Math.max(
+            Math.max(
+              attendee.party_size,
+              1
+            ) -
+              Math.min(
+                Math.max(
+                  attendee.checked_in_count ??
+                    (attendee.checked_in
+                      ? Math.max(
+                          attendee.party_size,
+                          1
+                        )
+                      : 0),
+                  0
+                ),
+                Math.max(
+                  attendee.party_size,
+                  1
+                )
+              ),
+            0
+          ),
         checkedInAt:
           attendee.checked_in_at,
       },
