@@ -67,155 +67,144 @@ export async function sendInvitationEmail(
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
 </head>
-<body style="margin:0;background:#050611;color:#ffffff;font-family:Arial,Helvetica,sans-serif;">
-  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#050611;padding:32px 16px;">
+<body style="margin:0;background:#f3eee5;color:#17142b;font-family:Arial,Helvetica,sans-serif;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f3eee5;padding:20px 12px;">
     <tr>
       <td align="center">
-        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;background:linear-gradient(145deg,#0b0d20,#13091d);border:1px solid #2c263c;border-radius:24px;overflow:hidden;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:600px;background:#fffdf8;border:1px solid #ddd4c8;border-radius:20px;overflow:hidden;">
           <tr>
-            <td style="padding:36px 34px;border-bottom:1px solid #262536;">
-              <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#ff7d86;">
-                Mighty Works Conference · 2026
+            <td style="padding:24px 26px 18px;border-bottom:1px solid #e6ddd2;">
+              <div style="font-size:10px;letter-spacing:2.4px;text-transform:uppercase;color:#c9314c;font-weight:700;">
+                Mighty Works Conference 2026 · 8th Edition
               </div>
-              <div style="margin-top:8px;font-family:Georgia,serif;font-size:24px;">
+
+              <div style="margin-top:7px;font-family:Georgia,serif;font-size:18px;color:#17142b;">
                 Everwinning Faith Ministries Australia
               </div>
             </td>
           </tr>
 
           <tr>
-            <td style="padding:42px 34px 20px;">
-              <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#d4a57d;">
-                You're registered
+            <td style="padding:24px 26px 12px;">
+              <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8a5b38;">
+                Registration confirmed
               </div>
 
-              <h1 style="margin:14px 0 0;font-family:Georgia,serif;font-size:56px;line-height:.95;font-weight:400;">
-                You're invited.
+              <h1 style="margin:8px 0 0;font-family:Georgia,serif;font-size:32px;line-height:1.08;font-weight:400;color:#17142b;">
+                Welcome, ${attendeeName}.
               </h1>
 
-              <p style="margin:24px 0 0;color:#bdb9c8;font-size:15px;line-height:1.8;">
-                <strong style="color:#fff;">${attendeeName}</strong>,
-                your place at Mighty Works Conference 2026 is confirmed.
+              <p style="margin:10px 0 0;color:#4e495c;font-size:14px;line-height:1.55;">
+                Your conference pass is ready. Present the QR code below at the entrance.
               </p>
             </td>
           </tr>
 
           <tr>
-            <td style="padding:10px 34px 26px;">
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#171128;border:1px solid #342647;border-radius:18px;">
+            <td align="center" style="padding:12px 26px 18px;">
+              <table role="presentation" cellspacing="0" cellpadding="0" style="background:#ffffff;border-radius:16px;">
                 <tr>
-                  <td style="padding:24px;">
-                    <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#ff7d86;">
-                      2026 Theme
-                    </div>
-                    <div style="margin-top:8px;font-family:Georgia,serif;font-size:34px;color:#ff7d86;">
-                      Greater Things
-                    </div>
-                    <div style="margin-top:8px;font-size:11px;color:#8f899b;">
-                      Psalm 112:1–2
-                    </div>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <tr>
-            <td style="padding:0 34px 28px;">
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td style="padding:12px 0;border-bottom:1px solid #242333;color:#85818f;font-size:10px;text-transform:uppercase;letter-spacing:2px;">
-                    Registration reference
-                  </td>
-                  <td align="right" style="padding:12px 0;border-bottom:1px solid #242333;color:#fff;font-weight:700;">
-                    ${registrationRef}
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding:12px 0;border-bottom:1px solid #242333;color:#85818f;font-size:10px;text-transform:uppercase;letter-spacing:2px;">
-                    Nation
-                  </td>
-                  <td align="right" style="padding:12px 0;border-bottom:1px solid #242333;color:#fff;">
-                    ${country}
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <tr>
-            <td style="padding:0 34px 28px;">
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td valign="top" width="50%" style="padding:18px;border:1px solid #29283a;border-radius:14px;">
-                    <div style="font-size:10px;color:#8d8997;text-transform:uppercase;letter-spacing:2px;">Saturday</div>
-                    <div style="margin-top:8px;font-weight:700;">7 November 2026</div>
-                    <div style="margin-top:6px;color:#ff7d86;">5:00 PM</div>
-                  </td>
-                  <td width="12"></td>
-                  <td valign="top" width="50%" style="padding:18px;border:1px solid #29283a;border-radius:14px;">
-                    <div style="font-size:10px;color:#8d8997;text-transform:uppercase;letter-spacing:2px;">Sunday</div>
-                    <div style="margin-top:8px;font-weight:700;">8 November 2026</div>
-                    <div style="margin-top:6px;color:#ff7d86;">9:00 AM</div>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <tr>
-            <td style="padding:0 34px 30px;">
-              <div style="padding:20px;border:1px solid #29283a;border-radius:14px;">
-                <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#8d8997;">Venue</div>
-                <div style="margin-top:8px;font-size:18px;font-weight:700;">Faith Center</div>
-                <div style="margin-top:5px;color:#b6b2bf;line-height:1.6;">
-                  62 Eastern Rd<br />
-                  Browns Plains QLD 4118
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <tr>
-            <td align="center" style="padding:0 34px 30px;">
-              <table role="presentation" cellspacing="0" cellpadding="0" style="background:#ffffff;border-radius:20px;padding:18px;">
-                <tr>
-                  <td align="center">
+                  <td align="center" style="padding:14px;">
                     <img
                       src="cid:mighty-works-checkin-qr"
                       alt="Mighty Works secure check-in QR code"
-                      width="210"
-                      height="210"
-                      style="display:block;width:210px;height:210px;border:0;"
+                      width="190"
+                      height="190"
+                      style="display:block;width:190px;height:190px;border:0;"
                     />
                   </td>
                 </tr>
               </table>
 
-              <div style="margin-top:12px;font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#8d8997;">
-                Your secure venue check-in code
-              </div>
-
-              <div style="margin-top:6px;font-size:11px;color:#b6b2bf;line-height:1.6;">
-                Present this QR code at the conference entrance.
+              <div style="margin-top:9px;font-size:10px;text-transform:uppercase;letter-spacing:1.7px;color:#625c6c;">
+                Secure venue check-in
               </div>
             </td>
           </tr>
 
           <tr>
-            <td align="center" style="padding:6px 34px 38px;">
-              <a href="${invitationUrl}" style="display:inline-block;background:#fc4a53;color:#fff;text-decoration:none;padding:16px 28px;border-radius:999px;font-weight:700;">
-                Open your digital invitation
+            <td style="padding:0 26px 18px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f7f1e8;border:1px solid #ddd3c7;border-radius:12px;">
+                <tr>
+            <td style="padding:0 26px 18px;">
+              <table
+                role="presentation"
+                width="100%"
+                cellspacing="0"
+                cellpadding="0"
+                style="background:#f7f1e8;border:1px solid #ddd3c7;border-radius:14px;"
+              >
+                <tr>
+                  <td style="padding:14px 16px 6px;color:#625c6c;font-size:9px;text-transform:uppercase;letter-spacing:1.4px;">
+                    Registration
+                  </td>
+
+                  <td align="right" style="padding:14px 16px 6px;color:#c9314c;font-size:13px;font-weight:700;">
+                    ${registrationRef}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:5px 16px 13px;color:#625c6c;font-size:9px;text-transform:uppercase;letter-spacing:1.4px;border-bottom:1px solid #e1d7ca;">
+                    Country
+                  </td>
+
+                  <td align="right" style="padding:5px 16px 13px;color:#17142b;font-size:13px;border-bottom:1px solid #e1d7ca;">
+                    ${country}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:13px 16px 5px;color:#625c6c;font-size:9px;text-transform:uppercase;letter-spacing:1.4px;">
+                    Saturday · 7 Nov
+                  </td>
+
+                  <td align="right" style="padding:13px 16px 5px;color:#c9314c;font-size:14px;font-weight:700;">
+                    5:00 PM
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:5px 16px 13px;color:#625c6c;font-size:9px;text-transform:uppercase;letter-spacing:1.4px;border-bottom:1px solid #e1d7ca;">
+                    Sunday · 8 Nov
+                  </td>
+
+                  <td align="right" style="padding:5px 16px 13px;color:#c9314c;font-size:14px;font-weight:700;border-bottom:1px solid #e1d7ca;">
+                    9:00 AM
+                  </td>
+                </tr>
+
+                <tr>
+                  <td colspan="2" style="padding:13px 16px 14px;">
+                    <div style="font-size:9px;color:#625c6c;text-transform:uppercase;letter-spacing:1.4px;">
+                      Venue
+                    </div>
+
+                    <div style="margin-top:5px;color:#17142b;font-size:14px;font-weight:700;">
+                      Faith Center
+                    </div>
+
+                    <div style="margin-top:3px;color:#575160;font-size:12px;line-height:1.45;">
+                      62 Eastern Rd, Browns Plains QLD 4118
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center" style="padding:2px 26px 22px;">
+              <a href="${invitationUrl}" style="display:inline-block;background:#c9314c;color:#ffffff;text-decoration:none;padding:13px 22px;border-radius:999px;font-size:13px;font-weight:700;">
+                Open digital invitation
               </a>
+
             </td>
           </tr>
 
           <tr>
-            <td style="padding:28px 34px;border-top:1px solid #262536;color:#85818f;font-family:Georgia,serif;font-size:18px;font-style:italic;line-height:1.6;">
-              “His seed shall be mighty upon earth: the generation of the upright shall be blessed.”
-              <div style="margin-top:8px;font-family:Arial,Helvetica,sans-serif;font-size:9px;font-style:normal;text-transform:uppercase;letter-spacing:2px;">
-                Psalm 112:2 · KJV
-              </div>
+            <td align="center" style="padding:15px 26px;border-top:1px solid #e6ddd2;color:#756e78;font-size:9px;line-height:1.5;">
+              Mighty Works Conference 2026 · Everwinning Faith Ministries Australia
             </td>
           </tr>
         </table>
@@ -224,7 +213,7 @@ export async function sendInvitationEmail(
   </table>
 </body>
 </html>
-`;
+`
 
   try {
     const response = await fetch(
