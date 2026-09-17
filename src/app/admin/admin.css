@@ -5126,3 +5126,241 @@ body {
   opacity: 0.42;
   cursor: not-allowed;
 }
+
+/* =========================================================
+   MW-12B-P5B — Operations Attention Centre
+   ========================================================= */
+
+.mw-admin-attention {
+  width: min(100%, 1450px);
+  margin: 18px auto 0;
+  border: 1px solid var(--admin-border);
+  border-radius: 18px;
+  padding: 16px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 20, 43, 0.92),
+      rgba(8, 9, 24, 0.96)
+    );
+}
+
+.mw-admin-attention-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 2px 2px 13px;
+}
+
+.mw-admin-attention-header p,
+.mw-admin-attention.is-clear p {
+  margin: 0;
+  color: var(--admin-muted);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.mw-admin-attention-header h2,
+.mw-admin-attention.is-clear h2 {
+  margin: 5px 0 0;
+  font-family: Georgia, serif;
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  line-height: 1;
+  font-weight: 400;
+}
+
+.mw-admin-attention-header > span {
+  flex: 0 0 auto;
+  border: 1px solid var(--admin-border);
+  border-radius: 999px;
+  padding: 6px 9px;
+  color: var(--admin-muted);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mw-admin-attention-list {
+  display: grid;
+  gap: 8px;
+}
+
+.mw-admin-attention-item {
+  display: grid;
+  grid-template-columns:
+    34px
+    minmax(0, 1fr)
+    auto;
+  align-items: center;
+  gap: 11px;
+  min-height: 58px;
+  border: 1px solid var(--admin-border);
+  border-radius: 12px;
+  padding: 10px 11px;
+  background:
+    rgba(255, 255, 255, 0.025);
+}
+
+.mw-admin-attention-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 10px;
+}
+
+.mw-admin-attention-copy {
+  min-width: 0;
+}
+
+.mw-admin-attention-copy strong,
+.mw-admin-attention-copy span {
+  display: block;
+}
+
+.mw-admin-attention-copy strong {
+  font-size: 10px;
+}
+
+.mw-admin-attention-copy span {
+  margin-top: 3px;
+  color: var(--admin-muted);
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+.mw-admin-attention-action {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--admin-border);
+  border-radius: 999px;
+  padding: 0 11px;
+  color: var(--admin-text);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background:
+    rgba(255, 255, 255, 0.035);
+}
+
+.mw-admin-attention-action:hover {
+  border-color:
+    rgba(255, 255, 255, 0.24);
+  background:
+    rgba(255, 255, 255, 0.07);
+}
+
+/* Critical */
+
+.mw-admin-attention.is-critical {
+  border-color:
+    rgba(252, 74, 83, 0.3);
+}
+
+.mw-admin-attention-item.is-critical {
+  border-color:
+    rgba(252, 74, 83, 0.24);
+  background:
+    rgba(252, 74, 83, 0.045);
+}
+
+.mw-admin-attention-item.is-critical
+  .mw-admin-attention-icon {
+  color: #ff8b92;
+  background:
+    rgba(252, 74, 83, 0.11);
+}
+
+/* Warning */
+
+.mw-admin-attention.is-warning {
+  border-color:
+    rgba(245, 179, 66, 0.24);
+}
+
+.mw-admin-attention-item.is-warning {
+  border-color:
+    rgba(245, 179, 66, 0.2);
+  background:
+    rgba(245, 179, 66, 0.04);
+}
+
+.mw-admin-attention-item.is-warning
+  .mw-admin-attention-icon {
+  color: #f5c46f;
+  background:
+    rgba(245, 179, 66, 0.1);
+}
+
+/* Information */
+
+.mw-admin-attention-item.is-info
+  .mw-admin-attention-icon {
+  color: #8fb7ff;
+  background:
+    rgba(105, 151, 239, 0.1);
+}
+
+/* Clear */
+
+.mw-admin-attention.is-clear {
+  display: grid;
+  grid-template-columns:
+    38px
+    minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  border-color:
+    rgba(98, 217, 151, 0.22);
+  padding: 14px 16px;
+}
+
+.mw-admin-attention.is-clear
+  > div:last-child
+  > span {
+  display: block;
+  margin-top: 4px;
+  color: var(--admin-muted);
+  font-size: 9px;
+}
+
+.mw-admin-attention-clear-icon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 11px;
+  color: #62d997;
+  background:
+    rgba(98, 217, 151, 0.09);
+}
+
+@media (max-width: 700px) {
+  .mw-admin-attention {
+    padding: 12px;
+  }
+
+  .mw-admin-attention-header {
+    align-items: flex-start;
+  }
+
+  .mw-admin-attention-item {
+    grid-template-columns:
+      32px
+      minmax(0, 1fr);
+  }
+
+  .mw-admin-attention-action {
+    grid-column: 2;
+    justify-self: start;
+  }
+}

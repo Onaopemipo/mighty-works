@@ -26,6 +26,9 @@ import {
   getAdminDashboardData,
 } from "@/lib/admin/dashboard";
 import {
+  buildOperationsAttention,
+} from "@/lib/admin/operations-attention";
+import {
   countryFlag,
   formatAdminDate,
 } from "@/lib/admin/display";
@@ -38,6 +41,9 @@ import {
 import {
   AttendeeResults,
 } from "@/components/admin/attendee-results";
+import {
+  OperationsAttentionCentre,
+} from "@/components/admin/operations-attention-centre";
 import {
   AdminAutoRefresh,
 } from "@/components/admin/admin-auto-refresh";
@@ -130,6 +136,11 @@ export default async function AdminPage({
       }),
     ]);
 
+  const operationsAttention =
+    buildOperationsAttention(
+      data
+    );
+
   const maxActivity =
     Math.max(
       ...data.activity.map(
@@ -205,6 +216,10 @@ export default async function AdminPage({
           · Brisbane time
         </p>
       </section>
+
+      <OperationsAttentionCentre
+        attention={operationsAttention}
+      />
 
       <section className="mw-admin-metric-grid">
         <MetricCard
@@ -367,7 +382,7 @@ export default async function AdminPage({
         </article>
       </section>
 
-      <section className="mw-admin-live-ops-grid">
+      <section id="live-arrivals" className="mw-admin-live-ops-grid">
         <article className="mw-admin-panel">
           <header>
             <div>
@@ -548,7 +563,7 @@ export default async function AdminPage({
         </article>
       </section>
 
-      <section className="mw-admin-scan-operations">
+      <section id="scanner-operations" className="mw-admin-scan-operations">
         <header className="mw-admin-scan-operations-header">
           <div>
             <p>
@@ -676,6 +691,15 @@ export default async function AdminPage({
 
             <span>
               {
+                Math.min(
+                  data.scanOperations
+                    .latestEvents
+                    .length,
+                  6
+                )
+              }
+              {" of "}
+              {
                 data.scanOperations
                   .latestEvents
                   .length
@@ -688,6 +712,7 @@ export default async function AdminPage({
             <div className="mw-admin-scan-event-list">
               {data.scanOperations
                 .latestEvents
+                .slice(0, 6)
                 .map(
                   (event) => (
                     <div
@@ -1123,7 +1148,7 @@ export default async function AdminPage({
         </article>
       </section>
 
-      <section className="mw-admin-directory-section">
+      <section id="attendee-directory" className="mw-admin-directory-section">
         <header>
           <div>
             <p>
