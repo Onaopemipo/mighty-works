@@ -54,31 +54,33 @@ export function RegistrationInviteCard({
         <div className="mw-invite-glow mw-invite-glow-two" />
 
         <header className="mw-invite-header">
-          <div className="mw-invite-brand">
-            <Image
-              src="/brand/Logo.png"
-              alt="Everwinning Faith Ministries Australia"
-              width={220}
-              height={110}
-              priority
+          <div className="mw-invite-brand mw-invite-dual-brand">
+            <div className="mw-invite-brand-mark mw-invite-host-brand">
+              <Image
+                src="/brand/Logo.png"
+                alt="Everwinning Faith Ministries Australia"
+                width={220}
+                height={110}
+                priority
+              />
+            </div>
+
+            <div
+              className="mw-invite-brand-divider"
+              aria-hidden="true"
             />
 
-            <div>
-              <strong>
-                Mighty Works
-              </strong>
+            <div className="mw-invite-brand-mark mw-invite-conference-brand">
+              <Image
+                src="/images/brand/mighty-works-conference-transparent.png"
+                alt="Mighty Works Conference"
+                width={300}
+                height={140}
+                priority
+              />
 
-              <span>
-                Conference 2026
-              </span>
             </div>
           </div>
-
-          <p>
-            Different nations.
-            <br />
-            One purpose.
-          </p>
         </header>
 
         <div className="mw-invite-status">
@@ -89,45 +91,27 @@ export function RegistrationInviteCard({
           </span>
         </div>
 
-        <section className="mw-invite-hero">
-          <div>
-            <p className="mw-invite-eyebrow">
-              Your invitation
-            </p>
+        <section className="mw-invite-pass-intro">
+          <span>
+            Your conference pass
+          </span>
 
-            <h2>
-              You’re
-              <em>
-                Invited!
-              </em>
-            </h2>
+          <h2>
+            {attendeeName}
+          </h2>
 
-            <p className="mw-invite-welcome">
-              <strong>
-                {attendeeName}
-              </strong>
-              , your place at Mighty Works
-              Conference 2026 is confirmed.
-              Come expectant for a time of
-              encounter, equipping and mighty
-              works.
-            </p>
-          </div>
+          <p>
+            Registration confirmed for Mighty Works Conference 2026.
+          </p>
 
-          <div className="mw-invite-theme">
+          <div className="mw-invite-pass-theme">
             <span>
-              2026 Theme
+              Theme
             </span>
 
             <strong>
-              Greater
-              <br />
-              Things
+              Greater Things
             </strong>
-
-            <small>
-              Mighty upon the earth
-            </small>
           </div>
         </section>
 
@@ -154,7 +138,7 @@ export function RegistrationInviteCard({
 
           <div>
             <span>
-              Nation
+              Country
             </span>
 
             <strong className="mw-invite-country">
@@ -168,6 +152,36 @@ export function RegistrationInviteCard({
             </strong>
           </div>
         </section>
+
+        {qrDataUrl ? (
+          <section className="mw-invite-checkin">
+            <div className="mw-invite-checkin-copy">
+              <span>
+                Venue credential
+              </span>
+
+              <strong>
+                Your secure
+                <br />
+                check-in code
+              </strong>
+
+              <p>
+                Present this QR code at the entrance for fast check-in.
+              </p>
+            </div>
+
+            <div className="mw-invite-qr-shell">
+              <Image
+                src={qrDataUrl}
+                alt="Secure Mighty Works check-in QR code"
+                width={220}
+                height={220}
+                unoptimized
+              />
+            </div>
+          </section>
+        ) : null}
 
         <section className="mw-invite-event-grid">
           <article>
@@ -225,81 +239,6 @@ export function RegistrationInviteCard({
               Browns Plains QLD 4118
             </span>
           </article>
-        </section>
-
-        <section className="mw-invite-expectation">
-          <p>
-            Come ready for
-          </p>
-
-          <div>
-            <span>
-              Encounter
-            </span>
-
-            <span>
-              Worship
-            </span>
-
-            <span>
-              The Word
-            </span>
-
-            <span>
-              Prayer
-            </span>
-
-            <span>
-              Impartation
-            </span>
-          </div>
-        </section>
-
-        {qrDataUrl ? (
-          <section className="mw-invite-checkin">
-            <div className="mw-invite-checkin-copy">
-              <span>
-                Venue credential
-              </span>
-
-              <strong>
-                Your secure
-                <br />
-                check-in code
-              </strong>
-
-              <p>
-                Present this QR code at the entrance for fast check-in.
-              </p>
-            </div>
-
-            <div className="mw-invite-qr-shell">
-              <Image
-                src={qrDataUrl}
-                alt="Secure Mighty Works check-in QR code"
-                width={220}
-                height={220}
-                unoptimized
-              />
-            </div>
-          </section>
-        ) : null}
-
-        <section className="mw-invite-scripture">
-          <div className="mw-invite-scripture-mark">
-            <Globe2 size={24} />
-          </div>
-
-          <blockquote>
-            “His seed shall be mighty
-            upon earth: the generation
-            of the upright shall be
-            blessed.”
-          </blockquote>
-
-          <span>
-            Psalm 112:2 · KJV
-          </span>
         </section>
 
         <footer className="mw-invite-footer">
