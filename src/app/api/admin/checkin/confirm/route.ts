@@ -41,6 +41,8 @@ type CheckInRpcRow = {
     | "partial_check_in"
     | "duplicate_scan"
     | "invalid_arrival_count"
+    | "invalid_count"
+    | "duplicate_operation"
     | "unavailable";
   checked_in: boolean;
   checked_in_at:
@@ -73,6 +75,7 @@ export async function POST(
   let body: {
     payload?: unknown;
     arrivalCount?: unknown;
+    operationId?: unknown;
   };
 
   try {
@@ -102,25 +105,46 @@ export async function POST(
 
   const arrivalCount =
     body.arrivalCount == null
-      ? null
+      ? 1
       : Number(
           body.arrivalCount
         );
 
+  const operationId =
+    typeof body.operationId === "string"
+      ? body.operationId.trim()
+      : "";
+
+  const uuidPattern =
+    /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
   if (
-    arrivalCount != null &&
-    (
-      !Number.isInteger(
-        arrivalCount
-      ) ||
-      arrivalCount < 1
-    )
+    !Number.isInteger(
+      arrivalCount
+    ) ||
+    arrivalCount < 1
   ) {
     return NextResponse.json(
       {
         ok: false,
         error:
           "Invalid arrival count.",
+      },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  if (
+    !operationId ||
+    !uuidPattern.test(operationId)
+  ) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error:
+          "Invalid check-in operation.",
       },
       {
         status: 400,
@@ -168,30 +192,20 @@ export async function POST(
     createAdminClient();
 
   const rpcName =
-    arrivalCount == null
-      ? "process_registration_checkin_scan"
-      : "process_registration_checkin_scan_partial";
+    "process_registration_checkin_scan_partial";
 
-  const rpcArgs =
-    arrivalCount == null
-      ? {
-          p_registration_id:
-            resolved.registrationId,
-          p_credential_version:
-            resolved.credentialVersion,
-          p_actor_email:
-            session.email,
-        }
-      : {
-          p_registration_id:
-            resolved.registrationId,
-          p_credential_version:
-            resolved.credentialVersion,
-          p_actor_email:
-            session.email,
-          p_arrival_count:
-            arrivalCount,
-        };
+  const rpcArgs = {
+    p_registration_id:
+      resolved.registrationId,
+    p_credential_version:
+      resolved.credentialVersion,
+    p_actor_email:
+      session.email,
+    p_arrival_count:
+      arrivalCount,
+    p_operation_id:
+      operationId,
+  };
 
   const {
     data: rpcData,
@@ -230,7 +244,9 @@ export async function POST(
 
   if (
     state?.outcome ===
-      "invalid_arrival_count"
+      "invalid_arrival_count" ||
+    state?.outcome ===
+      "invalid_count"
   ) {
     return NextResponse.json(
       {

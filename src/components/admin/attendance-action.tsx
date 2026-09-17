@@ -7,6 +7,7 @@ import {
   UsersRound,
 } from "lucide-react";
 import {
+  useRef,
   useState,
 } from "react";
 import {
@@ -75,33 +76,61 @@ export function AttendanceAction({
   const singlePerson =
     normalizedPartySize === 1;
 
+  const pendingOperationRef =
+    useRef<{
+      id: string;
+      action:
+        | "check_in"
+        | "check_out";
+      count: number;
+    } | null>(null);
+
   async function update(
     action:
       | "check_in"
       | "check_out",
     attendanceCount?: number
   ) {
+    const normalizedCount =
+      attendanceCount ?? 1;
+
+    const pending =
+      pendingOperationRef.current;
+
+    const operation =
+      pending &&
+      pending.action === action &&
+      pending.count === normalizedCount
+        ? pending
+        : {
+            id:
+              crypto.randomUUID(),
+            action,
+            count:
+              normalizedCount,
+          };
+
+    pendingOperationRef.current =
+      operation;
     setLoading(true);
     setMessage(null);
 
     try {
-      const body:
-        {
-          action:
-            | "check_in"
-            | "check_out";
-          attendanceCount?:
-            number;
-        } = {
-          action,
-        };
-
-      if (
-        attendanceCount != null
-      ) {
-        body.attendanceCount =
-          attendanceCount;
-      }
+      const body: {
+        action:
+          | "check_in"
+          | "check_out";
+        attendanceCount:
+          number;
+        operationId:
+          string;
+      } = {
+        action,
+        attendanceCount:
+          normalizedCount,
+        operationId:
+          operation.id,
+      };
 
       const response =
         await fetch(
@@ -122,6 +151,11 @@ export function AttendanceAction({
 
       const result =
         (await response.json()) as AttendanceResult;
+
+      // Any HTTP response is definitive. The same
+      // logical operation no longer needs to be retained.
+      pendingOperationRef.current =
+        null;
 
       if (
         !response.ok ||
@@ -157,6 +191,9 @@ export function AttendanceAction({
 
       router.refresh();
     } catch {
+      // Transport failure is ambiguous: the server may
+      // already have committed. Keep the operation UUID
+      // so the same action/count can be retried safely.
       setMessage(
         "Unable to reach the server."
       );

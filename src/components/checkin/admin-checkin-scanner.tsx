@@ -343,6 +343,13 @@ export function AdminCheckInScanner() {
     stopScanner,
   ]);
 
+  const pendingCheckInOperationRef =
+    useRef<{
+      id: string;
+      payload: string;
+      arrivalCount: number;
+    } | null>(null);
+
   async function confirmCheckIn() {
     if (
       scannerState.status !==
@@ -355,6 +362,27 @@ export function AdminCheckInScanner() {
       payload,
     } =
       scannerState;
+
+    const arrivalCount = 1;
+
+    const pending =
+      pendingCheckInOperationRef.current;
+
+    const operation =
+      pending &&
+      pending.payload === payload &&
+      pending.arrivalCount ===
+        arrivalCount
+        ? pending
+        : {
+            id:
+              crypto.randomUUID(),
+            payload,
+            arrivalCount,
+          };
+
+    pendingCheckInOperationRef.current =
+      operation;
 
     setScannerState({
       status:
@@ -375,6 +403,9 @@ export function AdminCheckInScanner() {
             body:
               JSON.stringify({
                 payload,
+                arrivalCount,
+                operationId:
+                  operation.id,
               }),
           }
         );
@@ -388,6 +419,9 @@ export function AdminCheckInScanner() {
           attendee?:
             Attendee;
         };
+
+      pendingCheckInOperationRef.current =
+        null;
 
       if (
         !response.ok ||
@@ -425,6 +459,8 @@ export function AdminCheckInScanner() {
         alreadyCheckedIn,
       });
     } catch {
+      // Preserve the UUID after an ambiguous network
+      // failure so retrying this credential is safe.
       setScannerState({
         status:
           "error",
@@ -477,6 +513,9 @@ export function AdminCheckInScanner() {
   ]);
 
   function scanNext() {
+    pendingCheckInOperationRef.current =
+      null;
+
     setManualPayload("");
 
     void startScanner();

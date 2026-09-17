@@ -24,6 +24,7 @@ type AttendanceRpcRow = {
     | "already_checked_in"
     | "already_checked_out"
     | "invalid_count"
+    | "duplicate_operation"
     | "unavailable";
   checked_in: boolean;
   checked_in_at:
@@ -65,6 +66,7 @@ export async function POST(
   let body: {
     action?: unknown;
     attendanceCount?: unknown;
+    operationId?: unknown;
   };
 
   try {
@@ -106,19 +108,24 @@ export async function POST(
 
   const attendanceCount =
     body.attendanceCount == null
-      ? null
+      ? 1
       : Number(
           body.attendanceCount
         );
 
+  const operationId =
+    typeof body.operationId === "string"
+      ? body.operationId.trim()
+      : "";
+
+  const uuidPattern =
+    /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
   if (
-    attendanceCount != null &&
-    (
-      !Number.isInteger(
-        attendanceCount
-      ) ||
-      attendanceCount < 1
-    )
+    !Number.isInteger(
+      attendanceCount
+    ) ||
+    attendanceCount < 1
   ) {
     return NextResponse.json(
       {
@@ -132,34 +139,40 @@ export async function POST(
     );
   }
 
+  if (
+    !operationId ||
+    !uuidPattern.test(operationId)
+  ) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error:
+          "Invalid attendance operation.",
+      },
+      {
+        status: 400,
+      }
+    );
+  }
+
   const admin =
     createAdminClient();
 
   const rpcName =
-    attendanceCount == null
-      ? "set_registration_attendance_admin"
-      : "set_registration_attendance_admin_partial";
+    "set_registration_attendance_admin_partial";
 
-  const rpcArgs =
-    attendanceCount == null
-      ? {
-          p_registration_id:
-            id,
-          p_action:
-            body.action,
-          p_actor_email:
-            session.email,
-        }
-      : {
-          p_registration_id:
-            id,
-          p_action:
-            body.action,
-          p_actor_email:
-            session.email,
-          p_count:
-            attendanceCount,
-        };
+  const rpcArgs = {
+    p_registration_id:
+      id,
+    p_action:
+      body.action,
+    p_actor_email:
+      session.email,
+    p_count:
+      attendanceCount,
+    p_operation_id:
+      operationId,
+  };
 
   const {
     data,
