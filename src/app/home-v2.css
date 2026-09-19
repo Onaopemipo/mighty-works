@@ -14357,3 +14357,2336 @@
     opacity: 0.64;
   }
 }
+/* =========================================================
+   MW-HOME-V3-S2-P1B-1 — FOUNDATION + ATMOSPHERE
+
+   Mighty Works Conference Story Experience.
+
+   Establishes:
+   - section canvas
+   - atmospheric depth
+   - orbit system
+   - grain field
+   - primary content shell
+
+   Hero remains frozen.
+   ========================================================= */
+
+.mw-story-v3 {
+  position: relative;
+
+  isolation: isolate;
+
+  overflow: clip;
+
+  min-height: 100svh;
+
+  color: #f6f1e7;
+
+  background:
+    linear-gradient(
+      180deg,
+      #050713 0%,
+      #080919 22%,
+      #0b0918 58%,
+      #050713 100%
+    );
+}
+
+.mw-story-v3-atmosphere {
+  position: absolute;
+
+  z-index: 0;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.mw-story-v3-glow {
+  position: absolute;
+
+  top: 4%;
+  left: 50%;
+
+  width:
+    min(
+      1050px,
+      78vw
+    );
+
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        239,
+        75,
+        91,
+        0.14
+      ) 0%,
+      rgba(
+        93,
+        80,
+        163,
+        0.09
+      ) 32%,
+      transparent 69%
+    );
+
+  filter:
+    blur(26px);
+
+  opacity: 0.82;
+}
+
+.mw-story-v3-orbit {
+  position: absolute;
+
+  border:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.055
+      );
+
+  border-radius: 50%;
+
+  transform:
+    rotate(-18deg);
+}
+
+.mw-story-v3-orbit-one {
+  top: 2%;
+  right: -17%;
+
+  width: 62vw;
+  height: 62vw;
+
+  max-width: 980px;
+  max-height: 980px;
+}
+
+.mw-story-v3-orbit-two {
+  top: 38%;
+  left: -28%;
+
+  width: 72vw;
+  height: 72vw;
+
+  max-width: 1080px;
+  max-height: 1080px;
+
+  border-color:
+    rgba(
+      239,
+      75,
+      91,
+      0.07
+    );
+}
+
+.mw-story-v3-grain {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.13;
+
+  background-image:
+    radial-gradient(
+      rgba(
+        255,
+        255,
+        255,
+        0.26
+      ) 0.55px,
+      transparent 0.55px
+    );
+
+  background-size:
+    7px 7px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 15%,
+      black 85%,
+      transparent
+    );
+}
+
+.mw-story-v3-shell {
+  position: relative;
+
+  z-index: 2;
+
+  width:
+    min(
+      calc(100% - 40px),
+      1500px
+    );
+
+  margin:
+    0 auto;
+}
+
+/* =========================================================
+   MW-HOME-V3-S2-P1B-2 — CINEMATIC OPENING STATEMENT
+
+   Establishes:
+   - hero-to-story transition
+   - story metadata
+   - oversized opening statement
+   - introductory mandate copy
+   - scroll cue
+
+   Story rail / chapters / finale remain deferred.
+   ========================================================= */
+
+.mw-story-v3-opening {
+  position: relative;
+
+  min-height: 92svh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding:
+    120px 0
+    110px;
+}
+
+.mw-story-v3-opening::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 1px;
+  height: 110px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(
+        239,
+        75,
+        91,
+        0
+      ),
+      rgba(
+        239,
+        75,
+        91,
+        0.55
+      )
+    );
+}
+
+.mw-story-v3-opening-meta {
+  display: flex;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  gap: 30px;
+
+  margin-bottom: 38px;
+
+  font-size: 0.67rem;
+
+  font-weight: 750;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.28em;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.44
+    );
+}
+
+.mw-story-v3-kicker {
+  color: #ef4b5b;
+}
+
+.mw-story-v3-opening h2 {
+  max-width: 1160px;
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      6rem,
+      10.6vw,
+      11rem
+    );
+
+  line-height: 0.78;
+
+  font-weight: 400;
+
+  letter-spacing:
+    -0.075em;
+
+  color: #f6f1e7;
+}
+
+.mw-story-v3-opening h2 span {
+  display: block;
+
+  margin-left:
+    clamp(
+      80px,
+      11vw,
+      180px
+    );
+
+  margin-top: 0.16em;
+
+  color: #ef4b5b;
+}
+
+.mw-story-v3-opening-foot {
+  display: grid;
+
+  grid-template-columns:
+    minmax(
+      280px,
+      500px
+    )
+    auto;
+
+  justify-content:
+    space-between;
+
+  align-items: end;
+
+  gap: 60px;
+
+  margin-top: 70px;
+}
+
+.mw-story-v3-opening-foot > p {
+  margin: 0;
+
+  font-size:
+    clamp(
+      1rem,
+      1.2vw,
+      1.18rem
+    );
+
+  line-height: 1.85;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.54
+    );
+}
+
+.mw-story-v3-scroll-cue {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  min-width: 220px;
+
+  font-size: 0.6rem;
+
+  font-weight: 750;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.23em;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.36
+    );
+}
+
+.mw-story-v3-scroll-cue i {
+  display: block;
+
+  width: 86px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ef4b5b,
+      transparent
+    );
+}
+
+/* =========================================================
+   MW-HOME-V3-S2-P1B-3 — DESKTOP JOURNEY RAIL
+
+   Establishes:
+   - journey section boundary
+   - desktop two-column story architecture
+   - sticky timeline rail
+   - 2019 -> 2026 progression
+   - mandate rail copy
+
+   Individual chapter styling remains deferred.
+   ========================================================= */
+
+.mw-story-v3-journey {
+  position: relative;
+
+  border-top:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.07
+      );
+}
+
+.mw-story-v3-rail {
+  position: relative;
+}
+
+.mw-story-v3-rail-sticky > p:first-child {
+  margin: 0;
+
+  font-size: 0.61rem;
+
+  font-weight: 750;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.28em;
+
+  color: #ef4b5b;
+}
+
+.mw-story-v3-year-range {
+  display: grid;
+
+  grid-template-columns:
+    auto 1fr auto;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 28px;
+}
+
+.mw-story-v3-year-range strong {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      1.2rem,
+      1.6vw,
+      1.65rem
+    );
+
+  font-weight: 400;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.76
+    );
+}
+
+.mw-story-v3-year-range strong:last-child {
+  color: #ef4b5b;
+}
+
+.mw-story-v3-year-range div {
+  position: relative;
+
+  height: 1px;
+
+  background:
+    rgba(
+      246,
+      241,
+      231,
+      0.11
+    );
+}
+
+.mw-story-v3-year-range i {
+  position: absolute;
+
+  top: -1px;
+  left: 0;
+
+  width: 52%;
+  height: 3px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ef4b5b,
+      #5d50a3
+    );
+
+  box-shadow:
+    0 0 18px
+      rgba(
+        239,
+        75,
+        91,
+        0.22
+      );
+}
+
+.mw-story-v3-rail-copy {
+  margin-top: 30px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      1.4rem,
+      1.7vw,
+      1.8rem
+    );
+
+  line-height: 1.3;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.52
+    );
+}
+
+
+/* =========================================================
+   DESKTOP STORY ARCHITECTURE
+   ========================================================= */
+
+@media (min-width: 1100px) {
+
+  .mw-story-v3-journey {
+    display: grid;
+
+    grid-template-columns:
+      minmax(
+        270px,
+        0.34fr
+      )
+      minmax(
+        0,
+        1fr
+      );
+
+    gap:
+      clamp(
+        70px,
+        8vw,
+        150px
+      );
+
+    align-items: start;
+  }
+
+  .mw-story-v3-rail {
+    align-self: stretch;
+
+    min-height: 100%;
+  }
+
+  .mw-story-v3-rail-sticky {
+    position: sticky;
+
+    top: 150px;
+
+    padding:
+      100px 0
+      90px;
+  }
+
+  .mw-story-v3-chapters {
+    position: relative;
+
+    min-width: 0;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S2-P1B-4 — CINEMATIC STORY CHAPTERS
+
+   Establishes:
+   - chapter rhythm
+   - year markers
+   - story titles
+   - mandate labels
+   - scripture treatment
+   - body copy
+   - quotations
+
+   Special 2026 treatment remains deferred to P1B-5.
+   Finale remains deferred to P1B-6.
+   ========================================================= */
+
+.mw-story-v3-chapters {
+  position: relative;
+}
+
+.mw-story-v3-chapter {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(
+      120px,
+      0.22fr
+    )
+    minmax(
+      0,
+      1fr
+    );
+
+  gap:
+    clamp(
+      40px,
+      6vw,
+      100px
+    );
+
+  align-items: center;
+
+  min-height: 72vh;
+
+  padding:
+    100px 0;
+
+  border-top:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.065
+      );
+}
+
+.mw-story-v3-chapter:first-child {
+  border-top: 0;
+}
+
+.mw-story-v3-chapter-marker {
+  align-self: start;
+
+  padding-top: 9px;
+}
+
+.mw-story-v3-chapter-marker span {
+  display: block;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      1.5rem,
+      2.1vw,
+      2.3rem
+    );
+
+  line-height: 1;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.36
+    );
+}
+
+.mw-story-v3-chapter-marker i {
+  display: block;
+
+  width: 100%;
+  height: 1px;
+
+  margin-top: 19px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(
+        239,
+        75,
+        91,
+        0.72
+      ),
+      transparent
+    );
+}
+
+.mw-story-v3-chapter-body {
+  position: relative;
+
+  min-width: 0;
+
+  max-width: 850px;
+}
+
+.mw-story-v3-chapter-kicker {
+  margin:
+    0 0 18px;
+
+  font-size: 0.59rem;
+
+  font-weight: 750;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.26em;
+
+  color: #ef4b5b;
+}
+
+.mw-story-v3-chapter-body h3 {
+  max-width: 12ch;
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      4.2rem,
+      6.1vw,
+      7rem
+    );
+
+  line-height: 0.88;
+
+  font-weight: 400;
+
+  letter-spacing:
+    -0.055em;
+
+  text-wrap: balance;
+
+  color: #f6f1e7;
+}
+
+.mw-story-v3-scripture {
+  margin:
+    24px 0 0;
+
+  font-size: 0.67rem;
+
+  font-weight: 800;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.28em;
+
+  color: #ef4b5b;
+}
+
+.mw-story-v3-body-copy {
+  max-width: 660px;
+
+  margin:
+    32px 0 0;
+
+  font-size:
+    clamp(
+      1rem,
+      1.15vw,
+      1.12rem
+    );
+
+  line-height: 1.88;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.51
+    );
+}
+
+
+/* =========================================================
+   STORY QUOTATIONS
+   ========================================================= */
+
+.mw-story-v3-chapter-body
+  blockquote {
+  position: relative;
+
+  max-width: 760px;
+
+  margin:
+    36px 0 0;
+
+  padding:
+    0 0 0 30px;
+
+  border-left:
+    1px solid
+      rgba(
+        239,
+        75,
+        91,
+        0.72
+      );
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      1.5rem,
+      2.3vw,
+      2.55rem
+    );
+
+  line-height: 1.4;
+
+  font-style: italic;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.8
+    );
+}
+
+.mw-story-v3-chapter-body
+  blockquote span {
+  position: absolute;
+
+  top: -34px;
+  left: 12px;
+
+  font-size: 4.8rem;
+
+  line-height: 1;
+
+  color:
+    rgba(
+      239,
+      75,
+      91,
+      0.28
+    );
+}
+
+
+/* =========================================================
+   YEAR CHAPTER EMPHASIS
+   ========================================================= */
+
+.mw-story-v3-chapter.is-year
+  .mw-story-v3-chapter-marker
+  span {
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.64
+    );
+}
+
+.mw-story-v3-chapter.is-year
+  .mw-story-v3-chapter-marker
+  i {
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ef4b5b,
+      rgba(
+        93,
+        80,
+        163,
+        0.58
+      ),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   DESKTOP CHAPTER CALIBRATION
+   ========================================================= */
+
+@media (min-width: 1100px) {
+
+  .mw-story-v3-chapter {
+    min-height: 78vh;
+
+    padding:
+      110px 0;
+  }
+
+  .mw-story-v3-chapter.is-year {
+    min-height: 70vh;
+  }
+
+  .mw-story-v3-chapter-body h3 {
+    font-size:
+      clamp(
+        4.4rem,
+        5.7vw,
+        6.8rem
+      );
+  }
+
+  .mw-story-v3-chapter-marker {
+    position: sticky;
+
+    top: 170px;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S2-P1B-5 — 2026 GREATER THINGS CULMINATION
+
+   Gives the current 2026 chapter distinct spatial authority:
+   - expanded chapter field
+   - coral current-year marker
+   - Greater Things emphasis
+   - atmospheric radial illumination
+   - concentric orbital depth
+
+   Finale remains deferred.
+   ========================================================= */
+
+.mw-story-v3-chapter.is-current {
+  isolation: isolate;
+
+  min-height: 92vh;
+
+  border-top-color:
+    rgba(
+      239,
+      75,
+      91,
+      0.18
+    );
+}
+
+.mw-story-v3-chapter.is-current::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: -2;
+
+  top: 50%;
+  left: 50%;
+
+  width:
+    min(
+      900px,
+      76vw
+    );
+
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  transform:
+    translate(
+      -42%,
+      -50%
+    );
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        239,
+        75,
+        91,
+        0.11
+      ) 0%,
+      rgba(
+        93,
+        80,
+        163,
+        0.07
+      ) 34%,
+      transparent 68%
+    );
+
+  filter:
+    blur(12px);
+
+  pointer-events: none;
+}
+
+.mw-story-v3-chapter.is-current
+  .mw-story-v3-chapter-marker
+  span {
+  color: #ef4b5b;
+
+  text-shadow:
+    0 0 24px
+      rgba(
+        239,
+        75,
+        91,
+        0.24
+      );
+}
+
+.mw-story-v3-chapter.is-current
+  .mw-story-v3-chapter-marker
+  i {
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ef4b5b,
+      #f2939f 42%,
+      transparent
+    );
+
+  box-shadow:
+    0 0 20px
+      rgba(
+        239,
+        75,
+        91,
+        0.24
+      );
+}
+
+.mw-story-v3-chapter.is-current
+  .mw-story-v3-chapter-kicker {
+  color: #f2939f;
+}
+
+.mw-story-v3-chapter.is-current
+  .mw-story-v3-chapter-body
+  h3 {
+  color: #f2939f;
+
+  text-shadow:
+    0 0 42px
+      rgba(
+        239,
+        75,
+        91,
+        0.09
+      );
+}
+
+.mw-story-v3-chapter.is-current
+  .mw-story-v3-body-copy {
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.64
+    );
+}
+
+
+/* =========================================================
+   CURRENT-YEAR ORBIT
+   ========================================================= */
+
+.mw-story-v3-current-orbit {
+  position: absolute;
+
+  z-index: -1;
+
+  top: 50%;
+  right: -13%;
+
+  width:
+    min(
+      680px,
+      52vw
+    );
+
+  aspect-ratio: 1;
+
+  border:
+    1px solid
+      rgba(
+        239,
+        75,
+        91,
+        0.12
+      );
+
+  border-radius: 50%;
+
+  transform:
+    translateY(-50%)
+    rotate(-11deg);
+
+  box-shadow:
+    inset 0 0 90px
+      rgba(
+        93,
+        80,
+        163,
+        0.06
+      ),
+    0 0 100px
+      rgba(
+        239,
+        75,
+        91,
+        0.025
+      );
+
+  pointer-events: none;
+}
+
+.mw-story-v3-current-orbit::before,
+.mw-story-v3-current-orbit::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: inherit;
+
+  border:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.045
+      );
+}
+
+.mw-story-v3-current-orbit::before {
+  inset: 12%;
+}
+
+.mw-story-v3-current-orbit::after {
+  inset: 28%;
+
+  border-color:
+    rgba(
+      239,
+      75,
+      91,
+      0.07
+    );
+}
+
+
+/* =========================================================
+   DESKTOP CURRENT-YEAR CALIBRATION
+   ========================================================= */
+
+@media (min-width: 1100px) {
+
+  .mw-story-v3-chapter.is-current {
+    min-height: 94vh;
+
+    padding:
+      130px 0;
+  }
+
+  .mw-story-v3-chapter.is-current
+    .mw-story-v3-chapter-body
+    h3 {
+    font-size:
+      clamp(
+        5rem,
+        6.4vw,
+        7.6rem
+      );
+  }
+
+  .mw-story-v3-chapter.is-current
+    .mw-story-v3-body-copy {
+    max-width: 700px;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S2-P1B-6 — FINALE + DESKTOP CERTIFICATION
+
+   Completes desktop conference-story experience:
+   - 2026 finale
+   - Greater Things lockup
+   - John 14:12 identity
+   - transition into Experience
+   - reduced-motion protection
+
+   Tablet/mobile calibration remains deferred.
+   ========================================================= */
+
+.mw-story-v3-finale {
+  position: relative;
+
+  min-height: 84svh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  padding:
+    120px 0;
+
+  text-align: center;
+
+  border-top:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.065
+      );
+}
+
+.mw-story-v3-finale::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: -1;
+
+  top: 50%;
+  left: 50%;
+
+  width:
+    min(
+      850px,
+      68vw
+    );
+
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        239,
+        75,
+        91,
+        0.09
+      ),
+      rgba(
+        93,
+        80,
+        163,
+        0.045
+      ) 38%,
+      transparent 68%
+    );
+
+  filter:
+    blur(14px);
+
+  pointer-events: none;
+}
+
+.mw-story-v3-finale > p {
+  margin:
+    0 0 28px;
+
+  font-size: 0.65rem;
+
+  font-weight: 800;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.38em;
+
+  color: #ef4b5b;
+}
+
+.mw-story-v3-finale h3 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      6rem,
+      11vw,
+      11.5rem
+    );
+
+  line-height: 0.75;
+
+  font-weight: 400;
+
+  letter-spacing:
+    -0.075em;
+
+  color: #f6f1e7;
+}
+
+.mw-story-v3-finale h3 span {
+  display: block;
+
+  margin-top: 0.2em;
+
+  color: #ef4b5b;
+}
+
+.mw-story-v3-finale-meta {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  margin-top: 56px;
+
+  font-size: 0.62rem;
+
+  font-weight: 750;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.26em;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.42
+    );
+}
+
+.mw-story-v3-finale-meta i {
+  width: 72px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ef4b5b,
+      #5d50a3
+    );
+}
+
+
+/* =========================================================
+   EXPERIENCE HANDOFF
+   ========================================================= */
+
+.mw-story-v3-handoff {
+  position: absolute;
+
+  z-index: 3;
+
+  left: 50%;
+  bottom: 0;
+
+  width:
+    min(
+      1100px,
+      86vw
+    );
+
+  height: 150px;
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center bottom,
+      rgba(
+        93,
+        80,
+        163,
+        0.14
+      ),
+      rgba(
+        239,
+        75,
+        91,
+        0.035
+      ) 40%,
+      transparent 72%
+    );
+
+  filter:
+    blur(8px);
+}
+
+.mw-story-v3-handoff::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 1px;
+  height: 76px;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(
+        239,
+        75,
+        91,
+        0.5
+      )
+    );
+}
+
+
+/* =========================================================
+   DESKTOP FINALE CALIBRATION
+   ========================================================= */
+
+@media (min-width: 1100px) {
+
+  .mw-story-v3-finale {
+    min-height: 90vh;
+
+    padding:
+      150px 0
+      180px;
+  }
+
+  .mw-story-v3-finale h3 {
+    font-size:
+      clamp(
+        7rem,
+        10.5vw,
+        11.5rem
+      );
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+
+  .mw-story-v3 *,
+  .mw-story-v3 *::before,
+  .mw-story-v3 *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    transition-duration:
+      0.01ms !important;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S2-P1B-R1 — DESKTOP STORY RHYTHM
+
+   Desktop visual calibration only.
+
+   Ordinary year chapters are tightened to prevent the
+   2019–2025 journey becoming unnecessarily repetitive.
+
+   Opening composition frozen.
+   2026 culmination geometry frozen.
+   Finale geometry frozen.
+   ========================================================= */
+
+@media (min-width: 1100px) {
+
+  .mw-story-v3-chapter {
+    min-height: 58vh;
+
+    padding:
+      76px 0;
+  }
+
+  .mw-story-v3-chapter.is-year {
+    min-height: 54vh;
+
+    padding:
+      70px 0;
+  }
+
+  .mw-story-v3-chapter.is-current {
+    min-height: 94vh;
+
+    padding:
+      130px 0;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S2-P2A — TABLET FOUNDATION + OPENING
+
+   Breakpoint: 768px–1099px
+
+   Establishes tablet:
+   - section shell
+   - atmospheric scale
+   - opening height
+   - opening typography
+   - mandate copy
+   - scroll cue
+
+   Desktop >=1100px remains frozen.
+   Journey/chapter calibration deferred to P2B.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1099px
+) {
+
+  .mw-story-v3-shell {
+    width:
+      min(
+        calc(100% - 64px),
+        960px
+      );
+  }
+
+  .mw-story-v3-glow {
+    top: 2%;
+
+    width: 92vw;
+
+    opacity: 0.72;
+  }
+
+  .mw-story-v3-orbit-one {
+    top: 5%;
+    right: -34%;
+
+    width: 84vw;
+    height: 84vw;
+  }
+
+  .mw-story-v3-orbit-two {
+    left: -43%;
+
+    width: 94vw;
+    height: 94vw;
+  }
+
+
+  /* -------------------------------------------------------
+     OPENING
+     ------------------------------------------------------- */
+
+  .mw-story-v3-opening {
+    min-height: 82svh;
+
+    padding:
+      112px 0
+      96px;
+  }
+
+  .mw-story-v3-opening::before {
+    height: 82px;
+  }
+
+  .mw-story-v3-opening-meta {
+    margin-bottom: 34px;
+
+    font-size: 0.61rem;
+
+    letter-spacing: 0.24em;
+  }
+
+  .mw-story-v3-opening h2 {
+    max-width: 900px;
+
+    font-size:
+      clamp(
+        5.4rem,
+        12.8vw,
+        8.2rem
+      );
+
+    line-height: 0.8;
+  }
+
+  .mw-story-v3-opening h2 span {
+    margin-left:
+      clamp(
+        50px,
+        9vw,
+        96px
+      );
+
+    margin-top: 0.17em;
+  }
+
+  .mw-story-v3-opening-foot {
+    grid-template-columns:
+      minmax(
+        260px,
+        460px
+      )
+      auto;
+
+    gap: 42px;
+
+    margin-top: 58px;
+  }
+
+  .mw-story-v3-opening-foot > p {
+    font-size: 1rem;
+
+    line-height: 1.78;
+  }
+
+  .mw-story-v3-scroll-cue {
+    min-width: 180px;
+
+    gap: 14px;
+
+    font-size: 0.55rem;
+  }
+
+  .mw-story-v3-scroll-cue i {
+    width: 58px;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S2-P2B — TABLET JOURNEY + CHAPTERS
+
+   Breakpoint: 768px–1099px
+
+   Tablet uses an editorial single-column journey rather
+   than shrinking the desktop sticky two-column composition.
+
+   Establishes:
+   - horizontal journey introduction
+   - non-sticky tablet rail
+   - compact chapter rhythm
+   - tablet year markers
+   - tablet story typography
+   - tablet quote/body treatment
+
+   2026 culmination + finale remain deferred to P2C.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1099px
+) {
+
+  /* -------------------------------------------------------
+     JOURNEY
+     ------------------------------------------------------- */
+
+  .mw-story-v3-journey {
+    display: block;
+
+    padding-top: 76px;
+  }
+
+  .mw-story-v3-rail {
+    min-height: 0;
+
+    padding-bottom: 54px;
+
+    border-bottom:
+      1px solid
+        rgba(
+          246,
+          241,
+          231,
+          0.07
+        );
+  }
+
+  .mw-story-v3-rail-sticky {
+    position: static;
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(
+        0,
+        1fr
+      )
+      minmax(
+        260px,
+        0.72fr
+      );
+
+    align-items: end;
+
+    gap: 48px;
+
+    padding: 0;
+  }
+
+  .mw-story-v3-rail-sticky
+    > p:first-child {
+    grid-column: 1 / -1;
+
+    font-size: 0.58rem;
+
+    letter-spacing: 0.26em;
+  }
+
+  .mw-story-v3-year-range {
+    margin-top: 20px;
+  }
+
+  .mw-story-v3-year-range strong {
+    font-size:
+      clamp(
+        1.25rem,
+        2.5vw,
+        1.65rem
+      );
+  }
+
+  .mw-story-v3-rail-copy {
+    margin-top: 0;
+
+    font-size:
+      clamp(
+        1.3rem,
+        2.5vw,
+        1.7rem
+      );
+
+    text-align: right;
+  }
+
+
+  /* -------------------------------------------------------
+     CHAPTER STREAM
+     ------------------------------------------------------- */
+
+  .mw-story-v3-chapters {
+    min-width: 0;
+  }
+
+  .mw-story-v3-chapter {
+    grid-template-columns:
+      112px
+      minmax(
+        0,
+        1fr
+      );
+
+    gap:
+      clamp(
+        34px,
+        5vw,
+        58px
+      );
+
+    min-height: 0;
+
+    align-items: start;
+
+    padding:
+      76px 0;
+
+    border-top:
+      1px solid
+        rgba(
+          246,
+          241,
+          231,
+          0.065
+        );
+  }
+
+  .mw-story-v3-chapter:first-child {
+    border-top: 0;
+  }
+
+  .mw-story-v3-chapter.is-year {
+    min-height: 0;
+
+    padding:
+      68px 0;
+  }
+
+
+  /* -------------------------------------------------------
+     YEAR MARKERS
+     ------------------------------------------------------- */
+
+  .mw-story-v3-chapter-marker {
+    position: static;
+
+    align-self: start;
+
+    padding-top: 8px;
+  }
+
+  .mw-story-v3-chapter-marker span {
+    font-size:
+      clamp(
+        1.25rem,
+        2.8vw,
+        1.75rem
+      );
+  }
+
+  .mw-story-v3-chapter-marker i {
+    margin-top: 16px;
+  }
+
+
+  /* -------------------------------------------------------
+     CHAPTER TYPOGRAPHY
+     ------------------------------------------------------- */
+
+  .mw-story-v3-chapter-kicker {
+    margin-bottom: 15px;
+
+    font-size: 0.55rem;
+
+    letter-spacing: 0.23em;
+  }
+
+  .mw-story-v3-chapter-body h3 {
+    max-width: 11ch;
+
+    font-size:
+      clamp(
+        3.4rem,
+        7.5vw,
+        5.2rem
+      );
+
+    line-height: 0.9;
+  }
+
+  .mw-story-v3-scripture {
+    margin-top: 20px;
+
+    font-size: 0.61rem;
+  }
+
+  .mw-story-v3-body-copy {
+    max-width: 600px;
+
+    margin-top: 25px;
+
+    font-size:
+      clamp(
+        0.96rem,
+        1.8vw,
+        1.06rem
+      );
+
+    line-height: 1.78;
+  }
+
+
+  /* -------------------------------------------------------
+     QUOTATIONS
+     ------------------------------------------------------- */
+
+  .mw-story-v3-chapter-body
+    blockquote {
+    max-width: 620px;
+
+    margin-top: 28px;
+
+    padding-left: 24px;
+
+    font-size:
+      clamp(
+        1.35rem,
+        3vw,
+        2rem
+      );
+
+    line-height: 1.42;
+  }
+
+  .mw-story-v3-chapter-body
+    blockquote span {
+    top: -27px;
+
+    font-size: 4rem;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S2-P2C — TABLET 2026 + FINALE
+
+   Breakpoint: 768px–1099px
+
+   Establishes:
+   - tablet 2026 culmination
+   - tablet orbital depth
+   - Greater Things finale
+   - finale metadata
+   - Experience handoff
+
+   Desktop >=1100px remains frozen.
+   Mobile <768px remains deferred.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1099px
+) {
+
+  /* -------------------------------------------------------
+     2026 CULMINATION
+     ------------------------------------------------------- */
+
+  .mw-story-v3-chapter.is-current {
+    min-height: 76svh;
+
+    padding:
+      96px 0;
+
+    overflow: hidden;
+  }
+
+  .mw-story-v3-chapter.is-current::before {
+    width:
+      min(
+        760px,
+        92vw
+      );
+
+    transform:
+      translate(
+        -46%,
+        -50%
+      );
+
+    opacity: 0.82;
+  }
+
+  .mw-story-v3-chapter.is-current
+    .mw-story-v3-chapter-body
+    h3 {
+    max-width: 10ch;
+
+    font-size:
+      clamp(
+        4.2rem,
+        9vw,
+        6.3rem
+      );
+  }
+
+  .mw-story-v3-chapter.is-current
+    .mw-story-v3-body-copy {
+    max-width: 620px;
+  }
+
+
+  /* -------------------------------------------------------
+     CURRENT-YEAR ORBIT
+     ------------------------------------------------------- */
+
+  .mw-story-v3-current-orbit {
+    top: 52%;
+    right: -24%;
+
+    width:
+      min(
+        560px,
+        68vw
+      );
+
+    opacity: 0.82;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET FINALE
+     ------------------------------------------------------- */
+
+  .mw-story-v3-finale {
+    min-height: 76svh;
+
+    padding:
+      110px 0
+      138px;
+  }
+
+  .mw-story-v3-finale::before {
+    width:
+      min(
+        720px,
+        84vw
+      );
+  }
+
+  .mw-story-v3-finale > p {
+    margin-bottom: 24px;
+
+    font-size: 0.61rem;
+  }
+
+  .mw-story-v3-finale h3 {
+    font-size:
+      clamp(
+        5.7rem,
+        13vw,
+        8.4rem
+      );
+
+    line-height: 0.77;
+  }
+
+  .mw-story-v3-finale h3 span {
+    margin-top: 0.18em;
+  }
+
+  .mw-story-v3-finale-meta {
+    gap: 14px;
+
+    margin-top: 44px;
+
+    font-size: 0.56rem;
+
+    letter-spacing: 0.22em;
+  }
+
+  .mw-story-v3-finale-meta i {
+    width: 52px;
+  }
+
+
+  /* -------------------------------------------------------
+     EXPERIENCE HANDOFF
+     ------------------------------------------------------- */
+
+  .mw-story-v3-handoff {
+    width: 92vw;
+    height: 120px;
+  }
+
+  .mw-story-v3-handoff::before {
+    height: 60px;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-13 — TABLET OPPOSITE SUPPORT RAILS
+
+   Tablet only: 768px–1199px.
+
+   8th Edition = left support rail.
+   Scripture   = right support rail.
+
+   Vertical positions and sizes remain unchanged.
+   Hosts / title / ribbons / Earth / event remain frozen.
+   Mobile and desktop remain unchanged.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1199px
+) {
+
+  .mw-hero-v3-edition {
+    left: 4%;
+    right: auto;
+  }
+
+  .mw-hero-v3-scripture {
+    left: auto;
+    right: 4%;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-13-R1 — TABLET SCRIPTURE VERTICAL ALIGNMENT
+
+   Tablet only: 768px–1199px.
+
+   Align scripture vertically with the 8th Edition support
+   rail while preserving opposite horizontal placement.
+
+   Edition position/scale frozen.
+   Hosts/title/ribbons/lower composition frozen.
+   Mobile + desktop unchanged.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1199px
+) {
+
+  .mw-hero-v3-scripture {
+    top: 16%;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-13-R2 — TABLET SUPPORT RAIL LEVEL MATCH
+
+   Tablet only.
+   Final vertical alignment:
+   Edition left / Scripture right / same upper support level.
+
+   All other hero geometry frozen.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1199px
+) {
+  .mw-hero-v3-scripture {
+    top: 12%;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-14 — TABLET EVENT PANEL CENTRING
+
+   Tablet only: 768px–1199px.
+
+   Centres the complete event-information panel as one unit.
+
+   Internal Saturday / Sunday / Venue geometry frozen.
+   Vertical position frozen.
+   Hero hosts/title/support rails frozen.
+   Mobile + desktop unchanged.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1199px
+) {
+
+  .mw-hero-v3-event-panel {
+    left: 0;
+    right: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    translate: none;
+    transform: none;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-14-R1 — TABLET EVENT PANEL THEME AXIS
+
+   Tablet only: 768px–1199px.
+
+   Keeps the event panel physically centred, then shifts the
+   complete panel right to align with the visual centre of
+   the GREATER THINGS lockup.
+
+   Internal event geometry and vertical position frozen.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1199px
+) {
+  .mw-hero-v3-event-panel {
+    left: 5%;
+    right: -5%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    translate: none;
+    transform: none;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-15 — TABLET FOLUKE LABEL OUTER RAIL
+
+   Tablet only: 768px–1199px.
+
+   Moves Mrs Foluke's host label off the portrait and onto
+   the outer-right support rail.
+
+   Vertical position and typography remain unchanged.
+   Portrait geometry remains unchanged.
+   Pastor label remains unchanged.
+   Mobile + desktop remain unchanged.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1199px
+) {
+
+  .mw-hero-v3-host-foluke figcaption {
+    left: auto;
+    right: -14%;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-15-R1 — TABLET FOLUKE LABEL FINAL CLEARANCE
+
+   Tablet only: 768px–1199px.
+
+   Moves Mrs Foluke's caption farther onto the outer-right
+   rail without changing its vertical position or typography.
+
+   Portrait / Pastor caption / support rails / title /
+   event panel / mobile / desktop remain frozen.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1199px
+) {
+  .mw-hero-v3-host-foluke figcaption {
+    left: auto;
+    right: -24%;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-14-R2 — TABLET EVENT PANEL 2% LIFT
+
+   Tablet only: 768px–1199px.
+
+   Moves the approved event panel upward by 2%.
+   Horizontal theme-axis alignment remains frozen.
+   Internal event geometry remains frozen.
+   Mobile + desktop unchanged.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1199px
+) {
+  .mw-hero-v3-event-panel {
+    bottom: 10%;
+  }
+}

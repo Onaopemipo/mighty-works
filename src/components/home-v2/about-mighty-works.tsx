@@ -90,7 +90,7 @@ const chapters = [
     number: "12",
     label: "2026",
     title: "Greater Things",
-    scripture: "Psalm 112:1–2",
+    scripture: "John 14:12",
     body:
       "The mandate continues: raising a people whose lives produce mighty works, undeniable results, infallible proofs and testimonies that point unmistakably to the hand of God.",
   },
@@ -103,153 +103,275 @@ export function AboutMightyWorks() {
   return (
     <section
       id="about"
-      className="mw-about"
+      className="mw-story-v3"
+      aria-labelledby="mw-story-v3-title"
     >
-      <div className="mw-about-background" />
+      <div
+        className="mw-story-v3-atmosphere"
+        aria-hidden="true"
+      >
+        <div className="mw-story-v3-orbit mw-story-v3-orbit-one" />
+        <div className="mw-story-v3-orbit mw-story-v3-orbit-two" />
+        <div className="mw-story-v3-glow" />
+        <div className="mw-story-v3-grain" />
+      </div>
 
-      <div className="mw-about-shell">
-        <aside className="mw-about-intro">
-          <p className="homev2-kicker">
-            About Mighty Works Conference
-          </p>
+      <div className="mw-story-v3-shell">
+        <header className="mw-story-v3-opening">
+          <div className="mw-story-v3-opening-meta">
+            <p className="mw-story-v3-kicker">
+              The story of Mighty Works
+            </p>
 
-          <h2>
-            A mandate
-            <em>
-              unfolding.
-            </em>
+            <span>
+              2019 — 2026
+            </span>
+          </div>
+
+          <h2 id="mw-story-v3-title">
+            More than
+            <span>
+              a conference.
+            </span>
           </h2>
 
-          <p className="mw-about-intro-copy">
-            From Psalm 112 to a global
-            gathering of believers, Mighty
-            Works exists to raise people whose
-            lives produce results that can only
-            be attributed to God.
+          <div className="mw-story-v3-opening-foot">
+            <p>
+              Mighty Works is a mandate to
+              raise people whose lives produce
+              results that point unmistakably
+              to the hand of God.
+            </p>
+
+            <div
+              className="mw-story-v3-scroll-cue"
+              aria-hidden="true"
+            >
+              <span>
+                Follow the story
+              </span>
+
+              <i />
+            </div>
+          </div>
+        </header>
+
+        <div className="mw-story-v3-journey">
+          <aside className="mw-story-v3-rail">
+            <div className="mw-story-v3-rail-sticky">
+              <p>
+                The journey
+              </p>
+
+              <div className="mw-story-v3-year-range">
+                <strong>
+                  2019
+                </strong>
+
+                <div>
+                  <i />
+                </div>
+
+                <strong>
+                  2026
+                </strong>
+              </div>
+
+              <p className="mw-story-v3-rail-copy">
+                One mandate.
+                <br />
+                Unfolding dimensions.
+              </p>
+            </div>
+          </aside>
+
+          <div className="mw-story-v3-chapters">
+            {chapters.map(
+              (
+                chapter,
+                index
+              ) => {
+                const isYear =
+                  /^20\d{2}$/.test(
+                    chapter.label
+                  );
+
+                const isCurrent =
+                  chapter.label ===
+                  "2026";
+
+                return (
+                  <motion.article
+                    key={
+                      `${chapter.label}-${chapter.title}`
+                    }
+                    initial={
+                      reducedMotion
+                        ? undefined
+                        : {
+                            opacity: 0.22,
+                            y: 64,
+                          }
+                    }
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    viewport={{
+                      amount: 0.42,
+                      margin:
+                        "-10% 0px -12% 0px",
+                    }}
+                    transition={{
+                      duration: 0.72,
+                      ease: [
+                        0.22,
+                        1,
+                        0.36,
+                        1,
+                      ],
+                    }}
+                    className={[
+                      "mw-story-v3-chapter",
+                      isYear
+                        ? "is-year"
+                        : "",
+                      isCurrent
+                        ? "is-current"
+                        : "",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                  >
+                    <div className="mw-story-v3-chapter-marker">
+                      <span>
+                        {isYear
+                          ? chapter.label
+                          : String(
+                              index + 1
+                            ).padStart(
+                              2,
+                              "0"
+                            )}
+                      </span>
+
+                      <i />
+                    </div>
+
+                    <div className="mw-story-v3-chapter-body">
+                      <p className="mw-story-v3-chapter-kicker">
+                        {isCurrent
+                          ? "The story continues"
+                          : isYear
+                            ? "A chapter in the journey"
+                            : "The mandate"}
+                      </p>
+
+                      <h3>
+                        {
+                          chapter.title
+                        }
+                      </h3>
+
+                      {chapter.scripture ? (
+                        <p className="mw-story-v3-scripture">
+                          {
+                            chapter.scripture
+                          }
+                        </p>
+                      ) : null}
+
+                      {chapter.quote ? (
+                        <blockquote>
+                          <span
+                            aria-hidden="true"
+                          >
+                            “
+                          </span>
+
+                          {
+                            chapter.quote
+                          }
+                        </blockquote>
+                      ) : null}
+
+                      <p className="mw-story-v3-body-copy">
+                        {
+                          chapter.body
+                        }
+                      </p>
+                    </div>
+
+                    {isCurrent ? (
+                      <div
+                        className="mw-story-v3-current-orbit"
+                        aria-hidden="true"
+                      />
+                    ) : null}
+                  </motion.article>
+                );
+              }
+            )}
+          </div>
+        </div>
+
+        <motion.footer
+          className="mw-story-v3-finale"
+          initial={
+            reducedMotion
+              ? undefined
+              : {
+                  opacity: 0,
+                  y: 42,
+                }
+          }
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.4,
+          }}
+          transition={{
+            duration: 0.8,
+            ease: [
+              0.22,
+              1,
+              0.36,
+              1,
+            ],
+          }}
+        >
+          <p>
+            2026
           </p>
 
-          <div className="mw-about-progress">
+          <h3>
+            Greater
             <span>
-              2019
+              Things.
+            </span>
+          </h3>
+
+          <div className="mw-story-v3-finale-meta">
+            <span>
+              John 14:12
             </span>
 
             <i />
 
-            <strong>
-              2026
-            </strong>
+            <span>
+              The journey continues
+            </span>
           </div>
-        </aside>
-
-        <div className="mw-about-story">
-          {chapters.map(
-            (
-              chapter,
-              index
-            ) => (
-              <motion.article
-                key={
-                  chapter.number
-                }
-                initial={
-                  reducedMotion
-                    ? undefined
-                    : {
-                        opacity: 0.2,
-                        y: 54,
-                      }
-                }
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  amount: 0.48,
-                  margin:
-                    "-8% 0px -8% 0px",
-                }}
-                transition={{
-                  duration: 0.65,
-                  ease: [
-                    0.22,
-                    1,
-                    0.36,
-                    1,
-                  ],
-                }}
-                className={[
-                  "mw-about-chapter",
-                  /^20\d{2}$/.test(
-                    chapter.label
-                  )
-                    ? "is-year"
-                    : "",
-                  chapter.label ===
-                  "2026"
-                    ? "is-current"
-                    : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
-              >
-                <div className="mw-about-chapter-index">
-                  <span>
-                    {
-                      chapter.number
-                    }
-                  </span>
-
-                  <i />
-
-                  <strong>
-                    {
-                      chapter.label
-                    }
-                  </strong>
-                </div>
-
-                <div className="mw-about-chapter-content">
-                  <h3>
-                    {
-                      chapter.title
-                    }
-                  </h3>
-
-                  {chapter.scripture ? (
-                    <p className="mw-about-scripture">
-                      {
-                        chapter.scripture
-                      }
-                    </p>
-                  ) : null}
-
-                  {chapter.quote ? (
-                    <blockquote>
-                      “
-                      {
-                        chapter.quote
-                      }
-                      ”
-                    </blockquote>
-                  ) : null}
-
-                  <p>
-                    {
-                      chapter.body
-                    }
-                  </p>
-                </div>
-
-                {index <
-                chapters.length -
-                  1 ? (
-                  <div className="mw-about-next-line" />
-                ) : null}
-              </motion.article>
-            )
-          )}
-        </div>
+        </motion.footer>
       </div>
+
+      <div
+        className="mw-story-v3-handoff"
+        aria-hidden="true"
+      />
     </section>
   );
 }
