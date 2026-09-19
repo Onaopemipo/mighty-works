@@ -16690,3 +16690,696 @@
     bottom: 10%;
   }
 }
+
+/* =========================================================
+   MW-HOME-V3-S2-P3A — MOBILE OPENING CONTAINMENT
+
+   Breakpoint: <768px
+
+   Repairs production mobile clipping:
+   - opening headline contained inside viewport
+   - conference line contained
+   - opening metadata contained
+   - mandate copy full-width
+   - scroll cue returned inside viewport
+
+   Hero / tablet / desktop frozen.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  .mw-story-v3 {
+    overflow-x: clip;
+  }
+
+  .mw-story-v3-shell {
+    width: calc(100% - 32px);
+    max-width: none;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  /* -------------------------------------------------------
+     OPENING
+     ------------------------------------------------------- */
+
+  .mw-story-v3-opening {
+    min-height: auto;
+
+    padding:
+      108px 0
+      88px;
+  }
+
+  .mw-story-v3-opening::before {
+    left: 50%;
+
+    height: 72px;
+  }
+
+
+  /* -------------------------------------------------------
+     META
+     ------------------------------------------------------- */
+
+  .mw-story-v3-opening-meta {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    width: 100%;
+
+    margin-bottom: 42px;
+
+    font-size:
+      clamp(
+        0.48rem,
+        2.15vw,
+        0.58rem
+      );
+
+    letter-spacing: 0.22em;
+  }
+
+  .mw-story-v3-opening-meta > * {
+    min-width: 0;
+  }
+
+  .mw-story-v3-opening-meta span {
+    flex: 0 0 auto;
+
+    white-space: nowrap;
+  }
+
+
+  /* -------------------------------------------------------
+     HEADLINE
+     ------------------------------------------------------- */
+
+  .mw-story-v3-opening h2 {
+    width: 100%;
+    max-width: 100%;
+
+    font-size:
+      clamp(
+        4rem,
+        18.5vw,
+        5.4rem
+      );
+
+    line-height: 0.84;
+
+    letter-spacing: -0.065em;
+
+    overflow-wrap: normal;
+  }
+
+  .mw-story-v3-opening h2 span {
+    display: block;
+
+    width: 100%;
+
+    margin:
+      0.18em 0 0;
+
+    padding-left: 12%;
+
+    font-size: 0.83em;
+
+    line-height: 0.86;
+
+    overflow-wrap: normal;
+  }
+
+
+  /* -------------------------------------------------------
+     OPENING FOOT
+     ------------------------------------------------------- */
+
+  .mw-story-v3-opening-foot {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 58px;
+  }
+
+  .mw-story-v3-opening-foot > p {
+    width: 100%;
+    max-width: 34rem;
+
+    margin: 0;
+
+    font-size:
+      clamp(
+        0.94rem,
+        4vw,
+        1.05rem
+      );
+
+    line-height: 1.72;
+  }
+
+  .mw-story-v3-scroll-cue {
+    width: max-content;
+    min-width: 0;
+
+    margin:
+      42px 0 0 auto;
+
+    gap: 12px;
+
+    font-size: 0.5rem;
+
+    letter-spacing: 0.2em;
+  }
+
+  .mw-story-v3-scroll-cue i {
+    width: 42px;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE ATMOSPHERE CONTAINMENT
+     ------------------------------------------------------- */
+
+  .mw-story-v3-glow {
+    width: 120vw;
+  }
+
+  .mw-story-v3-orbit-one {
+    right: -68%;
+
+    width: 130vw;
+    height: 130vw;
+  }
+
+  .mw-story-v3-orbit-two {
+    left: -76%;
+
+    width: 145vw;
+    height: 145vw;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S2-P3B — MOBILE JOURNEY + CHAPTERS
+
+   Breakpoint: <768px
+
+   Mobile-native conference story:
+   - single-column journey
+   - compact 2019 -> 2026 introduction
+   - year marker above each chapter
+   - no tablet side-year column
+   - reduced vertical rhythm
+   - contained typography and quotations
+
+   Opening P3A frozen.
+   2026 culmination/finale deferred to P3C.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     JOURNEY INTRODUCTION
+     ------------------------------------------------------- */
+
+  .mw-story-v3-journey {
+    display: block;
+
+    padding-top: 54px;
+
+    border-top:
+      1px solid
+        rgba(
+          246,
+          241,
+          231,
+          0.07
+        );
+  }
+
+  .mw-story-v3-rail {
+    min-height: 0;
+
+    padding:
+      0 0 46px;
+
+    border-bottom:
+      1px solid
+        rgba(
+          246,
+          241,
+          231,
+          0.07
+        );
+  }
+
+  .mw-story-v3-rail-sticky {
+    position: static;
+
+    display: block;
+
+    padding: 0;
+  }
+
+  .mw-story-v3-rail-sticky
+    > p:first-child {
+    margin: 0 0 28px;
+
+    font-size: 0.53rem;
+
+    letter-spacing: 0.27em;
+  }
+
+  .mw-story-v3-year-range {
+    grid-template-columns:
+      auto
+      minmax(
+        0,
+        1fr
+      )
+      auto;
+
+    gap: 12px;
+
+    width: 100%;
+
+    margin-top: 0;
+  }
+
+  .mw-story-v3-year-range strong {
+    font-size: 1.15rem;
+  }
+
+  .mw-story-v3-year-range div {
+    min-width: 0;
+  }
+
+  .mw-story-v3-year-range i {
+    width: 52%;
+  }
+
+  .mw-story-v3-rail-copy {
+    margin:
+      34px 0 0;
+
+    font-size:
+      clamp(
+        1.45rem,
+        7vw,
+        2rem
+      );
+
+    line-height: 1.22;
+
+    text-align: left;
+  }
+
+
+  /* -------------------------------------------------------
+     CHAPTER STREAM
+     ------------------------------------------------------- */
+
+  .mw-story-v3-chapters {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .mw-story-v3-chapter,
+  .mw-story-v3-chapter.is-year {
+    display: block;
+
+    min-height: 0;
+
+    padding:
+      58px 0;
+
+    border-top:
+      1px solid
+        rgba(
+          246,
+          241,
+          231,
+          0.065
+        );
+  }
+
+  .mw-story-v3-chapter:first-child {
+    border-top: 0;
+  }
+
+
+  /* -------------------------------------------------------
+     YEAR MARKER
+     ------------------------------------------------------- */
+
+  .mw-story-v3-chapter-marker {
+    position: static;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    width: 100%;
+
+    margin:
+      0 0 30px;
+
+    padding: 0;
+  }
+
+  .mw-story-v3-chapter-marker span {
+    flex: 0 0 auto;
+
+    font-size:
+      clamp(
+        1.25rem,
+        6vw,
+        1.6rem
+      );
+
+    line-height: 1;
+  }
+
+  .mw-story-v3-chapter-marker i {
+    flex: 1 1 auto;
+
+    width: auto;
+
+    margin: 0;
+
+    transform: none;
+  }
+
+
+  /* -------------------------------------------------------
+     CHAPTER COPY
+     ------------------------------------------------------- */
+
+  .mw-story-v3-chapter-body {
+    width: 100%;
+    max-width: none;
+  }
+
+  .mw-story-v3-chapter-kicker {
+    margin-bottom: 13px;
+
+    font-size: 0.5rem;
+
+    letter-spacing: 0.23em;
+  }
+
+  .mw-story-v3-chapter-body h3 {
+    width: 100%;
+    max-width: 10ch;
+
+    font-size:
+      clamp(
+        3.2rem,
+        14vw,
+        4.6rem
+      );
+
+    line-height: 0.9;
+
+    letter-spacing: -0.05em;
+
+    overflow-wrap: normal;
+  }
+
+  .mw-story-v3-scripture {
+    margin-top: 18px;
+
+    font-size: 0.57rem;
+
+    letter-spacing: 0.23em;
+  }
+
+  .mw-story-v3-body-copy {
+    width: 100%;
+    max-width: 34rem;
+
+    margin-top: 24px;
+
+    font-size:
+      clamp(
+        0.94rem,
+        4vw,
+        1.02rem
+      );
+
+    line-height: 1.72;
+  }
+
+
+  /* -------------------------------------------------------
+     QUOTATIONS
+     ------------------------------------------------------- */
+
+  .mw-story-v3-chapter-body
+    blockquote {
+    width: 100%;
+    max-width: none;
+
+    margin-top: 30px;
+
+    padding-left: 20px;
+
+    font-size:
+      clamp(
+        1.3rem,
+        6vw,
+        1.75rem
+      );
+
+    line-height: 1.4;
+  }
+
+  .mw-story-v3-chapter-body
+    blockquote span {
+    top: -22px;
+    left: 8px;
+
+    font-size: 3.4rem;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S2-P3C — MOBILE 2026 + FINALE
+
+   Breakpoint: <768px
+
+   Completes the mobile conference story:
+   - contained 2026 culmination
+   - reduced orbital depth
+   - mobile Greater Things finale
+   - contained finale metadata
+   - Experience handoff
+
+   P3A opening frozen.
+   P3B journey frozen.
+   Tablet + desktop frozen.
+   Hero frozen.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     2026 CULMINATION
+     ------------------------------------------------------- */
+
+  .mw-story-v3-chapter.is-current {
+    isolation: isolate;
+
+    min-height: auto;
+
+    padding:
+      78px 0
+      86px;
+
+    overflow: hidden;
+  }
+
+  .mw-story-v3-chapter.is-current::before {
+    top: 52%;
+    left: 50%;
+
+    width: 125vw;
+    max-width: 620px;
+
+    transform:
+      translate(
+        -48%,
+        -50%
+      );
+
+    opacity: 0.68;
+  }
+
+  .mw-story-v3-chapter.is-current
+    .mw-story-v3-chapter-marker {
+    margin-bottom: 34px;
+  }
+
+  .mw-story-v3-chapter.is-current
+    .mw-story-v3-chapter-body
+    h3 {
+    width: 100%;
+    max-width: 9ch;
+
+    font-size:
+      clamp(
+        3.8rem,
+        16.5vw,
+        5.2rem
+      );
+
+    line-height: 0.88;
+  }
+
+  .mw-story-v3-chapter.is-current
+    .mw-story-v3-body-copy {
+    max-width: 32rem;
+
+    color:
+      rgba(
+        246,
+        241,
+        231,
+        0.62
+      );
+  }
+
+
+  /* -------------------------------------------------------
+     CURRENT-YEAR ORBIT
+     ------------------------------------------------------- */
+
+  .mw-story-v3-current-orbit {
+    top: 52%;
+    right: -58%;
+
+    width: 125vw;
+    max-width: 540px;
+
+    opacity: 0.56;
+
+    transform:
+      translateY(-50%)
+      rotate(-11deg);
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE FINALE
+     ------------------------------------------------------- */
+
+  .mw-story-v3-finale {
+    min-height: 72svh;
+
+    padding:
+      96px 0
+      126px;
+
+    overflow: hidden;
+  }
+
+  .mw-story-v3-finale::before {
+    width: 135vw;
+    max-width: 620px;
+
+    opacity: 0.74;
+  }
+
+  .mw-story-v3-finale > p {
+    margin-bottom: 22px;
+
+    font-size: 0.55rem;
+
+    letter-spacing: 0.3em;
+  }
+
+  .mw-story-v3-finale h3 {
+    width: 100%;
+
+    font-size:
+      clamp(
+        4.5rem,
+        20vw,
+        6rem
+      );
+
+    line-height: 0.78;
+
+    letter-spacing: -0.065em;
+  }
+
+  .mw-story-v3-finale h3 span {
+    margin-top: 0.16em;
+  }
+
+
+  /* -------------------------------------------------------
+     FINALE IDENTITY
+     ------------------------------------------------------- */
+
+  .mw-story-v3-finale-meta {
+    display: grid;
+
+    grid-template-columns:
+      auto
+      minmax(
+        28px,
+        52px
+      )
+      auto;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    margin-top: 38px;
+
+    font-size:
+      clamp(
+        0.43rem,
+        1.9vw,
+        0.52rem
+      );
+
+    letter-spacing: 0.18em;
+
+    white-space: nowrap;
+  }
+
+  .mw-story-v3-finale-meta i {
+    width: 100%;
+    min-width: 0;
+  }
+
+
+  /* -------------------------------------------------------
+     EXPERIENCE HANDOFF
+     ------------------------------------------------------- */
+
+  .mw-story-v3-handoff {
+    width: 100%;
+    height: 96px;
+  }
+
+  .mw-story-v3-handoff::before {
+    height: 48px;
+  }
+}
