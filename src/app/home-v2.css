@@ -34,6 +34,8 @@
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
+
+
 .homev2-nav-brand {
   display: flex;
   align-items: center;
@@ -7039,5 +7041,7319 @@
   .mw-invite-conference-brand span {
     font-size: 6px;
     letter-spacing: 0.12em;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-D1C — Consolidated production authority
+   ========================================================= */
+
+/* =========================================================
+   Stage + Earth + Hosts foundation
+   ========================================================= */
+
+.mw-hero-v3 {
+  --hero-cream: #f6f1e7;
+  --hero-magenta: #ef2d75;
+  --hero-violet: #6b42d8;
+  --hero-cyan: #28c9ff;
+  --hero-gold: #ffc568;
+
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: max(900px, 100svh);
+  min-height: 900px;
+  overflow: hidden;
+  color: var(--hero-cream);
+  background:
+    radial-gradient(
+      circle at 77% 30%,
+      rgba(108, 53, 178, 0.26),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 14% 38%,
+      rgba(36, 55, 153, 0.24),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      #050511 0%,
+      #08071b 37%,
+      #100b2b 68%,
+      #070615 100%
+    );
+}
+
+.mw-hero-v3-cosmos {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.mw-hero-v3-cosmos::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.52;
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.8) 0 1px,
+      transparent 1.4px
+    ),
+    radial-gradient(
+      circle,
+      rgba(242, 147, 159, 0.7) 0 1px,
+      transparent 1.5px
+    );
+  background-size:
+    87px 87px,
+    131px 131px;
+  background-position:
+    17px 21px,
+    53px 69px;
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black 0%,
+      rgba(0, 0, 0, 0.9) 72%,
+      transparent 100%
+    );
+}
+
+.mw-hero-v3-cosmos::after {
+  content: "";
+  position: absolute;
+  left: 16%;
+  right: 7%;
+  bottom: 6%;
+  height: 31%;
+  opacity: 0.65;
+  filter: blur(45px);
+  background:
+    radial-gradient(
+      ellipse at 48% 70%,
+      rgba(255, 35, 123, 0.38),
+      transparent 47%
+    ),
+    radial-gradient(
+      ellipse at 70% 50%,
+      rgba(90, 63, 220, 0.4),
+      transparent 52%
+    );
+}
+
+.mw-hero-v3-nebula {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(90px);
+  opacity: 0.55;
+}
+
+.mw-hero-v3-nebula-left {
+  width: 46vw;
+  height: 45vw;
+  left: -17vw;
+  top: 4%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(58, 75, 206, 0.64),
+      rgba(53, 29, 132, 0.27) 47%,
+      transparent 72%
+    );
+}
+
+.mw-hero-v3-nebula-right {
+  width: 51vw;
+  height: 47vw;
+  right: -18vw;
+  top: 2%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(218, 46, 125, 0.42),
+      rgba(98, 52, 181, 0.24) 48%,
+      transparent 72%
+    );
+}
+
+.mw-hero-v3-stars {
+  position: absolute;
+  inset: 0;
+  opacity: 0.75;
+  background:
+    radial-gradient(
+      circle at 31% 19%,
+      rgba(255, 255, 255, 0.95) 0 1px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 67% 26%,
+      rgba(98, 206, 255, 0.9) 0 1.5px,
+      transparent 2.5px
+    ),
+    radial-gradient(
+      circle at 81% 46%,
+      rgba(255, 116, 191, 0.9) 0 1px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 43% 57%,
+      rgba(255, 199, 104, 0.9) 0 1px,
+      transparent 2px
+    );
+}
+
+.mw-hero-v3-light-beam {
+  position: absolute;
+  width: 46vw;
+  height: 70vw;
+  right: -4vw;
+  top: -29vw;
+  opacity: 0.2;
+  transform: rotate(24deg);
+  filter: blur(26px);
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 214, 147, 0.48),
+      rgba(238, 70, 141, 0.14) 47%,
+      transparent 78%
+    );
+}
+
+/* Earth */
+
+.mw-hero-v3-earth {
+  position: absolute;
+  z-index: 1;
+  width: min(76vw, 1460px);
+  aspect-ratio: 1;
+  left: 50%;
+  bottom: -47%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  filter:
+    saturate(1.12)
+    brightness(0.94)
+    drop-shadow(
+      0 -20px 60px
+      rgba(26, 166, 255, 0.25)
+    );
+}
+
+.mw-hero-v3-earth img {
+  object-fit: contain;
+}
+
+.mw-hero-v3-earth-glow {
+  position: absolute;
+  inset: 4%;
+  border-radius: 50%;
+  box-shadow:
+    0 -12px 80px
+      rgba(36, 191, 255, 0.3),
+    0 0 150px
+      rgba(72, 61, 205, 0.22),
+    0 0 220px
+      rgba(237, 41, 126, 0.12);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Hosts */
+
+.mw-hero-v3-host-glow {
+  position: absolute;
+  z-index: 2;
+  width: 57vw;
+  height: 63%;
+  left: 50%;
+  top: 12%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  filter: blur(34px);
+  background:
+    radial-gradient(
+      ellipse at 42% 44%,
+      rgba(63, 102, 255, 0.23),
+      transparent 43%
+    ),
+    radial-gradient(
+      ellipse at 61% 45%,
+      rgba(244, 37, 131, 0.2),
+      transparent 43%
+    );
+}
+
+.mw-hero-v3-hosts {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  pointer-events: none;
+}
+
+.mw-hero-v3-host {
+  position: absolute;
+  bottom: 9%;
+  margin: 0;
+}
+
+.mw-hero-v3-host img {
+  object-fit: contain;
+  object-position: center bottom;
+  filter:
+    drop-shadow(
+      0 24px 38px
+      rgba(0, 0, 0, 0.38)
+    )
+    drop-shadow(
+      0 0 28px
+      rgba(96, 76, 255, 0.14)
+    );
+}
+
+.mw-hero-v3-host-pastor {
+  width: clamp(390px, 31vw, 600px);
+  height: min(77vh, 790px);
+  left: 28%;
+  transform: translateX(-50%);
+}
+
+.mw-hero-v3-host-foluke {
+  width: clamp(390px, 31vw, 600px);
+  height: min(77vh, 790px);
+  left: 58%;
+  transform: translateX(-50%);
+}
+
+.mw-hero-v3-host figcaption {
+  position: absolute;
+  z-index: 3;
+  top: 27%;
+  display: grid;
+  gap: 5px;
+  width: max-content;
+  max-width: 190px;
+  text-transform: uppercase;
+  text-shadow:
+    0 2px 14px
+    rgba(0, 0, 0, 0.72);
+}
+
+.mw-hero-v3-host figcaption span {
+  color: var(--hero-gold);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+}
+
+.mw-hero-v3-host figcaption strong {
+  color: #ffffff;
+  font-size: clamp(0.72rem, 0.8vw, 0.94rem);
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+}
+
+.mw-hero-v3-host-pastor figcaption {
+  left: -8%;
+}
+
+.mw-hero-v3-host-foluke figcaption {
+  right: -13%;
+}
+
+/* =========================================================
+   MW-HERO-V3-B2B-1 — Theme Cross
+   ========================================================= */
+
+.mw-hero-v3-energy {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.mw-hero-v3-energy-ribbon {
+  position: absolute;
+  border-radius: 50%;
+  border:
+    clamp(14px, 1.7vw, 30px)
+    solid rgba(224, 22, 112, 0.42);
+  filter:
+    blur(1px)
+    drop-shadow(
+      0 0 25px
+      rgba(244, 23, 126, 0.3)
+    );
+}
+
+.mw-hero-v3-energy-ribbon.ribbon-one {
+  width: 75vw;
+  height: 31vw;
+  left: 17%;
+  top: 43%;
+  transform:
+    rotate(8deg)
+    skewX(-13deg);
+  border-left-color:
+    rgba(77, 31, 132, 0.22);
+  border-bottom-color:
+    rgba(255, 31, 134, 0.56);
+}
+
+.mw-hero-v3-energy-ribbon.ribbon-two {
+  width: 57vw;
+  height: 22vw;
+  left: 30%;
+  top: 48%;
+  transform:
+    rotate(-7deg)
+    skewX(12deg);
+  opacity: 0.48;
+  border-top-color:
+    rgba(107, 45, 185, 0.26);
+}
+
+.mw-hero-v3-content {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  pointer-events: none;
+}
+
+.mw-hero-v3-theme,
+.mw-hero-v3-edition {
+  pointer-events: auto;
+}
+
+/* 8th Edition */
+
+.mw-hero-v3-edition {
+  position: absolute;
+  right: clamp(32px, 5vw, 100px);
+  top: 17%;
+  display: grid;
+  justify-items: center;
+  min-width: 118px;
+  padding: 17px 21px 15px;
+  transform: rotate(-2deg);
+  text-transform: uppercase;
+}
+
+.mw-hero-v3-edition::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  transform: skewX(-7deg);
+  opacity: 0.94;
+  clip-path:
+    polygon(
+      3% 13%,
+      97% 0,
+      91% 88%,
+      8% 100%
+    );
+  background:
+    linear-gradient(
+      135deg,
+      #d51769,
+      #f12b78 54%,
+      #a50c57
+    );
+  box-shadow:
+    0 12px 38px
+      rgba(231, 30, 113, 0.25);
+}
+
+.mw-hero-v3-edition strong {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+  font-size:
+    clamp(2.2rem, 3vw, 3.8rem);
+  line-height: 0.9;
+  color: #ffffff;
+}
+
+.mw-hero-v3-edition span {
+  margin-top: 5px;
+  color: #fff4e6;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.27em;
+}
+
+/* Greater Things */
+
+.mw-hero-v3-theme {
+  position: absolute;
+  width: min(56vw, 1040px);
+  left: 52%;
+  bottom: 16%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.mw-hero-v3-theme > p {
+  margin: 0 0 5px;
+  color: rgba(246, 241, 231, 0.86);
+  font-size:
+    clamp(0.68rem, 0.82vw, 0.94rem);
+  font-weight: 800;
+  letter-spacing: 0.62em;
+  text-transform: uppercase;
+}
+
+.mw-hero-v3-theme h1 {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  margin: 0;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+  font-weight: 900;
+  line-height: 0.68;
+  letter-spacing: -0.065em;
+  text-transform: uppercase;
+  filter:
+    drop-shadow(
+      0 9px 20px
+      rgba(0, 0, 0, 0.58)
+    );
+}
+
+.mw-hero-v3-theme h1 span,
+.mw-hero-v3-theme h1 em {
+  display: block;
+  font-style: normal;
+}
+
+.mw-hero-v3-theme h1 span {
+  font-size:
+    clamp(5.1rem, 8vw, 9.7rem);
+  color: transparent;
+  background:
+    linear-gradient(
+      180deg,
+      #fff9d6 0%,
+      #ffd17a 19%,
+      #f68c3e 45%,
+      #d9476f 73%,
+      #ffe6a8 100%
+    );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke:
+    1px rgba(255, 229, 168, 0.58);
+}
+
+.mw-hero-v3-theme h1 em {
+  margin-top: 0.08em;
+  font-size:
+    clamp(5.4rem, 8.5vw, 10.3rem);
+  color: transparent;
+  background:
+    linear-gradient(
+      180deg,
+      #fffef8 0%,
+      #fff0c8 25%,
+      #f7bc68 53%,
+      #e6764c 78%,
+      #fff1bf 100%
+    );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke:
+    1px rgba(255, 241, 196, 0.65);
+}
+
+/* Luminous cross */
+
+.mw-hero-v3-cross {
+  position: absolute;
+  z-index: 3;
+  width: clamp(52px, 5vw, 88px);
+  height: clamp(180px, 18vw, 320px);
+  left: 4%;
+  top: 21%;
+  pointer-events: none;
+  filter:
+    drop-shadow(
+      0 0 16px
+      rgba(255, 202, 102, 0.95)
+    )
+    drop-shadow(
+      0 0 42px
+      rgba(244, 69, 126, 0.5)
+    );
+}
+
+.mw-hero-v3-cross::before,
+.mw-hero-v3-cross::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform:
+    translate(-50%, -50%);
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      90deg,
+      #fffef2,
+      #ffd277 50%,
+      #ffffff
+    );
+  box-shadow:
+    0 0 13px #ffffff,
+    0 0 28px
+      rgba(255, 190, 84, 0.95),
+    0 0 52px
+      rgba(241, 55, 126, 0.62);
+}
+
+.mw-hero-v3-cross::before {
+  width: 16%;
+  height: 100%;
+}
+
+.mw-hero-v3-cross::after {
+  width: 100%;
+  height: 8%;
+  top: 35%;
+}
+
+.mw-hero-v3-cross i {
+  position: absolute;
+  width: 52%;
+  aspect-ratio: 1;
+  left: 50%;
+  top: 35%;
+  transform:
+    translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      #ffffff 0 8%,
+      #ffe9a8 22%,
+      rgba(255, 178, 77, 0.48) 46%,
+      transparent 72%
+    );
+}
+
+/* Supporting conference identity */
+
+.mw-hero-v3-conference-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  margin-top: 24px;
+  text-transform: uppercase;
+}
+
+.mw-hero-v3-conference-line span {
+  color: rgba(246, 241, 231, 0.76);
+  font-size:
+    clamp(0.56rem, 0.66vw, 0.76rem);
+  font-weight: 800;
+  letter-spacing: 0.22em;
+}
+
+.mw-hero-v3-conference-line strong {
+  padding-left: 17px;
+  border-left:
+    1px solid
+    rgba(255, 197, 104, 0.6);
+  color: #ffffff;
+  font-size:
+    clamp(0.72rem, 0.9vw, 1rem);
+  letter-spacing: 0.35em;
+}
+
+/* =========================================================
+   MW-HERO-V3-B2B-2 — Scripture Event Details
+   ========================================================= */
+
+.mw-hero-v3-scripture {
+  position: absolute;
+  right: clamp(35px, 5.5vw, 110px);
+  top: 36%;
+  width: clamp(180px, 14vw, 250px);
+  margin: 0;
+  padding-left: 19px;
+  border-left:
+    1px solid
+    rgba(255, 197, 104, 0.62);
+  pointer-events: auto;
+}
+
+.mw-hero-v3-scripture p {
+  margin: 0;
+  color: rgba(246, 241, 231, 0.8);
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+  font-size:
+    clamp(0.72rem, 0.82vw, 0.94rem);
+  line-height: 1.62;
+}
+
+.mw-hero-v3-scripture cite {
+  display: block;
+  margin-top: 12px;
+  color: var(--hero-gold);
+  font-size: 0.58rem;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Event information */
+
+.mw-hero-v3-event-panel {
+  position: absolute;
+  z-index: 6;
+  left: clamp(35px, 4.5vw, 90px);
+  bottom: 6.5%;
+  display: grid;
+  grid-template-columns:
+    auto
+    auto
+    minmax(220px, 1fr);
+  width: min(44vw, 760px);
+  overflow: hidden;
+  border:
+    1px solid
+    rgba(242, 64, 143, 0.64);
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(10, 9, 35, 0.84),
+      rgba(22, 14, 55, 0.78)
+    );
+  box-shadow:
+    0 20px 60px
+      rgba(0, 0, 0, 0.32),
+    0 0 38px
+      rgba(228, 34, 125, 0.1);
+  backdrop-filter: blur(12px);
+  pointer-events: auto;
+}
+
+.mw-hero-v3-date,
+.mw-hero-v3-venue {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 92px;
+  padding: 16px 18px;
+}
+
+.mw-hero-v3-date {
+  border-right:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+}
+
+.mw-hero-v3-date > svg,
+.mw-hero-v3-venue > svg {
+  flex: 0 0 auto;
+  color: var(--hero-gold);
+}
+
+.mw-hero-v3-date div,
+.mw-hero-v3-venue div {
+  display: grid;
+  gap: 7px;
+}
+
+.mw-hero-v3-date span {
+  color: #ffffff;
+  font-size:
+    clamp(0.64rem, 0.68vw, 0.76rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mw-hero-v3-date strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: max-content;
+  border-radius: 999px;
+  padding: 6px 12px;
+  color: #ffffff;
+  font-size: 0.72rem;
+  background:
+    linear-gradient(
+      90deg,
+      #d59613,
+      #f1b526
+    );
+}
+
+.mw-hero-v3-date:nth-child(2)
+  strong {
+  background:
+    linear-gradient(
+      90deg,
+      #ef1478,
+      #bd145d
+    );
+}
+
+.mw-hero-v3-venue strong {
+  color: #ffffff;
+  font-size: 0.8rem;
+}
+
+.mw-hero-v3-venue span {
+  color: rgba(246, 241, 231, 0.74);
+  font-size: 0.67rem;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   MW-HERO-V3-B2B-3 — Actions Motif Fade
+   ========================================================= */
+
+/* Actions */
+
+.mw-hero-v3-actions {
+  position: absolute;
+  z-index: 7;
+  right: clamp(35px, 5vw, 100px);
+  bottom: 7.5%;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  pointer-events: auto;
+}
+
+.mw-hero-v3-register {
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  border:
+    1px solid
+    rgba(255, 105, 178, 0.68);
+  border-radius: 999px;
+  padding: 0 27px;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  background:
+    linear-gradient(
+      100deg,
+      #ef1478,
+      #b51060
+    );
+  box-shadow:
+    0 0 0 5px
+      rgba(235, 28, 119, 0.07),
+    0 12px 38px
+      rgba(223, 20, 111, 0.28);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.mw-hero-v3-register:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow:
+    0 0 0 6px
+      rgba(235, 28, 119, 0.1),
+    0 16px 48px
+      rgba(223, 20, 111, 0.4);
+}
+
+.mw-hero-v3-register:focus-visible {
+  outline:
+    2px solid
+    #ffffff;
+  outline-offset: 4px;
+}
+
+
+
+
+
+
+
+/* People Prayer Purpose Power */
+
+.mw-hero-v3-motif {
+  position: absolute;
+  z-index: 6;
+  left: 50%;
+  bottom: 2.2%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color:
+    rgba(246, 241, 231, 0.46);
+  font-size:
+    clamp(
+      0.48rem,
+      0.52vw,
+      0.6rem
+    );
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mw-hero-v3-motif i {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background:
+    var(--hero-magenta);
+  box-shadow:
+    0 0 8px
+      rgba(239, 45, 117, 0.8);
+}
+
+/* Hero-to-page transition */
+
+.mw-hero-v3-bottom-fade {
+  position: absolute;
+  z-index: 8;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 9%;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(7, 6, 21, 0.5) 45%,
+      #070615 100%
+    );
+}
+
+/* Small cinematic refinements */
+
+.mw-hero-v3-register svg {
+  transition:
+    transform 180ms ease;
+}
+
+.mw-hero-v3-register:hover svg {
+  transform:
+    translateX(3px);
+}
+
+
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .mw-hero-v3 *,
+  .mw-hero-v3 *::before,
+  .mw-hero-v3 *::after {
+    scroll-behavior: auto !important;
+    animation-duration:
+      0.01ms !important;
+    animation-iteration-count:
+      1 !important;
+    transition-duration:
+      0.01ms !important;
+  }
+
+  .mw-hero-v3-register:hover {
+    transform: none;
+  }
+
+  .mw-hero-v3-register:hover svg {
+    transform: none;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-B4B-1 — Desktop dual-brand navbar
+   ========================================================= */
+
+.mw-nav-v3 {
+  position: absolute;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #f6f1e7;
+}
+
+.mw-nav-v3-inner {
+  width: min(
+    calc(100% - 64px),
+    1540px
+  );
+  min-height: 112px;
+  display: grid;
+  grid-template-columns:
+    minmax(310px, 0.9fr)
+    minmax(560px, 1.6fr)
+    auto;
+  align-items: center;
+  gap: 28px;
+  margin: 0 auto;
+  border-bottom:
+    1px solid
+    rgba(246, 241, 231, 0.1);
+}
+
+/* Dual-brand lockup */
+
+.mw-nav-v3-brand {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  width: max-content;
+  color: inherit;
+  text-decoration: none;
+}
+
+.mw-nav-v3-brand-mwc,
+.mw-nav-v3-brand-host {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+
+/*
+ * Supplied logos use large transparent 3:2 canvases.
+ * The images are deliberately oversized inside clipped
+ * containers so visible artwork controls navbar scale.
+ */
+
+.mw-nav-v3-brand-mwc {
+  width: 104px;
+  height: 76px;
+}
+
+.mw-nav-v3-brand-mwc img {
+  position: absolute;
+  width: 145px;
+  height: auto;
+  max-width: none;
+  left: 50%;
+  top: 50%;
+  transform:
+    translate(-50%, -50%);
+  object-fit: contain;
+}
+
+.mw-nav-v3-brand-host {
+  width: 146px;
+  height: 68px;
+}
+
+.mw-nav-v3-brand-host img {
+  position: absolute;
+  width: 210px;
+  height: auto;
+  max-width: none;
+  left: 50%;
+  top: 50%;
+  transform:
+    translate(-50%, -50%);
+  object-fit: contain;
+}
+
+.mw-nav-v3-brand-divider {
+  width: 1px;
+  height: 43px;
+  flex: 0 0 auto;
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255, 208, 118, 0.72) 22%,
+      rgba(255, 208, 118, 0.72) 78%,
+      transparent
+    );
+}
+
+/* Desktop navigation */
+
+.mw-nav-v3-links {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(
+    20px,
+    2.1vw,
+    40px
+  );
+}
+
+.mw-nav-v3-links a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color:
+    rgba(246, 241, 231, 0.74);
+  font-size:
+    clamp(
+      0.62rem,
+      0.64vw,
+      0.74rem
+    );
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    color 180ms ease;
+}
+
+.mw-nav-v3-links a::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  left: 50%;
+  right: 50%;
+  bottom: 3px;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      90deg,
+      #ef1478,
+      #ff5c9e
+    );
+  box-shadow:
+    0 0 12px
+      rgba(239, 20, 120, 0.5);
+  transition:
+    left 180ms ease,
+    right 180ms ease;
+}
+
+.mw-nav-v3-links a:hover,
+.mw-nav-v3-links a:focus-visible {
+  color: #ffffff;
+}
+
+.mw-nav-v3-links a:hover::after,
+.mw-nav-v3-links a:focus-visible::after {
+  left: 0;
+  right: 0;
+}
+
+.mw-nav-v3-links a:focus-visible {
+  outline: none;
+}
+
+/* Register CTA */
+
+.mw-nav-v3-register {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  justify-self: end;
+  border:
+    1px solid
+    rgba(255, 109, 180, 0.72);
+  border-radius: 999px;
+  padding: 0 23px;
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background:
+    linear-gradient(
+      100deg,
+      #ef1478,
+      #b70f61
+    );
+  box-shadow:
+    0 0 0 5px
+      rgba(239, 20, 120, 0.055),
+    0 10px 32px
+      rgba(219, 22, 111, 0.25);
+  transition:
+    transform 180ms ease,
+    filter 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.mw-nav-v3-register:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow:
+    0 0 0 6px
+      rgba(239, 20, 120, 0.08),
+    0 14px 38px
+      rgba(219, 22, 111, 0.34);
+}
+
+.mw-nav-v3-register svg {
+  transition:
+    transform 180ms ease;
+}
+
+.mw-nav-v3-register:hover svg {
+  transform:
+    translateX(3px);
+}
+
+.mw-nav-v3-register:focus-visible {
+  outline:
+    2px solid
+    #ffffff;
+  outline-offset: 4px;
+}
+
+/* Mobile control remains hidden on desktop */
+
+.mw-nav-v3-menu {
+  display: none;
+}
+
+/* =========================================================
+   MW-HERO-V3-D1C-DESKTOP — Single desktop geometry authority
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* =======================================================
+     HERO STAGE
+     ======================================================= */
+
+  .mw-hero-v3 {
+    position: relative;
+    isolation: isolate;
+
+    width: 100%;
+    min-height: 800px;
+    height: max(800px, 100svh);
+
+    overflow: hidden;
+  }
+
+  /* =======================================================
+     HOST STAGE
+     ======================================================= */
+
+  .mw-hero-v3-hosts {
+    position: absolute;
+    inset: 0;
+
+    z-index: 4;
+
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  /*
+   * Each host owns one half of the viewport.
+   * Their visible subjects meet around the centre seam.
+   */
+
+  .mw-hero-v3-host {
+    position: absolute;
+
+    top: 15%;
+    bottom: auto;
+
+    width: 50vw;
+    height: 61%;
+
+    margin: 0;
+
+    transform: none;
+    overflow: visible;
+  }
+
+  .mw-hero-v3-host-pastor {
+    z-index: 2;
+
+    left: 0;
+    right: auto;
+
+    width: 50vw;
+    height: 61%;
+
+    transform: none;
+  }
+
+  .mw-hero-v3-host-foluke {
+    z-index: 3;
+
+    left: 50vw;
+    right: auto;
+
+    width: 50vw;
+    height: 61%;
+
+    transform: none;
+  }
+
+  .mw-hero-v3-host-pastor img {
+    object-fit: contain;
+
+    object-position:
+      calc(100% + 82px)
+      bottom;
+
+    transform: none;
+  }
+
+  .mw-hero-v3-host-foluke img {
+    object-fit: contain;
+
+    object-position:
+      calc(0% - 68px)
+      bottom;
+
+    transform: none;
+  }
+
+  /* =======================================================
+     HOST LABELS
+     ======================================================= */
+
+  .mw-hero-v3-host-pastor
+    figcaption {
+    left: auto;
+    right: 0;
+    top: 34%;
+
+    transform:
+      translateX(-285px);
+
+    text-align: left;
+  }
+
+  .mw-hero-v3-host-foluke
+    figcaption {
+    left: 0;
+    right: auto;
+    top: 34%;
+
+    transform:
+      translateX(285px);
+
+    text-align: left;
+  }
+
+  /* =======================================================
+     HOST ATMOSPHERE + CROP CONCEALMENT
+     ======================================================= */
+
+  .mw-hero-v3-host-glow {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 50%;
+    top: 8%;
+
+    width:
+      min(
+        47vw,
+        860px
+      );
+
+    height: 60%;
+
+    transform:
+      translateX(-50%);
+  }
+
+  .mw-hero-v3-hosts::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: 3;
+
+    left: 50%;
+    right: auto;
+    bottom: 0;
+
+    width:
+      min(
+        55vw,
+        1000px
+      );
+
+    height: 29%;
+
+    transform:
+      translateX(-50%);
+
+    pointer-events: none;
+
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(7, 6, 21, 0.08) 18%,
+        rgba(7, 6, 21, 0.44) 54%,
+        rgba(7, 6, 21, 0.92) 100%
+      );
+  }
+
+  /* =======================================================
+     FULL-VIEWPORT CAMPAIGN COORDINATE SYSTEM
+     ======================================================= */
+
+  .mw-hero-v3-content {
+    position: absolute;
+
+    z-index: 7;
+
+    inset: 0;
+
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    pointer-events: none;
+  }
+
+  /* =======================================================
+     THEME — TRUE VIEWPORT CENTRE
+     ======================================================= */
+
+  .mw-hero-v3-theme {
+    position: absolute;
+
+    z-index: 8;
+
+    left: 50%;
+    right: auto;
+    bottom: 25%;
+
+    width:
+      min(
+        56vw,
+        1010px
+      );
+
+    margin: 0;
+
+    transform:
+      translateX(-50%);
+
+    transform-origin:
+      center center;
+
+    text-align: center;
+
+    pointer-events: auto;
+  }
+
+  .mw-hero-v3-theme > p,
+  .mw-hero-v3-theme h1,
+  .mw-hero-v3-conference-line {
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+  }
+
+  .mw-hero-v3-theme h1 {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mw-hero-v3-theme h1 span,
+  .mw-hero-v3-theme h1 em {
+    display: block;
+
+    width: max-content;
+    max-width: 100%;
+
+    margin-inline: auto;
+  }
+
+  .mw-hero-v3-theme::after {
+    left: 50%;
+    right: auto;
+
+    transform:
+      translateX(-50%);
+  }
+
+  .mw-hero-v3-cross {
+    left: 3%;
+    right: auto;
+  }
+
+  /* =======================================================
+     EVENT INFORMATION — TRUE VIEWPORT CENTRE
+     ======================================================= */
+
+  .mw-hero-v3-event-panel {
+    position: absolute;
+
+    z-index: 10;
+
+    left: 50%;
+    right: auto;
+    bottom: 5.8%;
+
+    width:
+      min(
+        720px,
+        calc(100vw - 64px)
+      );
+
+    max-width: 720px;
+
+    margin: 0;
+
+    transform:
+      translateX(-50%);
+
+    transform-origin:
+      center center;
+  }
+
+  /* =======================================================
+     EARTH — TRUE VIEWPORT CENTRE
+     ======================================================= */
+
+  .mw-hero-v3-earth {
+    position: absolute;
+
+    z-index: 5;
+
+    left: 50%;
+    right: auto;
+    bottom: -44%;
+
+    width:
+      min(
+        48vw,
+        880px
+      );
+
+    margin: 0;
+
+    transform:
+      translateX(-50%);
+
+    transform-origin:
+      center center;
+
+    opacity: 0.86;
+  }
+
+  .mw-hero-v3-earth img {
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  /* =======================================================
+     ENERGY — SAME CENTRE AXIS
+     ======================================================= */
+
+  .mw-hero-v3-energy {
+    position: absolute;
+
+    z-index: 6;
+
+    inset: 0;
+
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    transform: none;
+
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .mw-hero-v3-energy-ribbon.ribbon-one {
+    left: 50%;
+    right: auto;
+    top: 54%;
+
+    width: 67vw;
+    height: 20vw;
+
+    transform:
+      translateX(-50%)
+      rotate(5deg)
+      skewX(-9deg);
+
+    transform-origin:
+      center center;
+  }
+
+  .mw-hero-v3-energy-ribbon.ribbon-two {
+    left: 50%;
+    right: auto;
+    top: 63%;
+
+    width: 54vw;
+    height: 16vw;
+
+    transform:
+      translateX(-50%)
+      rotate(-4deg)
+      skewX(8deg);
+
+    transform-origin:
+      center center;
+  }
+
+  /* =======================================================
+     SUPPORTING RIGHT RAIL
+     ======================================================= */
+
+  .mw-hero-v3-edition {
+    left: auto;
+
+    right:
+      clamp(
+        34px,
+        4vw,
+        72px
+      );
+
+    top: 14%;
+  }
+
+  .mw-hero-v3-scripture {
+    left: auto;
+
+    right:
+      clamp(
+        34px,
+        4vw,
+        72px
+      );
+
+    top: 31%;
+  }
+
+  /* =======================================================
+     SECONDARY REGISTER CTA
+     ======================================================= */
+
+  .mw-hero-v3-actions {
+    left: auto;
+
+    right:
+      clamp(
+        38px,
+        4vw,
+        72px
+      );
+
+    bottom: 6.5%;
+  }
+
+  /* =======================================================
+     CONTENT-FIT NAVBAR
+     ======================================================= */
+
+  .mw-nav-v3-inner {
+    width: max-content;
+
+    max-width:
+      calc(100vw - 64px);
+
+    grid-template-columns:
+      auto
+      auto
+      auto;
+
+    justify-content: center;
+
+    gap: 42px;
+
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+
+  .mw-nav-v3-brand {
+    width: max-content;
+
+    flex-shrink: 0;
+  }
+
+  .mw-nav-v3-links {
+    width: max-content;
+    min-width: 0;
+
+    gap:
+      clamp(
+        18px,
+        1.45vw,
+        28px
+      );
+
+    justify-content:
+      flex-start;
+  }
+
+  .mw-nav-v3-register {
+    width: max-content;
+
+    justify-self: auto;
+
+    flex-shrink: 0;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-D1E-1 — Central foreground calibration
+
+   Host geometry is intentionally frozen.
+
+   This layer calibrates only:
+   - theme/title
+   - cross
+   - Earth
+   - event panel
+   - ribbons
+   - edition/scripture
+   - secondary hero CTA
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* -------------------------------------------------------
+     THEME
+     Keep the complete title around the viewport centre.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-theme {
+    left: 50%;
+    right: auto;
+
+    bottom: 22.5%;
+
+    width:
+      min(
+        46vw,
+        820px
+      );
+
+    transform:
+      translateX(-50%);
+
+    text-align: center;
+  }
+
+  .mw-hero-v3-theme h1 {
+    width: 100%;
+
+    align-items: center;
+  }
+
+  .mw-hero-v3-theme h1 span {
+    font-size:
+      clamp(
+        4.7rem,
+        6.25vw,
+        7.35rem
+      );
+
+    line-height: 0.76;
+  }
+
+  .mw-hero-v3-theme h1 em {
+    font-size:
+      clamp(
+        4.9rem,
+        6.45vw,
+        7.55rem
+      );
+
+    line-height: 0.8;
+  }
+
+  .mw-hero-v3-theme > p {
+    margin-bottom: 10px;
+  }
+
+  .mw-hero-v3-conference-line {
+    margin-top: 11px;
+  }
+
+  /* -------------------------------------------------------
+     CROSS
+     Remains attached to the title rather than floating
+     independently across the hero.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-cross {
+    left: 1.5%;
+    top: 19%;
+
+    transform:
+      scale(0.88);
+
+    transform-origin:
+      center center;
+  }
+
+  /* -------------------------------------------------------
+     EARTH
+     Small lower foundation only.
+     It must not compete with the hosts or title.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-earth {
+    left: 50%;
+    right: auto;
+
+    bottom: -57%;
+
+    width:
+      min(
+        37vw,
+        680px
+      );
+
+    transform:
+      translateX(-50%);
+
+    opacity: 0.78;
+  }
+
+  .mw-hero-v3-earth img {
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  /* -------------------------------------------------------
+     EVENT INFORMATION
+     Compact centred band beneath campaign title.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-event-panel {
+    left: 50%;
+    right: auto;
+
+    bottom: 4.7%;
+
+    width:
+      min(
+        650px,
+        calc(100vw - 80px)
+      );
+
+    max-width: 650px;
+
+    transform:
+      translateX(-50%);
+  }
+
+  /* -------------------------------------------------------
+     ENERGY
+     Tighten ribbons around the central composition.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-energy-ribbon.ribbon-one {
+    left: 50%;
+    top: 55%;
+
+    width: 58vw;
+    height: 16vw;
+
+    transform:
+      translateX(-50%)
+      rotate(5deg)
+      skewX(-9deg);
+  }
+
+  .mw-hero-v3-energy-ribbon.ribbon-two {
+    left: 50%;
+    top: 64%;
+
+    width: 48vw;
+    height: 13vw;
+
+    transform:
+      translateX(-50%)
+      rotate(-4deg)
+      skewX(8deg);
+  }
+
+  /* -------------------------------------------------------
+     EDITION
+     Bring supporting campaign information closer to the
+     central group instead of the far viewport edge.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-edition {
+    top: 14%;
+
+    left:
+      calc(
+        50% + 430px
+      );
+
+    right: auto;
+  }
+
+  /* -------------------------------------------------------
+     SCRIPTURE
+     Same supporting-right relationship.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-scripture {
+    top: 30%;
+
+    left:
+      calc(
+        50% + 355px
+      );
+
+    right: auto;
+
+    width: 220px;
+  }
+
+  /* -------------------------------------------------------
+     SECONDARY HERO CTA
+     Keep it clear of the centred event panel.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-actions {
+    left:
+      calc(
+        50% + 420px
+      );
+
+    right: auto;
+
+    bottom: 5.2%;
+  }
+}
+
+
+/* =========================================================
+   MW-HERO-V3-D1E-3 — Unified central host stage
+
+   Both portraits now belong to one visual campaign group.
+
+   No 50/50 split-screen composition is used by this
+   authority.
+
+   Pastor:
+   - left/back
+   - slightly wider canvas
+
+   Foluke:
+   - right/front
+   - overlaps Pastor naturally through transparent PNG space
+
+   The group itself is centred on the viewport.
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* -------------------------------------------------------
+     ONE CENTRED HOST STAGE
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-hosts {
+    position: absolute;
+
+    z-index: 4;
+
+    left: 50%;
+    right: auto;
+    top: 14.5%;
+    bottom: auto;
+
+    width:
+      min(
+        58vw,
+        1040px
+      );
+
+    height: 64%;
+
+    transform:
+      translateX(-50%);
+
+    overflow: visible;
+
+    pointer-events: none;
+  }
+
+  /* -------------------------------------------------------
+     SHARED PORTRAIT BEHAVIOUR
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host {
+    position: absolute;
+
+    top: 0;
+    bottom: auto;
+
+    margin: 0;
+
+    overflow: visible;
+
+    transform: none;
+  }
+
+  .mw-hero-v3-host img {
+    object-fit: contain;
+    object-position: center bottom;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     PASTOR — LEFT / BACK
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-pastor {
+    z-index: 1;
+
+    left: 14%;
+    right: auto;
+
+    width: 53%;
+    height: 100%;
+
+    transform: none;
+  }
+
+  .mw-hero-v3-host-pastor img {
+    object-fit: contain;
+    object-position: center bottom;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     FOLUKE — RIGHT / FRONT
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-foluke {
+    z-index: 2;
+
+    left: 37.5%;
+    right: auto;
+
+    width: 51%;
+    height: 99%;
+
+    transform: none;
+  }
+
+  .mw-hero-v3-host-foluke img {
+    object-fit: contain;
+    object-position: center bottom;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     HOST LABELS
+     Labels belong to the stage rather than being pushed
+     hundreds of pixels away from split-screen canvases.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-pastor
+    figcaption {
+    left: -10%;
+    right: auto;
+    top: 31%;
+
+    transform: none;
+
+    text-align: left;
+  }
+
+  .mw-hero-v3-host-foluke
+    figcaption {
+    left: auto;
+    right: -12%;
+    top: 31%;
+
+    transform: none;
+
+    text-align: left;
+  }
+
+  /* -------------------------------------------------------
+     CROP CONCEALMENT
+     Soft lower veil follows the unified group.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-hosts::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: 4;
+
+    left: 50%;
+    right: auto;
+    bottom: -1px;
+
+    width: 92%;
+    height: 26%;
+
+    transform:
+      translateX(-50%);
+
+    pointer-events: none;
+
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(7, 6, 21, 0.06) 20%,
+        rgba(7, 6, 21, 0.44) 61%,
+        rgba(7, 6, 21, 0.94) 100%
+      );
+  }
+
+  /* -------------------------------------------------------
+     HOST GLOW FOLLOWS THE UNIFIED GROUP
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-glow {
+    left: 50%;
+    right: auto;
+    top: 9%;
+
+    width:
+      min(
+        52vw,
+        940px
+      );
+
+    height: 62%;
+
+    transform:
+      translateX(-50%);
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-D1E-4 — Unified central campaign content
+
+   APPROVED HOST GROUP IS FROZEN.
+
+   Primary visual axis:
+                       50vw
+                         |
+                      HOSTS
+                         |
+                  GREATER THINGS
+                         |
+                       EARTH
+                         |
+                  DATE + LOCATION
+                         |
+                    REGISTER CTA
+
+   Edition and scripture become balanced supporting content
+   around the central composition.
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* -------------------------------------------------------
+     CONTENT COORDINATE SYSTEM
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-content {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     THEME
+     Exact viewport-centred campaign title.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-theme {
+    left: 30%;
+    right: auto;
+
+    bottom: 22.5%;
+
+    width:
+      min(
+        46vw,
+        820px
+      );
+
+    margin: 0;
+
+    transform:
+      translateX(-50%);
+
+    transform-origin:
+      center center;
+
+    text-align: center;
+  }
+
+  .mw-hero-v3-theme > p {
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+  }
+
+  .mw-hero-v3-theme h1 {
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .mw-hero-v3-theme h1 span,
+  .mw-hero-v3-theme h1 em {
+    width: max-content;
+    max-width: 100%;
+
+    margin-inline: auto;
+  }
+
+  .mw-hero-v3-conference-line {
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    justify-content: center;
+
+    text-align: center;
+  }
+
+  /* -------------------------------------------------------
+     CROSS
+     Cross remains part of the title lockup.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-cross {
+    left: 1.5%;
+    right: auto;
+
+    top: 19%;
+  }
+
+  /* -------------------------------------------------------
+     EARTH
+     Exact same 50vw centre axis.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-earth {
+    left: 30%;
+    right: auto;
+
+    bottom: -57%;
+
+    width:
+      min(
+        37vw,
+        680px
+      );
+
+    margin: 0;
+
+    transform:
+      translateX(-50%);
+
+    transform-origin:
+      center bottom;
+  }
+
+  .mw-hero-v3-earth img {
+    object-position:
+      center bottom;
+  }
+
+  /* -------------------------------------------------------
+     EVENT INFORMATION
+     Exact same centre axis.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-event-panel {
+    left: 30%;
+    right: auto;
+
+    bottom: 4.7%;
+
+    width:
+      min(
+        650px,
+        calc(100vw - 80px)
+      );
+
+    max-width: 650px;
+
+    margin: 0;
+
+    transform:
+      translateX(-50%);
+  }
+
+  /* -------------------------------------------------------
+     REGISTER CTA
+     Stop treating the hero CTA as a far-right floating
+     element. It now belongs beneath the central campaign.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-actions {
+    left: 30%;
+    right: auto;
+
+    bottom: 0.8%;
+
+    width: max-content;
+
+    transform:
+      translateX(-50%);
+  }
+
+  /* -------------------------------------------------------
+     EDITION
+     Supporting content positioned relative to the central
+     host/campaign group rather than viewport edge.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-edition {
+    left:
+      calc(
+        30% + 455px
+      );
+
+    right: auto;
+
+    top: 14%;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     SCRIPTURE
+     Pulled toward central composition.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-scripture {
+    left:
+      calc(
+        30% + 365px
+      );
+
+    right: auto;
+
+    top: 30%;
+
+    width: 220px;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     ENERGY RIBBONS
+     Both use the same central axis.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-energy {
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    transform: none;
+  }
+
+  .mw-hero-v3-energy-ribbon.ribbon-one {
+    left: 30%;
+    right: auto;
+
+    transform:
+      translateX(-50%)
+      rotate(5deg)
+      skewX(-9deg);
+  }
+
+  .mw-hero-v3-energy-ribbon.ribbon-two {
+    left: 30%;
+    right: auto;
+
+    transform:
+      translateX(-50%)
+      rotate(-4deg)
+      skewX(8deg);
+  }
+
+  /* -------------------------------------------------------
+     MOTIF
+     Exact central alignment.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-motif {
+    left: 30%;
+    right: auto;
+
+    transform:
+      translateX(-50%);
+
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-D1E-5 — Foreground over hosts layering
+
+   GEOMETRY IS FROZEN.
+
+   This authority changes stacking only.
+
+   Hosts become the portrait/background layer.
+
+   Theme, cross, ribbons, Earth, event information and
+   hero CTA render above the portraits so the lower portions
+   of the host images disappear naturally behind campaign
+   information.
+
+   No left/top/right/bottom/width/height/transform geometry
+   is changed here.
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* -------------------------------------------------------
+     HOST PORTRAIT GROUP — BACKGROUND SUBJECT LAYER
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-glow {
+    z-index: 2;
+  }
+
+  .mw-hero-v3-hosts {
+    z-index: 3;
+  }
+
+  .mw-hero-v3-host-pastor {
+    z-index: 1;
+  }
+
+  .mw-hero-v3-host-foluke {
+    z-index: 2;
+  }
+
+  /*
+   * The old host veil must not sit above the foreground
+   * campaign artwork.
+   */
+
+  .mw-hero-v3-hosts::after {
+    z-index: 3;
+  }
+
+  /* -------------------------------------------------------
+     ENERGY RIBBONS — FIRST FOREGROUND LAYER
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-energy {
+    z-index: 5;
+  }
+
+  .mw-hero-v3-energy-ribbon.ribbon-one,
+  .mw-hero-v3-energy-ribbon.ribbon-two {
+    z-index: 5;
+  }
+
+  /* -------------------------------------------------------
+     EARTH — ABOVE HOST LOWER BODY
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-earth {
+    z-index: 6;
+  }
+
+  /* -------------------------------------------------------
+     CONTENT SYSTEM
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-content {
+    z-index: 7;
+  }
+
+  /* -------------------------------------------------------
+     GREATER THINGS + CROSS
+     Principal foreground campaign artwork.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-theme {
+    z-index: 9;
+  }
+
+  .mw-hero-v3-cross {
+    z-index: 10;
+  }
+
+  /* -------------------------------------------------------
+     SUPPORTING INFORMATION
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-edition {
+    z-index: 10;
+  }
+
+  .mw-hero-v3-scripture {
+    z-index: 10;
+  }
+
+  /* -------------------------------------------------------
+     EVENT BAND
+     Must visibly cover the lower portrait area.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-event-panel {
+    z-index: 12;
+  }
+
+  /* -------------------------------------------------------
+     HERO CTA
+     Highest interactive campaign layer.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-actions {
+    z-index: 13;
+  }
+
+  .mw-hero-v3-register {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* -------------------------------------------------------
+     LOWER MOTIF
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-motif {
+    z-index: 11;
+  }
+
+  /* -------------------------------------------------------
+     FINAL LOWER TRANSITION
+     Remains above decorative background but below controls.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-bottom-fade {
+    z-index: 8;
+    pointer-events: none;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-D1F-1 — Ungroup foreground composition
+
+   Approved host composition remains frozen.
+
+   Changes:
+   - event details move directly beneath conference line
+   - event card visual container disappears
+   - hero Register CTA is removed
+   - ribbons move independently 18% right
+   - motif moves independently 18% right
+   - theme / Earth / supporting content are no longer
+     treated as one shared horizontal group
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* -------------------------------------------------------
+     THEME
+     Preserve current approved theme position.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-theme {
+    z-index: 9;
+  }
+
+  /* -------------------------------------------------------
+     EVENT DETAILS
+     Pull directly underneath:
+     MIGHTY WORKS CONFERENCE 2026 • JOHN 14:12
+
+     Keep the event information above the hosts.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-event-panel {
+    z-index: 12;
+
+    left: 30%;
+    right: auto;
+
+    /*
+     * Move substantially upward from the old bottom band.
+     * This places it close beneath the conference line.
+     */
+    bottom: 20%;
+
+    width:
+      min(
+        650px,
+        calc(100vw - 80px)
+      );
+
+    max-width: 650px;
+
+    transform:
+      translateX(-50%);
+
+    /*
+     * Remove the card/container appearance completely.
+     */
+    border: 0;
+    border-radius: 0;
+
+    padding:
+      8px 0 0;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  /*
+   * Remove any decorative event-panel pseudo layers.
+   */
+
+  .mw-hero-v3-event-panel::before,
+  .mw-hero-v3-event-panel::after {
+    content: none;
+    display: none;
+  }
+
+  /*
+   * Keep individual event items readable without creating
+   * another visible card.
+   */
+
+  .mw-hero-v3-date,
+  .mw-hero-v3-venue {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  /* -------------------------------------------------------
+     HERO CTA
+     DOM is removed. CSS is neutralised defensively.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-actions,
+  .mw-hero-v3-register {
+    display: none;
+  }
+
+  /* -------------------------------------------------------
+     RIBBONS
+     Current campaign axis = 30%.
+
+     Requested movement:
+       +18 percentage points right
+
+     New ribbon axis:
+       48%
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-energy-ribbon.ribbon-one {
+    left: 48%;
+    right: auto;
+  }
+
+  .mw-hero-v3-energy-ribbon.ribbon-two {
+    left: 48%;
+    right: auto;
+  }
+
+  /* -------------------------------------------------------
+     MOTIF
+     Same independent +18% right movement.
+
+     30% -> 48%
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-motif {
+    left: 48%;
+    right: auto;
+
+    transform:
+      translateX(-50%);
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-D1F-2 — Event lift and right support rail
+
+   Approved hosts, theme, Earth, ribbons and motif frozen.
+
+   Event details remain aligned with the campaign artwork,
+   but move upward directly beneath the conference line.
+
+   Edition + scripture are independent supporting content
+   on the right side of the hero.
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* -------------------------------------------------------
+     EVENT INFORMATION
+
+     Geometry other than vertical placement is inherited
+     from D1F-1.
+
+     Background remains completely transparent.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-event-panel {
+    bottom: 14%;
+
+    left: 34%;
+    right: auto;
+  }
+
+  /* -------------------------------------------------------
+     8TH EDITION — UPPER-RIGHT SUPPORT
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-edition {
+    left: auto;
+
+    right:
+      clamp(
+        54px,
+        6vw,
+        110px
+      );
+
+    top: 14%;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     JOHN 14:12 SCRIPTURE — RIGHT SUPPORT RAIL
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-scripture {
+    left: auto;
+
+    right:
+      clamp(
+        54px,
+        6vw,
+        110px
+      );
+
+    top: 31%;
+
+    width:
+      min(
+        230px,
+        16vw
+      );
+
+    transform: none;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-D1F-3 — Earth lift + event panel refinement
+
+   Changes only:
+   - Earth rises 10 percentage points
+   - Event information moves 2 percentage points right
+   - Event panel receives dark translucent treatment
+
+   All other hero geometry remains unchanged.
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* Earth: -57% -> -47% */
+
+  .mw-hero-v3-earth {
+    bottom: -32%;
+  }
+
+  /*
+   * Event:
+   * left 34% -> 36%
+   * bottom remains 14%
+   */
+
+  .mw-hero-v3-event-panel {
+    left: 36%;
+    right: auto;
+
+    bottom: 14%;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    -webkit-backdrop-filter: none;
+
+    backdrop-filter: none;
+  }
+
+  /*
+   * D1F-1 disabled panel pseudo-elements.
+   * Keep them disabled—the background comes from the
+   * panel itself.
+   */
+
+  .mw-hero-v3-event-panel::before,
+  .mw-hero-v3-event-panel::after {
+    content: none;
+    display: none;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-D1F-4 — Navbar logo clipping correction
+
+   Logo artwork must render in full.
+   No crop window / hidden overflow.
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /*
+   * Both logo containers participate in the same
+   * navbar centreline, but each artwork gets its own
+   * canvas dimensions.
+   */
+
+  .mw-nav-v3-brand {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+  }
+
+  /* -------------------------------------------------------
+     MIGHTY WORKS CONFERENCE LOGO
+     ------------------------------------------------------- */
+
+  .mw-nav-v3-brand-mwc {
+    position: relative;
+
+    width: 116px;
+    height: 72px;
+
+    padding: 0;
+
+    overflow: visible;
+
+    flex:
+      0 0 116px;
+  }
+
+  .mw-nav-v3-brand-mwc img {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 116px;
+    height: 72px;
+
+    max-width: none;
+
+    object-fit: contain;
+    object-position: center;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      );
+  }
+
+  /* -------------------------------------------------------
+     DIVIDER
+     True visual centre between the two brands.
+     ------------------------------------------------------- */
+
+  .mw-nav-v3-brand-divider {
+    width: 1px;
+    height: 42px;
+
+    margin: 0 1px;
+
+    align-self: center;
+
+    flex:
+      0 0 1px;
+  }
+
+  /* -------------------------------------------------------
+     EVERWINNING WORDMARK
+     Wider canvas because the artwork is horizontal.
+     ------------------------------------------------------- */
+
+  .mw-nav-v3-brand-host {
+    position: relative;
+
+    width: 178px;
+    height: 64px;
+
+    padding: 0;
+
+    overflow: visible;
+
+    flex:
+      0 0 178px;
+  }
+
+  .mw-nav-v3-brand-host img {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 178px;
+    height: 64px;
+
+    max-width: none;
+
+    object-fit: contain;
+    object-position: center;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      );
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-D1G-1 — Earth-based host crop concealment
+
+   APPROVED GEOMETRY IS FROZEN.
+
+   The Earth becomes the principal physical foreground
+   element hiding the sharp lower edges of both portrait
+   PNGs.
+
+   The host veil is reduced to a soft transition only.
+   It must never appear as a rectangular dark panel.
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* -------------------------------------------------------
+     HOSTS
+     Portrait geometry remains completely unchanged.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-hosts {
+    z-index: 3;
+
+    /*
+     * Required because Earth/title must visually cross
+     * the lower portrait boundary.
+     */
+    overflow: visible;
+  }
+
+  /* -------------------------------------------------------
+     HOST-BOTTOM TRANSITION
+
+     Previous veil was visually strong enough to reveal
+     the rectangular host-stage boundary.
+
+     This version is deliberately narrow and radial.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-hosts::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: 3;
+
+    left: 50%;
+    right: auto;
+
+    bottom: -3%;
+
+    width: 78%;
+    height: 18%;
+
+    transform:
+      translateX(-50%);
+
+    pointer-events: none;
+
+    background:
+      radial-gradient(
+        ellipse at 50% 100%,
+        rgba(7, 6, 21, 0.78) 0%,
+        rgba(7, 6, 21, 0.48) 34%,
+        rgba(7, 6, 21, 0.18) 58%,
+        rgba(7, 6, 21, 0.04) 72%,
+        transparent 84%
+      );
+
+    filter:
+      blur(14px);
+
+    opacity: 0.78;
+  }
+
+  /* -------------------------------------------------------
+     EARTH
+     PRIMARY CROP-CONCEALMENT FOREGROUND.
+
+     Position and size are intentionally unchanged.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-earth {
+    z-index: 7;
+
+    /*
+     * Approved position.
+     * Repeated here only to make the concealment contract
+     * explicit — this phase does not move the Earth.
+     */
+    bottom: -32%;
+
+    overflow: visible;
+
+    isolation: isolate;
+  }
+
+  .mw-hero-v3-earth img {
+    z-index: 2;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    /*
+     * Slight contrast/shadow helps the upper Earth rim
+     * separate from the portrait transition.
+     */
+    filter:
+      drop-shadow(
+        0 -10px 24px
+        rgba(43, 109, 255, 0.16)
+      );
+  }
+
+  /* -------------------------------------------------------
+     EARTH UPPER-RIM BLEND
+
+     A very soft atmospheric glow sits immediately above
+     the Earth and hides any final hard portrait transition.
+     ------------------------------------------------------- */
+
+     /* =========================================================
+   MW-HERO-V3-R1B — FINAL MOBILE EARTH / EVENT STACKING
+
+   Stacking only.
+   No position, size, or geometry changes.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* Earth stays behind event information */
+  .mw-hero-v3-earth {
+    z-index: 6;
+  }
+
+  /* Keep Earth's blend layers inside Earth's stack */
+  .mw-hero-v3-earth::before,
+  .mw-hero-v3-earth::after {
+    pointer-events: none;
+  }
+
+  /* Event information must render above Earth */
+  .mw-hero-v3-event-panel {
+    z-index: 30;
+    isolation: isolate;
+  }
+}
+  .mw-hero-v3-earth::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: 1;
+
+    left: 50%;
+    top: -5%;
+
+    width: 86%;
+    height: 22%;
+
+    transform:
+      translateX(-50%);
+
+    pointer-events: none;
+
+    background:
+      radial-gradient(
+        ellipse at center,
+        rgba(53, 125, 255, 0.20) 0%,
+        rgba(84, 66, 205, 0.14) 34%,
+        rgba(7, 6, 21, 0.10) 58%,
+        transparent 78%
+      );
+
+    filter:
+      blur(18px);
+  }
+
+  /* -------------------------------------------------------
+     TITLE / CROSS
+     Remain above portrait layer.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-theme {
+    z-index: 9;
+  }
+
+  .mw-hero-v3-cross {
+    z-index: 10;
+  }
+
+  /* -------------------------------------------------------
+     EVENT INFORMATION
+     Must remain readable above the Earth.
+     Geometry is frozen at left 36%, bottom 14%.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-event-panel {
+    z-index: 12;
+
+    left: 36%;
+    bottom: 14%;
+
+    background: transparent;
+    box-shadow: none;
+
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+
+    text-shadow:
+      0 2px 10px
+      rgba(0, 0, 0, 0.72);
+  }
+
+  /* -------------------------------------------------------
+     RIBBONS
+     Retain approved 48% axis and foreground relationship.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-energy {
+    z-index: 5;
+  }
+
+  .mw-hero-v3-energy-ribbon.ribbon-one,
+  .mw-hero-v3-energy-ribbon.ribbon-two {
+    z-index: 5;
+  }
+
+  /* -------------------------------------------------------
+     MOTIF
+     Retain approved position.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-motif {
+    z-index: 11;
+  }
+}
+
+/* =========================================================
+   MW-NAV-V3-STICKY-1 — Persistent sticky navigation
+
+   Approved navbar content and geometry remain intact.
+
+   The navbar is fixed to the viewport and gains a subtle
+   glass surface after the page begins scrolling.
+   ========================================================= */
+
+.mw-nav-v3 {
+  position: fixed;
+
+  z-index: 1000;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+
+  transition:
+    background 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    backdrop-filter 220ms ease;
+}
+
+/*
+ * Initial hero state remains visually open.
+ */
+
+.mw-nav-v3:not(.is-scrolled) {
+  background: transparent;
+}
+
+/*
+ * Persistent state over page content.
+ */
+
+.mw-nav-v3.is-scrolled {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(6, 5, 20, 0.94) 0%,
+      rgba(8, 6, 27, 0.88) 100%
+    );
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 12px 40px
+    rgba(0, 0, 0, 0.28);
+
+  -webkit-backdrop-filter:
+    blur(18px)
+    saturate(135%);
+
+  backdrop-filter:
+    blur(18px)
+    saturate(135%);
+}
+
+/*
+ * Preserve approved content-fit navbar geometry.
+ */
+
+.mw-nav-v3-inner {
+  position: relative;
+}
+
+/*
+ * Anchor destinations must clear the fixed navbar rather
+ * than stopping underneath it.
+ */
+
+#top,
+#about,
+#experience,
+#nations,
+#schedule,
+#register-interest {
+  scroll-margin-top: 108px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mw-nav-v3 {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-D1G-2 — Earth portrait seam integration
+
+   FINAL DESKTOP BLEND CALIBRATION.
+
+   GEOMETRY IS FROZEN.
+
+   Earth remains the physical foreground cover for the
+   sharp lower edges of the host PNGs.
+
+   This phase changes only blending, opacity and layering.
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* -------------------------------------------------------
+     HOST STAGE
+     Keep portraits behind all campaign foreground artwork.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-hosts {
+    z-index: 3;
+    overflow: visible;
+  }
+
+  /*
+   * Replace the stronger lower-host treatment with a
+   * broader but much softer atmospheric fade.
+
+   There must be no visible rectangular boundary.
+   */
+
+  .mw-hero-v3-hosts::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: 3;
+
+    left: 50%;
+    bottom: -5%;
+
+    width: 82%;
+    height: 20%;
+
+    transform:
+      translateX(-50%);
+
+    pointer-events: none;
+
+    background:
+      radial-gradient(
+        ellipse at 50% 100%,
+        rgba(7, 6, 21, 0.68) 0%,
+        rgba(7, 6, 21, 0.42) 30%,
+        rgba(7, 6, 21, 0.18) 54%,
+        rgba(7, 6, 21, 0.055) 70%,
+        transparent 86%
+      );
+
+    filter:
+      blur(20px);
+
+    opacity: 0.72;
+  }
+
+  /* -------------------------------------------------------
+     EARTH
+     Position and size remain untouched.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-earth {
+    z-index: 7;
+
+    bottom: -32%;
+
+    isolation: isolate;
+    overflow: visible;
+  }
+
+  /*
+   * Earth rim gets enough definition to visually cross
+   * in front of both portraits.
+   */
+
+  .mw-hero-v3-earth img {
+    position: relative;
+    z-index: 3;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    filter:
+      drop-shadow(
+        0 -7px 18px
+        rgba(76, 133, 255, 0.22)
+      )
+      drop-shadow(
+        0 -2px 8px
+        rgba(255, 255, 255, 0.08)
+      );
+  }
+
+  /* -------------------------------------------------------
+     ATMOSPHERIC HORIZON
+     Soft light bridges portraits into the Earth rim.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-earth::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: 2;
+
+    left: 50%;
+    top: -7%;
+
+    width: 92%;
+    height: 25%;
+
+    transform:
+      translateX(-50%);
+
+    pointer-events: none;
+
+    background:
+      radial-gradient(
+        ellipse at 50% 65%,
+        rgba(72, 134, 255, 0.24) 0%,
+        rgba(93, 76, 211, 0.16) 30%,
+        rgba(34, 25, 94, 0.10) 52%,
+        rgba(7, 6, 21, 0.04) 67%,
+        transparent 82%
+      );
+
+    filter:
+      blur(22px);
+
+    opacity: 0.88;
+  }
+
+  /*
+   * A second extremely shallow shadow sits directly
+   * behind the Earth horizon. This conceals the final
+   * straight portrait pixels without creating a box.
+   */
+
+  .mw-hero-v3-earth::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: 1;
+
+    left: 50%;
+    top: -2%;
+
+    width: 72%;
+    height: 13%;
+
+    transform:
+      translateX(-50%);
+
+    pointer-events: none;
+
+    background:
+      radial-gradient(
+        ellipse at center,
+        rgba(5, 4, 17, 0.54) 0%,
+        rgba(7, 6, 21, 0.26) 44%,
+        transparent 78%
+      );
+
+    filter:
+      blur(16px);
+  }
+
+  /* -------------------------------------------------------
+     CAMPAIGN FOREGROUND HIERARCHY
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-theme {
+    z-index: 9;
+  }
+
+  .mw-hero-v3-cross {
+    z-index: 10;
+  }
+
+  .mw-hero-v3-event-panel {
+    z-index: 12;
+
+    background: transparent;
+    box-shadow: none;
+
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+
+    text-shadow:
+      0 2px 10px
+      rgba(0, 0, 0, 0.72);
+  }
+
+  .mw-hero-v3-motif {
+    z-index: 11;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-1 — Tablet foundation and navbar
+
+   RANGE: 768px — 1199px
+
+   Desktop >=1200px remains frozen.
+   ========================================================= */
+
+@media
+  (min-width: 768px)
+  and (max-width: 1199px) {
+
+  /* HERO FOUNDATION */
+
+  .mw-hero-v3 {
+    min-height:
+      max(
+        900px,
+        100svh
+      );
+
+    overflow: hidden;
+  }
+
+  /* NAVBAR */
+
+  .mw-nav-v3 {
+    position: fixed;
+
+    z-index: 1000;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+  }
+
+  .mw-nav-v3-inner {
+    width:
+      calc(
+        100% - 40px
+      );
+
+    max-width: none;
+
+    min-height: 78px;
+
+    margin-inline: auto;
+
+    padding-inline: 0;
+
+    grid-template-columns:
+      auto
+      1fr
+      auto;
+
+    gap: 18px;
+  }
+
+  /* DUAL BRAND */
+
+  .mw-nav-v3-brand {
+    width: max-content;
+
+    gap: 9px;
+
+    flex-shrink: 0;
+  }
+
+  .mw-nav-v3-brand-mwc {
+    width: 72px;
+    height: 54px;
+
+    padding: 0;
+
+    overflow: visible;
+
+    flex:
+      0 0 72px;
+  }
+
+  .mw-nav-v3-brand-mwc img {
+    width: 72px;
+    height: 54px;
+
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .mw-nav-v3-brand-divider {
+    width: 1px;
+    height: 32px;
+
+    margin: 0;
+
+    align-self: center;
+  }
+
+  .mw-nav-v3-brand-host {
+    width: 108px;
+    height: 48px;
+
+    padding: 0;
+
+    overflow: visible;
+
+    flex:
+      0 0 108px;
+  }
+
+  .mw-nav-v3-brand-host img {
+    width: 108px;
+    height: 48px;
+
+    object-fit: contain;
+    object-position: center;
+  }
+
+  /* TABLET MENU */
+
+  .mw-nav-v3-links {
+    position: fixed;
+
+    z-index: 1001;
+
+    top: 78px;
+    left: 20px;
+    right: 20px;
+
+    width: auto;
+
+    display: none;
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    gap: 6px;
+
+    padding: 16px;
+
+    border:
+      1px solid
+      rgba(255, 255, 255, 0.10);
+
+    border-radius: 18px;
+
+    background:
+      rgba(7, 6, 21, 0.96);
+
+    box-shadow:
+      0 22px 60px
+      rgba(0, 0, 0, 0.34);
+
+    -webkit-backdrop-filter:
+      blur(20px);
+
+    backdrop-filter:
+      blur(20px);
+  }
+
+  .mw-nav-v3-links.is-open {
+    display: grid;
+  }
+
+  .mw-nav-v3-links a {
+    min-height: 46px;
+
+    justify-content: center;
+
+    padding:
+      0 12px;
+
+    border-radius: 12px;
+
+    font-size: 0.68rem;
+
+    background:
+      rgba(255, 255, 255, 0.035);
+  }
+
+  /*
+   * Hide separate desktop CTA at tablet width.
+   * Menu control becomes the final navbar control.
+   */
+
+  .mw-nav-v3-register {
+    display: none;
+  }
+
+  .mw-nav-v3-menu {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    justify-self: end;
+
+    border:
+      1px solid
+      rgba(255, 255, 255, 0.14);
+
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    background:
+      rgba(255, 255, 255, 0.05);
+  }
+
+  /* FIXED HEADER ANCHOR CLEARANCE */
+
+  #top,
+  #about,
+  #experience,
+  #nations,
+  #schedule,
+  #register-interest {
+    scroll-margin-top: 92px;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-2 — Tablet hosts and crop concealment
+
+   RANGE: 768px — 1199px
+
+   Dedicated tablet host composition.
+   Desktop >=1200px remains frozen.
+
+   Foluke remains foreground.
+   Pastor remains left/back.
+   ========================================================= */
+
+@media
+  (min-width: 768px)
+  and (max-width: 1199px) {
+
+  /* -------------------------------------------------------
+     UNIFIED TABLET HOST STAGE
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-hosts {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 50%;
+    right: auto;
+
+    top: 14%;
+    bottom: auto;
+
+    width:
+      min(
+        86vw,
+        820px
+      );
+
+    height: 57%;
+
+    transform:
+      translateX(-50%);
+
+    overflow: visible;
+
+    pointer-events: none;
+  }
+
+  /* -------------------------------------------------------
+     SHARED PORTRAIT BEHAVIOUR
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host {
+    position: absolute;
+
+    top: 0;
+    bottom: auto;
+
+    margin: 0;
+
+    overflow: visible;
+
+    transform: none;
+  }
+
+  .mw-hero-v3-host img {
+    object-fit: contain;
+    object-position: center bottom;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     PASTOR — LEFT / BACK
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-pastor {
+    z-index: 1;
+
+    left: 9%;
+    right: auto;
+
+    width: 56%;
+    height: 100%;
+
+    transform: none;
+  }
+
+  .mw-hero-v3-host-pastor img {
+    object-fit: contain;
+    object-position: center bottom;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     FOLUKE — RIGHT / FRONT
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-foluke {
+    z-index: 2;
+
+    left: 39%;
+    right: auto;
+
+    width: 54%;
+    height: 99%;
+
+    transform: none;
+  }
+
+  .mw-hero-v3-host-foluke img {
+    object-fit: contain;
+    object-position: center bottom;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     HOST LABELS
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-pastor
+    figcaption {
+    left: -1%;
+    right: auto;
+
+    top: 35%;
+
+    transform: none;
+
+    text-align: left;
+  }
+
+  .mw-hero-v3-host-foluke
+    figcaption {
+    left: auto;
+    right: -2%;
+
+    top: 35%;
+
+    transform: none;
+
+    text-align: left;
+  }
+
+  .mw-hero-v3-host
+    figcaption span {
+    font-size: 0.55rem;
+  }
+
+  .mw-hero-v3-host
+    figcaption strong {
+    font-size:
+      clamp(
+        0.68rem,
+        1.3vw,
+        0.84rem
+      );
+
+    line-height: 1.16;
+  }
+
+  /* -------------------------------------------------------
+     TABLET HOST CROP TRANSITION
+
+     Earth will become the primary foreground crop cover
+     in R1A-4. This veil only softens the portrait bottoms.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-hosts::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: 3;
+
+    left: 50%;
+    right: auto;
+
+    bottom: -5%;
+
+    width: 84%;
+    height: 20%;
+
+    transform:
+      translateX(-50%);
+
+    pointer-events: none;
+
+    background:
+      radial-gradient(
+        ellipse at 50% 100%,
+        rgba(7, 6, 21, 0.66) 0%,
+        rgba(7, 6, 21, 0.38) 34%,
+        rgba(7, 6, 21, 0.14) 58%,
+        rgba(7, 6, 21, 0.04) 72%,
+        transparent 84%
+      );
+
+    filter:
+      blur(18px);
+
+    opacity: 0.76;
+  }
+
+  /* -------------------------------------------------------
+     TABLET HOST GLOW
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-glow {
+    left: 50%;
+    right: auto;
+
+    top: 11%;
+
+    width:
+      min(
+        78vw,
+        740px
+      );
+
+    height: 59%;
+
+    transform:
+      translateX(-50%);
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-3 — Tablet theme and cross
+
+   RANGE: 768px — 1199px
+
+   Theme becomes the principal foreground campaign layer
+   over the tablet host composition.
+
+   Desktop >=1200px remains frozen.
+   ========================================================= */
+
+@media
+  (min-width: 768px)
+  and (max-width: 1199px) {
+
+  /* -------------------------------------------------------
+     CONTENT COORDINATE SYSTEM
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-content {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     TABLET THEME
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-theme {
+    position: absolute;
+
+    z-index: 9;
+
+    left: 50%;
+    right: auto;
+
+    bottom: 23%;
+
+    width:
+      min(
+        72vw,
+        690px
+      );
+
+    margin: 0;
+
+    transform:
+      translateX(-50%);
+
+    transform-origin:
+      center center;
+
+    text-align: center;
+  }
+
+  .mw-hero-v3-theme > p {
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 9px;
+
+    text-align: center;
+  }
+
+  .mw-hero-v3-theme h1 {
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .mw-hero-v3-theme h1 span {
+    width: max-content;
+    max-width: 100%;
+
+    margin-inline: auto;
+
+    font-size:
+      clamp(
+        4.25rem,
+        9.2vw,
+        6.6rem
+      );
+
+    line-height: 0.78;
+  }
+
+  .mw-hero-v3-theme h1 em {
+    width: max-content;
+    max-width: 100%;
+
+    margin-inline: auto;
+
+    font-size:
+      clamp(
+        4.4rem,
+        9.5vw,
+        6.8rem
+      );
+
+    line-height: 0.81;
+  }
+
+  /* -------------------------------------------------------
+     CONFERENCE LINE
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-conference-line {
+    width: 100%;
+
+    margin:
+      10px auto 0;
+
+    justify-content: center;
+
+    text-align: center;
+
+    font-size:
+      clamp(
+        0.54rem,
+        1vw,
+        0.68rem
+      );
+
+    letter-spacing: 0.12em;
+  }
+
+  /* -------------------------------------------------------
+     CROSS
+     Keep attached to the title lockup.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-cross {
+    z-index: 10;
+
+    left: 1%;
+    right: auto;
+
+    top: 19%;
+
+    transform:
+      scale(0.82);
+
+    transform-origin:
+      center center;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-4 — Tablet Earth crop integration
+
+   RANGE: 768px — 1199px
+
+   Earth is the primary foreground cover for the lower
+   edges of both tablet host portraits.
+
+   Desktop >=1200px remains frozen.
+   ========================================================= */
+
+@media
+  (min-width: 768px)
+  and (max-width: 1199px) {
+
+  /* -------------------------------------------------------
+     TABLET EARTH
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-earth {
+    position: absolute;
+
+    z-index: 7;
+
+    left: 50%;
+    right: auto;
+
+    bottom: -28%;
+
+    width:
+      min(
+        64vw,
+        620px
+      );
+
+    margin: 0;
+
+    transform:
+      translateX(-50%);
+
+    transform-origin:
+      center bottom;
+
+    opacity: 0.88;
+
+    overflow: visible;
+
+    isolation: isolate;
+  }
+
+  .mw-hero-v3-earth img {
+    position: relative;
+
+    z-index: 3;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    filter:
+      drop-shadow(
+        0 -6px 16px
+        rgba(76, 133, 255, 0.20)
+      )
+      drop-shadow(
+        0 -2px 7px
+        rgba(255, 255, 255, 0.07)
+      );
+  }
+
+  /* -------------------------------------------------------
+     TABLET EARTH HORIZON
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-earth::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: 2;
+
+    left: 50%;
+    top: -7%;
+
+    width: 92%;
+    height: 24%;
+
+    transform:
+      translateX(-50%);
+
+    pointer-events: none;
+
+    background:
+      radial-gradient(
+        ellipse at 50% 65%,
+        rgba(72, 134, 255, 0.22) 0%,
+        rgba(93, 76, 211, 0.13) 34%,
+        rgba(34, 25, 94, 0.08) 55%,
+        transparent 80%
+      );
+
+    filter:
+      blur(20px);
+
+    opacity: 0.86;
+  }
+
+  /* -------------------------------------------------------
+     SHALLOW SEAM SHADOW
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-earth::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: 1;
+
+    left: 50%;
+    top: -2%;
+
+    width: 74%;
+    height: 13%;
+
+    transform:
+      translateX(-50%);
+
+    pointer-events: none;
+
+    background:
+      radial-gradient(
+        ellipse at center,
+        rgba(5, 4, 17, 0.48) 0%,
+        rgba(7, 6, 21, 0.22) 46%,
+        transparent 79%
+      );
+
+    filter:
+      blur(15px);
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-5 — Tablet event ribbons and motif
+
+   RANGE: 768px — 1199px
+
+   Event information remains transparent and sits above
+   the Earth.
+
+   Ribbons support the lower campaign composition without
+   covering host faces.
+
+   Desktop >=1200px remains frozen.
+   ========================================================= */
+
+@media
+  (min-width: 768px)
+  and (max-width: 1199px) {
+
+  /* -------------------------------------------------------
+     EVENT INFORMATION
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-event-panel {
+    position: absolute;
+
+    z-index: 12;
+
+    left: 50%;
+    right: auto;
+
+    bottom: 7.5%;
+
+    width:
+      min(
+        660px,
+        calc(100vw - 64px)
+      );
+
+    max-width: 660px;
+
+    margin: 0;
+
+    transform:
+      translateX(-50%);
+
+    padding: 0;
+
+    border: 0;
+    border-radius: 0;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+
+    text-shadow:
+      0 2px 10px
+      rgba(0, 0, 0, 0.72);
+  }
+
+  .mw-hero-v3-event-panel::before,
+  .mw-hero-v3-event-panel::after {
+    content: none;
+    display: none;
+  }
+
+  .mw-hero-v3-date,
+  .mw-hero-v3-venue {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  /* -------------------------------------------------------
+     ENERGY SYSTEM
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-energy {
+    z-index: 5;
+
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    transform: none;
+  }
+
+  .mw-hero-v3-energy-ribbon.ribbon-one {
+    left: 52%;
+    right: auto;
+
+    top: 58%;
+
+    width: 82vw;
+    height: 22vw;
+
+    transform:
+      translateX(-50%)
+      rotate(5deg)
+      skewX(-9deg);
+  }
+
+  .mw-hero-v3-energy-ribbon.ribbon-two {
+    left: 52%;
+    right: auto;
+
+    top: 66%;
+
+    width: 72vw;
+    height: 18vw;
+
+    transform:
+      translateX(-50%)
+      rotate(-4deg)
+      skewX(8deg);
+  }
+
+  /* -------------------------------------------------------
+     MOTIF
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-motif {
+    z-index: 11;
+
+    left: 50%;
+    right: auto;
+
+    bottom: 1.4%;
+
+    transform:
+      translateX(-50%);
+
+    font-size: 0.52rem;
+
+    text-align: center;
+  }
+
+  /* Removed desktop hero CTA remains absent */
+
+  .mw-hero-v3-actions {
+    display: none;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-6 — Tablet edition scripture and certification
+
+   RANGE: 768px — 1199px
+
+   Final tablet visual authority.
+
+   Edition and scripture remain supporting content on the
+   right side of the campaign composition.
+
+   Desktop >=1200px remains frozen.
+   ========================================================= */
+
+@media
+  (min-width: 768px)
+  and (max-width: 1199px) {
+
+  /* -------------------------------------------------------
+     8TH EDITION
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-edition {
+    position: absolute;
+
+    z-index: 10;
+
+    left: auto;
+
+    right: 4%;
+
+    top: 12%;
+
+    transform:
+      scale(0.84);
+
+    transform-origin:
+      top right;
+  }
+
+  /* -------------------------------------------------------
+     SCRIPTURE
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-scripture {
+    position: absolute;
+
+    z-index: 10;
+
+    left: auto;
+
+    right: 4%;
+
+    top: 27%;
+
+    width:
+      min(
+        190px,
+        22vw
+      );
+
+    transform: none;
+
+    font-size: 0.74rem;
+    line-height: 1.55;
+  }
+
+  .mw-hero-v3-scripture cite {
+    margin-top: 8px;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-8 — Tablet visual calibration
+
+   VISUAL REVIEW:
+   834px + 1024px
+
+   Corrects:
+   - oversized/clipped Greater Things
+   - oversized Earth
+   - Earth/event collision
+   - scripture/host-label collision
+   - foreground vertical balance
+
+   Approved tablet hosts and navbar remain frozen.
+   Desktop >=1200px remains frozen.
+   ========================================================= */
+
+@media
+  (min-width: 768px)
+  and (max-width: 1199px) {
+
+  /* -------------------------------------------------------
+     THEME
+
+     Previous 9.2vw / 9.5vw title sizing is too aggressive
+     once inherited desktop typography participates.
+
+     Establish an explicit tablet title box.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-theme {
+    left: 50%;
+    right: auto;
+
+    bottom: 25%;
+
+    width:
+      min(
+        68vw,
+        620px
+      );
+
+    max-width:
+      calc(100vw - 120px);
+
+    transform:
+      translateX(-50%);
+
+    overflow: visible;
+  }
+
+  .mw-hero-v3-theme h1 {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    overflow: visible;
+  }
+
+  .mw-hero-v3-theme h1 span,
+  .mw-hero-v3-theme h1 em {
+    display: block;
+
+    width: auto;
+    max-width: 100%;
+
+    margin-inline: auto;
+
+    white-space: nowrap;
+
+    transform: none;
+  }
+
+  .mw-hero-v3-theme h1 span {
+    font-size:
+      clamp(
+        3.9rem,
+        8vw,
+        5.8rem
+      );
+
+    line-height: 0.79;
+  }
+
+  .mw-hero-v3-theme h1 em {
+    margin-top: 0.08em;
+
+    font-size:
+      clamp(
+        4rem,
+        8.25vw,
+        6rem
+      );
+
+    line-height: 0.82;
+  }
+
+  .mw-hero-v3-theme > p {
+    margin-bottom: 8px;
+  }
+
+  .mw-hero-v3-conference-line {
+    margin-top: 10px;
+
+    gap: 12px;
+
+    white-space: nowrap;
+  }
+
+  .mw-hero-v3-conference-line span {
+    font-size:
+      clamp(
+        0.48rem,
+        0.82vw,
+        0.62rem
+      );
+
+    letter-spacing: 0.16em;
+  }
+
+  .mw-hero-v3-conference-line strong {
+    padding-left: 12px;
+
+    font-size:
+      clamp(
+        0.58rem,
+        0.9vw,
+        0.72rem
+      );
+
+    letter-spacing: 0.22em;
+  }
+
+  /* -------------------------------------------------------
+     CROSS
+     Keep attached to the left edge of title.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-cross {
+    left: 0;
+
+    top: 18%;
+
+    transform:
+      scale(0.72);
+
+    transform-origin:
+      center center;
+  }
+
+  /* -------------------------------------------------------
+     EARTH
+
+     Current Earth dominates the entire lower tablet hero.
+     Reduce it to a crop-cover foundation.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-earth {
+    left: 50%;
+
+    bottom: -34%;
+
+    width:
+      min(
+        50vw,
+        500px
+      );
+
+    transform:
+      translateX(-50%);
+
+    opacity: 0.84;
+  }
+
+  /* -------------------------------------------------------
+     EVENT INFORMATION
+
+     Must sit between conference line and Earth rather than
+     disappearing underneath the globe.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-event-panel {
+    left: 50%;
+
+    bottom: 10%;
+
+    width:
+      min(
+        610px,
+        calc(100vw - 90px)
+      );
+
+    max-width: 610px;
+
+    transform:
+      translateX(-50%);
+
+    grid-template-columns:
+      auto
+      auto
+      minmax(
+        180px,
+        1fr
+      );
+  }
+
+  .mw-hero-v3-date,
+  .mw-hero-v3-venue {
+    min-height: 74px;
+
+    padding:
+      10px 12px;
+
+    gap: 8px;
+  }
+
+  .mw-hero-v3-date span {
+    font-size: 0.56rem;
+  }
+
+  .mw-hero-v3-date strong {
+    padding:
+      5px 9px;
+
+    font-size: 0.62rem;
+  }
+
+  .mw-hero-v3-venue strong {
+    font-size: 0.68rem;
+  }
+
+  .mw-hero-v3-venue span {
+    font-size: 0.56rem;
+  }
+
+  /* -------------------------------------------------------
+     HOST LABELS
+
+     Foluke's existing right-side label occupies the same
+     rail as scripture.
+
+     Pull both labels closer to their corresponding hosts.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-pastor
+    figcaption {
+    left: -4%;
+
+    top: 36%;
+  }
+
+  .mw-hero-v3-host-foluke
+    figcaption {
+    left: auto;
+    right: -5%;
+
+    top: 36%;
+  }
+
+  /* -------------------------------------------------------
+     SCRIPTURE
+
+     Move farther right and upward so it does not intersect
+     Foluke's host caption.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-scripture {
+    right: 2.5%;
+
+    top: 30%;
+
+    width:
+      min(
+        165px,
+        18vw
+      );
+
+    padding-left: 13px;
+  }
+
+  .mw-hero-v3-scripture p {
+    font-size:
+      clamp(
+        0.62rem,
+        1vw,
+        0.76rem
+      );
+
+    line-height: 1.5;
+  }
+
+  .mw-hero-v3-scripture cite {
+    margin-top: 7px;
+
+    font-size: 0.5rem;
+  }
+
+  /* -------------------------------------------------------
+     EDITION
+
+     Current placement is visually acceptable.
+     Freeze it explicitly.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-edition {
+    right: 4%;
+    top: 12%;
+
+    transform:
+      scale(0.78);
+
+    transform-origin:
+      top right;
+  }
+
+  /* -------------------------------------------------------
+     RIBBONS
+
+     Keep the energy system behind title/Earth but reduce
+     its tablet dominance slightly.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-energy-ribbon.ribbon-one {
+    left: 50%;
+
+    top: 60%;
+
+    width: 76vw;
+    height: 19vw;
+  }
+
+  .mw-hero-v3-energy-ribbon.ribbon-two {
+    left: 50%;
+
+    top: 67%;
+
+    width: 66vw;
+    height: 15vw;
+  }
+
+  /* -------------------------------------------------------
+     MOTIF
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-motif {
+    left: 50%;
+
+    bottom: 1.5%;
+
+    transform:
+      translateX(-50%);
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-9 — Tablet centre-axis repair
+
+   VISUAL AUTHORITY:
+   834px + 1024px review.
+
+   Repairs:
+   - force theme onto true viewport centre
+   - eliminate right-side title clipping
+   - keep title fully inside tablet viewport
+   - move Foluke label away from scripture
+   - preserve hosts, Earth, event row and navbar
+   ========================================================= */
+
+@media
+  (min-width: 768px)
+  and (max-width: 1199px) {
+
+  /* -------------------------------------------------------
+     FULL VIEWPORT CONTENT COORDINATE SYSTEM
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-content {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100vw;
+    max-width: 100vw;
+
+    margin: 0;
+
+    transform: none;
+
+    overflow: visible;
+  }
+
+  /* -------------------------------------------------------
+     TRUE-CENTRED THEME LOCKUP
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-theme {
+    position: absolute;
+
+    z-index: 9;
+
+    left: 50vw;
+    right: auto;
+
+    bottom: 25%;
+
+    width:
+      min(
+        72vw,
+        650px
+      );
+
+    max-width:
+      calc(100vw - 96px);
+
+    margin: 0;
+
+    transform:
+      translate3d(
+        -50%,
+        0,
+        0
+      );
+
+    transform-origin:
+      50% 50%;
+
+    overflow: visible;
+
+    text-align: center;
+  }
+
+  .mw-hero-v3-theme > p {
+    width: 100%;
+
+    margin:
+      0 auto 8px;
+
+    text-align: center;
+  }
+
+  .mw-hero-v3-theme h1 {
+    position: relative;
+
+    display: flex;
+
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto;
+
+    overflow: visible;
+
+    text-align: center;
+  }
+
+  .mw-hero-v3-theme h1 span,
+  .mw-hero-v3-theme h1 em {
+    position: relative;
+
+    display: block;
+
+    width: fit-content;
+    max-width: none;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    transform: none;
+
+    transform-origin:
+      center center;
+
+    text-align: center;
+
+    white-space: nowrap;
+  }
+
+  .mw-hero-v3-theme h1 span {
+    font-size:
+      clamp(
+        3.8rem,
+        7.7vw,
+        5.55rem
+      );
+
+    line-height: 0.8;
+  }
+
+  .mw-hero-v3-theme h1 em {
+    margin-top: 0.09em;
+
+    font-size:
+      clamp(
+        3.95rem,
+        8vw,
+        5.75rem
+      );
+
+    line-height: 0.82;
+  }
+
+  /* -------------------------------------------------------
+     CONFERENCE IDENTITY
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-conference-line {
+    display: flex;
+
+    width: 100%;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin:
+      10px auto 0;
+
+    transform: none;
+
+    white-space: nowrap;
+  }
+
+  .mw-hero-v3-conference-line span {
+    font-size:
+      clamp(
+        0.46rem,
+        0.76vw,
+        0.59rem
+      );
+
+    letter-spacing: 0.14em;
+  }
+
+  .mw-hero-v3-conference-line strong {
+    padding-left: 10px;
+
+    font-size:
+      clamp(
+        0.56rem,
+        0.82vw,
+        0.68rem
+      );
+
+    letter-spacing: 0.19em;
+  }
+
+  /* -------------------------------------------------------
+     CROSS
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-cross {
+    left: -1%;
+
+    top: 18%;
+
+    transform:
+      scale(0.68);
+
+    transform-origin:
+      center center;
+  }
+
+  /* -------------------------------------------------------
+     FOLUKE LABEL
+
+     Stop using the right support rail occupied by scripture.
+     Attach the label to the portrait's left side instead.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-foluke
+    figcaption {
+    left: -5%;
+    right: auto;
+
+    top: 36%;
+
+    transform: none;
+
+    text-align: right;
+  }
+
+  /* Pastor label remains left */
+
+  .mw-hero-v3-host-pastor
+    figcaption {
+    left: -4%;
+    right: auto;
+
+    top: 36%;
+
+    transform: none;
+
+    text-align: left;
+  }
+
+  /* -------------------------------------------------------
+     SCRIPTURE SUPPORT RAIL
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-scripture {
+    left: auto;
+
+    right: 2.5%;
+
+    top: 29%;
+
+    width:
+      min(
+        160px,
+        17vw
+      );
+
+    transform: none;
+
+    padding-left: 12px;
+  }
+
+  .mw-hero-v3-scripture p {
+    font-size:
+      clamp(
+        0.6rem,
+        0.92vw,
+        0.72rem
+      );
+
+    line-height: 1.48;
+  }
+
+  .mw-hero-v3-scripture cite {
+    margin-top: 7px;
+
+    font-size: 0.48rem;
+  }
+
+  /* -------------------------------------------------------
+     FREEZE APPROVED R1A-8 EARTH + EVENT
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-earth {
+    left: 50%;
+
+    bottom: -34%;
+
+    width:
+      min(
+        50vw,
+        500px
+      );
+
+    transform:
+      translateX(-50%);
+  }
+
+  .mw-hero-v3-event-panel {
+    left: 50%;
+
+    bottom: 10%;
+
+    width:
+      min(
+        610px,
+        calc(100vw - 90px)
+      );
+
+    transform:
+      translateX(-50%);
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-10 — True tablet axis repair
+
+   RUNTIME DIAGNOSIS @ 1024px:
+
+   theme left     = 512px
+   theme width    = 650px
+   rendered left = 512px
+   transform     = none
+
+   Therefore left:50vw is correct but the transform-based
+   -50% centring translation is not surviving runtime.
+
+   Use independent CSS translate instead of transform.
+   ========================================================= */
+
+@media
+  (min-width: 768px)
+  and (max-width: 1199px) {
+
+  .mw-hero-v3-theme {
+    left: 50vw;
+    right: auto;
+
+    translate:
+      -50% 0;
+
+    /*
+     * Do not use transform for positional centring.
+     * Runtime animation/inline authority may own transform.
+     */
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-11 — Tablet support-layer calibration
+
+   R1A-10 TITLE AXIS IS FROZEN.
+
+   Adjusts only:
+   - host captions
+   - scripture
+   - cross
+   - Earth
+   - event information
+
+   Desktop >=1200px remains frozen.
+   ========================================================= */
+
+@media
+  (min-width: 768px)
+  and (max-width: 1199px) {
+
+  /* -------------------------------------------------------
+     HOST CAPTIONS
+
+     Pastor keeps the clean outside-left treatment.
+
+     Foluke returns to the outside-right rail, but lower
+     than scripture so the two no longer collide.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-pastor
+    figcaption {
+    left: -4%;
+    right: auto;
+
+    top: 36%;
+
+    text-align: left;
+  }
+
+  .mw-hero-v3-host-foluke
+    figcaption {
+    left: auto;
+    right: -7%;
+
+    top: 43%;
+
+    width: 150px;
+
+    transform: none;
+
+    text-align: left;
+  }
+
+  /* -------------------------------------------------------
+     SCRIPTURE
+
+     Keep scripture above Foluke's caption.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-scripture {
+    left: auto;
+    right: 2.5%;
+
+    top: 27%;
+
+    width:
+      min(
+        160px,
+        17vw
+      );
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     CROSS
+
+     Pull the cross into the centred title composition.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-cross {
+    left: 13%;
+
+    top: 18%;
+
+    transform:
+      scale(0.68);
+
+    transform-origin:
+      center center;
+  }
+
+  /* -------------------------------------------------------
+     EARTH
+
+     Earth remains the crop-concealment foreground, but
+     should not consume the event-information zone.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-earth {
+    left: 50%;
+
+    bottom: -39%;
+
+    width:
+      min(
+        46vw,
+        460px
+      );
+
+    transform:
+      translateX(-50%);
+
+    opacity: 0.82;
+  }
+
+  /* -------------------------------------------------------
+     EVENT INFORMATION
+
+     Lift above the Earth horizon and guarantee foreground
+     stacking.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-event-panel {
+    z-index: 14;
+
+    left: 50%;
+
+    bottom: 8.5%;
+
+    width:
+      min(
+        610px,
+        calc(100vw - 90px)
+      );
+
+    transform:
+      translateX(-50%);
+  }
+
+  .mw-hero-v3-date,
+  .mw-hero-v3-venue {
+    position: relative;
+
+    z-index: 1;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1A-12 — Tablet cross final alignment
+
+   Cross-only visual calibration.
+
+   All other tablet geometry is frozen.
+   ========================================================= */
+
+@media
+  (min-width: 768px)
+  and (max-width: 1199px) {
+
+  .mw-hero-v3-cross {
+    left: 20%;
+
+    top: 18%;
+
+    transform:
+      scale(0.68);
+
+    transform-origin:
+      center center;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1B-1B — Mobile navbar shell and dual logos
+
+   RANGE: <768px
+
+   Owns:
+   - fixed navbar shell
+   - compact dual-brand lockup
+   - mobile menu button
+   - mobile CTA suppression
+
+   Navigation drawer follows in R1B-1C.
+
+   Tablet and desktop remain frozen.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     NAVBAR SHELL
+     ------------------------------------------------------- */
+
+  .mw-nav-v3 {
+    position: fixed;
+
+    z-index: 1000;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+  }
+
+  .mw-nav-v3-inner {
+    width:
+      calc(
+        100% - 28px
+      );
+
+    max-width: none;
+
+    min-height: 68px;
+
+    margin-inline: auto;
+
+    padding-inline: 0;
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      auto;
+
+    align-items: center;
+
+    gap: 12px;
+  }
+
+  /* -------------------------------------------------------
+     DUAL BRAND
+     ------------------------------------------------------- */
+
+  .mw-nav-v3-brand {
+    min-width: 0;
+
+    width: max-content;
+    max-width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    flex-shrink: 1;
+  }
+
+  .mw-nav-v3-brand-mwc {
+    position: relative;
+
+    width: 58px;
+    height: 46px;
+
+    flex:
+      0 0 58px;
+
+    padding: 0;
+
+    overflow: visible;
+  }
+
+  .mw-nav-v3-brand-mwc img {
+    position: static;
+
+    display: block;
+
+    width: 58px;
+    height: 46px;
+
+    max-width: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    transform: none;
+  }
+
+  .mw-nav-v3-brand-divider {
+    width: 1px;
+    height: 28px;
+
+    flex:
+      0 0 1px;
+
+    margin: 0;
+
+    align-self: center;
+  }
+
+  .mw-nav-v3-brand-host {
+    position: relative;
+
+    width: 84px;
+    height: 40px;
+
+    flex:
+      0 0 84px;
+
+    padding: 0;
+
+    overflow: visible;
+  }
+
+  .mw-nav-v3-brand-host img {
+    position: static;
+
+    display: block;
+
+    width: 84px;
+    height: 40px;
+
+    max-width: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     MOBILE MENU CONTROL
+     ------------------------------------------------------- */
+
+  .mw-nav-v3-menu {
+    position: relative;
+
+    z-index: 1003;
+
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    justify-self: end;
+
+    padding: 0;
+
+    border:
+      1px solid
+      rgba(255, 255, 255, 0.16);
+
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    background:
+      rgba(255, 255, 255, 0.055);
+
+    box-shadow:
+      inset 0 0 0 1px
+      rgba(255, 255, 255, 0.025);
+
+    -webkit-backdrop-filter:
+      blur(10px);
+
+    backdrop-filter:
+      blur(10px);
+  }
+
+  /* Desktop CTA does not belong in compact mobile header */
+
+  .mw-nav-v3-register {
+    display: none;
+  }
+
+  /* -------------------------------------------------------
+     SCROLLED NAVBAR
+     ------------------------------------------------------- */
+
+  .mw-nav-v3.is-scrolled {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(6, 5, 20, 0.96) 0%,
+        rgba(8, 6, 27, 0.91) 100%
+      );
+
+    border-bottom:
+      1px solid
+      rgba(255, 255, 255, 0.07);
+
+    box-shadow:
+      0 10px 34px
+      rgba(0, 0, 0, 0.28);
+
+    -webkit-backdrop-filter:
+      blur(18px)
+      saturate(135%);
+
+    backdrop-filter:
+      blur(18px)
+      saturate(135%);
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1B-1C — Mobile navigation drawer
+
+   RANGE: <768px
+
+   Uses the existing menuOpen / is-open navbar behaviour.
+
+   No JSX mutation.
+   No campaign geometry mutation.
+   Tablet and desktop remain frozen.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     DRAWER
+     ------------------------------------------------------- */
+
+  .mw-nav-v3-links {
+    position: fixed;
+
+    z-index: 1002;
+
+    top: 76px;
+    left: 14px;
+    right: 14px;
+
+    width: auto;
+    min-width: 0;
+
+    display: none;
+
+    grid-template-columns: 1fr;
+
+    align-items: stretch;
+    justify-content: stretch;
+
+    gap: 5px;
+
+    padding: 12px;
+
+    border:
+      1px solid
+      rgba(255, 255, 255, 0.10);
+
+    border-radius: 18px;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(10, 8, 30, 0.98) 0%,
+        rgba(7, 5, 23, 0.97) 100%
+      );
+
+    box-shadow:
+      0 24px 70px
+      rgba(0, 0, 0, 0.46);
+
+    -webkit-backdrop-filter:
+      blur(22px)
+      saturate(135%);
+
+    backdrop-filter:
+      blur(22px)
+      saturate(135%);
+  }
+
+  .mw-nav-v3-links.is-open {
+    display: grid;
+  }
+
+  /* -------------------------------------------------------
+     DRAWER ITEMS
+     ------------------------------------------------------- */
+
+  .mw-nav-v3-links a {
+    display: flex;
+
+    width: 100%;
+
+    min-height: 48px;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    padding:
+      0 15px;
+
+    border-radius: 12px;
+
+    color:
+      rgba(246, 241, 231, 0.90);
+
+    font-size: 0.69rem;
+    font-weight: 700;
+
+    letter-spacing: 0.11em;
+
+    text-transform: uppercase;
+
+    background:
+      rgba(255, 255, 255, 0.035);
+  }
+
+  .mw-nav-v3-links a:hover,
+  .mw-nav-v3-links a:focus-visible {
+    color: #ffffff;
+
+    background:
+      rgba(255, 255, 255, 0.075);
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1B-2A — Mobile host stage foundation
+
+   RANGE: <768px
+
+   Establishes only:
+   - unified mobile portrait stage
+   - Pastor left/back
+   - Foluke right/front
+   - deliberate portrait overlap
+   - mobile host glow
+
+   Host captions are deferred to R1B-2B.
+   Campaign foreground content remains deferred.
+
+   Tablet and desktop remain frozen.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     UNIFIED MOBILE HOST STAGE
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-hosts {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 50%;
+    right: auto;
+
+    top: 11%;
+
+    width:
+      min(
+        112vw,
+        610px
+      );
+
+    height: 54%;
+
+    margin: 0;
+
+    translate:
+      -50% 0;
+
+    transform: none;
+
+    overflow: visible;
+
+    pointer-events: none;
+  }
+
+  /* -------------------------------------------------------
+     SHARED PORTRAIT AUTHORITY
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host {
+    position: absolute;
+
+    top: 0;
+    bottom: auto;
+
+    margin: 0;
+
+    overflow: visible;
+
+    transform: none;
+  }
+
+  .mw-hero-v3-host img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     PASTOR — LEFT / BACK
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-pastor {
+    z-index: 1;
+
+    left: 3%;
+    right: auto;
+
+    width: 61%;
+    height: 100%;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     FOLUKE — RIGHT / FRONT
+
+     The 37% start creates deliberate overlap rather than
+     two disconnected portrait columns.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-foluke {
+    z-index: 2;
+
+    left: 37%;
+    right: auto;
+
+    width: 60%;
+    height: 99%;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     MOBILE HOST GLOW
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-glow {
+    left: 50%;
+    right: auto;
+
+    top: 9%;
+
+    width:
+      min(
+        108vw,
+        590px
+      );
+
+    height: 57%;
+
+    translate:
+      -50% 0;
+
+    transform: none;
+
+    opacity: 0.82;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1B-2B — Mobile host labels and crop transition
+
+   RANGE: <768px
+
+   R1B-2A portrait geometry is frozen.
+
+   Adds:
+   - compact mobile host captions
+   - outside portrait caption placement
+   - soft lower portrait transition
+
+   Earth remains deferred and will become the physical
+   foreground crop cover in a later R1B phase.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     SHARED HOST CAPTION
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host figcaption {
+    position: absolute;
+
+    z-index: 4;
+
+    width:
+      clamp(
+        92px,
+        27vw,
+        124px
+      );
+
+    margin: 0;
+
+    pointer-events: none;
+  }
+
+  .mw-hero-v3-host figcaption span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size:
+      clamp(
+        0.38rem,
+        1.65vw,
+        0.48rem
+      );
+
+    line-height: 1.15;
+
+    letter-spacing: 0.13em;
+
+    white-space: nowrap;
+  }
+
+  .mw-hero-v3-host figcaption strong {
+    display: block;
+
+    font-size:
+      clamp(
+        0.52rem,
+        2.15vw,
+        0.66rem
+      );
+
+    line-height: 1.12;
+
+    letter-spacing: 0.045em;
+  }
+
+  /* -------------------------------------------------------
+     PASTOR CAPTION
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-pastor
+    figcaption {
+    left: -1%;
+
+    right: auto;
+
+    top: 37%;
+
+    transform: none;
+
+    text-align: left;
+  }
+
+  /* -------------------------------------------------------
+     FOLUKE CAPTION
+
+     Keep her caption on the outside-right edge instead of
+     placing text between the overlapping portraits.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-foluke
+    figcaption {
+    left: auto;
+
+    right: -2%;
+
+    top: 39%;
+
+    transform: none;
+
+    text-align: right;
+  }
+
+  /* -------------------------------------------------------
+     LOWER PORTRAIT TRANSITION
+
+     This is intentionally soft. Earth will later cover the
+     remaining lower PNG edges physically.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-hosts::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: 3;
+
+    left: 50%;
+
+    bottom: -4%;
+
+    width: 88%;
+    height: 19%;
+
+    translate:
+      -50% 0;
+
+    pointer-events: none;
+
+    background:
+      radial-gradient(
+        ellipse at 50% 100%,
+        rgba(7, 6, 21, 0.64) 0%,
+        rgba(7, 6, 21, 0.38) 34%,
+        rgba(7, 6, 21, 0.16) 58%,
+        rgba(7, 6, 21, 0.05) 72%,
+        transparent 86%
+      );
+
+    filter:
+      blur(16px);
+
+    opacity: 0.74;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1B-2C — Mobile host axis and scale repair
+
+   VISUAL REVIEW:
+   ~393x852 + 430x932
+
+   Repairs only the mobile portrait composition.
+
+   Campaign foreground remains deferred.
+   Tablet + desktop remain frozen.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     TRUE MOBILE HOST AXIS
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-hosts {
+    left: 50vw;
+    right: auto;
+
+    top: 12%;
+
+    width:
+      min(
+        96vw,
+        500px
+      );
+
+    height: 50%;
+
+    translate:
+      -50% 0;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     PASTOR — LEFT / BACK
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-pastor {
+    left: 2%;
+    right: auto;
+
+    width: 60%;
+    height: 100%;
+  }
+
+  /* -------------------------------------------------------
+     FOLUKE — RIGHT / FRONT
+
+     Preserve a natural overlap while keeping the complete
+     portrait group inside the phone viewport.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-foluke {
+    left: 39%;
+    right: auto;
+
+    width: 59%;
+    height: 99%;
+  }
+
+  /* -------------------------------------------------------
+     GLOW FOLLOWS NEW STAGE
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-glow {
+    left: 50vw;
+    right: auto;
+
+    top: 10%;
+
+    width:
+      min(
+        94vw,
+        490px
+      );
+
+    height: 53%;
+
+    translate:
+      -50% 0;
+
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     CAPTIONS FOLLOW THE PORTRAITS
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-pastor
+    figcaption {
+    left: 0;
+
+    top: 38%;
+  }
+
+  .mw-hero-v3-host-foluke
+    figcaption {
+    left: auto;
+    right: 0;
+
+    top: 40%;
+  }
+
+  /* -------------------------------------------------------
+     LOWER TRANSITION FOLLOWS NEW STAGE
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-hosts::after {
+    left: 50%;
+
+    bottom: -4%;
+
+    width: 90%;
+    height: 18%;
+
+    translate:
+      -50% 0;
+
+    filter:
+      blur(15px);
+
+    opacity: 0.72;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1B-2D — Translation-free mobile host axis
+
+   RUNTIME DIAGNOSIS @ 393px:
+
+   50vw = 196.5px
+
+   Host/glow left edge was resolving to 196.5px while
+   translate resolved to none.
+
+   Therefore percentage translation is removed completely.
+
+   Mobile host boxes now centre themselves physically using:
+   left:0 + right:0 + margin-inline:auto.
+
+   Internal Pastor/Foluke overlap remains unchanged.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     PHYSICALLY CENTRED HOST STAGE
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-hosts {
+    left: 0;
+    right: 0;
+
+    top: 12%;
+
+    width:
+      min(
+        96vw,
+        500px
+      );
+
+    height: 50%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    translate: none;
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     PRESERVE APPROVED INTERNAL OVERLAP
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-pastor {
+    left: 2%;
+    right: auto;
+
+    width: 60%;
+    height: 100%;
+  }
+
+  .mw-hero-v3-host-foluke {
+    left: 39%;
+    right: auto;
+
+    width: 59%;
+    height: 99%;
+  }
+
+  /* -------------------------------------------------------
+     PHYSICALLY CENTRED HOST GLOW
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-host-glow {
+    left: 0;
+    right: 0;
+
+    top: 10%;
+
+    width:
+      min(
+        94vw,
+        490px
+      );
+
+    height: 53%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    translate: none;
+    transform: none;
+  }
+
+  /* -------------------------------------------------------
+     LOWER TRANSITION
+
+     Pseudo-element belongs to the already-centred stage,
+     so centre it without translate as well.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-hosts::after {
+    left: 6%;
+    right: 6%;
+
+    bottom: -4%;
+
+    width: auto;
+    height: 18%;
+
+    margin: 0;
+
+    translate: none;
+
+    filter:
+      blur(15px);
+
+    opacity: 0.72;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1B-3A — Mobile theme foundation
+
+   RANGE: <768px
+
+   Establishes only:
+   - mobile content coordinate system
+   - physically centred theme container
+   - THEME eyebrow
+   - GREATER
+   - THINGS
+
+   Cross and conference identity line remain deferred to
+   R1B-3B.
+
+   Earth / event / edition / scripture / ribbons / motif
+   remain deferred.
+
+   R1B-2D host composition is frozen.
+   Tablet and desktop remain frozen.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     MOBILE CONTENT COORDINATE SYSTEM
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-content {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+    translate: none;
+
+    overflow: visible;
+
+    pointer-events: none;
+  }
+
+  /* -------------------------------------------------------
+     PHYSICALLY CENTRED THEME BOX
+
+     No translate / transform centring.
+
+     left:0 + right:0 + auto margins is the authority.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-theme {
+    position: absolute;
+
+    z-index: 9;
+
+    left: 0;
+    right: 0;
+
+    top: auto;
+    bottom: 19%;
+
+    width:
+      min(
+        88vw,
+        410px
+      );
+
+    max-width:
+      calc(100vw - 28px);
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 0;
+
+    transform: none;
+    translate: none;
+
+    transform-origin:
+      center center;
+
+    overflow: visible;
+
+    text-align: center;
+  }
+
+  /* -------------------------------------------------------
+     THEME EYEBROW
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-theme > p {
+    display: block;
+
+    width: 100%;
+
+    margin:
+      0 auto 7px;
+
+    padding: 0;
+
+    text-align: center;
+
+    font-size:
+      clamp(
+        0.48rem,
+        2vw,
+        0.62rem
+      );
+
+    line-height: 1;
+
+    letter-spacing: 0.42em;
+
+    white-space: nowrap;
+  }
+
+  /* -------------------------------------------------------
+     TITLE STACK
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-theme h1 {
+    position: relative;
+
+    display: flex;
+
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: visible;
+
+    text-align: center;
+  }
+
+  .mw-hero-v3-theme h1 span,
+  .mw-hero-v3-theme h1 em {
+    position: relative;
+
+    display: block;
+
+    width: fit-content;
+    max-width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 0;
+
+    transform: none;
+    translate: none;
+
+    transform-origin:
+      center center;
+
+    white-space: nowrap;
+
+    text-align: center;
+  }
+
+  /* GREATER */
+
+  .mw-hero-v3-theme h1 span {
+    font-size:
+      clamp(
+        3.1rem,
+        15.5vw,
+        4.65rem
+      );
+
+    line-height: 0.80;
+  }
+
+  /* THINGS */
+
+  .mw-hero-v3-theme h1 em {
+    margin-top: 0.08em;
+
+    font-size:
+      clamp(
+        3.2rem,
+        16vw,
+        4.8rem
+      );
+
+    line-height: 0.82;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1B-3B — Mobile cross and conference line
+
+   RANGE: <768px
+
+   R1B-3A theme geometry is frozen.
+
+   Adds only:
+   - mobile cross
+   - Mighty Works Conference 2026 / John 14:12 line
+
+   Earth / event / edition / scripture / ribbons remain
+   deferred.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     CROSS
+
+     Cross is attached to the left side of the centred
+     Greater Things lockup rather than to the viewport.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-cross {
+    position: absolute;
+
+    z-index: 10;
+
+    left: 3%;
+
+    top: 22%;
+
+    transform:
+      scale(0.58);
+
+    translate: none;
+
+    transform-origin:
+      center center;
+
+    pointer-events: none;
+  }
+
+  /* -------------------------------------------------------
+     CONFERENCE IDENTITY LINE
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-conference-line {
+    display: flex;
+
+    width: 100%;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin:
+      9px auto 0;
+
+    padding: 0;
+
+    transform: none;
+    translate: none;
+
+    text-align: center;
+
+    white-space: nowrap;
+  }
+
+  .mw-hero-v3-conference-line span {
+    display: block;
+
+    font-size:
+      clamp(
+        0.42rem,
+        1.65vw,
+        0.52rem
+      );
+
+    line-height: 1.1;
+
+    letter-spacing: 0.12em;
+
+    white-space: nowrap;
+  }
+
+  .mw-hero-v3-conference-line strong {
+    display: block;
+
+    padding-left: 8px;
+
+    font-size:
+      clamp(
+        0.48rem,
+        1.85vw,
+        0.58rem
+      );
+
+    line-height: 1.1;
+
+    letter-spacing: 0.15em;
+
+    white-space: nowrap;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1B-4A — Mobile Earth crop integration
+
+   RANGE: <768px
+
+   Mobile hosts + theme are frozen.
+
+   Earth becomes a restrained lower foreground element.
+   It must:
+   - remain centred without translate-based positioning
+   - conceal lower composition edges
+   - remain behind event information
+   - avoid dominating the phone viewport
+
+   Event information follows in R1B-4B.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     MOBILE EARTH
+     Translation-free physical centring.
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-earth {
+    position: absolute;
+
+    z-index: 7;
+
+    left: 0;
+    right: 0;
+
+    bottom: -24%;
+
+    width:
+      min(
+        72vw,
+        310px
+      );
+
+    margin-left: auto;
+    margin-right: auto;
+
+    translate: none;
+    transform: none;
+
+    transform-origin:
+      center bottom;
+
+    opacity: 0.82;
+
+    overflow: visible;
+
+    isolation: isolate;
+
+    pointer-events: none;
+  }
+
+  .mw-hero-v3-earth img {
+    position: relative;
+
+    z-index: 3;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    filter:
+      drop-shadow(
+        0 -5px 14px
+        rgba(76, 133, 255, 0.18)
+      )
+      drop-shadow(
+        0 -2px 6px
+        rgba(255, 255, 255, 0.06)
+      );
+  }
+
+  /* -------------------------------------------------------
+     UPPER HORIZON LIGHT
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-earth::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: 2;
+
+    left: 6%;
+    right: 6%;
+
+    top: -7%;
+
+    width: auto;
+    height: 24%;
+
+    margin: 0;
+
+    translate: none;
+
+    pointer-events: none;
+
+    background:
+      radial-gradient(
+        ellipse at 50% 65%,
+        rgba(72, 134, 255, 0.20) 0%,
+        rgba(93, 76, 211, 0.12) 34%,
+        rgba(34, 25, 94, 0.07) 56%,
+        transparent 82%
+      );
+
+    filter:
+      blur(17px);
+
+    opacity: 0.82;
+  }
+
+  /* -------------------------------------------------------
+     SHALLOW SEAM SHADOW
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-earth::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: 1;
+
+    left: 13%;
+    right: 13%;
+
+    top: -2%;
+
+    width: auto;
+    height: 13%;
+
+    margin: 0;
+
+    translate: none;
+
+    pointer-events: none;
+
+    background:
+      radial-gradient(
+        ellipse at center,
+        rgba(5, 4, 17, 0.44) 0%,
+        rgba(7, 6, 21, 0.20) 48%,
+        transparent 80%
+      );
+
+    filter:
+      blur(13px);
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1B-4B — Mobile event information
+
+   RANGE: <768px
+
+   Mobile Earth is frozen at bottom:-15%.
+
+   Event information becomes a compact vertical stack:
+   - Saturday
+   - Sunday
+   - Venue
+
+   It renders above the Earth and remains background-free.
+
+   Hosts / theme / cross / Earth remain frozen.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     EVENT PANEL
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-event-panel {
+    position: absolute;
+
+    z-index: 14;
+
+    left: 0;
+    right: 0;
+
+    bottom: 2.5%;
+
+    width:
+      min(
+        88vw,
+        350px
+      );
+
+    max-width:
+      calc(100vw - 28px);
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 0;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 4px;
+
+    transform: none;
+    translate: none;
+
+    border: 0;
+    border-radius: 0;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+
+    pointer-events: none;
+
+    text-shadow:
+      0 2px 8px
+      rgba(0, 0, 0, 0.82);
+  }
+
+  .mw-hero-v3-event-panel::before,
+  .mw-hero-v3-event-panel::after {
+    content: none;
+
+    display: none;
+  }
+
+  /* -------------------------------------------------------
+     SHARED EVENT ROW
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-date,
+  .mw-hero-v3-venue {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    min-height: 42px;
+
+    display: grid;
+
+    align-items: center;
+
+    margin: 0;
+
+    padding:
+      5px 7px;
+
+    border: 0;
+
+    background:
+      rgba(7, 6, 21, 0.30);
+
+    box-shadow: none;
+
+    -webkit-backdrop-filter:
+      blur(5px);
+
+    backdrop-filter:
+      blur(5px);
+  }
+
+  /* -------------------------------------------------------
+     DATE ROWS
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-date {
+    grid-template-columns:
+      24px
+      minmax(0, 1fr)
+      auto;
+
+    column-gap: 7px;
+  }
+
+  .mw-hero-v3-date > svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .mw-hero-v3-date > div {
+    min-width: 0;
+  }
+
+  .mw-hero-v3-date span {
+    display: block;
+
+    font-size:
+      clamp(
+        0.47rem,
+        1.8vw,
+        0.56rem
+      );
+
+    line-height: 1.15;
+
+    letter-spacing: 0.04em;
+
+    white-space: nowrap;
+  }
+
+  .mw-hero-v3-date strong {
+    display: inline-flex;
+
+    min-height: 25px;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+
+    padding:
+      4px 8px;
+
+    font-size:
+      clamp(
+        0.50rem,
+        1.9vw,
+        0.60rem
+      );
+
+    line-height: 1;
+
+    white-space: nowrap;
+  }
+
+  /* -------------------------------------------------------
+     VENUE ROW
+     ------------------------------------------------------- */
+
+  .mw-hero-v3-venue {
+    grid-template-columns:
+      24px
+      minmax(0, 1fr);
+
+    column-gap: 7px;
+  }
+
+  .mw-hero-v3-venue > svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .mw-hero-v3-venue > div {
+    min-width: 0;
+  }
+
+  .mw-hero-v3-venue strong {
+    display: block;
+
+    margin-bottom: 2px;
+
+    font-size:
+      clamp(
+        0.52rem,
+        2vw,
+        0.62rem
+      );
+
+    line-height: 1.1;
+  }
+
+  .mw-hero-v3-venue span {
+    display: block;
+
+    font-size:
+      clamp(
+        0.42rem,
+        1.65vw,
+        0.51rem
+      );
+
+    line-height: 1.2;
+
+    white-space: normal;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1B-4B-R1 — Mobile event stack clearance
+
+   VISUAL REVIEW @ 393x852:
+
+   The event stack at bottom:2.5% intersects the Earth.
+   Move the complete stack upward and tighten its vertical
+   footprint.
+
+   Earth / title / hosts remain frozen.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  .mw-hero-v3-event-panel {
+    z-index: 14;
+
+    bottom: 7.5%;
+
+    gap: 2px;
+  }
+
+  .mw-hero-v3-date,
+  .mw-hero-v3-venue {
+    min-height: 36px;
+
+    padding:
+      3px 6px;
+  }
+
+  .mw-hero-v3-date {
+    grid-template-columns:
+      21px
+      minmax(0, 1fr)
+      auto;
+
+    column-gap: 5px;
+  }
+
+  .mw-hero-v3-venue {
+    grid-template-columns:
+      21px
+      minmax(0, 1fr);
+
+    column-gap: 5px;
+  }
+
+  .mw-hero-v3-date > svg,
+  .mw-hero-v3-venue > svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .mw-hero-v3-date strong {
+    min-height: 22px;
+
+    padding:
+      3px 7px;
+  }
+}
+
+/* =========================================================
+   MW-HERO-V3-R1C-1 — CONSOLIDATED MOBILE FINAL AUTHORITY
+
+   BREAKPOINT: <= 767px
+
+   This block is the authoritative final mobile geometry.
+   It intentionally overrides earlier R1B calibration layers.
+
+   Do not alter tablet or desktop from this block.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* =======================================================
+     HERO FOUNDATION
+     ======================================================= */
+
+  .mw-hero-v3 {
+    min-height: max(820px, 100svh);
+    scroll-margin-top: 80px;
+  }
+
+
+  /* =======================================================
+     HOST COMPOSITION
+     ======================================================= */
+
+  .mw-hero-v3-hosts {
+    top: 8.5%;
+
+    left: 0;
+    right: 0;
+
+    width: 96vw;
+    max-width: 500px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    translate: none;
+  }
+
+  .mw-hero-v3-host-glow {
+    top: 5.5%;
+
+    left: 0;
+    right: 0;
+
+    width: 94vw;
+    max-width: 490px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    translate: none;
+  }
+
+  .mw-hero-v3-host-pastor {
+    left: 2%;
+    width: 60%;
+  }
+
+  .mw-hero-v3-host-foluke {
+    left: 39%;
+    width: 59%;
+  }
+
+
+  /* =======================================================
+     HOST LABELS
+     ======================================================= */
+
+  .mw-hero-v3-host-pastor figcaption {
+    left: 1%;
+    top: 40%;
+
+    width: clamp(
+      92px,
+      27vw,
+      124px
+    );
+
+    transform: none;
+
+    text-align: left;
+  }
+
+  .mw-hero-v3-host-foluke figcaption {
+    right: -2%;
+    top: 40%;
+  }
+
+
+  /* =======================================================
+     OUTER SUPPORT RAILS
+     ======================================================= */
+
+  .mw-hero-v3-edition {
+    left: -1.5%;
+    right: auto;
+
+    top: 12%;
+
+    /*
+     Final approved mobile size.
+     Reduced 30% from scale 0.30.
+    */
+    transform: scale(0.21);
+    transform-origin: top left;
+
+    z-index: 12;
+  }
+
+  .mw-hero-v3-scripture {
+    left: auto;
+    right: 1.5%;
+
+    top: 12%;
+
+    width: min(
+      92px,
+      23.5vw
+    );
+
+    padding-left: 6px;
+
+    z-index: 12;
+  }
+
+  .mw-hero-v3-scripture p {
+    font-size: clamp(
+      0.40rem,
+      1.42vw,
+      0.49rem
+    );
+
+    line-height: 1.36;
+  }
+
+  .mw-hero-v3-scripture cite {
+    margin-top: 4px;
+
+    font-size: clamp(
+      0.34rem,
+      1.18vw,
+      0.40rem
+    );
+  }
+
+
+  /* =======================================================
+     THEME LOCKUP
+     ======================================================= */
+
+  .mw-hero-v3-theme {
+    left: 0;
+    right: 0;
+
+    bottom: 40%;
+
+    width: 88vw;
+    max-width: 410px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    transform: none;
+    translate: none;
+  }
+
+
+  /* =======================================================
+     CROSS
+     ======================================================= */
+
+  .mw-hero-v3-cross {
+    left: 1%;
+    top: -5%;
+
+    z-index: 11;
+
+    transform: scale(0.64);
+    translate: none;
+
+    transform-origin: center center;
+
+    opacity: 1;
+
+    filter:
+      drop-shadow(
+        0 0 8px
+        rgba(255, 214, 136, 0.72)
+      )
+      drop-shadow(
+        0 0 18px
+        rgba(239, 75, 91, 0.24)
+      );
+  }
+
+
+  /* =======================================================
+     RIBBONS
+     ======================================================= */
+
+  .mw-hero-v3-energy {
+    z-index: 5;
+  }
+
+  .mw-hero-v3-energy-ribbon.ribbon-one {
+    left: -10%;
+    top: 43%;
+
+    width: 118vw;
+    height: 22vw;
+
+    opacity: 0.74;
+  }
+
+  .mw-hero-v3-energy-ribbon.ribbon-two {
+    left: -4%;
+    top: 49%;
+
+    width: 108vw;
+    height: 18vw;
+
+    opacity: 0.70;
+  }
+
+
+  /* =======================================================
+     EARTH
+
+     Final position is retained.
+     Earth explicitly sits behind event information.
+     ======================================================= */
+
+  .mw-hero-v3-earth {
+    left: 0;
+    right: 0;
+
+    bottom: 6%;
+
+    width: 72vw;
+    max-width: 310px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    translate: none;
+
+    z-index: 6;
+
+    opacity: 0.82;
+  }
+
+  .mw-hero-v3-earth::before,
+  .mw-hero-v3-earth::after {
+    pointer-events: none;
+  }
+
+
+  /* =======================================================
+     EVENT INFORMATION
+
+     Explicitly above Earth.
+     ======================================================= */
+
+  .mw-hero-v3-event-panel {
+    left: 0;
+    right: 0;
+
+    bottom: 28.5%;
+
+    width: 88vw;
+    max-width: 350px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    z-index: 30;
+
+    isolation: isolate;
+  }
+
+
+  /* =======================================================
+     BOTTOM MOTIF
+     ======================================================= */
+
+  .mw-hero-v3-motif {
+    bottom: 0.8%;
+
+    z-index: 13;
+
+    max-width: calc(
+      100vw - 32px
+    );
+
+    opacity: 0.64;
   }
 }

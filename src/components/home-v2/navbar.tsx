@@ -1,18 +1,18 @@
 "use client";
 
 import {
-  AnimatePresence,
-  motion,
-} from "framer-motion";
-import {
+  ArrowRight,
   Menu,
   X,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import {
+  useEffect,
+  useState,
+} from "react";
 
-const links = [
+const navigation = [
   {
     label: "Home",
     href: "#top",
@@ -36,139 +36,176 @@ const links = [
 ];
 
 export function Navbar() {
-  const [open, setOpen] =
-    useState(false);
+  const [
+    menuOpen,
+    setMenuOpen,
+  ] = useState(false);
+
+  const [
+    scrolled,
+    setScrolled,
+  ] = useState(false);
+
+  useEffect(() => {
+    const updateScrollState = () => {
+      setScrolled(
+        window.scrollY > 24
+      );
+    };
+
+    updateScrollState();
+
+    window.addEventListener(
+      "scroll",
+      updateScrollState,
+      {
+        passive: true,
+      }
+    );
+
+    return () => {
+      window.removeEventListener(
+        "scroll",
+        updateScrollState
+      );
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!menuOpen) {
+      return;
+    }
+
+    const closeOnEscape = (
+      event: KeyboardEvent
+    ) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener(
+      "keydown",
+      closeOnEscape
+    );
+
+    return () => {
+      window.removeEventListener(
+        "keydown",
+        closeOnEscape
+      );
+    };
+  }, [menuOpen]);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
-    <>
-      <header className="mw26-nav">
+    <header
+      className={[
+        "mw-nav-v3",
+        scrolled
+          ? "is-scrolled"
+          : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
+      <div className="mw-nav-v3-inner">
         <Link
           href="#top"
-          className="mw26-nav-brand"
-          onClick={() =>
-            setOpen(false)
-          }
+          className="mw-nav-v3-brand"
+          aria-label="Mighty Works Conference 2026 home"
+          onClick={closeMenu}
         >
-          <div className="mw26-nav-conference-mark">
+          <span className="mw-nav-v3-brand-mwc">
             <Image
-              src="/images/brand/mighty-works-conference-transparent.png"
+              src="/images/hero-2026/mighty-works-conference.png"
               alt="Mighty Works Conference 2026"
-              width={360}
-              height={250}
+              width={230}
+              height={154}
               priority
             />
-          </div>
+          </span>
+
+          <span
+            className="mw-nav-v3-brand-divider"
+            aria-hidden="true"
+          />
+
+          <span className="mw-nav-v3-brand-host">
+            <Image
+              src="/images/hero-2026/everwinning-white.png"
+              alt="Everwinning Faith Ministries Australia"
+              width={230}
+              height={154}
+              priority
+            />
+          </span>
         </Link>
 
-        <nav className="mw26-nav-desktop">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav
+          className={[
+            "mw-nav-v3-links",
+            menuOpen
+              ? "is-open"
+              : "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+          aria-label="Conference navigation"
+        >
+          {navigation.map(
+            (item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={closeMenu}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </nav>
 
-        <div className="mw26-nav-actions">
-          <Link
-            href="#register-interest"
-            className="mw26-nav-register"
-          >
-            I’m coming
-            <span>↗</span>
-          </Link>
+        <Link
+          href="#register-interest"
+          className="mw-nav-v3-register"
+          onClick={closeMenu}
+        >
+          Register now
 
-          <button
-            type="button"
-            className="mw26-menu-button"
-            onClick={() =>
-              setOpen(
-                (current) =>
-                  !current
-              )
-            }
-            aria-label={
-              open
-                ? "Close menu"
-                : "Open menu"
-            }
-          >
-            {open ? (
-              <X size={27} />
-            ) : (
-              <Menu size={29} />
-            )}
-          </button>
-        </div>
-      </header>
+          <ArrowRight
+            size={17}
+          />
+        </Link>
 
-      <AnimatePresence>
-        {open ? (
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: -16,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            exit={{
-              opacity: 0,
-              y: -12,
-            }}
-            className="mw26-mobile-menu"
-          >
-            {links.map(
-              (
-                link,
-                index
-              ) => (
-                <Link
-                  key={
-                    link.href
-                  }
-                  href={
-                    link.href
-                  }
-                  onClick={() =>
-                    setOpen(
-                      false
-                    )
-                  }
-                >
-                  <span>
-                    {String(
-                      index +
-                        1
-                    ).padStart(
-                      2,
-                      "0"
-                    )}
-                  </span>
-
-                  {
-                    link.label
-                  }
-                </Link>
-              )
-            )}
-
-            <Link
-              href="#register-interest"
-              className="mw26-mobile-register"
-              onClick={() =>
-                setOpen(false)
-              }
-            >
-              Register for Mighty Works
-              <span>↗</span>
-            </Link>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
-    </>
+        <button
+          type="button"
+          className="mw-nav-v3-menu"
+          aria-label={
+            menuOpen
+              ? "Close navigation"
+              : "Open navigation"
+          }
+          aria-expanded={
+            menuOpen
+          }
+          onClick={() =>
+            setMenuOpen(
+              (current) =>
+                !current
+            )
+          }
+        >
+          {menuOpen ? (
+            <X size={22} />
+          ) : (
+            <Menu size={22} />
+          )}
+        </button>
+      </div>
+    </header>
   );
 }

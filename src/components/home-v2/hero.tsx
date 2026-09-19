@@ -6,65 +6,190 @@ import {
 } from "framer-motion";
 import {
   CalendarDays,
-  Globe2,
+  Clock3,
   MapPin,
-  Radio,
 } from "lucide-react";
-import Link from "next/link";
-
 import Image from "next/image";
+
+const HERO_ASSET_ROOT =
+  "/images/hero-2026";
+
 export function HeroV2() {
   const reducedMotion =
     useReducedMotion();
 
+  const reveal = (
+    delay = 0,
+    distance = 24
+  ) =>
+    reducedMotion
+      ? {}
+      : {
+          initial: {
+            opacity: 0,
+            y: distance,
+          },
+          animate: {
+            opacity: 1,
+            y: 0,
+          },
+          transition: {
+            duration: 0.85,
+            delay,
+            ease: [
+              0.22,
+              1,
+              0.36,
+              1,
+            ] as const,
+          },
+        };
+
   return (
     <section
       id="top"
-      className="mw26-hero"
+      className="mw-hero-v3"
+      aria-labelledby="mw-hero-v3-title"
     >
-      <div className="mw26-hero-grid" />
-      <div className="mw26-stars" />
-      <div className="mw26-hero-glow mw26-hero-glow-red" />
-      <div className="mw26-hero-glow mw26-hero-glow-violet" />
+      <div
+        className="mw-hero-v3-cosmos"
+        aria-hidden="true"
+      >
+        <div className="mw-hero-v3-nebula mw-hero-v3-nebula-left" />
+        <div className="mw-hero-v3-nebula mw-hero-v3-nebula-right" />
+        <div className="mw-hero-v3-stars" />
+        <div className="mw-hero-v3-light-beam" />
+      </div>
 
-      <div className="mw26-hero-inner">
-        <div className="mw26-hero-copy">
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 18,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.65,
-            }}
-            className="mw26-theme-eyebrow"
-          >
-            <i />
+      <motion.div
+        className="mw-hero-v3-earth"
+        aria-hidden="true"
+        animate={
+          reducedMotion
+            ? undefined
+            : {
+                y: [0, -8, 0],
+                scale: [
+                  1,
+                  1.018,
+                  1,
+                ],
+              }
+        }
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <div className="mw-hero-v3-earth-glow" />
+
+        <Image
+          src={`${HERO_ASSET_ROOT}/earth.png`}
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          sizes="(max-width: 767px) 112vw, (max-width: 1199px) 86vw, 72vw"
+        />
+      </motion.div>
+
+      <div className="mw-hero-v3-host-glow" />
+
+      <div className="mw-hero-v3-hosts">
+        <motion.figure
+          className="mw-hero-v3-host mw-hero-v3-host-pastor"
+          {...reveal(
+            0.12,
+            34
+          )}
+        >
+          <Image
+            src={`${HERO_ASSET_ROOT}/pastor-olakunle-akingbehin.png`}
+            alt="Pastor Olakunle Akingbehin"
+            fill
+            priority
+            sizes="(max-width: 767px) 55vw, (max-width: 1199px) 38vw, 32vw"
+          />
+
+          <figcaption>
             <span>
-              The 2026 Theme ·
-              John 14:12
+              Host
             </span>
-          </motion.div>
 
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 34,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.82,
-              delay: 0.06,
-            }}
-            className="mw26-theme-title"
-          >
+            <strong>
+              Pastor Olakunle
+              <br />
+              Akingbehin
+            </strong>
+          </figcaption>
+        </motion.figure>
+
+        <motion.figure
+          className="mw-hero-v3-host mw-hero-v3-host-foluke"
+          {...reveal(
+            0.2,
+            34
+          )}
+        >
+          <Image
+            src={`${HERO_ASSET_ROOT}/mrs-foluke-akingbehin.png`}
+            alt="Mrs. Foluke Akingbehin"
+            fill
+            priority
+            sizes="(max-width: 767px) 55vw, (max-width: 1199px) 38vw, 32vw"
+          />
+
+          <figcaption>
+            <span>
+              Host
+            </span>
+
+            <strong>
+              Mrs. Foluke
+              <br />
+              Akingbehin
+            </strong>
+          </figcaption>
+        </motion.figure>
+      </div>
+
+      <div
+        className="mw-hero-v3-energy"
+        aria-hidden="true"
+      >
+        <div className="mw-hero-v3-energy-ribbon ribbon-one" />
+        <div className="mw-hero-v3-energy-ribbon ribbon-two" />
+      </div>
+
+      <div className="mw-hero-v3-content">
+        <motion.div
+          className="mw-hero-v3-edition"
+          {...reveal(
+            0.12,
+            14
+          )}
+        >
+          <strong>
+            8th
+          </strong>
+          <span>
+            Edition
+          </span>
+        </motion.div>
+
+        <motion.div
+          className="mw-hero-v3-theme"
+          {...reveal(
+            0.3,
+            38
+          )}
+        >
+          <p>
+            Theme
+          </p>
+
+          <h1 id="mw-hero-v3-title">
             <span>
               Greater
             </span>
@@ -72,395 +197,137 @@ export function HeroV2() {
             <em>
               Things
             </em>
-          </motion.div>
+          </h1>
 
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 22,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              delay: 0.18,
-              duration: 0.7,
-            }}
-            className="mw26-hero-message"
+          <div
+            className="mw-hero-v3-cross"
+            aria-hidden="true"
           >
-            <strong>
-              Bring your faith.
-            </strong>
-
-            <span>
-              Make room for greater.
-            </span>
-          </motion.div>
-
-          <div className="mw26-mobile-globe-slot">
-            <GlobeComposition />
+            <i />
           </div>
 
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 10,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              delay: 0.3,
-              duration: 0.7,
-            }}
-            className="mw26-host-signature"
-          >
-            <span>Hosted by</span>
+          <div className="mw-hero-v3-conference-line">
+            <span>
+              Mighty Works
+              Conference 2026
+            </span>
 
-            <Image
-              src="/images/brand/everwinning-host-transparent.png"
-              alt="Everwinning Faith Ministries Australia"
-              width={250}
-              height={170}
+            <strong>
+              John 14:12
+            </strong>
+          </div>
+        </motion.div>
+
+        <motion.blockquote
+          className="mw-hero-v3-scripture"
+          {...reveal(
+            0.42,
+            18
+          )}
+        >
+          <p>
+            “He who believes in Me
+            will also do the works
+            that I do; and greater
+            works than these he will
+            do.”
+          </p>
+
+          <cite>
+            John 14:12
+          </cite>
+        </motion.blockquote>
+
+        <motion.div
+          className="mw-hero-v3-event-panel"
+          {...reveal(
+            0.48,
+            22
+          )}
+        >
+          <div className="mw-hero-v3-date">
+            <CalendarDays
+              size={21}
             />
-          </motion.div>
 
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              delay: 0.26,
-              duration: 0.7,
-            }}
-            className="mw26-hero-quick-meta"
-          >
-            <span>
-              <CalendarDays
-                size={16}
-              />
-              7–8 November
-              2026
-            </span>
+            <div>
+              <span>
+                Sat. Nov. 7,
+                2026
+              </span>
 
-            <span>
-              <Radio
-                size={16}
-              />
-              In person +
-              online
-            </span>
+              <strong>
+                <Clock3
+                  size={15}
+                />
+                5:00 PM
+              </strong>
+            </div>
+          </div>
 
-            <span>
-              <Globe2
-                size={16}
-              />
-              An invitation
-              to every nation
-            </span>
-          </motion.div>
+          <div className="mw-hero-v3-date">
+            <CalendarDays
+              size={21}
+            />
 
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              delay: 0.34,
-              duration: 0.7,
-            }}
-            className="mw26-hero-actions"
-          >
-            <Link
-              href="#register-interest"
-              className="mw26-hero-primary"
-            >
-              I’m coming
-              <span>↗</span>
-            </Link>
+            <div>
+              <span>
+                Sun. Nov. 8,
+                2026
+              </span>
 
-            <Link
-              href="#about"
-              className="mw26-hero-secondary"
-            >
-              Enter the story
-              <span>↓</span>
-            </Link>
-          </motion.div>
-        </div>
+              <strong>
+                <Clock3
+                  size={15}
+                />
+                9:00 AM
+              </strong>
+            </div>
+          </div>
 
-        <div className="mw26-desktop-globe-slot">
-          <GlobeComposition />
-        </div>
+          <div className="mw-hero-v3-venue">
+            <MapPin
+              size={22}
+            />
+
+            <div>
+              <strong>
+                Faith Center
+              </strong>
+
+              <span>
+                62 Eastern Rd,
+                Browns Plains QLD
+                4118
+              </span>
+            </div>
+          </div>
+        </motion.div>
+
       </div>
 
-      <div className="mw26-hero-bottom">
+      <div className="mw-hero-v3-motif">
         <span>
-          One faith.
-          Every nation.
+          People
         </span>
-
-        <div className="mw26-scroll-indicator">
-          <i />
-        </div>
+        <i />
+        <span>
+          Prayer
+        </span>
+        <i />
+        <span>
+          Purpose
+        </span>
+        <i />
+        <span>
+          Power
+        </span>
       </div>
+
+      <div
+        className="mw-hero-v3-bottom-fade"
+        aria-hidden="true"
+      />
     </section>
   );
-
-  function GlobeComposition() {
-    return (
-      <div className="mw26-globe-composition">
-        <div className="mw26-globe-aura" />
-
-        <motion.div
-          animate={
-            reducedMotion
-              ? undefined
-              : {
-                  rotate: 360,
-                }
-          }
-          transition={{
-            duration: 54,
-            repeat:
-              Infinity,
-            ease: "linear",
-          }}
-          className="mw26-globe-orbit mw26-globe-orbit-a"
-        />
-
-        <motion.div
-          animate={
-            reducedMotion
-              ? undefined
-              : {
-                  rotate:
-                    -360,
-                }
-          }
-          transition={{
-            duration: 37,
-            repeat:
-              Infinity,
-            ease: "linear",
-          }}
-          className="mw26-globe-orbit mw26-globe-orbit-b"
-        />
-
-        <motion.div
-          animate={
-            reducedMotion
-              ? undefined
-              : {
-                  rotateY:
-                    [0, 360],
-                }
-          }
-          transition={{
-            duration: 42,
-            repeat:
-              Infinity,
-            ease: "linear",
-          }}
-          className="mw26-globe"
-        >
-          <div className="mw26-earth-image">
-            <Image
-              src="/images/hero/mighty-works-earth.jpg"
-              alt=""
-              fill
-              priority
-              sizes="(max-width: 900px) 88vw, 48vw"
-            />
-          </div>
-
-          <div
-            className="mw26-earth-atmosphere"
-            aria-hidden="true"
-          />
-
-          <div
-            className="mw26-earth-orbit orbit-one"
-            aria-hidden="true"
-          />
-
-          <div
-            className="mw26-earth-orbit orbit-two"
-            aria-hidden="true"
-          />
-        </motion.div>
-
-        <motion.div
-          animate={
-            reducedMotion
-              ? undefined
-              : {
-                  y: [
-                    0,
-                    -10,
-                    0,
-                  ],
-                  rotate:
-                    [
-                      -7,
-                      -4,
-                      -7,
-                    ],
-                }
-          }
-          transition={{
-            duration: 5,
-            repeat:
-              Infinity,
-            ease:
-              "easeInOut",
-          }}
-          className="mw26-sticker mw26-theme-sticker"
-        >
-          <span>
-            The 2026 Theme
-          </span>
-
-          <strong>
-            Greater
-            <br />
-            Things.
-          </strong>
-
-          <small>
-            John 14:12
-          </small>
-        </motion.div>
-
-        <motion.div
-          animate={
-            reducedMotion
-              ? undefined
-              : {
-                  y: [
-                    0,
-                    8,
-                    0,
-                  ],
-                  rotate:
-                    [
-                      6,
-                      3,
-                      6,
-                    ],
-                }
-          }
-          transition={{
-            duration: 5.8,
-            repeat:
-              Infinity,
-            ease:
-              "easeInOut",
-          }}
-          className="mw26-sticker mw26-date-sticker"
-        >
-          <CalendarDays
-            size={23}
-          />
-
-          <strong>
-            7–8
-            <br />
-            Nov 2026
-          </strong>
-
-          <span>
-            5 PM AEST
-            <br />
-            each evening
-          </span>
-        </motion.div>
-
-        <motion.div
-          animate={
-            reducedMotion
-              ? undefined
-              : {
-                  y: [
-                    0,
-                    -7,
-                    0,
-                  ],
-                  rotate:
-                    [
-                      5,
-                      8,
-                      5,
-                    ],
-                }
-          }
-          transition={{
-            duration: 6.3,
-            repeat:
-              Infinity,
-            ease:
-              "easeInOut",
-          }}
-          className="mw26-sticker mw26-location-sticker"
-        >
-          <MapPin
-            size={24}
-          />
-
-          <strong>
-            Faith Center
-          </strong>
-
-          <span>
-            62 Eastern Rd
-            <br />
-            Browns Plains QLD 4118
-          </span>
-        </motion.div>
-
-        <motion.div
-          animate={
-            reducedMotion
-              ? undefined
-              : {
-                  rotate:
-                    [4, 7, 4],
-                }
-          }
-          transition={{
-            duration: 6,
-            repeat:
-              Infinity,
-          }}
-          className="mw26-edition-sticker"
-        >
-          <span>
-            Mighty Works
-          </span>
-
-          <strong>
-            8
-            <sup>
-              th
-            </sup>
-          </strong>
-
-          <small>
-            Edition · 2026
-          </small>
-        </motion.div>
-      </div>
-    );
-  }
 }
