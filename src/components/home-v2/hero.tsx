@@ -99,16 +99,14 @@ export function HeroV2() {
       <div className="mw-hero-v3-hosts">
         <motion.figure
           className="mw-hero-v3-host mw-hero-v3-host-pastor"
-          {...reveal(
-            0.12,
-            34
-          )}
         >
           <Image
             src={`${HERO_ASSET_ROOT}/pastor-olakunle-akingbehin.png`}
             alt="Pastor Olakunle Akingbehin"
             fill
             priority
+            fetchPriority="high"
+            loading="eager"
             sizes="(max-width: 767px) 55vw, (max-width: 1199px) 38vw, 32vw"
           />
 
@@ -127,16 +125,14 @@ export function HeroV2() {
 
         <motion.figure
           className="mw-hero-v3-host mw-hero-v3-host-foluke"
-          {...reveal(
-            0.2,
-            34
-          )}
         >
           <Image
             src={`${HERO_ASSET_ROOT}/mrs-foluke-akingbehin.png`}
             alt="Mrs. Foluke Akingbehin"
             fill
             priority
+            fetchPriority="high"
+            loading="eager"
             sizes="(max-width: 767px) 55vw, (max-width: 1199px) 38vw, 32vw"
           />
 
