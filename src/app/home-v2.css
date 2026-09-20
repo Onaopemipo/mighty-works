@@ -25328,3 +25328,3286 @@
     height: 54px;
   }
 }
+
+/* =========================================================
+   MW-HOME-V3-S5-P1B — SCHEDULE CANVAS + NATIONS TRANSITION
+
+   Establishes the visual environment for Schedule V3.
+
+   Responsibilities:
+   - receive S4 Nations handoff
+   - establish Schedule atmospheric canvas
+   - establish responsive content shell
+   - establish ambient grid + orbital fields
+
+   Opening typography deferred to P1C.
+   Two-day timeline deferred to P1D.
+   Venue/finale/registration handoff deferred to P1E.
+
+   S4 remains frozen.
+   ========================================================= */
+
+.mw-schedule-v3 {
+  position: relative;
+
+  isolation: isolate;
+
+  overflow: clip;
+
+  min-height: 100svh;
+
+  color: #f6f1e7;
+
+  background:
+    linear-gradient(
+      180deg,
+      #060712 0%,
+      #080817 18%,
+      #0b091c 48%,
+      #080713 78%,
+      #060611 100%
+    );
+}
+
+
+/* ---------------------------------------------------------
+   ATMOSPHERE
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-atmosphere {
+  position: absolute;
+
+  z-index: 0;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.mw-schedule-v3-glow {
+  position: absolute;
+
+  top: -7%;
+  left: 50%;
+
+  width:
+    min(
+      1180px,
+      88vw
+    );
+
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        239,
+        75,
+        91,
+        0.1
+      ),
+      rgba(
+        93,
+        80,
+        163,
+        0.12
+      ) 34%,
+      transparent 69%
+    );
+
+  filter:
+    blur(34px);
+
+  opacity: 0.76;
+}
+
+
+/* ---------------------------------------------------------
+   ARCHITECTURAL GRID
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-grid {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.105;
+
+  background-image:
+    linear-gradient(
+      rgba(
+        246,
+        241,
+        231,
+        0.024
+      ) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(
+        246,
+        241,
+        231,
+        0.024
+      ) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    72px 72px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      black 76%,
+      transparent
+    );
+}
+
+
+/* ---------------------------------------------------------
+   AMBIENT ORBITS
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-orbit {
+  position: absolute;
+
+  border:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.045
+      );
+
+  border-radius: 50%;
+}
+
+.mw-schedule-v3-orbit-one {
+  top: 9%;
+  right: -31%;
+
+  width: 70vw;
+  height: 70vw;
+
+  max-width: 1080px;
+  max-height: 1080px;
+
+  border-color:
+    rgba(
+      93,
+      80,
+      163,
+      0.075
+    );
+
+  transform:
+    rotate(-17deg);
+}
+
+.mw-schedule-v3-orbit-two {
+  top: 49%;
+  left: -36%;
+
+  width: 78vw;
+  height: 78vw;
+
+  max-width: 1180px;
+  max-height: 1180px;
+
+  border-color:
+    rgba(
+      239,
+      75,
+      91,
+      0.06
+    );
+
+  transform:
+    rotate(14deg);
+}
+
+
+/* ---------------------------------------------------------
+   CONTENT SHELL
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-shell {
+  position: relative;
+
+  z-index: 2;
+
+  width:
+    min(
+      calc(100% - 40px),
+      1500px
+    );
+
+  margin:
+    0 auto;
+}
+
+
+/* ---------------------------------------------------------
+   NATIONS -> SCHEDULE CONTINUITY
+   --------------------------------------------------------- */
+
+.mw-schedule-v3::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: 1;
+
+  top: 0;
+  left: 50%;
+
+  width:
+    min(
+      1180px,
+      92vw
+    );
+
+  height: 230px;
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center top,
+      rgba(
+        239,
+        75,
+        91,
+        0.075
+      ),
+      rgba(
+        93,
+        80,
+        163,
+        0.14
+      ) 38%,
+      transparent 72%
+    );
+
+  filter:
+    blur(8px);
+}
+
+.mw-schedule-v3::after {
+  content: "";
+
+  position: absolute;
+
+  z-index: 3;
+
+  top: 0;
+  left: 50%;
+
+  width: 1px;
+  height: 94px;
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(
+        239,
+        75,
+        91,
+        0.52
+      ),
+      rgba(
+        93,
+        80,
+        163,
+        0.22
+      ) 48%,
+      transparent
+    );
+}
+
+/* =========================================================
+   MW-HOME-V3-S5-P1C — DESKTOP SCHEDULE OPENING
+
+   Establishes the Schedule opening stage:
+   - conference/date metadata
+   - THE GATHERING / HAS A TIME lockup
+   - supporting experience statement
+   - Greater Things / John 14:12 signature
+
+   Timeline deferred to P1D.
+   Venue/finale/registration handoff deferred to P1E.
+   Tablet + mobile deferred.
+
+   S4 frozen.
+   ========================================================= */
+
+.mw-schedule-v3-opening {
+  position: relative;
+
+  min-height: 88svh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding:
+    138px 0
+    124px;
+}
+
+
+/* ---------------------------------------------------------
+   OPENING META
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-opening-meta {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  width: 100%;
+
+  margin-bottom: 46px;
+}
+
+.mw-schedule-v3-opening-meta > p,
+.mw-schedule-v3-opening-meta > span {
+  margin: 0;
+
+  font-size: 0.6rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.29em;
+}
+
+.mw-schedule-v3-opening-meta > p {
+  color: #ef4b5b;
+}
+
+.mw-schedule-v3-opening-meta > span {
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.38
+    );
+}
+
+
+/* ---------------------------------------------------------
+   OPENING LOCKUP
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-opening h2 {
+  width: 100%;
+  max-width: 1240px;
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      6.4rem,
+      10.2vw,
+      10.8rem
+    );
+
+  line-height: 0.78;
+
+  font-weight: 400;
+
+  letter-spacing: -0.074em;
+
+  color: #f6f1e7;
+}
+
+.mw-schedule-v3-opening h2 span {
+  display: block;
+
+  margin:
+    0.16em 0 0
+    clamp(
+      72px,
+      9vw,
+      164px
+    );
+
+  color: #ef4b5b;
+}
+
+
+/* ---------------------------------------------------------
+   OPENING FOOT
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-opening-foot {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 72px;
+
+  width: 100%;
+
+  margin-top: 76px;
+}
+
+.mw-schedule-v3-opening-foot > p {
+  max-width: 560px;
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      1.4rem,
+      1.9vw,
+      1.9rem
+    );
+
+  line-height: 1.42;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.68
+    );
+}
+
+.mw-schedule-v3-opening-foot > span {
+  flex: 0 0 auto;
+
+  font-size: 0.58rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  text-align: right;
+
+  letter-spacing: 0.25em;
+
+  line-height: 1.72;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.34
+    );
+}
+
+
+/* ---------------------------------------------------------
+   DESKTOP OPENING CALIBRATION
+   --------------------------------------------------------- */
+
+@media (min-width: 1100px) {
+
+  .mw-schedule-v3-opening {
+    min-height: 92svh;
+
+    padding:
+      148px 0
+      132px;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S5-P1D-1 — TIMELINE SPINE + GEOMETRY
+
+   Establishes the desktop two-day journey:
+   - central vertical timeline
+   - alternating Day 01 / Day 02 composition
+   - timeline marker geometry
+   - large cinematic vertical rhythm
+
+   Day typography deferred to P1D-2.
+   Time treatment deferred to P1D-3.
+   Venue/finale deferred to P1E.
+   Tablet + mobile deferred.
+   ========================================================= */
+
+.mw-schedule-v3-days {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(
+      0,
+      1fr
+    )
+    minmax(
+      0,
+      1fr
+    );
+
+  column-gap:
+    clamp(
+      100px,
+      12vw,
+      190px
+    );
+
+  min-height: 1180px;
+
+  padding:
+    120px 0
+    150px;
+}
+
+
+/* ---------------------------------------------------------
+   CENTRAL SPINE
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-spine {
+  position: absolute;
+
+  z-index: 1;
+
+  top: 88px;
+  bottom: 108px;
+  left: 50%;
+
+  width: 1px;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(
+        246,
+        241,
+        231,
+        0.12
+      ) 8%,
+      rgba(
+        239,
+        75,
+        91,
+        0.3
+      ) 42%,
+      rgba(
+        93,
+        80,
+        163,
+        0.24
+      ) 70%,
+      rgba(
+        246,
+        241,
+        231,
+        0.08
+      ) 92%,
+      transparent
+    );
+}
+
+.mw-schedule-v3-spine::before,
+.mw-schedule-v3-spine::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  width: 9px;
+  height: 9px;
+
+  border:
+    1px solid
+      rgba(
+        239,
+        75,
+        91,
+        0.45
+      );
+
+  border-radius: 50%;
+
+  transform:
+    translateX(-50%);
+
+  background: #080817;
+
+  box-shadow:
+    0 0 24px
+      rgba(
+        239,
+        75,
+        91,
+        0.2
+      );
+}
+
+.mw-schedule-v3-spine::before {
+  top: 8%;
+}
+
+.mw-schedule-v3-spine::after {
+  bottom: 8%;
+}
+
+.mw-schedule-v3-spine > i {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  background: #ef4b5b;
+
+  box-shadow:
+    0 0 0 7px
+      rgba(
+        239,
+        75,
+        91,
+        0.055
+      ),
+    0 0 30px
+      rgba(
+        239,
+        75,
+        91,
+        0.28
+      );
+}
+
+
+/* ---------------------------------------------------------
+   DAY GEOMETRY
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-day {
+  position: relative;
+
+  z-index: 3;
+
+  width: 100%;
+  max-width: 590px;
+
+  min-height: 430px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.mw-schedule-v3-day.is-left {
+  grid-column: 1;
+
+  align-self: start;
+
+  justify-self: end;
+
+  padding-right:
+    clamp(
+      20px,
+      2vw,
+      38px
+    );
+}
+
+.mw-schedule-v3-day.is-right {
+  grid-column: 2;
+
+  align-self: end;
+
+  justify-self: start;
+
+  margin-top: 500px;
+
+  padding-left:
+    clamp(
+      20px,
+      2vw,
+      38px
+    );
+}
+
+
+/* ---------------------------------------------------------
+   TIMELINE MARKER GEOMETRY
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-day-marker {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  width: 100%;
+
+  margin-bottom: 34px;
+}
+
+.mw-schedule-v3-day.is-left
+  .mw-schedule-v3-day-marker {
+  justify-content: flex-end;
+}
+
+.mw-schedule-v3-day.is-right
+  .mw-schedule-v3-day-marker {
+  justify-content: flex-start;
+}
+
+.mw-schedule-v3-day-marker::after {
+  content: "";
+
+  flex:
+    0 1 110px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(
+        246,
+        241,
+        231,
+        0.08
+      ),
+      rgba(
+        239,
+        75,
+        91,
+        0.36
+      )
+    );
+}
+
+.mw-schedule-v3-day.is-left
+  .mw-schedule-v3-day-marker::after {
+  order: -1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(
+        239,
+        75,
+        91,
+        0.36
+      ),
+      rgba(
+        246,
+        241,
+        231,
+        0.08
+      )
+    );
+}
+
+.mw-schedule-v3-day-marker > i {
+  flex: 0 0 auto;
+
+  width: 9px;
+  height: 9px;
+
+  border:
+    1px solid
+      rgba(
+        239,
+        75,
+        91,
+        0.48
+      );
+
+  border-radius: 50%;
+
+  background: #090817;
+
+  box-shadow:
+    0 0 0 6px
+      rgba(
+        239,
+        75,
+        91,
+        0.045
+      ),
+    0 0 20px
+      rgba(
+        239,
+        75,
+        91,
+        0.16
+      );
+}
+
+
+/* ---------------------------------------------------------
+   DAY BODY ALIGNMENT
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-day-body {
+  width: 100%;
+}
+
+.mw-schedule-v3-day.is-left
+  .mw-schedule-v3-day-body {
+  text-align: right;
+}
+
+.mw-schedule-v3-day.is-right
+  .mw-schedule-v3-day-body {
+  text-align: left;
+}
+
+/* =========================================================
+   MW-HOME-V3-S5-P1D-2 — DAY IDENTITY + TYPOGRAPHY
+
+   Establishes:
+   - Day 01 / Day 02 marker identity
+   - 07 NOV / 08 NOV date codes
+   - Saturday / Sunday editorial titles
+   - full-date supporting labels
+
+   Timeline geometry inherited from P1D-1.
+   Time treatment deferred to P1D-3.
+   Venue/finale deferred to P1E.
+   Tablet + mobile deferred.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   DAY NUMBER
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-day-marker > span {
+  flex: 0 0 auto;
+
+  font-size: 0.58rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.3em;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.42
+    );
+}
+
+.mw-schedule-v3-day.is-left
+  .mw-schedule-v3-day-marker > span {
+  color: #ef4b5b;
+}
+
+.mw-schedule-v3-day.is-right
+  .mw-schedule-v3-day-marker > span {
+  color: #f2939f;
+}
+
+
+/* ---------------------------------------------------------
+   SHORT DATE
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-day-body > p {
+  margin:
+    0 0 18px;
+
+  font-size: 0.62rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.34em;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.32
+    );
+}
+
+
+/* ---------------------------------------------------------
+   DAY TITLE
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-day-body h3 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      5.4rem,
+      7.2vw,
+      8rem
+    );
+
+  line-height: 0.8;
+
+  font-weight: 400;
+
+  letter-spacing:
+    -0.068em;
+
+  color: #f6f1e7;
+}
+
+.mw-schedule-v3-day.is-left
+  .mw-schedule-v3-day-body h3 {
+  text-shadow:
+    0 0 56px
+      rgba(
+        239,
+        75,
+        91,
+        0.055
+      );
+}
+
+.mw-schedule-v3-day.is-right
+  .mw-schedule-v3-day-body h3 {
+  text-shadow:
+    0 0 56px
+      rgba(
+        93,
+        80,
+        163,
+        0.08
+      );
+}
+
+
+/* ---------------------------------------------------------
+   FULL DATE
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-day-body
+  > span {
+  display: block;
+
+  margin-top: 22px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      1.12rem,
+      1.45vw,
+      1.38rem
+    );
+
+  line-height: 1.35;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.46
+    );
+}
+
+
+/* ---------------------------------------------------------
+   DAY-SPECIFIC ACCENT
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-day.is-left
+  .mw-schedule-v3-day-body > p {
+  color:
+    rgba(
+      239,
+      75,
+      91,
+      0.68
+    );
+}
+
+.mw-schedule-v3-day.is-right
+  .mw-schedule-v3-day-body > p {
+  color:
+    rgba(
+      242,
+      147,
+      159,
+      0.62
+    );
+}
+
+/* =========================================================
+   MW-HOME-V3-S5-P1D-3 — TIME MARKERS + DESKTOP TIMELINE CERTIFICATION
+
+   Completes the desktop two-day timeline.
+
+   Establishes:
+   - start-time treatment
+   - clock icon field
+   - Day 01 / Day 02 accent distinction
+   - complete P1D desktop timeline authority
+
+   Venue/finale remain deferred to P1E.
+   Tablet + mobile remain deferred.
+   ========================================================= */
+
+.mw-schedule-v3-time {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  min-width: 190px;
+
+  margin-top: 42px;
+
+  padding:
+    16px 20px;
+
+  border:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.09
+      );
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      246,
+      241,
+      231,
+      0.025
+    );
+
+  backdrop-filter:
+    blur(10px);
+}
+
+.mw-schedule-v3-day.is-left
+  .mw-schedule-v3-time {
+  justify-content: flex-end;
+
+  border-color:
+    rgba(
+      239,
+      75,
+      91,
+      0.15
+    );
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(
+        239,
+        75,
+        91,
+        0.025
+      ),
+      rgba(
+        239,
+        75,
+        91,
+        0.055
+      )
+    );
+}
+
+.mw-schedule-v3-day.is-right
+  .mw-schedule-v3-time {
+  justify-content: flex-start;
+
+  border-color:
+    rgba(
+      93,
+      80,
+      163,
+      0.2
+    );
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(
+        93,
+        80,
+        163,
+        0.065
+      ),
+      rgba(
+        93,
+        80,
+        163,
+        0.02
+      )
+    );
+}
+
+
+/* ---------------------------------------------------------
+   TIME ICON
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-time svg {
+  flex: 0 0 auto;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.42
+    );
+}
+
+.mw-schedule-v3-day.is-left
+  .mw-schedule-v3-time svg {
+  color: #ef4b5b;
+}
+
+.mw-schedule-v3-day.is-right
+  .mw-schedule-v3-time svg {
+  color: #f2939f;
+}
+
+
+/* ---------------------------------------------------------
+   TIME VALUE
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-time strong {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      1.45rem,
+      2vw,
+      1.9rem
+    );
+
+  line-height: 1;
+
+  font-weight: 400;
+
+  letter-spacing: -0.035em;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.88
+    );
+}
+
+
+/* ---------------------------------------------------------
+   ALIGNMENT WITH ALTERNATING DAYS
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-day.is-left
+  .mw-schedule-v3-time {
+  margin-left: auto;
+}
+
+.mw-schedule-v3-day.is-right
+  .mw-schedule-v3-time {
+  margin-right: auto;
+}
+
+
+/* ---------------------------------------------------------
+   SUBTLE TIME GLOW
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-time::after {
+  content: "";
+
+  position: absolute;
+
+  z-index: -1;
+
+  top: 50%;
+  left: 50%;
+
+  width: 72%;
+  height: 160%;
+
+  border-radius: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  opacity: 0;
+
+  filter:
+    blur(22px);
+
+  transition:
+    opacity
+    280ms
+    ease;
+
+  pointer-events: none;
+}
+
+.mw-schedule-v3-day.is-left
+  .mw-schedule-v3-time::after {
+  background:
+    rgba(
+      239,
+      75,
+      91,
+      0.075
+    );
+}
+
+.mw-schedule-v3-day.is-right
+  .mw-schedule-v3-time::after {
+  background:
+    rgba(
+      93,
+      80,
+      163,
+      0.1
+    );
+}
+
+.mw-schedule-v3-time:hover::after {
+  opacity: 1;
+}
+
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .mw-schedule-v3-time::after {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S5-P1E-1 — VENUE STAGE
+
+   Gives the physical gathering place its own editorial
+   moment after the two-day timeline.
+
+   Establishes:
+   - WHERE WE GATHER identity
+   - Faith Center venue monument
+   - address treatment
+   - restrained location-field depth
+
+   Finale deferred to P1E-2.
+   Registration handoff deferred to P1E-3.
+   Tablet + mobile deferred.
+   ========================================================= */
+
+.mw-schedule-v3-venue {
+  position: relative;
+
+  isolation: isolate;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(
+      220px,
+      0.38fr
+    )
+    minmax(
+      0,
+      1fr
+    );
+
+  align-items: end;
+
+  gap:
+    clamp(
+      70px,
+      10vw,
+      170px
+    );
+
+  min-height: 68svh;
+
+  padding:
+    120px 0
+    138px;
+
+  border-top:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.07
+      );
+
+  border-bottom:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.07
+      );
+}
+
+
+/* ---------------------------------------------------------
+   VENUE FIELD
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-venue::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: -1;
+
+  top: 50%;
+  right: 4%;
+
+  width:
+    min(
+      720px,
+      54vw
+    );
+
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  transform:
+    translateY(-50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        239,
+        75,
+        91,
+        0.085
+      ),
+      rgba(
+        93,
+        80,
+        163,
+        0.075
+      ) 38%,
+      transparent 70%
+    );
+
+  filter:
+    blur(20px);
+
+  pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   VENUE KICKER
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-venue-kicker {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  padding-bottom: 12px;
+
+  color: #ef4b5b;
+}
+
+.mw-schedule-v3-venue-kicker svg {
+  flex: 0 0 auto;
+
+  filter:
+    drop-shadow(
+      0 0 14px
+      rgba(
+        239,
+        75,
+        91,
+        0.22
+      )
+    );
+}
+
+.mw-schedule-v3-venue-kicker span {
+  font-size: 0.58rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.3em;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.5
+    );
+}
+
+
+/* ---------------------------------------------------------
+   VENUE MONUMENT
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-venue-body {
+  min-width: 0;
+}
+
+.mw-schedule-v3-venue-body h3 {
+  max-width: 9ch;
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      6.2rem,
+      9.2vw,
+      10rem
+    );
+
+  line-height: 0.78;
+
+  font-weight: 400;
+
+  letter-spacing:
+    -0.075em;
+
+  color: #f6f1e7;
+
+  text-shadow:
+    0 0 70px
+      rgba(
+        239,
+        75,
+        91,
+        0.045
+      );
+}
+
+
+/* ---------------------------------------------------------
+   ADDRESS
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-venue-body address {
+  position: relative;
+
+  max-width: 430px;
+
+  margin:
+    52px 0 0;
+
+  padding-left: 28px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      1.25rem,
+      1.7vw,
+      1.65rem
+    );
+
+  line-height: 1.55;
+
+  font-style: normal;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.56
+    );
+}
+
+.mw-schedule-v3-venue-body
+  address::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0.18em;
+  bottom: 0.18em;
+  left: 0;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #ef4b5b,
+      rgba(
+        93,
+        80,
+        163,
+        0.24
+      ),
+      transparent
+    );
+}
+
+
+/* ---------------------------------------------------------
+   DESKTOP VENUE CALIBRATION
+   --------------------------------------------------------- */
+
+@media (min-width: 1100px) {
+
+  .mw-schedule-v3-venue {
+    min-height: 72svh;
+
+    padding:
+      130px 0
+      148px;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S5-P1E-2 — SCHEDULE FINALE
+
+   Resolves the desktop Schedule experience with:
+   - TWO DAYS.
+   - ONE GATHERING.
+   - GREATER THINGS.
+
+   The finale remains editorial rather than CTA-driven.
+
+   Registration handoff deferred to P1E-3.
+   Tablet + mobile deferred.
+   S4 frozen.
+   ========================================================= */
+
+.mw-schedule-v3-finale {
+  position: relative;
+
+  isolation: isolate;
+
+  min-height: 72svh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  padding:
+    132px 0
+    156px;
+
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   FINALE ATMOSPHERE
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-finale::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: -1;
+
+  top: 51%;
+  left: 50%;
+
+  width:
+    min(
+      860px,
+      68vw
+    );
+
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        239,
+        75,
+        91,
+        0.1
+      ),
+      rgba(
+        93,
+        80,
+        163,
+        0.085
+      ) 40%,
+      transparent 70%
+    );
+
+  filter:
+    blur(20px);
+
+  pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   TWO DAYS
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-finale > p {
+  margin:
+    0 0 27px;
+
+  font-size: 0.6rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.38em;
+
+  color: #ef4b5b;
+}
+
+
+/* ---------------------------------------------------------
+   ONE GATHERING / GREATER THINGS
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-finale h3 {
+  width: 100%;
+  max-width: 1260px;
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      6rem,
+      9.2vw,
+      10rem
+    );
+
+  line-height: 0.78;
+
+  font-weight: 400;
+
+  letter-spacing: -0.072em;
+
+  color: #f6f1e7;
+}
+
+.mw-schedule-v3-finale h3 span {
+  display: block;
+
+  margin-top: 0.17em;
+
+  color: #ef4b5b;
+}
+
+
+/* ---------------------------------------------------------
+   FINALE ENERGY LINE
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-finale-line {
+  position: relative;
+
+  width:
+    min(
+      380px,
+      34vw
+    );
+
+  height: 1px;
+
+  margin-top: 54px;
+
+  background:
+    rgba(
+      246,
+      241,
+      231,
+      0.08
+    );
+}
+
+.mw-schedule-v3-finale-line > i {
+  position: absolute;
+
+  top: -1px;
+  left: 50%;
+
+  width: 58%;
+  height: 3px;
+
+  border-radius: 999px;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #5d50a3,
+      #ef4b5b,
+      #5d50a3,
+      transparent
+    );
+
+  box-shadow:
+    0 0 24px
+      rgba(
+        239,
+        75,
+        91,
+        0.2
+      );
+}
+
+
+/* ---------------------------------------------------------
+   DESKTOP FINALE CALIBRATION
+   --------------------------------------------------------- */
+
+@media (min-width: 1100px) {
+
+  .mw-schedule-v3-finale {
+    min-height: 76svh;
+
+    padding:
+      142px 0
+      168px;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S5-P1E-3 — REGISTRATION HANDOFF + DESKTOP CERTIFICATION
+
+   Completes desktop S5.
+
+   Schedule resolves toward the existing Registration
+   experience without mutating Registration itself.
+
+   Responsibilities:
+   - closing atmospheric continuation
+   - vertical transition line
+   - zero-gap Schedule ending
+   - desktop S5 certification authority
+
+   Registration remains independently owned.
+   Tablet + mobile remain deferred.
+   S4 frozen.
+   ========================================================= */
+
+.mw-schedule-v3 {
+  padding-bottom: 0;
+}
+
+.mw-schedule-v3-finale {
+  margin-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   REGISTRATION HANDOFF FIELD
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-finale::after {
+  content: "";
+
+  position: absolute;
+
+  z-index: -1;
+
+  left: 50%;
+  bottom: 0;
+
+  width:
+    min(
+      1200px,
+      94vw
+    );
+
+  height: 210px;
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center bottom,
+      rgba(
+        239,
+        75,
+        91,
+        0.085
+      ),
+      rgba(
+        93,
+        80,
+        163,
+        0.11
+      ) 40%,
+      transparent 73%
+    );
+
+  filter:
+    blur(9px);
+}
+
+
+/* ---------------------------------------------------------
+   CONTINUATION LINE
+   --------------------------------------------------------- */
+
+.mw-schedule-v3-shell::after {
+  content: "";
+
+  position: absolute;
+
+  z-index: 4;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 1px;
+  height: 92px;
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(
+        93,
+        80,
+        163,
+        0.22
+      ) 32%,
+      rgba(
+        239,
+        75,
+        91,
+        0.52
+      )
+    );
+}
+
+/* =========================================================
+   MW-HOME-V3-S5-P2A — TABLET CANVAS + OPENING
+
+   Breakpoint: 768px–1099px.
+
+   Adapts:
+   - Schedule atmospheric canvas
+   - Nations -> Schedule transition
+   - Schedule opening metadata
+   - THE GATHERING / HAS A TIME lockup
+   - supporting opening copy
+
+   Timeline deferred to P2B.
+   Venue/finale/handoff deferred to P2C.
+
+   Desktop frozen.
+   Mobile deferred.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1099px
+) {
+
+  /* -------------------------------------------------------
+     TABLET CANVAS
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-shell {
+    width:
+      min(
+        calc(100% - 64px),
+        960px
+      );
+  }
+
+  .mw-schedule-v3-glow {
+    top: -4%;
+
+    width: 108vw;
+
+    opacity: 0.7;
+  }
+
+  .mw-schedule-v3-grid {
+    background-size:
+      58px 58px;
+
+    opacity: 0.09;
+  }
+
+  .mw-schedule-v3-orbit-one {
+    top: 8%;
+    right: -46%;
+
+    width: 98vw;
+    height: 98vw;
+  }
+
+  .mw-schedule-v3-orbit-two {
+    top: 51%;
+    left: -52%;
+
+    width: 108vw;
+    height: 108vw;
+  }
+
+
+  /* -------------------------------------------------------
+     NATIONS -> SCHEDULE HANDOFF
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3::before {
+    width: 98vw;
+    height: 190px;
+  }
+
+  .mw-schedule-v3::after {
+    height: 74px;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET OPENING
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-opening {
+    min-height: 82svh;
+
+    padding:
+      112px 0
+      106px;
+  }
+
+  .mw-schedule-v3-opening-meta {
+    gap: 24px;
+
+    margin-bottom: 38px;
+  }
+
+  .mw-schedule-v3-opening-meta > p,
+  .mw-schedule-v3-opening-meta > span {
+    font-size: 0.55rem;
+
+    letter-spacing: 0.24em;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET OPENING LOCKUP
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-opening h2 {
+    max-width: 900px;
+
+    font-size:
+      clamp(
+        5rem,
+        12vw,
+        7.7rem
+      );
+
+    line-height: 0.8;
+  }
+
+  .mw-schedule-v3-opening h2 span {
+    margin:
+      0.17em 0 0
+      clamp(
+        44px,
+        7vw,
+        80px
+      );
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET OPENING FOOT
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-opening-foot {
+    gap: 44px;
+
+    margin-top: 60px;
+  }
+
+  .mw-schedule-v3-opening-foot > p {
+    max-width: 470px;
+
+    font-size:
+      clamp(
+        1.22rem,
+        2.65vw,
+        1.65rem
+      );
+  }
+
+  .mw-schedule-v3-opening-foot > span {
+    font-size: 0.52rem;
+
+    letter-spacing: 0.21em;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S5-P2B — TABLET TWO-DAY TIMELINE
+
+   Breakpoint: 768px–1099px.
+
+   Replaces the desktop alternating timeline with a
+   single vertical journey:
+
+   rail -> Day 01 -> Day 02
+
+   Preserves:
+   - full day identities
+   - dates
+   - start times
+   - visual distinction between days
+
+   P2A frozen.
+   Venue/finale/handoff deferred to P2C.
+   Desktop frozen.
+   Mobile deferred.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1099px
+) {
+
+  /* -------------------------------------------------------
+     TABLET TIMELINE STAGE
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-days {
+    display: block;
+
+    min-height: 0;
+
+    padding:
+      96px 0
+      126px
+      104px;
+  }
+
+
+  /* -------------------------------------------------------
+     LEFT-SIDE TIMELINE RAIL
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-spine {
+    top: 76px;
+    bottom: 104px;
+    left: 38px;
+
+    transform: none;
+  }
+
+  .mw-schedule-v3-spine::before {
+    top: 5%;
+  }
+
+  .mw-schedule-v3-spine::after {
+    bottom: 5%;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET DAY STREAM
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-day,
+  .mw-schedule-v3-day.is-left,
+  .mw-schedule-v3-day.is-right {
+    grid-column: auto;
+
+    width: 100%;
+    max-width: 720px;
+
+    min-height: 0;
+
+    align-self: auto;
+    justify-self: auto;
+
+    margin:
+      0;
+
+    padding:
+      54px 0;
+  }
+
+  .mw-schedule-v3-day.is-right {
+    margin-top: 72px;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET MARKERS
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-day-marker,
+  .mw-schedule-v3-day.is-left
+    .mw-schedule-v3-day-marker,
+  .mw-schedule-v3-day.is-right
+    .mw-schedule-v3-day-marker {
+    justify-content: flex-start;
+
+    gap: 14px;
+
+    margin-bottom: 28px;
+  }
+
+  .mw-schedule-v3-day-marker::after,
+  .mw-schedule-v3-day.is-left
+    .mw-schedule-v3-day-marker::after {
+    order: initial;
+
+    flex:
+      0 1 96px;
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(
+          239,
+          75,
+          91,
+          0.34
+        ),
+        rgba(
+          246,
+          241,
+          231,
+          0.07
+        )
+      );
+  }
+
+  .mw-schedule-v3-day-marker > span {
+    font-size: 0.54rem;
+
+    letter-spacing: 0.27em;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET DAY BODY
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-day.is-left
+    .mw-schedule-v3-day-body,
+  .mw-schedule-v3-day.is-right
+    .mw-schedule-v3-day-body {
+    text-align: left;
+  }
+
+  .mw-schedule-v3-day-body > p {
+    margin-bottom: 16px;
+
+    font-size: 0.57rem;
+
+    letter-spacing: 0.29em;
+  }
+
+  .mw-schedule-v3-day-body h3 {
+    font-size:
+      clamp(
+        5rem,
+        11vw,
+        7rem
+      );
+
+    line-height: 0.81;
+  }
+
+  .mw-schedule-v3-day-body
+    > span {
+    margin-top: 20px;
+
+    font-size:
+      clamp(
+        1.08rem,
+        2.4vw,
+        1.35rem
+      );
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET TIME MARKERS
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-time,
+  .mw-schedule-v3-day.is-left
+    .mw-schedule-v3-time,
+  .mw-schedule-v3-day.is-right
+    .mw-schedule-v3-time {
+    justify-content: flex-start;
+
+    min-width: 180px;
+
+    margin:
+      38px auto 0 0;
+
+    padding:
+      14px 18px;
+  }
+
+  .mw-schedule-v3-time strong {
+    font-size:
+      clamp(
+        1.4rem,
+        3vw,
+        1.8rem
+      );
+  }
+
+
+  /* -------------------------------------------------------
+     CONNECT DAYS TO RAIL
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-day::before {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: -66px;
+
+    width: 42px;
+    height: 1px;
+
+    transform:
+      translateY(-50%);
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(
+          239,
+          75,
+          91,
+          0.34
+        ),
+        rgba(
+          246,
+          241,
+          231,
+          0.08
+        )
+      );
+  }
+
+  .mw-schedule-v3-day::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: -72px;
+
+    width: 11px;
+    height: 11px;
+
+    border:
+      1px solid
+        rgba(
+          239,
+          75,
+          91,
+          0.5
+        );
+
+    border-radius: 50%;
+
+    transform:
+      translateY(-50%);
+
+    background: #080817;
+
+    box-shadow:
+      0 0 0 6px
+        rgba(
+          239,
+          75,
+          91,
+          0.045
+        ),
+      0 0 22px
+        rgba(
+          239,
+          75,
+          91,
+          0.18
+        );
+  }
+
+  .mw-schedule-v3-day.is-right::after {
+    border-color:
+      rgba(
+        242,
+        147,
+        159,
+        0.5
+      );
+
+    box-shadow:
+      0 0 0 6px
+        rgba(
+          93,
+          80,
+          163,
+          0.055
+        ),
+      0 0 22px
+        rgba(
+          93,
+          80,
+          163,
+          0.2
+        );
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S5-P2C — TABLET VENUE + FINALE + REGISTRATION HANDOFF
+
+   Breakpoint: 768px–1099px.
+
+   Completes tablet S5:
+   - stacked venue monument
+   - contained Faith Center typography
+   - tablet Schedule finale
+   - calibrated Registration handoff
+
+   Desktop frozen.
+   Mobile deferred.
+   Registration source remains frozen.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1099px
+) {
+
+  /* -------------------------------------------------------
+     TABLET VENUE
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-venue {
+    display: block;
+
+    min-height: 0;
+
+    padding:
+      104px 0
+      122px;
+  }
+
+  .mw-schedule-v3-venue::before {
+    top: 54%;
+    right: -14%;
+
+    width: 82vw;
+
+    opacity: 0.76;
+  }
+
+  .mw-schedule-v3-venue-kicker {
+    gap: 11px;
+
+    padding-bottom: 42px;
+  }
+
+  .mw-schedule-v3-venue-kicker span {
+    font-size: 0.54rem;
+
+    letter-spacing: 0.26em;
+  }
+
+  .mw-schedule-v3-venue-body h3 {
+    max-width: 9ch;
+
+    font-size:
+      clamp(
+        5.5rem,
+        12vw,
+        7.8rem
+      );
+
+    line-height: 0.8;
+  }
+
+  .mw-schedule-v3-venue-body address {
+    max-width: 390px;
+
+    margin-top: 42px;
+
+    padding-left: 24px;
+
+    font-size:
+      clamp(
+        1.15rem,
+        2.6vw,
+        1.5rem
+      );
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET FINALE
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-finale {
+    min-height: 62svh;
+
+    padding:
+      110px 0
+      140px;
+  }
+
+  .mw-schedule-v3-finale::before {
+    width:
+      min(
+        700px,
+        86vw
+      );
+
+    opacity: 0.76;
+  }
+
+  .mw-schedule-v3-finale > p {
+    margin-bottom: 23px;
+
+    font-size: 0.55rem;
+
+    letter-spacing: 0.32em;
+  }
+
+  .mw-schedule-v3-finale h3 {
+    max-width: 900px;
+
+    font-size:
+      clamp(
+        4.9rem,
+        11.5vw,
+        7.4rem
+      );
+
+    line-height: 0.8;
+  }
+
+  .mw-schedule-v3-finale h3 span {
+    margin-top: 0.16em;
+  }
+
+  .mw-schedule-v3-finale-line {
+    width:
+      min(
+        300px,
+        44vw
+      );
+
+    margin-top: 44px;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET REGISTRATION HANDOFF
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-finale::after {
+    width: 98vw;
+    height: 166px;
+  }
+
+  .mw-schedule-v3-shell::after {
+    height: 72px;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S5-P3A — MOBILE CANVAS + OPENING
+
+   Breakpoint: <768px.
+
+   Establishes:
+   - contained Schedule canvas
+   - mobile Nations -> Schedule transition
+   - compact opening metadata
+   - THE GATHERING / HAS A TIME lockup
+   - stacked opening support copy
+
+   Timeline deferred to P3B.
+   Venue/finale/handoff deferred to P3C.
+
+   Desktop + tablet frozen.
+   S4 frozen.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     MOBILE CANVAS
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3 {
+    overflow-x: clip;
+  }
+
+  .mw-schedule-v3-shell {
+    width: calc(100% - 32px);
+    max-width: none;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mw-schedule-v3-glow {
+    top: -2%;
+
+    width: 136vw;
+
+    opacity: 0.62;
+  }
+
+  .mw-schedule-v3-grid {
+    background-size:
+      44px 44px;
+
+    opacity: 0.07;
+  }
+
+  .mw-schedule-v3-orbit-one {
+    top: 6%;
+    right: -82%;
+
+    width: 152vw;
+    height: 152vw;
+  }
+
+  .mw-schedule-v3-orbit-two {
+    top: 52%;
+    left: -92%;
+
+    width: 166vw;
+    height: 166vw;
+  }
+
+
+  /* -------------------------------------------------------
+     NATIONS -> SCHEDULE HANDOFF
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3::before {
+    width: 122vw;
+    height: 160px;
+  }
+
+  .mw-schedule-v3::after {
+    height: 58px;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE OPENING
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-opening {
+    min-height: auto;
+
+    padding:
+      96px 0
+      86px;
+  }
+
+  .mw-schedule-v3-opening-meta {
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 38px;
+  }
+
+  .mw-schedule-v3-opening-meta > p,
+  .mw-schedule-v3-opening-meta > span {
+    font-size:
+      clamp(
+        0.44rem,
+        1.9vw,
+        0.52rem
+      );
+
+    letter-spacing: 0.18em;
+  }
+
+  .mw-schedule-v3-opening-meta > span {
+    display: block;
+
+    margin-top: 12px;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE OPENING LOCKUP
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-opening h2 {
+    width: 100%;
+    max-width: 100%;
+
+    font-size:
+      clamp(
+        3.7rem,
+        17vw,
+        5.1rem
+      );
+
+    line-height: 0.84;
+
+    letter-spacing: -0.06em;
+  }
+
+  .mw-schedule-v3-opening h2 span {
+    width: 100%;
+
+    margin:
+      0.18em 0 0;
+
+    padding-left: 7%;
+
+    font-size: 0.86em;
+
+    line-height: 0.88;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE OPENING FOOT
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-opening-foot {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 50px;
+  }
+
+  .mw-schedule-v3-opening-foot > p {
+    max-width: 100%;
+
+    font-size:
+      clamp(
+        1.18rem,
+        5.7vw,
+        1.5rem
+      );
+
+    line-height: 1.34;
+  }
+
+  .mw-schedule-v3-opening-foot > span {
+    display: block;
+
+    margin-top: 30px;
+
+    font-size: 0.47rem;
+
+    text-align: left;
+
+    letter-spacing: 0.18em;
+
+    line-height: 1.65;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S5-P3B — MOBILE TWO-DAY TIMELINE
+
+   Breakpoint: <768px.
+
+   Mobile-native two-day journey:
+   - compact left timeline rail
+   - stacked Day 01 / Day 02
+   - contained weekday typography
+   - contained full dates
+   - compact start-time treatments
+
+   P3A frozen.
+   Closing sequence deferred to P3C.
+   Desktop + tablet frozen.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     MOBILE TIMELINE STAGE
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-days {
+    display: block;
+
+    min-height: 0;
+
+    padding:
+      72px 0
+      94px
+      46px;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE TIMELINE RAIL
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-spine {
+    top: 58px;
+    bottom: 76px;
+    left: 13px;
+
+    transform: none;
+  }
+
+  .mw-schedule-v3-spine::before,
+  .mw-schedule-v3-spine::after {
+    width: 7px;
+    height: 7px;
+  }
+
+  .mw-schedule-v3-spine::before {
+    top: 4%;
+  }
+
+  .mw-schedule-v3-spine::after {
+    bottom: 4%;
+  }
+
+  .mw-schedule-v3-spine > i {
+    width: 4px;
+    height: 4px;
+
+    box-shadow:
+      0 0 0 5px
+        rgba(
+          239,
+          75,
+          91,
+          0.05
+        ),
+      0 0 22px
+        rgba(
+          239,
+          75,
+          91,
+          0.24
+        );
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE DAY STREAM
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-day,
+  .mw-schedule-v3-day.is-left,
+  .mw-schedule-v3-day.is-right {
+    grid-column: auto;
+
+    width: 100%;
+    max-width: none;
+
+    min-height: 0;
+
+    align-self: auto;
+    justify-self: auto;
+
+    margin: 0;
+
+    padding:
+      44px 0;
+
+    text-align: left;
+  }
+
+  .mw-schedule-v3-day.is-right {
+    margin-top: 48px;
+  }
+
+
+  /* -------------------------------------------------------
+     RAIL CONNECTION
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-day::before {
+    top: 50%;
+    left: -32px;
+
+    width: 22px;
+  }
+
+  .mw-schedule-v3-day::after {
+    top: 50%;
+    left: -38px;
+
+    width: 9px;
+    height: 9px;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE DAY MARKERS
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-day-marker,
+  .mw-schedule-v3-day.is-left
+    .mw-schedule-v3-day-marker,
+  .mw-schedule-v3-day.is-right
+    .mw-schedule-v3-day-marker {
+    justify-content: flex-start;
+
+    gap: 10px;
+
+    margin-bottom: 24px;
+  }
+
+  .mw-schedule-v3-day-marker::after,
+  .mw-schedule-v3-day.is-left
+    .mw-schedule-v3-day-marker::after {
+    order: initial;
+
+    flex:
+      0 1 54px;
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(
+          239,
+          75,
+          91,
+          0.32
+        ),
+        rgba(
+          246,
+          241,
+          231,
+          0.06
+        )
+      );
+  }
+
+  .mw-schedule-v3-day-marker > i {
+    width: 7px;
+    height: 7px;
+  }
+
+  .mw-schedule-v3-day-marker > span {
+    font-size: 0.48rem;
+
+    letter-spacing: 0.22em;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE DAY BODY
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-day.is-left
+    .mw-schedule-v3-day-body,
+  .mw-schedule-v3-day.is-right
+    .mw-schedule-v3-day-body {
+    text-align: left;
+  }
+
+  .mw-schedule-v3-day-body > p {
+    margin-bottom: 14px;
+
+    font-size: 0.5rem;
+
+    letter-spacing: 0.24em;
+  }
+
+  .mw-schedule-v3-day-body h3 {
+    width: 100%;
+    max-width: 100%;
+
+    font-size:
+      clamp(
+        3.65rem,
+        16.5vw,
+        5rem
+      );
+
+    line-height: 0.82;
+
+    letter-spacing: -0.06em;
+
+    overflow-wrap: normal;
+  }
+
+  .mw-schedule-v3-day-body
+    > span {
+    margin-top: 18px;
+
+    font-size:
+      clamp(
+        1rem,
+        4.8vw,
+        1.2rem
+      );
+
+    line-height: 1.4;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE TIME MARKERS
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-time,
+  .mw-schedule-v3-day.is-left
+    .mw-schedule-v3-time,
+  .mw-schedule-v3-day.is-right
+    .mw-schedule-v3-time {
+    justify-content: flex-start;
+
+    gap: 10px;
+
+    min-width: 0;
+    width: fit-content;
+
+    margin:
+      32px auto 0 0;
+
+    padding:
+      12px 16px;
+  }
+
+  .mw-schedule-v3-time svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .mw-schedule-v3-time strong {
+    font-size:
+      clamp(
+        1.3rem,
+        6.3vw,
+        1.6rem
+      );
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S5-P3C — MOBILE VENUE + FINALE + REGISTRATION HANDOFF
+
+   Breakpoint: <768px.
+
+   Completes mobile S5:
+   - stacked venue stage
+   - contained Faith Center monument
+   - readable physical address
+   - contained Schedule finale
+   - calibrated Registration handoff
+
+   Desktop + tablet frozen.
+   Registration source frozen.
+   S4 frozen.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     MOBILE VENUE
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-venue {
+    display: block;
+
+    min-height: 0;
+
+    padding:
+      82px 0
+      96px;
+  }
+
+  .mw-schedule-v3-venue::before {
+    top: 53%;
+    right: -56%;
+
+    width: 142vw;
+    max-width: 560px;
+
+    opacity: 0.62;
+  }
+
+  .mw-schedule-v3-venue-kicker {
+    gap: 9px;
+
+    padding-bottom: 34px;
+  }
+
+  .mw-schedule-v3-venue-kicker svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .mw-schedule-v3-venue-kicker span {
+    font-size: 0.48rem;
+
+    letter-spacing: 0.21em;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE VENUE MONUMENT
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-venue-body h3 {
+    width: 100%;
+    max-width: 100%;
+
+    font-size:
+      clamp(
+        3.75rem,
+        17vw,
+        5.15rem
+      );
+
+    line-height: 0.82;
+
+    letter-spacing: -0.06em;
+  }
+
+  .mw-schedule-v3-venue-body address {
+    max-width: 290px;
+
+    margin-top: 34px;
+
+    padding-left: 20px;
+
+    font-size:
+      clamp(
+        1.02rem,
+        4.8vw,
+        1.25rem
+      );
+
+    line-height: 1.55;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE FINALE
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-finale {
+    min-height: 56svh;
+
+    padding:
+      88px 0
+      116px;
+  }
+
+  .mw-schedule-v3-finale::before {
+    width: 140vw;
+    max-width: 560px;
+
+    opacity: 0.62;
+  }
+
+  .mw-schedule-v3-finale > p {
+    margin-bottom: 19px;
+
+    font-size: 0.49rem;
+
+    letter-spacing: 0.27em;
+  }
+
+  .mw-schedule-v3-finale h3 {
+    width: 100%;
+    max-width: 100%;
+
+    font-size:
+      clamp(
+        3.55rem,
+        16vw,
+        4.9rem
+      );
+
+    line-height: 0.82;
+
+    letter-spacing: -0.058em;
+
+    overflow-wrap: normal;
+  }
+
+  .mw-schedule-v3-finale h3 span {
+    width: 100%;
+
+    margin-top: 0.16em;
+  }
+
+  .mw-schedule-v3-finale-line {
+    width:
+      min(
+        220px,
+        66vw
+      );
+
+    margin-top: 36px;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE REGISTRATION HANDOFF
+     ------------------------------------------------------- */
+
+  .mw-schedule-v3-finale::after {
+    width: 122vw;
+    height: 126px;
+  }
+
+  .mw-schedule-v3-shell::after {
+    height: 54px;
+  }
+}
