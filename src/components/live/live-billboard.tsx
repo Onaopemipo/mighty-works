@@ -1,14 +1,8 @@
 "use client";
 
 import {
-  motion,
-  useReducedMotion,
-} from "framer-motion";
-import {
-  CalendarDays,
   Expand,
   Globe2,
-  Radio,
   Shrink,
 } from "lucide-react";
 import Image from "next/image";
@@ -53,8 +47,6 @@ export function LiveBillboard({
   id?: string;
   showHeader?: boolean;
 } = {}) {
-  const reducedMotion = useReducedMotion();
-
   const supabase = useMemo(
     () => createClient(),
     []
@@ -227,330 +219,282 @@ export function LiveBillboard({
   return (
     <section
       id={id}
-      className="mw-live-shell"
+      className="mw-nations-v3-shell"
     >
-      <div className="mw-live-grid" />
-      <div className="mw-live-glow" />
+      <div
+        className="mw-nations-v3-atmosphere"
+        aria-hidden="true"
+      >
+        <div className="mw-nations-v3-glow" />
+        <div className="mw-nations-v3-grid" />
+        <div className="mw-nations-v3-orbit mw-nations-v3-orbit-one" />
+        <div className="mw-nations-v3-orbit mw-nations-v3-orbit-two" />
+      </div>
 
-      <div className="mw-live-frame">
+      <div className="mw-nations-v3-frame">
         {showHeader ? (
-        <header className="mw-live-header">
-          <div className="mw-live-brand">
-            <Image
-              src="/brand/Logo.png"
-              alt="Everwinning Faith Ministries Australia"
-              width={260}
-              height={120}
-              priority
-            />
+          <header className="mw-nations-v3-brand-header">
+            <div className="mw-nations-v3-brand">
+              <Image
+                src="/brand/Logo.png"
+                alt="Everwinning Faith Ministries Australia"
+                width={260}
+                height={120}
+                priority
+              />
 
-            <div>
-              <strong>
-                Mighty Works
-              </strong>
+              <div>
+                <strong>
+                  Mighty Works
+                </strong>
+
+                <span>
+                  Conference 2026
+                </span>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              className="mw-nations-v3-fullscreen"
+              onClick={() => {
+                void toggleFullscreen();
+              }}
+            >
+              {fullscreen ? (
+                <Shrink
+                  size={17}
+                />
+              ) : (
+                <Expand
+                  size={17}
+                />
+              )}
 
               <span>
-                Conference 2026
+                {fullscreen
+                  ? "Exit"
+                  : "Fullscreen"}
               </span>
-            </div>
-          </div>
+            </button>
+          </header>
+        ) : null}
 
-          <div className="mw-live-title">
+        <header className="mw-nations-v3-opening">
+          <div className="mw-nations-v3-opening-meta">
             <p>
-              Different nations.
-              One purpose.
+              Live global pulse
             </p>
 
-            <h1>
-              A world{" "}
-              <em>
-                gathering.
-              </em>
-            </h1>
-          </div>
-
-          <div className="mw-live-controls">
             <div
               className={[
-                "mw-live-status",
+                "mw-nations-v3-status",
                 status === "live"
                   ? "is-live"
                   : "",
               ].join(" ")}
             >
-              <span />
-
-              {status === "live"
-                ? "Live registrations"
-                : status ===
-                    "degraded"
-                  ? "Reconnecting"
-                  : "Connecting"}
-            </div>
-
-            <button
-              type="button"
-              onClick={toggleFullscreen}
-              aria-label="Toggle fullscreen"
-            >
-              {fullscreen ? (
-                <Shrink size={18} />
-              ) : (
-                <Expand size={18} />
-              )}
-            </button>
-
-            <div className="mw-live-date">
-              <strong>
-                7–8 November 2026
-              </strong>
+              <i />
 
               <span>
-                Brisbane, Australia
+                {status === "live"
+                  ? "Live"
+                  : status ===
+                      "degraded"
+                    ? "Reconnecting"
+                    : "Connecting"}
               </span>
             </div>
           </div>
+
+          <h2>
+            The nations
+            <span>
+              are gathering.
+            </span>
+          </h2>
+
+          <div className="mw-nations-v3-opening-foot">
+            <p>
+              Every registration adds
+              another person, church and
+              nation to the story unfolding
+              in real time.
+            </p>
+
+            <span>
+              Mighty Works
+              <br />
+              Conference 2026
+            </span>
+          </div>
         </header>
-        ) : null}
 
-        <section className="mw-live-main">
-          <article className="mw-live-stats">
-            <div className="mw-live-stats-top">
-              <div>
-                <Radio size={22} />
+        <section className="mw-nations-v3-monument">
+          <div className="mw-nations-v3-total">
+            <p>
+              Live registrations
+            </p>
 
-                <span>
-                  Live registrations
-                </span>
+            <strong>
+              {stats.total_registrations}
+            </strong>
+
+            <span>
+              people have registered
+              for the gathering
+            </span>
+          </div>
+
+          <div className="mw-nations-v3-metrics">
+            <article>
+              <strong>
+                {
+                  stats.countries_represented
+                }
+              </strong>
+
+              <span>
+                Nations
+              </span>
+            </article>
+
+            <article>
+              <strong>
+                {
+                  stats.churches_represented
+                }
+              </strong>
+
+              <span>
+                Churches
+              </span>
+            </article>
+
+            <article>
+              <strong>
+                {
+                  stats.total_attendees
+                }
+              </strong>
+
+              <span>
+                People
+              </span>
+            </article>
+          </div>
+        </section>
+
+        <section className="mw-nations-v3-world">
+          <div className="mw-nations-v3-world-copy">
+            <p>
+              Around the world
+            </p>
+
+            <h3>
+              Every flag.
+              <span>
+                Part of the story.
+              </span>
+            </h3>
+          </div>
+
+          <div className="mw-nations-v3-world-stage">
+            <div
+              className="mw-nations-v3-globe-stage"
+              aria-label="Countries represented at Mighty Works Conference 2026"
+            >
+              <div className="mw-nations-v3-globe-rings">
+                <i />
+                <i />
+                <i />
               </div>
 
-              <strong>
-                8
-                <small>
-                  th edition
-                </small>
-              </strong>
-            </div>
+              <div className="mw-nations-v3-globe-core">
+                <Globe2
+                  size={56}
+                  strokeWidth={1.1}
+                />
 
-            <div className="mw-live-total">
-              <span>
-                {
-                  stats.total_registrations
-                }
-              </span>
-
-              <p>
-                Registered so far
-              </p>
-            </div>
-
-            <div className="mw-live-stat-row">
-              <div>
-                <strong>
+                <span>
                   {
                     stats.countries_represented
                   }
-                </strong>
-
-                <span>
-                  Nations
                 </span>
+
+                <small>
+                  nations
+                </small>
               </div>
 
-              <div>
-                <strong>
-                  {
-                    stats.churches_represented
-                  }
-                </strong>
-
-                <span>
-                  Churches
-                </span>
-              </div>
-
-              <div>
-                <strong>
-                  {
-                    stats.total_attendees
-                  }
-                </strong>
-
-                <span>
-                  Attendees
-                </span>
-              </div>
-            </div>
-
-            <div className="mw-live-stats-footer">
-              <span>
-                <CalendarDays
-                  size={16}
-                />
-                7–8 November 2026
-              </span>
-
-              <span>
-                5:00 PM AEST
-              </span>
-            </div>
-          </article>
-
-          <section className="mw-live-world">
-            <div className="mw-live-world-copy">
-              <p>
-                Faith without borders
-              </p>
-
-              <h2>
-                Every flag.{" "}
-                <em>
-                  A part of the story.
-                </em>
-              </h2>
-            </div>
-
-            <div className="mw-live-world-body">
-              <div className="mw-live-globe-stage">
-                <motion.div
-                  animate={
-                    reducedMotion
-                      ? undefined
-                      : {
-                          rotate: 360,
-                        }
-                  }
-                  transition={{
-                    duration: 45,
-                    repeat:
-                      Infinity,
-                    ease: "linear",
-                  }}
-                  className="mw-live-orbit mw-live-orbit-a"
-                />
-
-                <motion.div
-                  animate={
-                    reducedMotion
-                      ? undefined
-                      : {
-                          rotate:
-                            -360,
-                        }
-                  }
-                  transition={{
-                    duration: 32,
-                    repeat:
-                      Infinity,
-                    ease: "linear",
-                  }}
-                  className="mw-live-orbit mw-live-orbit-b"
-                />
-
-                <div className="mw-live-globe">
-                  <div className="mw-live-globe-lines" />
-
-                  <div className="mw-live-globe-core">
-                    <Globe2
-                      size={44}
-                      strokeWidth={1}
-                    />
-
-                    <span>
-                      Mighty Works
-                    </span>
-                  </div>
-                </div>
-
-                {ranked.map(
+              {ranked
+                .slice(0, 6)
+                .map(
                   (
                     country,
                     index
-                  ) => {
-                    const positions = [
-                      [20, 28],
-                      [75, 23],
-                      [20, 72],
-                      [76, 68],
-                      [47, 16],
-                      [87, 48],
-                      [10, 51],
-                      [49, 84],
-                    ];
-
-                    const [
-                      x,
-                      y,
-                    ] =
-                      positions[
-                        index
-                      ];
-
-                    return (
-                      <motion.div
-                        key={
-                          country.country
-                        }
-                        initial={{
-                          opacity: 0,
-                          scale: 0.5,
-                        }}
-                        animate={{
-                          opacity: 1,
-                          scale: 1,
-                        }}
-                        className="mw-live-globe-flag"
-                        style={{
-                          left: `${x}%`,
-                          top: `${y}%`,
-                        }}
-                      >
+                  ) => (
+                    <div
+                      key={
+                        country.country
+                      }
+                      className={`mw-nations-v3-flag mw-nations-v3-flag-${index + 1}`}
+                      title={
+                        country.country
+                      }
+                    >
+                      <b>
                         {country.country_code
                           ? flagFromCountryCode(
                               country.country_code
                             )
                           : "◉"}
-                      </motion.div>
-                    );
-                  }
+                      </b>
+
+                      <span>
+                        {
+                          country.country
+                        }
+                      </span>
+                    </div>
+                  )
                 )}
+            </div>
+
+            <div className="mw-nations-v3-ranking">
+              <div className="mw-nations-v3-ranking-head">
+                <p>
+                  Nations represented
+                </p>
+
+                <span>
+                  Live
+                </span>
               </div>
 
-              <div className="mw-live-ranking">
-                <div className="mw-live-ranking-title">
-                  <Globe2
-                    size={20}
-                  />
-
-                  <span>
-                    Nations represented
-                  </span>
-                </div>
-
-                {ranked.length >
-                0 ? (
-                  ranked.map(
+              {ranked.length > 0 ? (
+                <div className="mw-nations-v3-ranking-list">
+                  {ranked.map(
                     (
                       country,
                       index
                     ) => (
-                      <div
+                      <article
                         key={
                           country.country
                         }
-                        className="mw-live-ranking-row"
+                        className="mw-nations-v3-ranking-row"
                       >
-                        <span>
+                        <span className="mw-nations-v3-rank">
                           {String(
-                            index +
-                              1
+                            index + 1
                           ).padStart(
                             2,
                             "0"
                           )}
                         </span>
 
-                        <b>
+                        <b className="mw-nations-v3-ranking-flag">
                           {country.country_code
                             ? flagFromCountryCode(
                                 country.country_code
@@ -558,119 +502,130 @@ export function LiveBillboard({
                             : "◉"}
                         </b>
 
-                        <strong>
-                          {
-                            country.country
-                          }
-                        </strong>
+                        <div>
+                          <strong>
+                            {
+                              country.country
+                            }
+                          </strong>
+
+                          <span>
+                            {
+                              country.registration_count
+                            }{" "}
+                            registration
+                            {country.registration_count ===
+                            1
+                              ? ""
+                              : "s"}
+                          </span>
+                        </div>
 
                         <em>
                           {
                             country.attendee_count
                           }
                         </em>
-                      </div>
+                      </article>
                     )
-                  )
-                ) : (
-                  <div className="mw-live-empty">
-                    <Globe2
-                      size={36}
-                    />
+                  )}
+                </div>
+              ) : (
+                <div className="mw-nations-v3-empty">
+                  <Globe2
+                    size={34}
+                  />
 
-                    <strong>
-                      The world is invited.
-                    </strong>
+                  <strong>
+                    The world is invited.
+                  </strong>
 
-                    <p>
-                      The first nation
-                      will illuminate
-                      the gathering.
-                    </p>
-                  </div>
-                )}
-
-                <p className="mw-live-ranking-footer">
-                  Every flag.{" "}
-                  <em>
-                    A part of the story.
-                  </em>
-                </p>
-              </div>
+                  <p>
+                    The first nation will
+                    illuminate the gathering.
+                  </p>
+                </div>
+              )}
             </div>
-          </section>
+          </div>
         </section>
 
-        <section className="mw-live-ticker">
-          <div>
-            <span>✦</span>
+        <section className="mw-nations-v3-ticker">
+          <div className="mw-nations-v3-ticker-label">
+            <span>
+              ✦
+            </span>
 
             <strong>
               Nations in the gathering
             </strong>
           </div>
 
-          <div className="mw-live-ticker-track">
-            {countries.length >
-            0 ? (
-              [
-                ...countries,
-                ...countries,
-              ].map(
-                (
-                  country,
-                  index
-                ) => (
-                  <span
-                    key={`${country.country}-${index}`}
-                  >
-                    <b>
-                      {country.country_code
-                        ? flagFromCountryCode(
-                            country.country_code
-                          )
-                        : "◉"}
-                    </b>
+          <div className="mw-nations-v3-ticker-window">
+            <div className="mw-nations-v3-ticker-track">
+              {countries.length >
+              0 ? (
+                [
+                  ...countries,
+                  ...countries,
+                ].map(
+                  (
+                    country,
+                    index
+                  ) => (
+                    <span
+                      key={`${country.country}-${index}`}
+                    >
+                      <b>
+                        {country.country_code
+                          ? flagFromCountryCode(
+                              country.country_code
+                            )
+                          : "◉"}
+                      </b>
 
-                    {
-                      country.country
-                    }{" "}
-                    joined the gathering
-
-                    <small>
                       {
-                        country.attendee_count
-                      }{" "}
-                      attendee
-                      {country.attendee_count ===
-                      1
-                        ? ""
-                        : "s"}
-                    </small>
-                  </span>
+                        country.country
+                      }
+
+                      <small>
+                        {
+                          country.attendee_count
+                        }{" "}
+                        attendee
+                        {country.attendee_count ===
+                        1
+                          ? ""
+                          : "s"}
+                      </small>
+                    </span>
+                  )
                 )
-              )
-            ) : (
-              <p>
-                The first nation
-                will illuminate
-                the gathering.
-              </p>
-            )}
+              ) : (
+                <p>
+                  The first nation will
+                  illuminate the gathering.
+                </p>
+              )}
+            </div>
           </div>
         </section>
 
-        <footer className="mw-live-footer">
+        <footer className="mw-nations-v3-finale">
           <p>
-            One conference.{" "}
-            <span>
-              A greater tomorrow.
-            </span>
+            The gathering grows
           </p>
 
-          <span>
-            Mighty Works Conference 2026
-          </span>
+          <h3>
+            One conference.
+            <span>
+              Many nations.
+            </span>
+          </h3>
+
+          <div className="mw-nations-v3-finale-line">
+            <i />
+          </div>
         </footer>
       </div>
     </section>

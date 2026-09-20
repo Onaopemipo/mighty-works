@@ -20630,3 +20630,4701 @@
     width: 86vw;
   }
 }
+
+/* =========================================================
+   MW-HOME-V3-S4-P1B-1 — NATIONS CANVAS + EXPERIENCE HANDOFF
+
+   Establishes the visual world for the live Nations
+   experience while preserving the existing Supabase and
+   realtime data contract.
+
+   Experience resolves directly into this section.
+
+   Metric monument / globe / ranking / ticker / finale
+   remain deferred.
+   ========================================================= */
+
+.mw-nations-v3-shell {
+  position: relative;
+
+  isolation: isolate;
+
+  overflow: clip;
+
+  min-height: 100svh;
+
+  color: #f6f1e7;
+
+  background:
+    linear-gradient(
+      180deg,
+      #070714 0%,
+      #080917 20%,
+      #090b1d 52%,
+      #060712 100%
+    );
+}
+
+.mw-nations-v3-atmosphere {
+  position: absolute;
+
+  z-index: 0;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.mw-nations-v3-glow {
+  position: absolute;
+
+  top: -8%;
+  left: 50%;
+
+  width:
+    min(
+      1200px,
+      90vw
+    );
+
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        93,
+        80,
+        163,
+        0.17
+      ),
+      rgba(
+        239,
+        75,
+        91,
+        0.07
+      ) 34%,
+      transparent 70%
+    );
+
+  filter:
+    blur(34px);
+
+  opacity: 0.8;
+}
+
+.mw-nations-v3-grid {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.12;
+
+  background-image:
+    linear-gradient(
+      rgba(
+        246,
+        241,
+        231,
+        0.025
+      ) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(
+        246,
+        241,
+        231,
+        0.025
+      ) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    72px 72px;
+
+  mask-image:
+    radial-gradient(
+      ellipse at center,
+      black,
+      transparent 76%
+    );
+}
+
+.mw-nations-v3-orbit {
+  position: absolute;
+
+  border:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.045
+      );
+
+  border-radius: 50%;
+}
+
+.mw-nations-v3-orbit-one {
+  top: 10%;
+  right: -26%;
+
+  width: 70vw;
+  height: 70vw;
+
+  max-width: 1100px;
+  max-height: 1100px;
+
+  transform:
+    rotate(-16deg);
+}
+
+.mw-nations-v3-orbit-two {
+  top: 48%;
+  left: -32%;
+
+  width: 78vw;
+  height: 78vw;
+
+  max-width: 1200px;
+  max-height: 1200px;
+
+  border-color:
+    rgba(
+      239,
+      75,
+      91,
+      0.055
+    );
+
+  transform:
+    rotate(13deg);
+}
+
+.mw-nations-v3-frame {
+  position: relative;
+
+  z-index: 2;
+
+  width:
+    min(
+      calc(100% - 40px),
+      1500px
+    );
+
+  margin:
+    0 auto;
+}
+
+
+/* ---------------------------------------------------------
+   EXPERIENCE -> NATIONS CONTINUITY
+   --------------------------------------------------------- */
+
+.mw-nations-v3-shell::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: 1;
+
+  top: 0;
+  left: 50%;
+
+  width:
+    min(
+      1200px,
+      94vw
+    );
+
+  height: 250px;
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center top,
+      rgba(
+        93,
+        80,
+        163,
+        0.18
+      ),
+      rgba(
+        239,
+        75,
+        91,
+        0.06
+      ) 38%,
+      transparent 72%
+    );
+
+  filter:
+    blur(8px);
+}
+
+.mw-nations-v3-shell::after {
+  content: "";
+
+  position: absolute;
+
+  z-index: 3;
+
+  top: 0;
+  left: 50%;
+
+  width: 1px;
+  height: 94px;
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(
+        239,
+        75,
+        91,
+        0.58
+      ),
+      transparent
+    );
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P1B-2 — LIVE GLOBAL PULSE OPENING
+
+   Establishes:
+   - optional standalone brand header
+   - realtime connection status
+   - THE NATIONS ARE GATHERING lockup
+   - live-section introduction
+
+   Metric monument / globe / ranking / ticker / finale
+   remain deferred.
+   ========================================================= */
+
+.mw-nations-v3-brand-header {
+  position: relative;
+
+  z-index: 4;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding:
+    28px 0;
+
+  border-bottom:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.07
+      );
+}
+
+.mw-nations-v3-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+.mw-nations-v3-brand img {
+  width: auto;
+  height: 48px;
+
+  object-fit: contain;
+}
+
+.mw-nations-v3-brand > div {
+  display: grid;
+
+  gap: 3px;
+}
+
+.mw-nations-v3-brand strong {
+  font-size: 0.76rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.18em;
+}
+
+.mw-nations-v3-brand span {
+  font-size: 0.55rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.2em;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.42
+    );
+}
+
+.mw-nations-v3-fullscreen {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding:
+    10px 14px;
+
+  border:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.1
+      );
+
+  border-radius: 999px;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.68
+    );
+
+  background:
+    rgba(
+      246,
+      241,
+      231,
+      0.025
+    );
+
+  font: inherit;
+
+  font-size: 0.58rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.18em;
+
+  cursor: pointer;
+}
+
+
+/* ---------------------------------------------------------
+   OPENING
+   --------------------------------------------------------- */
+
+.mw-nations-v3-opening {
+  position: relative;
+
+  min-height: 88svh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding:
+    130px 0
+    118px;
+}
+
+.mw-nations-v3-opening-meta {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 42px;
+}
+
+.mw-nations-v3-opening-meta > p {
+  margin: 0;
+
+  font-size: 0.62rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.3em;
+
+  color: #ef4b5b;
+}
+
+
+/* ---------------------------------------------------------
+   LIVE STATUS
+   --------------------------------------------------------- */
+
+.mw-nations-v3-status {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 0.56rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.22em;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.4
+    );
+}
+
+.mw-nations-v3-status i {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      246,
+      241,
+      231,
+      0.3
+    );
+}
+
+.mw-nations-v3-status.is-live {
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.7
+    );
+}
+
+.mw-nations-v3-status.is-live i {
+  background: #ef4b5b;
+
+  box-shadow:
+    0 0 0 5px
+      rgba(
+        239,
+        75,
+        91,
+        0.08
+      ),
+    0 0 20px
+      rgba(
+        239,
+        75,
+        91,
+        0.35
+      );
+
+  animation:
+    mw-nations-v3-live-pulse
+    1.8s
+    ease-in-out
+    infinite;
+}
+
+@keyframes mw-nations-v3-live-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+
+    transform:
+      scale(0.86);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   OPENING TYPOGRAPHY
+   --------------------------------------------------------- */
+
+.mw-nations-v3-opening h2 {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      6.2rem,
+      10.6vw,
+      11rem
+    );
+
+  line-height: 0.78;
+
+  font-weight: 400;
+
+  letter-spacing:
+    -0.075em;
+
+  color: #f6f1e7;
+}
+
+.mw-nations-v3-opening h2 span {
+  display: block;
+
+  margin:
+    0.16em 0 0
+    clamp(
+      70px,
+      9vw,
+      160px
+    );
+
+  color: #ef4b5b;
+}
+
+.mw-nations-v3-opening-foot {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 70px;
+
+  margin-top: 72px;
+}
+
+.mw-nations-v3-opening-foot > p {
+  max-width: 540px;
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      1.35rem,
+      1.8vw,
+      1.85rem
+    );
+
+  line-height: 1.42;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.68
+    );
+}
+
+.mw-nations-v3-opening-foot > span {
+  font-size: 0.58rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  text-align: right;
+
+  letter-spacing: 0.25em;
+
+  line-height: 1.7;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.35
+    );
+}
+
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .mw-nations-v3-status.is-live i {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P1C — LIVE METRIC MONUMENT
+
+   Turns live conference statistics into a cinematic data
+   monument rather than a conventional dashboard.
+
+   Primary:
+   - total registrations
+
+   Supporting:
+   - nations represented
+   - churches represented
+   - total attendees
+
+   World stage / ranking / ticker / finale remain deferred.
+   ========================================================= */
+
+.mw-nations-v3-monument {
+  position: relative;
+
+  isolation: isolate;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(
+      0,
+      1.25fr
+    )
+    minmax(
+      360px,
+      0.75fr
+    );
+
+  align-items: stretch;
+
+  gap:
+    clamp(
+      48px,
+      7vw,
+      120px
+    );
+
+  min-height: 78vh;
+
+  padding:
+    110px 0
+    130px;
+
+  border-top:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.07
+      );
+
+  border-bottom:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.07
+      );
+}
+
+.mw-nations-v3-monument::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: -1;
+
+  top: 50%;
+  left: 24%;
+
+  width:
+    min(
+      760px,
+      56vw
+    );
+
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        239,
+        75,
+        91,
+        0.11
+      ),
+      rgba(
+        93,
+        80,
+        163,
+        0.06
+      ) 38%,
+      transparent 70%
+    );
+
+  filter:
+    blur(18px);
+
+  pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   PRIMARY REGISTRATION TOTAL
+   --------------------------------------------------------- */
+
+.mw-nations-v3-total {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  min-width: 0;
+
+  padding:
+    30px 0;
+}
+
+.mw-nations-v3-total > p {
+  margin:
+    0 0 24px;
+
+  font-size: 0.62rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.32em;
+
+  color: #ef4b5b;
+}
+
+.mw-nations-v3-total > strong {
+  display: block;
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      10rem,
+      20vw,
+      20rem
+    );
+
+  line-height: 0.68;
+
+  font-weight: 400;
+
+  letter-spacing:
+    -0.09em;
+
+  color: #f6f1e7;
+
+  text-shadow:
+    0 0 70px
+      rgba(
+        239,
+        75,
+        91,
+        0.055
+      );
+}
+
+.mw-nations-v3-total > span {
+  max-width: 320px;
+
+  margin-top: 46px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      1.2rem,
+      1.7vw,
+      1.65rem
+    );
+
+  line-height: 1.4;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.52
+    );
+}
+
+
+/* ---------------------------------------------------------
+   SUPPORTING LIVE METRICS
+   --------------------------------------------------------- */
+
+.mw-nations-v3-metrics {
+  display: grid;
+
+  grid-template-rows:
+    repeat(
+      3,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  align-self: stretch;
+
+  border-left:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.08
+      );
+}
+
+.mw-nations-v3-metrics article {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  min-height: 150px;
+
+  padding:
+    34px 0
+    34px
+    clamp(
+      34px,
+      4vw,
+      64px
+    );
+
+  border-bottom:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.07
+      );
+}
+
+.mw-nations-v3-metrics article:last-child {
+  border-bottom: 0;
+}
+
+.mw-nations-v3-metrics article::before {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: -2px;
+
+  width: 3px;
+  height: 0;
+
+  transform:
+    translateY(-50%);
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #ef4b5b,
+      #5d50a3
+    );
+
+  transition:
+    height
+    420ms
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+}
+
+.mw-nations-v3-metrics article:hover::before {
+  height: 48%;
+}
+
+.mw-nations-v3-metrics strong {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      3.3rem,
+      5vw,
+      5.4rem
+    );
+
+  line-height: 0.9;
+
+  font-weight: 400;
+
+  letter-spacing:
+    -0.06em;
+
+  color: #f6f1e7;
+}
+
+.mw-nations-v3-metrics span {
+  margin-top: 12px;
+
+  font-size: 0.57rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.28em;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.36
+    );
+}
+
+
+/* ---------------------------------------------------------
+   DESKTOP MONUMENT CALIBRATION
+   --------------------------------------------------------- */
+
+@media (min-width: 1100px) {
+
+  .mw-nations-v3-monument {
+    min-height: 82vh;
+
+    padding:
+      120px 0
+      145px;
+  }
+
+  .mw-nations-v3-total > strong {
+    font-size:
+      clamp(
+        11rem,
+        19vw,
+        19rem
+      );
+  }
+}
+
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .mw-nations-v3-metrics article::before {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P1D-1A — WORLD SECTION + EDITORIAL INTRO
+
+   Establishes:
+   - world-section vertical rhythm
+   - Around the World kicker
+   - Every Flag / Part of the Story statement
+
+   World-stage geometry deferred to P1D-1B.
+   Orbit system deferred to P1D-1C.
+   Live globe core deferred to P1D-1D.
+   Country constellation/ranking deferred to P1D-2.
+   ========================================================= */
+
+.mw-nations-v3-world {
+  position: relative;
+
+  padding:
+    130px 0
+    150px;
+}
+
+.mw-nations-v3-world-copy {
+  position: relative;
+
+  z-index: 4;
+
+  max-width: 900px;
+
+  margin-bottom: 90px;
+}
+
+.mw-nations-v3-world-copy > p {
+  margin:
+    0 0 20px;
+
+  font-size: 0.6rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.3em;
+
+  color: #ef4b5b;
+}
+
+.mw-nations-v3-world-copy h3 {
+  max-width: 9ch;
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      5rem,
+      7.6vw,
+      8.4rem
+    );
+
+  line-height: 0.82;
+
+  font-weight: 400;
+
+  letter-spacing: -0.065em;
+
+  color: #f6f1e7;
+}
+
+.mw-nations-v3-world-copy h3 span {
+  display: block;
+
+  margin-top: 0.16em;
+
+  color: #ef4b5b;
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P1D-1B — WORLD STAGE GEOMETRY
+
+   Establishes the desktop spatial relationship between:
+   - global orbit / country constellation
+   - live country ranking
+
+   No globe visual treatment yet.
+   No ranking visual treatment yet.
+   Tablet/mobile remain deferred.
+   ========================================================= */
+
+.mw-nations-v3-world-stage {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(
+      0,
+      1.15fr
+    )
+    minmax(
+      330px,
+      0.85fr
+    );
+
+  align-items: center;
+
+  gap:
+    clamp(
+      60px,
+      8vw,
+      140px
+    );
+
+  min-height: 720px;
+}
+
+
+/* ---------------------------------------------------------
+   GLOBAL-STAGE GEOMETRY
+   --------------------------------------------------------- */
+
+.mw-nations-v3-globe-stage {
+  position: relative;
+
+  isolation: isolate;
+
+  width:
+    min(
+      720px,
+      54vw
+    );
+
+  aspect-ratio: 1;
+
+  margin:
+    0 auto;
+}
+
+
+/* ---------------------------------------------------------
+   RANKING COLUMN GEOMETRY
+   --------------------------------------------------------- */
+
+.mw-nations-v3-ranking {
+  position: relative;
+
+  min-width: 0;
+
+  align-self: center;
+}
+
+
+/* ---------------------------------------------------------
+   DESKTOP WORLD CALIBRATION
+   --------------------------------------------------------- */
+
+@media (min-width: 1100px) {
+
+  .mw-nations-v3-world-stage {
+    grid-template-columns:
+      minmax(
+        0,
+        1.18fr
+      )
+      minmax(
+        350px,
+        0.82fr
+      );
+
+    min-height: 760px;
+  }
+
+  .mw-nations-v3-globe-stage {
+    width:
+      min(
+        720px,
+        52vw
+      );
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P1D-1C — GLOBAL ORBIT + CONCENTRIC RINGS
+
+   Establishes:
+   - radial global energy field
+   - outer orbital boundary
+   - layered concentric rings
+   - abstract longitude/latitude geometry
+
+   Live nation-count core deferred to P1D-1D.
+   Country flags + ranking deferred to P1D-2.
+   Tablet/mobile remain deferred.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   GLOBAL ENERGY FIELD
+   --------------------------------------------------------- */
+
+.mw-nations-v3-globe-stage::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: -2;
+
+  inset: 6%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        93,
+        80,
+        163,
+        0.16
+      ),
+      rgba(
+        239,
+        75,
+        91,
+        0.06
+      ) 38%,
+      transparent 68%
+    );
+
+  filter:
+    blur(18px);
+
+  pointer-events: none;
+}
+
+.mw-nations-v3-globe-stage::after {
+  content: "";
+
+  position: absolute;
+
+  z-index: -1;
+
+  inset: 17%;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.045
+      );
+
+  box-shadow:
+    inset 0 0 90px
+      rgba(
+        93,
+        80,
+        163,
+        0.06
+      ),
+    0 0 90px
+      rgba(
+        239,
+        75,
+        91,
+        0.035
+      );
+
+  pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   OUTER ORBIT
+   --------------------------------------------------------- */
+
+.mw-nations-v3-globe-rings {
+  position: absolute;
+
+  inset: 0;
+
+  border:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.07
+      );
+
+  border-radius: 50%;
+
+  transform:
+    rotate(-12deg);
+
+  pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   CONCENTRIC RINGS
+   --------------------------------------------------------- */
+
+.mw-nations-v3-globe-rings::before,
+.mw-nations-v3-globe-rings::after,
+.mw-nations-v3-globe-rings i {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.055
+      );
+}
+
+.mw-nations-v3-globe-rings::before {
+  inset: 11%;
+
+  transform:
+    rotate(23deg);
+}
+
+.mw-nations-v3-globe-rings::after {
+  inset: 24%;
+
+  border-color:
+    rgba(
+      239,
+      75,
+      91,
+      0.08
+    );
+
+  transform:
+    rotate(-31deg);
+}
+
+
+/* ---------------------------------------------------------
+   ABSTRACT GLOBAL AXES
+   --------------------------------------------------------- */
+
+.mw-nations-v3-globe-rings i:nth-child(1) {
+  inset:
+    5% 23%;
+
+  transform:
+    rotate(56deg);
+}
+
+.mw-nations-v3-globe-rings i:nth-child(2) {
+  inset:
+    23% 5%;
+
+  border-color:
+    rgba(
+      93,
+      80,
+      163,
+      0.1
+    );
+
+  transform:
+    rotate(-48deg);
+}
+
+.mw-nations-v3-globe-rings i:nth-child(3) {
+  inset: 37%;
+
+  border-color:
+    rgba(
+      242,
+      147,
+      159,
+      0.11
+    );
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P1D-1D — LIVE GLOBE CORE
+
+   Completes P1D-1:
+   - central live nations counter
+   - globe icon treatment
+   - glass/radial core
+   - realtime visual focal point
+
+   Country constellation + ranking remain deferred to P1D-2.
+   ========================================================= */
+
+.mw-nations-v3-globe-core {
+  position: absolute;
+
+  z-index: 5;
+
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  width:
+    clamp(
+      150px,
+      17vw,
+      230px
+    );
+
+  aspect-ratio: 1;
+
+  padding: 24px;
+
+  border:
+    1px solid
+      rgba(
+        239,
+        75,
+        91,
+        0.18
+      );
+
+  border-radius: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        239,
+        75,
+        91,
+        0.09
+      ),
+      rgba(
+        93,
+        80,
+        163,
+        0.075
+      ) 48%,
+      rgba(
+        7,
+        7,
+        20,
+        0.78
+      ) 74%
+    );
+
+  backdrop-filter:
+    blur(12px);
+
+  box-shadow:
+    0 0 70px
+      rgba(
+        239,
+        75,
+        91,
+        0.08
+      ),
+    inset 0 0 50px
+      rgba(
+        93,
+        80,
+        163,
+        0.09
+      );
+}
+
+.mw-nations-v3-globe-core svg {
+  flex: 0 0 auto;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.34
+    );
+}
+
+.mw-nations-v3-globe-core span {
+  display: block;
+
+  margin-top: 10px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      3.6rem,
+      5vw,
+      5.6rem
+    );
+
+  line-height: 0.78;
+
+  font-weight: 400;
+
+  letter-spacing:
+    -0.065em;
+
+  color: #f6f1e7;
+}
+
+.mw-nations-v3-globe-core small {
+  display: block;
+
+  margin-top: 11px;
+
+  font-size: 0.52rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.26em;
+
+  color: #ef4b5b;
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P1D-2A — COUNTRY FLAG CONSTELLATION
+
+   Maps the first six ranked live countries onto the
+   abstract global orbit.
+
+   Establishes:
+   - floating flag markers
+   - country labels
+   - six balanced orbital positions
+   - subtle depth hierarchy
+
+   Ranking remains deferred to P1D-2B.
+   Zero-state treatment remains deferred to P1D-2C.
+   ========================================================= */
+
+.mw-nations-v3-flag {
+  position: absolute;
+
+  z-index: 6;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  max-width: 190px;
+
+  padding:
+    9px 13px;
+
+  border:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.1
+      );
+
+  border-radius: 999px;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.68
+    );
+
+  background:
+    rgba(
+      9,
+      11,
+      29,
+      0.74
+    );
+
+  backdrop-filter:
+    blur(12px);
+
+  box-shadow:
+    0 12px 40px
+      rgba(
+        0,
+        0,
+        0,
+        0.18
+      );
+}
+
+.mw-nations-v3-flag b {
+  flex: 0 0 auto;
+
+  font-size: 1.35rem;
+
+  line-height: 1;
+}
+
+.mw-nations-v3-flag span {
+  overflow: hidden;
+
+  min-width: 0;
+
+  font-size: 0.54rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  letter-spacing: 0.16em;
+}
+
+
+/* ---------------------------------------------------------
+   ORBITAL POSITIONS
+   --------------------------------------------------------- */
+
+.mw-nations-v3-flag-1 {
+  top: 7%;
+  left: 46%;
+}
+
+.mw-nations-v3-flag-2 {
+  top: 28%;
+  right: -2%;
+}
+
+.mw-nations-v3-flag-3 {
+  right: 5%;
+  bottom: 19%;
+}
+
+.mw-nations-v3-flag-4 {
+  bottom: 5%;
+  left: 36%;
+}
+
+.mw-nations-v3-flag-5 {
+  bottom: 24%;
+  left: -2%;
+}
+
+.mw-nations-v3-flag-6 {
+  top: 24%;
+  left: 3%;
+}
+
+
+/* ---------------------------------------------------------
+   DEPTH HIERARCHY
+   --------------------------------------------------------- */
+
+.mw-nations-v3-flag-1,
+.mw-nations-v3-flag-4 {
+  border-color:
+    rgba(
+      239,
+      75,
+      91,
+      0.17
+    );
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.82
+    );
+
+  box-shadow:
+    0 12px 42px
+      rgba(
+        0,
+        0,
+        0,
+        0.2
+      ),
+    0 0 24px
+      rgba(
+        239,
+        75,
+        91,
+        0.055
+      );
+}
+
+.mw-nations-v3-flag-2,
+.mw-nations-v3-flag-5 {
+  border-color:
+    rgba(
+      93,
+      80,
+      163,
+      0.18
+    );
+}
+
+.mw-nations-v3-flag-3,
+.mw-nations-v3-flag-6 {
+  opacity: 0.78;
+}
+
+
+/* ---------------------------------------------------------
+   SUBTLE FLAG FLOAT
+   --------------------------------------------------------- */
+
+@keyframes mw-nations-v3-flag-float {
+  0%,
+  100% {
+    translate:
+      0 0;
+  }
+
+  50% {
+    translate:
+      0 -6px;
+  }
+}
+
+.mw-nations-v3-flag-1,
+.mw-nations-v3-flag-3,
+.mw-nations-v3-flag-5 {
+  animation:
+    mw-nations-v3-flag-float
+    5.8s
+    ease-in-out
+    infinite;
+}
+
+.mw-nations-v3-flag-2,
+.mw-nations-v3-flag-4,
+.mw-nations-v3-flag-6 {
+  animation:
+    mw-nations-v3-flag-float
+    6.6s
+    ease-in-out
+    -2.1s
+    infinite;
+}
+
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .mw-nations-v3-flag {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P1D-2B — LIVE COUNTRY RANKING
+
+   Establishes the live ranked-country column beside the
+   global constellation.
+
+   Displays:
+   - rank
+   - flag
+   - country
+   - registration count
+   - attendee count
+
+   Zero-country state remains deferred to P1D-2C.
+   ========================================================= */
+
+.mw-nations-v3-ranking {
+  padding-left:
+    clamp(
+      28px,
+      4vw,
+      62px
+    );
+
+  border-left:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.08
+      );
+}
+
+
+/* ---------------------------------------------------------
+   RANKING HEADER
+   --------------------------------------------------------- */
+
+.mw-nations-v3-ranking-head {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-bottom: 24px;
+
+  border-bottom:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.08
+      );
+}
+
+.mw-nations-v3-ranking-head p {
+  margin: 0;
+
+  font-size: 0.58rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.28em;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.45
+    );
+}
+
+.mw-nations-v3-ranking-head > span {
+  flex: 0 0 auto;
+
+  padding:
+    6px 9px;
+
+  border:
+    1px solid
+      rgba(
+        239,
+        75,
+        91,
+        0.16
+      );
+
+  border-radius: 999px;
+
+  font-size: 0.48rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.2em;
+
+  color: #ef4b5b;
+
+  background:
+    rgba(
+      239,
+      75,
+      91,
+      0.045
+    );
+}
+
+
+/* ---------------------------------------------------------
+   RANKING LIST
+   --------------------------------------------------------- */
+
+.mw-nations-v3-ranking-list {
+  display: grid;
+
+  width: 100%;
+}
+
+.mw-nations-v3-ranking-row {
+  display: grid;
+
+  grid-template-columns:
+    34px
+    38px
+    minmax(
+      0,
+      1fr
+    )
+    auto;
+
+  align-items: center;
+
+  gap: 14px;
+
+  min-height: 78px;
+
+  border-bottom:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.06
+      );
+}
+
+.mw-nations-v3-ranking-row:last-child {
+  border-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   RANK + FLAG
+   --------------------------------------------------------- */
+
+.mw-nations-v3-rank {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 0.82rem;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.25
+    );
+}
+
+.mw-nations-v3-ranking-flag {
+  font-size: 1.45rem;
+
+  line-height: 1;
+}
+
+
+/* ---------------------------------------------------------
+   COUNTRY IDENTITY
+   --------------------------------------------------------- */
+
+.mw-nations-v3-ranking-row > div {
+  min-width: 0;
+}
+
+.mw-nations-v3-ranking-row strong {
+  display: block;
+
+  overflow: hidden;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      1.1rem,
+      1.5vw,
+      1.4rem
+    );
+
+  font-weight: 400;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.82
+    );
+}
+
+.mw-nations-v3-ranking-row
+  > div
+  > span {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 0.5rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.16em;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.3
+    );
+}
+
+
+/* ---------------------------------------------------------
+   ATTENDEE COUNT
+   --------------------------------------------------------- */
+
+.mw-nations-v3-ranking-row em {
+  min-width: 34px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      1.4rem,
+      2vw,
+      2rem
+    );
+
+  font-style: normal;
+
+  text-align: right;
+
+  color: #f2939f;
+}
+
+
+/* ---------------------------------------------------------
+   ROW RESPONSE
+   --------------------------------------------------------- */
+
+.mw-nations-v3-ranking-row {
+  transition:
+    padding
+      260ms
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    background
+      260ms
+      ease;
+}
+
+.mw-nations-v3-ranking-row:hover {
+  padding:
+    0 10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(
+        239,
+        75,
+        91,
+        0.025
+      ),
+      rgba(
+        93,
+        80,
+        163,
+        0.035
+      ),
+      transparent
+    );
+}
+
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .mw-nations-v3-ranking-row {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P1D-2C — ZERO STATE + GLOBAL STAGE CERTIFICATION
+
+   Completes the desktop global stage with a deliberate
+   zero-country state.
+
+   The empty state is part of the live experience rather
+   than an error condition.
+
+   P1D global stage becomes complete under this authority.
+   Ticker + finale remain deferred to P1E.
+   ========================================================= */
+
+.mw-nations-v3-empty {
+  min-height: 360px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+  justify-content: center;
+
+  gap: 16px;
+
+  padding:
+    42px 0;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.42
+    );
+}
+
+.mw-nations-v3-empty svg {
+  color: #ef4b5b;
+
+  filter:
+    drop-shadow(
+      0 0 18px
+      rgba(
+        239,
+        75,
+        91,
+        0.18
+      )
+    );
+}
+
+.mw-nations-v3-empty strong {
+  max-width: 12ch;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      1.8rem,
+      2.5vw,
+      2.6rem
+    );
+
+  line-height: 1.04;
+
+  font-weight: 400;
+
+  letter-spacing:
+    -0.035em;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.8
+    );
+}
+
+.mw-nations-v3-empty p {
+  max-width: 330px;
+
+  margin: 0;
+
+  font-size:
+    clamp(
+      0.92rem,
+      1.1vw,
+      1.02rem
+    );
+
+  line-height: 1.7;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.4
+    );
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P1E-1 — LIVE NATIONS TICKER
+
+   Extends the live global pulse beyond the world stage.
+
+   Uses the existing duplicated countries array to create a
+   continuous country stream without changing the data layer.
+
+   Finale remains deferred to P1E-2.
+   Schedule handoff remains deferred to P1E-3.
+   ========================================================= */
+
+.mw-nations-v3-ticker {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    auto
+    minmax(
+      0,
+      1fr
+    );
+
+  align-items: center;
+
+  gap:
+    clamp(
+      28px,
+      4vw,
+      60px
+    );
+
+  min-height: 108px;
+
+  border-top:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.07
+      );
+
+  border-bottom:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.07
+      );
+}
+
+
+/* ---------------------------------------------------------
+   TICKER IDENTITY
+   --------------------------------------------------------- */
+
+.mw-nations-v3-ticker-label {
+  position: relative;
+
+  z-index: 3;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  padding-right:
+    clamp(
+      26px,
+      3vw,
+      46px
+    );
+
+  white-space: nowrap;
+
+  background: #060712;
+}
+
+.mw-nations-v3-ticker-label::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  right: 0;
+
+  width: 1px;
+  height: 36px;
+
+  transform:
+    translateY(-50%);
+
+  background:
+    rgba(
+      246,
+      241,
+      231,
+      0.1
+    );
+}
+
+.mw-nations-v3-ticker-label > span {
+  color: #ef4b5b;
+
+  font-size: 0.78rem;
+
+  text-shadow:
+    0 0 18px
+      rgba(
+        239,
+        75,
+        91,
+        0.3
+      );
+}
+
+.mw-nations-v3-ticker-label strong {
+  font-size: 0.54rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.24em;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.5
+    );
+}
+
+
+/* ---------------------------------------------------------
+   TICKER WINDOW
+   --------------------------------------------------------- */
+
+.mw-nations-v3-ticker-window {
+  position: relative;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  mask-image:
+    linear-gradient(
+      90deg,
+      transparent,
+      black 6%,
+      black 94%,
+      transparent
+    );
+}
+
+
+/* ---------------------------------------------------------
+   LIVE STREAM
+   --------------------------------------------------------- */
+
+.mw-nations-v3-ticker-track {
+  display: flex;
+
+  align-items: center;
+
+  width: max-content;
+
+  min-width: 100%;
+
+  gap: 44px;
+
+  animation:
+    mw-nations-v3-ticker-scroll
+    42s
+    linear
+    infinite;
+}
+
+.mw-nations-v3-ticker-track > span {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex: 0 0 auto;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      1rem,
+      1.3vw,
+      1.2rem
+    );
+
+  white-space: nowrap;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.68
+    );
+}
+
+.mw-nations-v3-ticker-track
+  > span::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  right: -23px;
+
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  transform:
+    translateY(-50%);
+
+  background:
+    rgba(
+      239,
+      75,
+      91,
+      0.55
+    );
+}
+
+.mw-nations-v3-ticker-track b {
+  font-size: 1.35rem;
+
+  line-height: 1;
+}
+
+.mw-nations-v3-ticker-track small {
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 0.48rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.16em;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.26
+    );
+}
+
+
+/* ---------------------------------------------------------
+   ZERO-DATA TICKER
+   --------------------------------------------------------- */
+
+.mw-nations-v3-ticker-track > p {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      1rem,
+      1.3vw,
+      1.2rem
+    );
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.42
+    );
+}
+
+
+/* ---------------------------------------------------------
+   CONTINUOUS MOTION
+   --------------------------------------------------------- */
+
+@keyframes mw-nations-v3-ticker-scroll {
+  from {
+    transform:
+      translateX(0);
+  }
+
+  to {
+    transform:
+      translateX(-50%);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   INTERACTION
+   --------------------------------------------------------- */
+
+.mw-nations-v3-ticker-window:hover
+  .mw-nations-v3-ticker-track {
+  animation-play-state: paused;
+}
+
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .mw-nations-v3-ticker-window {
+    overflow-x: auto;
+
+    mask-image: none;
+  }
+
+  .mw-nations-v3-ticker-track {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P1E-2 — NATIONS FINALE
+
+   Resolves the live Nations experience with a concise
+   editorial statement.
+
+   Intentionally smaller than the Experience finale.
+
+   Schedule handoff remains deferred to P1E-3.
+   ========================================================= */
+
+.mw-nations-v3-finale {
+  position: relative;
+
+  isolation: isolate;
+
+  min-height: 58svh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  padding:
+    120px 0
+    145px;
+
+  text-align: center;
+}
+
+.mw-nations-v3-finale::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: -1;
+
+  top: 52%;
+  left: 50%;
+
+  width:
+    min(
+      760px,
+      62vw
+    );
+
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        93,
+        80,
+        163,
+        0.13
+      ),
+      rgba(
+        239,
+        75,
+        91,
+        0.065
+      ) 38%,
+      transparent 70%
+    );
+
+  filter:
+    blur(18px);
+
+  pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   FINALE KICKER
+   --------------------------------------------------------- */
+
+.mw-nations-v3-finale > p {
+  margin:
+    0 0 24px;
+
+  font-size: 0.58rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.36em;
+
+  color: #ef4b5b;
+}
+
+
+/* ---------------------------------------------------------
+   FINALE STATEMENT
+   --------------------------------------------------------- */
+
+.mw-nations-v3-finale h3 {
+  width: 100%;
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      5.2rem,
+      8vw,
+      8.8rem
+    );
+
+  line-height: 0.8;
+
+  font-weight: 400;
+
+  letter-spacing:
+    -0.068em;
+
+  color: #f6f1e7;
+}
+
+.mw-nations-v3-finale h3 span {
+  display: block;
+
+  margin-top: 0.17em;
+
+  color: #ef4b5b;
+}
+
+
+/* ---------------------------------------------------------
+   FINALE ENERGY LINE
+   --------------------------------------------------------- */
+
+.mw-nations-v3-finale-line {
+  position: relative;
+
+  width:
+    min(
+      340px,
+      32vw
+    );
+
+  height: 1px;
+
+  margin-top: 50px;
+
+  background:
+    rgba(
+      246,
+      241,
+      231,
+      0.08
+    );
+}
+
+.mw-nations-v3-finale-line i {
+  position: absolute;
+
+  top: -1px;
+  left: 50%;
+
+  width: 52%;
+  height: 3px;
+
+  border-radius: 999px;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #5d50a3,
+      #ef4b5b,
+      #5d50a3,
+      transparent
+    );
+
+  box-shadow:
+    0 0 22px
+      rgba(
+        239,
+        75,
+        91,
+        0.18
+      );
+}
+
+
+/* ---------------------------------------------------------
+   DESKTOP FINALE CALIBRATION
+   --------------------------------------------------------- */
+
+@media (min-width: 1100px) {
+
+  .mw-nations-v3-finale {
+    min-height: 62svh;
+
+    padding:
+      130px 0
+      155px;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P1E-3 — SCHEDULE HANDOFF + DESKTOP CERTIFICATION
+
+   Completes desktop S4.
+
+   The Nations experience resolves downward toward Schedule
+   without mutating Schedule itself.
+
+   Schedule remains independently owned by its existing
+   section authority.
+   ========================================================= */
+
+.mw-nations-v3-shell {
+  padding-bottom: 0;
+}
+
+.mw-nations-v3-finale {
+  margin-bottom: 0;
+}
+
+.mw-nations-v3-finale::after {
+  content: "";
+
+  position: absolute;
+
+  z-index: -1;
+
+  left: 50%;
+  bottom: 0;
+
+  width:
+    min(
+      1180px,
+      92vw
+    );
+
+  height: 190px;
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center bottom,
+      rgba(
+        239,
+        75,
+        91,
+        0.07
+      ),
+      rgba(
+        93,
+        80,
+        163,
+        0.11
+      ) 38%,
+      transparent 72%
+    );
+
+  filter:
+    blur(8px);
+}
+
+.mw-nations-v3-frame::after {
+  content: "";
+
+  position: absolute;
+
+  z-index: 4;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 1px;
+  height: 88px;
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(
+        239,
+        75,
+        91,
+        0.52
+      )
+    );
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P2A — TABLET OPENING + METRIC MONUMENT
+
+   Breakpoint: 768px–1099px.
+
+   Tablet adapts:
+   - Nations canvas
+   - Live Global Pulse opening
+   - realtime status
+   - registration monument
+   - supporting metrics
+
+   Global orbit/ranking deferred to P2B.
+   Ticker/finale/handoff deferred to P2C.
+
+   Desktop frozen.
+   Mobile deferred.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1099px
+) {
+
+  /* -------------------------------------------------------
+     TABLET CANVAS
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-frame {
+    width:
+      min(
+        calc(100% - 64px),
+        960px
+      );
+  }
+
+  .mw-nations-v3-glow {
+    top: -3%;
+
+    width: 108vw;
+
+    opacity: 0.7;
+  }
+
+  .mw-nations-v3-grid {
+    background-size:
+      58px 58px;
+
+    opacity: 0.1;
+  }
+
+  .mw-nations-v3-orbit-one {
+    top: 8%;
+    right: -42%;
+
+    width: 92vw;
+    height: 92vw;
+  }
+
+  .mw-nations-v3-orbit-two {
+    top: 50%;
+    left: -48%;
+
+    width: 102vw;
+    height: 102vw;
+  }
+
+
+  /* -------------------------------------------------------
+     EXPERIENCE -> NATIONS HANDOFF
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-shell::before {
+    width: 98vw;
+    height: 210px;
+  }
+
+  .mw-nations-v3-shell::after {
+    height: 76px;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET OPENING
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-opening {
+    min-height: 82svh;
+
+    padding:
+      112px 0
+      104px;
+  }
+
+  .mw-nations-v3-opening-meta {
+    gap: 24px;
+
+    margin-bottom: 36px;
+  }
+
+  .mw-nations-v3-opening-meta > p {
+    font-size: 0.57rem;
+
+    letter-spacing: 0.26em;
+  }
+
+  .mw-nations-v3-status {
+    font-size: 0.52rem;
+
+    letter-spacing: 0.19em;
+  }
+
+  .mw-nations-v3-opening h2 {
+    max-width: 900px;
+
+    font-size:
+      clamp(
+        5rem,
+        12.2vw,
+        7.8rem
+      );
+
+    line-height: 0.8;
+  }
+
+  .mw-nations-v3-opening h2 span {
+    margin:
+      0.17em 0 0
+      clamp(
+        46px,
+        7vw,
+        82px
+      );
+  }
+
+  .mw-nations-v3-opening-foot {
+    gap: 44px;
+
+    margin-top: 58px;
+  }
+
+  .mw-nations-v3-opening-foot > p {
+    max-width: 480px;
+
+    font-size:
+      clamp(
+        1.25rem,
+        2.7vw,
+        1.7rem
+      );
+  }
+
+  .mw-nations-v3-opening-foot > span {
+    font-size: 0.53rem;
+
+    letter-spacing: 0.21em;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET METRIC MONUMENT
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-monument {
+    display: block;
+
+    min-height: 0;
+
+    padding:
+      92px 0
+      108px;
+  }
+
+  .mw-nations-v3-monument::before {
+    top: 34%;
+    left: 50%;
+
+    width: 90vw;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      );
+
+    opacity: 0.74;
+  }
+
+  .mw-nations-v3-total {
+    align-items: flex-start;
+
+    padding:
+      18px 0
+      72px;
+  }
+
+  .mw-nations-v3-total > p {
+    margin-bottom: 20px;
+
+    font-size: 0.57rem;
+
+    letter-spacing: 0.28em;
+  }
+
+  .mw-nations-v3-total > strong {
+    font-size:
+      clamp(
+        9rem,
+        25vw,
+        14rem
+      );
+
+    line-height: 0.7;
+  }
+
+  .mw-nations-v3-total > span {
+    max-width: 340px;
+
+    margin-top: 38px;
+
+    font-size:
+      clamp(
+        1.2rem,
+        2.7vw,
+        1.55rem
+      );
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET SUPPORTING METRICS
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-metrics {
+    grid-template-columns:
+      repeat(
+        3,
+        minmax(
+          0,
+          1fr
+        )
+      );
+
+    grid-template-rows: none;
+
+    border-top:
+      1px solid
+        rgba(
+          246,
+          241,
+          231,
+          0.08
+        );
+
+    border-left: 0;
+  }
+
+  .mw-nations-v3-metrics article {
+    min-height: 150px;
+
+    padding:
+      34px 24px;
+
+    border-right:
+      1px solid
+        rgba(
+          246,
+          241,
+          231,
+          0.07
+        );
+
+    border-bottom: 0;
+  }
+
+  .mw-nations-v3-metrics article:last-child {
+    border-right: 0;
+  }
+
+  .mw-nations-v3-metrics article::before {
+    top: -2px;
+    left: 50%;
+
+    width: 0;
+    height: 3px;
+
+    transform:
+      translateX(-50%);
+
+    transition:
+      width
+      420ms
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+  }
+
+  .mw-nations-v3-metrics article:hover::before {
+    width: 44%;
+    height: 3px;
+  }
+
+  .mw-nations-v3-metrics strong {
+    font-size:
+      clamp(
+        3rem,
+        7vw,
+        4.6rem
+      );
+  }
+
+  .mw-nations-v3-metrics span {
+    margin-top: 10px;
+
+    font-size: 0.52rem;
+
+    letter-spacing: 0.22em;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P2B — TABLET GLOBAL ORBIT + RANKING
+
+   Breakpoint: 768px–1099px.
+
+   Tablet converts the desktop side-by-side global stage
+   into a vertical editorial sequence:
+
+   World statement
+   -> centered live orbit
+   -> live country ranking
+
+   Desktop frozen.
+   Mobile deferred.
+   Ticker/finale deferred to P2C.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1099px
+) {
+
+  /* -------------------------------------------------------
+     WORLD INTRO
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-world {
+    padding:
+      108px 0
+      126px;
+  }
+
+  .mw-nations-v3-world-copy {
+    max-width: 760px;
+
+    margin-bottom: 72px;
+  }
+
+  .mw-nations-v3-world-copy > p {
+    margin-bottom: 17px;
+
+    font-size: 0.55rem;
+
+    letter-spacing: 0.26em;
+  }
+
+  .mw-nations-v3-world-copy h3 {
+    max-width: 9ch;
+
+    font-size:
+      clamp(
+        4.5rem,
+        10vw,
+        6.7rem
+      );
+
+    line-height: 0.84;
+  }
+
+
+  /* -------------------------------------------------------
+     VERTICAL WORLD STAGE
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-world-stage {
+    display: block;
+
+    min-height: 0;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET GLOBAL ORBIT
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-globe-stage {
+    width:
+      min(
+        650px,
+        82vw
+      );
+
+    margin:
+      0 auto;
+  }
+
+  .mw-nations-v3-globe-stage::before {
+    inset: 8%;
+
+    opacity: 0.82;
+  }
+
+  .mw-nations-v3-globe-stage::after {
+    inset: 18%;
+  }
+
+  .mw-nations-v3-globe-core {
+    width:
+      clamp(
+        150px,
+        24vw,
+        205px
+      );
+  }
+
+  .mw-nations-v3-globe-core svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .mw-nations-v3-globe-core span {
+    font-size:
+      clamp(
+        3.4rem,
+        8vw,
+        4.9rem
+      );
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET FLAG CONSTELLATION
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-flag {
+    max-width: 170px;
+
+    gap: 8px;
+
+    padding:
+      8px 11px;
+  }
+
+  .mw-nations-v3-flag b {
+    font-size: 1.2rem;
+  }
+
+  .mw-nations-v3-flag span {
+    font-size: 0.49rem;
+
+    letter-spacing: 0.13em;
+  }
+
+  .mw-nations-v3-flag-1 {
+    top: 6%;
+    left: 44%;
+  }
+
+  .mw-nations-v3-flag-2 {
+    top: 27%;
+    right: 0;
+  }
+
+  .mw-nations-v3-flag-3 {
+    right: 6%;
+    bottom: 18%;
+  }
+
+  .mw-nations-v3-flag-4 {
+    bottom: 5%;
+    left: 35%;
+  }
+
+  .mw-nations-v3-flag-5 {
+    bottom: 23%;
+    left: 0;
+  }
+
+  .mw-nations-v3-flag-6 {
+    top: 23%;
+    left: 2%;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET RANKING
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-ranking {
+    width: 100%;
+    max-width: 760px;
+
+    margin:
+      88px auto 0;
+
+    padding-left: 0;
+
+    border-top:
+      1px solid
+        rgba(
+          246,
+          241,
+          231,
+          0.08
+        );
+
+    border-left: 0;
+  }
+
+  .mw-nations-v3-ranking-head {
+    padding:
+      26px 0
+      22px;
+  }
+
+  .mw-nations-v3-ranking-row {
+    grid-template-columns:
+      34px
+      38px
+      minmax(
+        0,
+        1fr
+      )
+      auto;
+
+    gap: 14px;
+
+    min-height: 76px;
+  }
+
+  .mw-nations-v3-ranking-row strong {
+    font-size:
+      clamp(
+        1.15rem,
+        2.5vw,
+        1.4rem
+      );
+  }
+
+  .mw-nations-v3-ranking-row em {
+    font-size:
+      clamp(
+        1.4rem,
+        3vw,
+        1.9rem
+      );
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET ZERO STATE
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-empty {
+    min-height: 280px;
+
+    align-items: center;
+
+    padding:
+      54px 0;
+
+    text-align: center;
+  }
+
+  .mw-nations-v3-empty strong,
+  .mw-nations-v3-empty p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P2C — TABLET TICKER + FINALE + SCHEDULE HANDOFF
+
+   Breakpoint: 768px–1099px.
+
+   Completes tablet S4:
+   - compact live Nations ticker
+   - contained Nations finale
+   - calibrated Schedule handoff
+
+   Desktop frozen.
+   Mobile deferred.
+   ========================================================= */
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1099px
+) {
+
+  /* -------------------------------------------------------
+     TABLET TICKER
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-ticker {
+    grid-template-columns:
+      auto
+      minmax(
+        0,
+        1fr
+      );
+
+    gap: 30px;
+
+    min-height: 96px;
+  }
+
+  .mw-nations-v3-ticker-label {
+    gap: 9px;
+
+    padding-right: 28px;
+  }
+
+  .mw-nations-v3-ticker-label::after {
+    height: 32px;
+  }
+
+  .mw-nations-v3-ticker-label strong {
+    font-size: 0.49rem;
+
+    letter-spacing: 0.2em;
+  }
+
+  .mw-nations-v3-ticker-track {
+    gap: 38px;
+
+    animation-duration: 46s;
+  }
+
+  .mw-nations-v3-ticker-track
+    > span {
+    font-size:
+      clamp(
+        0.95rem,
+        2vw,
+        1.1rem
+      );
+  }
+
+  .mw-nations-v3-ticker-track
+    > span::after {
+    right: -20px;
+  }
+
+  .mw-nations-v3-ticker-track b {
+    font-size: 1.2rem;
+  }
+
+  .mw-nations-v3-ticker-track small {
+    font-size: 0.44rem;
+
+    letter-spacing: 0.13em;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET FINALE
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-finale {
+    min-height: 58svh;
+
+    padding:
+      108px 0
+      136px;
+  }
+
+  .mw-nations-v3-finale::before {
+    width:
+      min(
+        680px,
+        84vw
+      );
+
+    opacity: 0.78;
+  }
+
+  .mw-nations-v3-finale > p {
+    margin-bottom: 22px;
+
+    font-size: 0.54rem;
+
+    letter-spacing: 0.31em;
+  }
+
+  .mw-nations-v3-finale h3 {
+    font-size:
+      clamp(
+        4.8rem,
+        11.6vw,
+        7.4rem
+      );
+
+    line-height: 0.8;
+  }
+
+  .mw-nations-v3-finale h3 span {
+    margin-top: 0.16em;
+  }
+
+  .mw-nations-v3-finale-line {
+    width:
+      min(
+        290px,
+        42vw
+      );
+
+    margin-top: 44px;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET SCHEDULE HANDOFF
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-finale::after {
+    width: 96vw;
+    height: 154px;
+  }
+
+  .mw-nations-v3-frame::after {
+    height: 70px;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P3A — MOBILE CANVAS + OPENING
+
+   Breakpoint: <768px.
+
+   Mobile-native Nations opening:
+   - contained atmospheric canvas
+   - compact Experience handoff
+   - contained Live Global Pulse metadata
+   - THE NATIONS / ARE GATHERING lockup
+   - stacked supporting copy
+
+   Metric monument deferred to P3B.
+   Globe/ranking deferred to P3C.
+   Ticker/finale/handoff deferred to P3D.
+
+   Desktop + tablet frozen.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     MOBILE CANVAS
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-shell {
+    overflow-x: clip;
+  }
+
+  .mw-nations-v3-frame {
+    width: calc(100% - 32px);
+    max-width: none;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mw-nations-v3-glow {
+    top: -1%;
+
+    width: 132vw;
+
+    opacity: 0.62;
+  }
+
+  .mw-nations-v3-grid {
+    background-size:
+      44px 44px;
+
+    opacity: 0.075;
+  }
+
+  .mw-nations-v3-orbit-one {
+    top: 6%;
+    right: -76%;
+
+    width: 145vw;
+    height: 145vw;
+  }
+
+  .mw-nations-v3-orbit-two {
+    top: 49%;
+    left: -86%;
+
+    width: 160vw;
+    height: 160vw;
+  }
+
+
+  /* -------------------------------------------------------
+     EXPERIENCE -> NATIONS HANDOFF
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-shell::before {
+    width: 120vw;
+    height: 172px;
+  }
+
+  .mw-nations-v3-shell::after {
+    height: 60px;
+  }
+
+
+  /* -------------------------------------------------------
+     OPTIONAL STANDALONE HEADER
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-brand-header {
+    gap: 16px;
+
+    padding:
+      18px 0;
+  }
+
+  .mw-nations-v3-brand {
+    gap: 11px;
+  }
+
+  .mw-nations-v3-brand img {
+    height: 36px;
+  }
+
+  .mw-nations-v3-brand strong {
+    font-size: 0.62rem;
+
+    letter-spacing: 0.14em;
+  }
+
+  .mw-nations-v3-brand span {
+    font-size: 0.46rem;
+
+    letter-spacing: 0.15em;
+  }
+
+  .mw-nations-v3-fullscreen {
+    gap: 6px;
+
+    padding:
+      8px 10px;
+
+    font-size: 0.48rem;
+
+    letter-spacing: 0.12em;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE OPENING
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-opening {
+    min-height: auto;
+
+    padding:
+      100px 0
+      88px;
+  }
+
+  .mw-nations-v3-opening-meta {
+    align-items: center;
+
+    gap: 14px;
+
+    width: 100%;
+
+    margin-bottom: 38px;
+  }
+
+  .mw-nations-v3-opening-meta > p {
+    min-width: 0;
+
+    font-size:
+      clamp(
+        0.45rem,
+        2vw,
+        0.54rem
+      );
+
+    letter-spacing: 0.19em;
+  }
+
+  .mw-nations-v3-status {
+    flex: 0 0 auto;
+
+    gap: 7px;
+
+    font-size: 0.47rem;
+
+    letter-spacing: 0.15em;
+
+    white-space: nowrap;
+  }
+
+  .mw-nations-v3-status i {
+    width: 6px;
+    height: 6px;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE OPENING LOCKUP
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-opening h2 {
+    width: 100%;
+    max-width: 100%;
+
+    font-size:
+      clamp(
+        3.75rem,
+        17.2vw,
+        5.15rem
+      );
+
+    line-height: 0.84;
+
+    letter-spacing: -0.06em;
+  }
+
+  .mw-nations-v3-opening h2 span {
+    width: 100%;
+
+    margin:
+      0.18em 0 0;
+
+    padding-left: 7%;
+
+    font-size: 0.83em;
+
+    line-height: 0.88;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE OPENING FOOT
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-opening-foot {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 52px;
+  }
+
+  .mw-nations-v3-opening-foot > p {
+    max-width: 100%;
+
+    font-size:
+      clamp(
+        1.2rem,
+        5.9vw,
+        1.55rem
+      );
+
+    line-height: 1.32;
+  }
+
+  .mw-nations-v3-opening-foot > span {
+    display: block;
+
+    margin-top: 32px;
+
+    font-size: 0.48rem;
+
+    text-align: left;
+
+    letter-spacing: 0.19em;
+
+    line-height: 1.65;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P3B — MOBILE METRIC MONUMENT
+
+   Breakpoint: <768px.
+
+   Preserves the live-registration monument while containing
+   the primary number inside narrow mobile viewports.
+
+   Supporting Nations / Churches / People metrics become a
+   compact three-column evidence strip.
+
+   P3A frozen.
+   Global stage deferred to P3C.
+   Closing sequence deferred to P3D.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     MONUMENT
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-monument {
+    display: block;
+
+    min-height: 0;
+
+    padding:
+      76px 0
+      92px;
+  }
+
+  .mw-nations-v3-monument::before {
+    top: 31%;
+    left: 50%;
+
+    width: 135vw;
+    max-width: 560px;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      );
+
+    opacity: 0.66;
+  }
+
+
+  /* -------------------------------------------------------
+     PRIMARY LIVE TOTAL
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-total {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+
+    padding:
+      10px 0
+      58px;
+  }
+
+  .mw-nations-v3-total > p {
+    margin-bottom: 18px;
+
+    font-size: 0.51rem;
+
+    letter-spacing: 0.25em;
+  }
+
+  .mw-nations-v3-total > strong {
+    display: block;
+
+    width: 100%;
+
+    font-size:
+      clamp(
+        7.2rem,
+        36vw,
+        10rem
+      );
+
+    line-height: 0.72;
+
+    letter-spacing: -0.075em;
+
+    overflow-wrap: anywhere;
+  }
+
+  .mw-nations-v3-total > span {
+    max-width: 270px;
+
+    margin-top: 34px;
+
+    font-size:
+      clamp(
+        1.12rem,
+        5.4vw,
+        1.42rem
+      );
+
+    line-height: 1.36;
+  }
+
+
+  /* -------------------------------------------------------
+     SUPPORTING METRICS
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-metrics {
+    display: grid;
+
+    grid-template-columns:
+      repeat(
+        3,
+        minmax(
+          0,
+          1fr
+        )
+      );
+
+    grid-template-rows: none;
+
+    width: 100%;
+
+    border-top:
+      1px solid
+        rgba(
+          246,
+          241,
+          231,
+          0.08
+        );
+
+    border-left: 0;
+  }
+
+  .mw-nations-v3-metrics article {
+    min-width: 0;
+    min-height: 116px;
+
+    align-items: flex-start;
+
+    padding:
+      28px 10px
+      24px;
+
+    border-right:
+      1px solid
+        rgba(
+          246,
+          241,
+          231,
+          0.07
+        );
+
+    border-bottom: 0;
+  }
+
+  .mw-nations-v3-metrics article:last-child {
+    border-right: 0;
+  }
+
+  .mw-nations-v3-metrics article::before {
+    top: -2px;
+    left: 50%;
+
+    width: 34%;
+    height: 3px;
+
+    transform:
+      translateX(-50%);
+
+    opacity: 0.52;
+
+    transition: none;
+  }
+
+  .mw-nations-v3-metrics article:hover::before {
+    width: 34%;
+    height: 3px;
+  }
+
+  .mw-nations-v3-metrics strong {
+    max-width: 100%;
+
+    font-size:
+      clamp(
+        2.25rem,
+        10vw,
+        3.2rem
+      );
+
+    line-height: 0.9;
+  }
+
+  .mw-nations-v3-metrics span {
+    margin-top: 10px;
+
+    font-size:
+      clamp(
+        0.39rem,
+        1.75vw,
+        0.47rem
+      );
+
+    line-height: 1.45;
+
+    letter-spacing: 0.14em;
+
+    overflow-wrap: anywhere;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P3C — MOBILE GLOBE + RANKING
+
+   Breakpoint: <768px.
+
+   Mobile global sequence:
+   - contained editorial introduction
+   - centered abstract global orbit
+   - compressed six-country constellation
+   - stacked full-detail ranking
+   - contained zero-country state
+
+   P3A + P3B frozen.
+   Closing sequence deferred to P3D.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     WORLD INTRODUCTION
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-world {
+    padding:
+      86px 0
+      102px;
+  }
+
+  .mw-nations-v3-world-copy {
+    width: 100%;
+    max-width: 100%;
+
+    margin-bottom: 60px;
+  }
+
+  .mw-nations-v3-world-copy > p {
+    margin-bottom: 15px;
+
+    font-size: 0.5rem;
+
+    letter-spacing: 0.22em;
+  }
+
+  .mw-nations-v3-world-copy h3 {
+    width: 100%;
+    max-width: 9ch;
+
+    font-size:
+      clamp(
+        3.6rem,
+        16vw,
+        4.9rem
+      );
+
+    line-height: 0.86;
+
+    letter-spacing: -0.055em;
+  }
+
+
+  /* -------------------------------------------------------
+     SINGLE-COLUMN WORLD STAGE
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-world-stage {
+    display: block;
+
+    width: 100%;
+
+    min-height: 0;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE GLOBAL ORBIT
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-globe-stage {
+    width:
+      min(
+        100%,
+        430px
+      );
+
+    max-width: 100%;
+
+    margin:
+      0 auto;
+  }
+
+  .mw-nations-v3-globe-stage::before {
+    inset: 7%;
+
+    opacity: 0.78;
+  }
+
+  .mw-nations-v3-globe-stage::after {
+    inset: 18%;
+  }
+
+  .mw-nations-v3-globe-rings {
+    opacity: 0.78;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE LIVE CORE
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-globe-core {
+    width:
+      clamp(
+        124px,
+        37vw,
+        158px
+      );
+
+    padding: 18px;
+  }
+
+  .mw-nations-v3-globe-core svg {
+    width: 38px;
+    height: 38px;
+  }
+
+  .mw-nations-v3-globe-core span {
+    margin-top: 7px;
+
+    font-size:
+      clamp(
+        2.8rem,
+        13vw,
+        3.8rem
+      );
+  }
+
+  .mw-nations-v3-globe-core small {
+    margin-top: 8px;
+
+    font-size: 0.44rem;
+
+    letter-spacing: 0.2em;
+  }
+
+
+  /* -------------------------------------------------------
+     COMPRESSED FLAG CONSTELLATION
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-flag {
+    gap: 6px;
+
+    max-width: 118px;
+
+    padding:
+      6px 8px;
+
+    backdrop-filter:
+      blur(9px);
+  }
+
+  .mw-nations-v3-flag b {
+    font-size: 1rem;
+  }
+
+  .mw-nations-v3-flag span {
+    max-width: 76px;
+
+    font-size: 0.4rem;
+
+    letter-spacing: 0.09em;
+  }
+
+  .mw-nations-v3-flag-1 {
+    top: 4%;
+    left: 40%;
+  }
+
+  .mw-nations-v3-flag-2 {
+    top: 25%;
+    right: -1%;
+  }
+
+  .mw-nations-v3-flag-3 {
+    right: 3%;
+    bottom: 18%;
+  }
+
+  .mw-nations-v3-flag-4 {
+    bottom: 3%;
+    left: 32%;
+  }
+
+  .mw-nations-v3-flag-5 {
+    bottom: 21%;
+    left: -1%;
+  }
+
+  .mw-nations-v3-flag-6 {
+    top: 22%;
+    left: 0;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE LIVE RANKING
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-ranking {
+    width: 100%;
+    max-width: none;
+
+    margin:
+      68px 0 0;
+
+    padding-left: 0;
+
+    border-top:
+      1px solid
+        rgba(
+          246,
+          241,
+          231,
+          0.08
+        );
+
+    border-left: 0;
+  }
+
+  .mw-nations-v3-ranking-head {
+    gap: 12px;
+
+    padding:
+      22px 0
+      18px;
+  }
+
+  .mw-nations-v3-ranking-head p {
+    font-size: 0.48rem;
+
+    letter-spacing: 0.19em;
+  }
+
+  .mw-nations-v3-ranking-head > span {
+    padding:
+      5px 7px;
+
+    font-size: 0.42rem;
+
+    letter-spacing: 0.14em;
+  }
+
+  .mw-nations-v3-ranking-row {
+    grid-template-columns:
+      25px
+      30px
+      minmax(
+        0,
+        1fr
+      )
+      auto;
+
+    gap: 9px;
+
+    min-height: 70px;
+
+    padding:
+      0;
+  }
+
+  .mw-nations-v3-ranking-row:hover {
+    padding:
+      0;
+  }
+
+  .mw-nations-v3-rank {
+    font-size: 0.7rem;
+  }
+
+  .mw-nations-v3-ranking-flag {
+    font-size: 1.2rem;
+  }
+
+  .mw-nations-v3-ranking-row strong {
+    font-size:
+      clamp(
+        1rem,
+        4.8vw,
+        1.22rem
+      );
+  }
+
+  .mw-nations-v3-ranking-row
+    > div
+    > span {
+    margin-top: 4px;
+
+    font-size: 0.42rem;
+
+    letter-spacing: 0.11em;
+  }
+
+  .mw-nations-v3-ranking-row em {
+    min-width: 26px;
+
+    font-size:
+      clamp(
+        1.25rem,
+        6vw,
+        1.65rem
+      );
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE ZERO STATE
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-empty {
+    min-height: 240px;
+
+    align-items: center;
+
+    padding:
+      48px 0;
+
+    text-align: center;
+  }
+
+  .mw-nations-v3-empty strong {
+    max-width: 11ch;
+
+    font-size:
+      clamp(
+        1.7rem,
+        8vw,
+        2.2rem
+      );
+  }
+
+  .mw-nations-v3-empty p {
+    max-width: 280px;
+
+    font-size: 0.92rem;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S4-P3D — MOBILE TICKER + FINALE + SCHEDULE HANDOFF
+
+   Breakpoint: <768px.
+
+   Completes mobile S4:
+   - compact live Nations ticker
+   - contained Nations finale
+   - controlled Schedule handoff
+
+   Desktop + tablet frozen.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------
+     MOBILE TICKER
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-ticker {
+    display: block;
+
+    min-height: 0;
+
+    padding:
+      18px 0;
+  }
+
+  .mw-nations-v3-ticker-label {
+    width: 100%;
+
+    gap: 8px;
+
+    padding:
+      0 0
+      14px;
+
+    background: transparent;
+  }
+
+  .mw-nations-v3-ticker-label::after {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+
+    width: 42px;
+    height: 1px;
+
+    transform: none;
+
+    background:
+      linear-gradient(
+        90deg,
+        #ef4b5b,
+        transparent
+      );
+  }
+
+  .mw-nations-v3-ticker-label strong {
+    font-size: 0.46rem;
+
+    letter-spacing: 0.17em;
+  }
+
+  .mw-nations-v3-ticker-window {
+    width: 100%;
+
+    margin-top: 16px;
+
+    mask-image:
+      linear-gradient(
+        90deg,
+        transparent,
+        black 8%,
+        black 92%,
+        transparent
+      );
+  }
+
+  .mw-nations-v3-ticker-track {
+    gap: 34px;
+
+    animation-duration: 52s;
+  }
+
+  .mw-nations-v3-ticker-track
+    > span {
+    gap: 7px;
+
+    font-size: 0.92rem;
+  }
+
+  .mw-nations-v3-ticker-track
+    > span::after {
+    right: -18px;
+  }
+
+  .mw-nations-v3-ticker-track b {
+    font-size: 1.08rem;
+  }
+
+  .mw-nations-v3-ticker-track small {
+    font-size: 0.4rem;
+
+    letter-spacing: 0.1em;
+  }
+
+  .mw-nations-v3-ticker-track
+    > p {
+    font-size: 0.94rem;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE FINALE
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-finale {
+    min-height: 54svh;
+
+    padding:
+      86px 0
+      112px;
+  }
+
+  .mw-nations-v3-finale::before {
+    width: 138vw;
+    max-width: 560px;
+
+    opacity: 0.64;
+  }
+
+  .mw-nations-v3-finale > p {
+    margin-bottom: 19px;
+
+    font-size: 0.49rem;
+
+    letter-spacing: 0.26em;
+  }
+
+  .mw-nations-v3-finale h3 {
+    width: 100%;
+    max-width: 100%;
+
+    font-size:
+      clamp(
+        3.65rem,
+        16.5vw,
+        5rem
+      );
+
+    line-height: 0.82;
+
+    letter-spacing: -0.058em;
+
+    overflow-wrap: normal;
+  }
+
+  .mw-nations-v3-finale h3 span {
+    width: 100%;
+
+    margin-top: 0.16em;
+  }
+
+  .mw-nations-v3-finale-line {
+    width:
+      min(
+        220px,
+        66vw
+      );
+
+    margin-top: 36px;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE SCHEDULE HANDOFF
+     ------------------------------------------------------- */
+
+  .mw-nations-v3-finale::after {
+    width: 120vw;
+    height: 122px;
+  }
+
+  .mw-nations-v3-frame::after {
+    height: 54px;
+  }
+}
