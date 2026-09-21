@@ -1,4 +1,5 @@
 import "./home-v2.css";
+import "./home-v3-integration.css";
 
 import { AboutMightyWorks } from "@/components/home-v2/about-mighty-works";
 import { CompactRegistration } from "@/components/home-v2/compact-registration";

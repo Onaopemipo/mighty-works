@@ -1,0 +1,481 @@
+/* =========================================================
+   MW-HOME-V3-S8-B1 — WHOLE-HOMEPAGE INTEGRATION FOUNDATION
+
+   Cross-section authority for the certified V3 homepage.
+
+   S8 integration rules:
+   - existing S1-S7 section internals remain frozen by default
+   - this file owns cross-section continuity only
+   - no replacement of existing section handoffs
+   - no viewport-height overrides in B1
+   - no typography overrides in B1
+   - no internal component geometry overrides in B1
+   ========================================================= */
+
+.homev2 {
+  --mw-page-cream: #f6f1e7;
+  --mw-page-coral: #ef4b5b;
+  --mw-page-coral-soft: #f2939f;
+
+  --mw-page-indigo: #453b7a;
+  --mw-page-violet: #5d50a3;
+
+  --mw-page-night: #080711;
+  --mw-page-night-raised: #0a0916;
+
+  --mw-page-line:
+    rgba(
+      246,
+      241,
+      231,
+      0.075
+    );
+
+  --mw-page-line-soft:
+    rgba(
+      246,
+      241,
+      231,
+      0.04
+    );
+
+  --mw-page-gutter:
+    clamp(
+      24px,
+      5vw,
+      88px
+    );
+
+  --mw-page-seam:
+    clamp(
+      44px,
+      5vw,
+      76px
+    );
+
+  --mw-page-seam-compact:
+    clamp(
+      28px,
+      3vw,
+      48px
+    );
+
+  --mw-page-transition-duration: 180ms;
+
+  position: relative;
+
+  isolation: isolate;
+
+  overflow-x: clip;
+
+  background: var(--mw-page-night);
+}
+
+/*
+ * Certified section roots participate in one document canvas.
+ *
+ * B1 intentionally does not change:
+ * - min-height
+ * - height
+ * - margin
+ * - padding
+ * - section typography
+ * - existing transition/handoff geometry
+ */
+.homev2 > section,
+.homev2 > footer {
+  position: relative;
+
+  min-width: 0;
+}
+
+/*
+ * Prevent accidental horizontal painting from decorative
+ * section layers without clipping vertical composition.
+ */
+.homev2 > section {
+  overflow-x: clip;
+}
+
+/*
+ * Shared keyboard-navigation visibility.
+ *
+ * Component-specific focus treatments remain authoritative;
+ * this is only the page-level fallback.
+ */
+.homev2 :where(
+  a,
+  button,
+  input,
+  select,
+  textarea
+):focus-visible {
+  scroll-margin-block:
+    var(--mw-page-seam-compact);
+}
+
+/*
+ * Anchor destinations should settle below the persistent
+ * navigation rather than landing flush against the viewport.
+ */
+.homev2 :where(
+  #about,
+  #experience,
+  #nations,
+  #schedule,
+  #register-interest
+) {
+  scroll-margin-top:
+    clamp(
+      84px,
+      9vw,
+      124px
+    );
+}
+
+/* Tablet integration tokens */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .homev2 {
+    --mw-page-gutter:
+      clamp(
+        28px,
+        5vw,
+        56px
+      );
+
+    --mw-page-seam:
+      clamp(
+        40px,
+        5vw,
+        60px
+      );
+
+    --mw-page-seam-compact:
+      clamp(
+        24px,
+        3vw,
+        38px
+      );
+  }
+}
+
+/* Mobile integration tokens */
+
+@media (max-width: 767px) {
+  .homev2 {
+    --mw-page-gutter:
+      clamp(
+        18px,
+        5.5vw,
+        28px
+      );
+
+    --mw-page-seam:
+      clamp(
+        32px,
+        9vw,
+        48px
+      );
+
+    --mw-page-seam-compact:
+      clamp(
+        20px,
+        6vw,
+        30px
+      );
+  }
+
+  .homev2 :where(
+    #about,
+    #experience,
+    #nations,
+    #schedule,
+    #register-interest
+  ) {
+    scroll-margin-top: 82px;
+  }
+}
+
+/* Reduced-motion page authority */
+
+@media (prefers-reduced-motion: reduce) {
+  .homev2 {
+    --mw-page-transition-duration: 0ms;
+  }
+
+  .homev2 {
+    scroll-behavior: auto;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S8-B2B-R2 — ABOUT -> EXPERIENCE HANDOFF
+
+   Visual review showed that the original B2B seam:
+   - did not materially improve the transition
+   - consumed Experience's certified root pseudo-elements
+   - left excessive inter-section dead space
+
+   R2 restores Experience's native decorative authority by
+   owning no ::before / ::after selectors.
+
+   The integration layer now adjusts only cross-section
+   placement. Experience's internal opening geometry remains
+   frozen.
+   ========================================================= */
+
+.homev2 > .mw-experience-v3 {
+  /*
+   * Pull Experience into the oversized closing field left by
+   * About while preserving Experience's own internal layout.
+   */
+  margin-top:
+    calc(
+      -1 *
+      clamp(
+        260px,
+        22vw,
+        400px
+      )
+    );
+}
+
+/* Tablet handoff */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .homev2 > .mw-experience-v3 {
+    margin-top: -120px;
+  }
+}
+
+/* Mobile handoff */
+
+@media (max-width: 767px) {
+  .homev2 > .mw-experience-v3 {
+    margin-top: -72px;
+  }
+}
+
+
+/* =========================================================
+   MW-HOME-V3-S8-B2B-R3 — HANDOFF RHYTHM CALIBRATION
+
+   Visual review:
+   - desktop retained excessive dead space after R2
+   - tablet receives moderate additional compression
+   - mobile R2 rhythm is retained
+   - Experience native decorative authority remains untouched
+   ========================================================= */
+
+
+/* =========================================================
+   MW-HOME-V3-S8-B2B-R4 — FINAL DESKTOP HANDOFF CALIBRATION
+
+   Final visual calibration after desktop/mobile review.
+
+   - desktop transition receives one final compression
+   - tablet R3 authority remains unchanged
+   - mobile R2 authority remains unchanged
+   - Experience native atmosphere remains authoritative
+   ========================================================= */
+
+/* =========================================================
+   MW-HOME-V3-S8-C2C — FOOTER NAVIGATION TOUCH TARGET
+
+   Whole-page responsive audit found the certified footer
+   navigation resolving to a 34px minimum interactive height.
+
+   S8 corrects only the interactive target size. Footer
+   typography, spacing, navigation hierarchy and visual
+   treatment remain under S7 authority.
+   ========================================================= */
+
+.homev2 .mw-site-footer-navigation a {
+  min-height: 44px;
+}
+
+/*
+ * Preserve the same minimum target across tablet and mobile
+ * even where earlier footer density rules specify 34–36px.
+ */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .homev2 .mw-site-footer-navigation a {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 767px) {
+  /*
+   * Preserve the certified compact footer rhythm visually.
+   * The pseudo-element below supplies additional touch area
+   * without making each navigation row 44px tall.
+   */
+  .homev2 .mw-site-footer-navigation a {
+    min-height: 34px;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S8-C2E — NAVBAR MENU INTERACTION
+
+   Responsive integration audit established that the tablet /
+   mobile menu button resolves to a 42x42px interactive box
+   and has no explicit keyboard focus treatment.
+
+   S8:
+   - raises the target to 44x44px
+   - adds a navbar-consistent focus-visible ring
+   - leaves navbar structure and visual styling under S1-S7
+     authority
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .homev2 .mw-nav-v3-menu {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 767px) {
+  .homev2 .mw-nav-v3-menu {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+.homev2 .mw-nav-v3-menu:focus-visible {
+  outline:
+    2px solid
+    #ffffff;
+
+  outline-offset: 4px;
+}
+
+
+/* =========================================================
+   MW-HOME-V3-S8-C2C-R2 — MOBILE FOOTER VISUAL RHYTHM + HIT AREA
+
+   Mobile visual review showed that forcing every footer
+   navigation row to 44px made the closing scene unnecessarily
+   tall.
+
+   Restore the certified 34px visual row while extending the
+   actual pointer/touch region approximately 5px above and
+   below the anchor.
+
+   The existing decorative ::before remains untouched.
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .homev2 .mw-site-footer-navigation a {
+    position: relative;
+  }
+
+  .homev2 .mw-site-footer-navigation a::after {
+    content: "";
+
+    position: absolute;
+
+    top: -5px;
+    right: -8px;
+    bottom: -5px;
+    left: -8px;
+
+    pointer-events: auto;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S8-C2G — MOBILE REGISTRATION READABILITY
+
+   Visual review identified two mobile integration defects:
+
+   1. Primary field border rules visually intersect controls.
+   2. Registration opening-foot copy is constrained beside
+      event metadata and wraps into one/two-word lines.
+
+   Mobile presentation only. Functional Registration and
+   certified S6 source authority remain untouched.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /*
+   * Field borders/padding remain under certified S6 authority.
+   * The visual defect was subsequently classified as the
+   * form-stage decorative frame, not individual field rules.
+   */
+
+  /* Give the opening statement its own readable mobile row. */
+
+  .homev2 .mw-registration-v3-opening-foot {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+
+    gap: 24px;
+
+    align-items: start;
+  }
+
+  .homev2 .mw-registration-v3-opening-foot > p {
+    width: 100%;
+    max-width: 22rem;
+
+    margin: 0;
+
+    text-wrap: pretty;
+  }
+
+  .homev2 .mw-registration-v3-opening-foot > span {
+    width: 100%;
+    max-width: none;
+
+    justify-self: start;
+
+    margin: 0;
+
+    text-align: left;
+  }
+}
+
+
+/* =========================================================
+   MW-HOME-V3-S8-C2G-R2 — FIELD AUTHORITY RESTORATION
+
+   Visual classification corrected:
+   individual field borders were not responsible for the
+   mobile collision. Their S6 authority is restored.
+
+   Opening-foot readability repair remains active.
+   Form-stage decorative frame remains under investigation.
+   ========================================================= */
+
+/* =========================================================
+   MW-HOME-V3-S8-C2G-R3 — MOBILE FORM-STAGE FRAME REMOVAL
+
+   Mobile visual review established that the large decorative
+   form-stage frame no longer matches the taller V2 form
+   composition and visually intersects the field surfaces.
+
+   Remove only the large ::after frame on narrow screens.
+
+   Retained:
+   - form-stage ::before accent
+   - field identity markers
+   - field borders and spacing
+   - all input/select surfaces
+   - desktop/tablet decorative frame
+   - functional Registration authority
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .homev2 .mw-registration-v3-form-stage::after {
+    content: none;
+    display: none;
+  }
+}
