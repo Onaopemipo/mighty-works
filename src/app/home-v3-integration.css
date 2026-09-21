@@ -479,3 +479,65 @@
     display: none;
   }
 }
+
+/* =========================================================
+   MW-HOME-V3-S8-C2H-B1 — REGISTRATION FIELD MARKER OPTICAL ALIGNMENT
+
+   Vertically centres the existing 7px field identity marker
+   against the certified uppercase field-label line box.
+
+   Size, colour, border, horizontal placement, label
+   typography and focus/validation states remain unchanged.
+   ========================================================= */
+
+.homev2 .mw-registration-v3-field > span:first-child::before {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* =========================================================
+   MW-HOME-V3-S8-C2I-B1 — MOBILE LIVE REGISTRATION COMPOSITION
+
+   Prevents the live Registration value from intruding into
+   its supporting copy on narrow screens.
+
+   Mobile-only integration authority:
+   - explicit vertical total composition
+   - controlled separation between value and copy
+   - slightly reduced monument scale
+   - certified Nations JSX and S4 CSS remain frozen
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .homev2 .mw-nations-v3-total {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .homev2 .mw-nations-v3-total > strong {
+    width: auto;
+
+    margin: 0 0 24px;
+
+    font-size:
+      clamp(
+        6.25rem,
+        30vw,
+        8.5rem
+      );
+
+    line-height: 0.76;
+  }
+
+  .homev2 .mw-nations-v3-total > span {
+    position: relative;
+
+    width: 100%;
+    max-width: 270px;
+
+    margin: 0;
+
+    z-index: 1;
+  }
+}
