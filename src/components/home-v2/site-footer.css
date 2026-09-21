@@ -1,0 +1,1576 @@
+/* =========================================================
+   MW-HOME-V3-S7-B1B-R1 — FOOTER BASE CONTAINMENT + GEOMETRY
+
+   Dedicated S7 footer stylesheet.
+
+   Establishes structural geometry only.
+   Detailed typography, atmosphere, surfaces and motion remain
+   deferred to later S7 phases.
+   ========================================================= */
+
+.mw-site-footer {
+  position: relative;
+  isolation: isolate;
+
+  overflow: hidden;
+
+  width: 100%;
+  min-width: 0;
+
+  background: #080711;
+  color: #f6f1e7;
+
+  border-top:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.08
+      );
+}
+
+.mw-site-footer-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  pointer-events: none;
+}
+
+.mw-site-footer-inner {
+  position: relative;
+  z-index: 1;
+
+  width:
+    min(
+      calc(100% - 96px),
+      1440px
+    );
+
+  min-width: 0;
+
+  margin-inline: auto;
+
+  padding:
+    96px
+    0
+    40px;
+}
+
+.mw-site-footer-intro,
+.mw-site-footer-body,
+.mw-site-footer-bottom {
+  width: 100%;
+  min-width: 0;
+}
+
+.mw-site-footer-intro {
+  padding-bottom: 64px;
+}
+
+.mw-site-footer-intro h2,
+.mw-site-footer-intro p {
+  margin: 0;
+}
+
+.mw-site-footer-intro h2 span {
+  display: block;
+}
+
+.mw-site-footer-statement {
+  margin-top: 24px;
+}
+
+.mw-site-footer-body {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(180px, 0.55fr)
+    minmax(240px, 0.7fr);
+
+  align-items: start;
+
+  gap:
+    clamp(
+      32px,
+      4vw,
+      64px
+    );
+
+  padding:
+    48px
+    0;
+
+  border-top:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.08
+      );
+
+  border-bottom:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.08
+      );
+}
+
+.mw-site-footer-brand,
+.mw-site-footer-navigation,
+.mw-site-footer-action {
+  min-width: 0;
+}
+
+.mw-site-footer-brand-lockup {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  min-width: 0;
+}
+
+.mw-site-footer-brand-lockup img {
+  display: block;
+
+  width: auto;
+  height: 54px;
+
+  max-width:
+    min(
+      42%,
+      230px
+    );
+
+  object-fit: contain;
+}
+
+.mw-site-footer-brand-divider {
+  width: 1px;
+  height: 32px;
+
+  flex: 0 0 auto;
+
+  background:
+    rgba(
+      246,
+      241,
+      231,
+      0.18
+    );
+}
+
+.mw-site-footer-brand > p {
+  margin:
+    20px
+    0
+    0;
+}
+
+.mw-site-footer-navigation {
+  display: grid;
+  align-content: start;
+
+  gap: 12px;
+}
+
+.mw-site-footer-navigation a {
+  width: fit-content;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+.mw-site-footer-action {
+  display: grid;
+  align-content: start;
+
+  gap: 24px;
+}
+
+.mw-site-footer-event {
+  display: grid;
+
+  gap: 6px;
+}
+
+.mw-site-footer-register {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  width: 100%;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+.mw-site-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 32px;
+
+  padding-top: 32px;
+}
+
+.mw-site-footer-bottom p {
+  margin: 0;
+}
+
+.mw-site-footer-credit a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Tablet */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .mw-site-footer-inner {
+    width:
+      min(
+        calc(100% - 64px),
+        960px
+      );
+
+    padding-top: 80px;
+  }
+
+  .mw-site-footer-intro {
+    padding-bottom: 52px;
+  }
+
+  .mw-site-footer-body {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(180px, 0.45fr);
+
+    gap: 40px;
+  }
+
+  .mw-site-footer-action {
+    grid-column:
+      1
+      / -1;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(220px, 0.5fr);
+
+    align-items: end;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 767px) {
+  .mw-site-footer-inner {
+    width:
+      calc(
+        100% - 40px
+      );
+
+    padding:
+      72px
+      0
+      28px;
+  }
+
+  .mw-site-footer-intro {
+    padding-bottom: 44px;
+  }
+
+  .mw-site-footer-body {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+    padding:
+      40px
+      0;
+  }
+
+  .mw-site-footer-brand-lockup {
+    gap: 14px;
+  }
+
+  .mw-site-footer-brand-lockup img {
+    height: 46px;
+    max-width: 42%;
+  }
+
+  .mw-site-footer-action {
+    gap: 20px;
+  }
+
+  .mw-site-footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 12px;
+
+    padding-top: 24px;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S7-B2A-R1 — EDITORIAL CLOSING IDENTITY
+
+   Gives the site footer a strong final-scene hierarchy while
+   retaining the certified B1 structure and normal document flow.
+   ========================================================= */
+
+.mw-site-footer-intro {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(260px, 0.34fr);
+
+  align-items: end;
+
+  column-gap:
+    clamp(
+      48px,
+      7vw,
+      112px
+    );
+
+  row-gap: 32px;
+
+  padding-bottom:
+    clamp(
+      56px,
+      6vw,
+      88px
+    );
+}
+
+.mw-site-footer-kicker {
+  grid-column:
+    1
+    / -1;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 14px;
+
+  width: fit-content;
+
+  color: #f2939f;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.mw-site-footer-kicker::before {
+  content: "";
+
+  display: block;
+
+  width: 30px;
+  height: 1px;
+
+  background: #ef4b5b;
+}
+
+.mw-site-footer-intro h2 {
+  max-width: 940px;
+
+  color: #f6f1e7;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      4rem,
+      7.2vw,
+      7.4rem
+    );
+
+  font-weight: 500;
+  line-height: 0.86;
+
+  letter-spacing: -0.065em;
+  text-wrap: balance;
+}
+
+.mw-site-footer-intro h2 span {
+  margin-left:
+    clamp(
+      42px,
+      7vw,
+      116px
+    );
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.32
+    );
+
+  font-style: italic;
+}
+
+.mw-site-footer-statement {
+  align-self: end;
+
+  max-width: 340px;
+
+  margin:
+    0
+    0
+    8px;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.62
+    );
+
+  font-size:
+    clamp(
+      0.95rem,
+      1.15vw,
+      1.1rem
+    );
+
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .mw-site-footer-intro {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(220px, 0.36fr);
+
+    column-gap: 40px;
+
+    padding-bottom: 56px;
+  }
+
+  .mw-site-footer-intro h2 {
+    font-size:
+      clamp(
+        3.6rem,
+        7.4vw,
+        5.5rem
+      );
+  }
+
+  .mw-site-footer-intro h2 span {
+    margin-left:
+      clamp(
+        24px,
+        4vw,
+        54px
+      );
+  }
+}
+
+@media (max-width: 767px) {
+  .mw-site-footer-intro {
+    grid-template-columns: 1fr;
+
+    row-gap: 24px;
+
+    padding-bottom: 44px;
+  }
+
+  .mw-site-footer-kicker {
+    grid-column: auto;
+
+    font-size: 0.64rem;
+    letter-spacing: 0.18em;
+  }
+
+  .mw-site-footer-kicker::before {
+    width: 22px;
+  }
+
+  .mw-site-footer-intro h2 {
+    max-width: none;
+
+    font-size:
+      clamp(
+        3rem,
+        15vw,
+        4.5rem
+      );
+
+    line-height: 0.9;
+  }
+
+  .mw-site-footer-intro h2 span {
+    margin-top: 6px;
+    margin-left: 0;
+  }
+
+  .mw-site-footer-statement {
+    max-width: 290px;
+
+    margin: 0;
+
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S7-B2A-R2 — EDITORIAL TITLE CALIBRATION
+
+   Visual-review correction:
+   - reduces desktop title monumentality
+   - strengthens secondary title contrast
+   - reduces second-line displacement
+   - improves narrow-screen title containment
+   ========================================================= */
+
+.mw-site-footer-intro h2 {
+  font-size:
+    clamp(
+      3.9rem,
+      6.6vw,
+      6.8rem
+    );
+}
+
+.mw-site-footer-intro h2 span {
+  margin-left:
+    clamp(
+      32px,
+      5vw,
+      82px
+    );
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.5
+    );
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .mw-site-footer-intro h2 {
+    font-size:
+      clamp(
+        3.5rem,
+        6.8vw,
+        5rem
+      );
+  }
+
+  .mw-site-footer-intro h2 span {
+    margin-left:
+      clamp(
+        20px,
+        3vw,
+        42px
+      );
+  }
+}
+
+@media (max-width: 767px) {
+  .mw-site-footer-intro h2 {
+    font-size:
+      clamp(
+        2.65rem,
+        12.5vw,
+        3.75rem
+      );
+
+    line-height: 0.92;
+  }
+
+  .mw-site-footer-intro h2 span {
+    margin-top: 4px;
+    margin-left: 0;
+
+    color:
+      rgba(
+        246,
+        241,
+        231,
+        0.5
+      );
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S7-B2B — ATMOSPHERIC CLOSING FIELD
+
+   Adds restrained conference-brand depth behind the certified
+   footer composition.
+
+   Decorative authority only:
+   - no JSX mutation
+   - no content displacement
+   - no animation
+   - no viewport-height authority
+   ========================================================= */
+
+.mw-site-footer {
+  background:
+    linear-gradient(
+      180deg,
+      #080711 0%,
+      #07060f 48%,
+      #05050c 100%
+    );
+}
+
+.mw-site-footer-atmosphere {
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 27% 31%,
+      rgba(
+        239,
+        75,
+        91,
+        0.1
+      ) 0%,
+      rgba(
+        239,
+        75,
+        91,
+        0.045
+      ) 20%,
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at 81% 55%,
+      rgba(
+        93,
+        80,
+        163,
+        0.12
+      ) 0%,
+      rgba(
+        69,
+        59,
+        122,
+        0.055
+      ) 26%,
+      transparent 54%
+    );
+}
+
+.mw-site-footer-atmosphere::before,
+.mw-site-footer-atmosphere::after {
+  content: "";
+
+  position: absolute;
+
+  pointer-events: none;
+
+  border:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.035
+      );
+
+  border-radius: 50%;
+}
+
+.mw-site-footer-atmosphere::before {
+  width:
+    clamp(
+      520px,
+      48vw,
+      880px
+    );
+
+  aspect-ratio: 1;
+
+  top: -34%;
+  right: -17%;
+}
+
+.mw-site-footer-atmosphere::after {
+  width:
+    clamp(
+      360px,
+      32vw,
+      620px
+    );
+
+  aspect-ratio: 1;
+
+  bottom: -42%;
+  left: -12%;
+
+  border-color:
+    rgba(
+      239,
+      75,
+      91,
+      0.04
+    );
+}
+
+.mw-site-footer-inner::before {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+
+  width:
+    min(
+      58vw,
+      820px
+    );
+
+  height: 1px;
+
+  top:
+    clamp(
+      196px,
+      19vw,
+      310px
+    );
+
+  right: -8%;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(
+        239,
+        75,
+        91,
+        0.18
+      ),
+      transparent
+    );
+}
+
+/* Tablet atmosphere containment */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .mw-site-footer-atmosphere::before {
+    right: -32%;
+  }
+
+  .mw-site-footer-atmosphere::after {
+    bottom: -30%;
+    left: -28%;
+  }
+
+  .mw-site-footer-inner::before {
+    width: 64vw;
+    right: -12%;
+  }
+}
+
+/* Mobile atmosphere containment */
+
+@media (max-width: 767px) {
+  .mw-site-footer-atmosphere {
+    background:
+      radial-gradient(
+        circle at 20% 18%,
+        rgba(
+          239,
+          75,
+          91,
+          0.085
+        ) 0%,
+        transparent 42%
+      ),
+      radial-gradient(
+        circle at 90% 62%,
+        rgba(
+          93,
+          80,
+          163,
+          0.09
+        ) 0%,
+        transparent 46%
+      );
+  }
+
+  .mw-site-footer-atmosphere::before {
+    width: 460px;
+
+    top: -10%;
+    right: -88%;
+  }
+
+  .mw-site-footer-atmosphere::after {
+    width: 340px;
+
+    bottom: -12%;
+    left: -70%;
+  }
+
+  .mw-site-footer-inner::before {
+    display: none;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S7-B2B-R1 — MOBILE FOOTER DENSITY CALIBRATION
+
+   Visual-review correction for narrow screens.
+
+   Keeps the certified editorial title while compressing the
+   utility portion of the footer and protecting the bottom
+   signature from fixed page utilities.
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .mw-site-footer-inner {
+    padding-bottom:
+      max(
+        56px,
+        env(safe-area-inset-bottom)
+      );
+  }
+
+  .mw-site-footer-intro {
+    row-gap: 20px;
+
+    padding-bottom: 34px;
+  }
+
+  .mw-site-footer-statement {
+    margin-top: 2px;
+  }
+
+  .mw-site-footer-body {
+    gap: 30px;
+
+    padding:
+      32px
+      0;
+  }
+
+  .mw-site-footer-brand-lockup {
+    gap: 12px;
+  }
+
+  .mw-site-footer-brand-lockup img {
+    height: 40px;
+  }
+
+  .mw-site-footer-brand-divider {
+    height: 28px;
+  }
+
+  .mw-site-footer-brand > p {
+    margin-top: 14px;
+
+    max-width: 320px;
+
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  .mw-site-footer-navigation {
+    gap: 6px;
+  }
+
+  .mw-site-footer-navigation a {
+    display: flex;
+    align-items: center;
+
+    min-height: 36px;
+
+    font-size: 0.94rem;
+  }
+
+  .mw-site-footer-action {
+    gap: 18px;
+
+    padding-top: 4px;
+  }
+
+  .mw-site-footer-event {
+    gap: 4px;
+
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .mw-site-footer-register {
+    min-height: 44px;
+
+    font-size: 0.95rem;
+  }
+
+  .mw-site-footer-bottom {
+    gap: 10px;
+
+    padding-top: 22px;
+  }
+
+  .mw-site-footer-copyright,
+  .mw-site-footer-credit {
+    max-width: 100%;
+
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .mw-site-footer-credit {
+    padding-left: 38px;
+  }
+
+  .mw-site-footer-credit a {
+    display: inline;
+
+    overflow-wrap: anywhere;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S7-B2C — BRAND + NAVIGATION + REGISTRATION CTA HIERARCHY
+
+   Refines the footer utility layer beneath the certified
+   editorial closing scene.
+
+   Responsibilities:
+   - strengthen conference/host lockup
+   - subordinate host descriptor
+   - refine internal navigation
+   - strengthen event metadata
+   - establish Register as the singular footer action
+
+   Bottom signature remains deferred to B2D.
+   ========================================================= */
+
+/* Brand hierarchy */
+
+.mw-site-footer-brand-lockup {
+  gap: 22px;
+}
+
+.mw-site-footer-brand-lockup img {
+  height: 62px;
+
+  opacity: 0.94;
+}
+
+.mw-site-footer-brand-divider {
+  height: 38px;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(
+        242,
+        147,
+        159,
+        0.42
+      ),
+      transparent
+    );
+}
+
+.mw-site-footer-brand > p {
+  max-width: 390px;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.52
+    );
+
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.5;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Navigation hierarchy */
+
+.mw-site-footer-navigation {
+  gap: 4px;
+}
+
+.mw-site-footer-navigation a {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 34px;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.64
+    );
+
+  font-size: 0.82rem;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  transition:
+    color 180ms ease,
+    padding-left 180ms ease;
+}
+
+.mw-site-footer-navigation a::before {
+  content: "";
+
+  width: 0;
+  height: 1px;
+
+  margin-right: 0;
+
+  flex: 0 0 auto;
+
+  background: #ef4b5b;
+
+  transition:
+    width 180ms ease,
+    margin-right 180ms ease;
+}
+
+.mw-site-footer-navigation a:hover,
+.mw-site-footer-navigation a:focus-visible {
+  color: #f6f1e7;
+
+  padding-left: 2px;
+}
+
+.mw-site-footer-navigation a:hover::before,
+.mw-site-footer-navigation a:focus-visible::before {
+  width: 18px;
+  margin-right: 9px;
+}
+
+.mw-site-footer-navigation a:focus-visible {
+  outline:
+    1px solid
+      rgba(
+        242,
+        147,
+        159,
+        0.58
+      );
+
+  outline-offset: 4px;
+}
+
+/* Event metadata */
+
+.mw-site-footer-event {
+  gap: 7px;
+}
+
+.mw-site-footer-event span {
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.62
+    );
+
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.3;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.mw-site-footer-event span:first-child {
+  color: #f2939f;
+}
+
+/* Singular footer CTA */
+
+.mw-site-footer-register {
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 54px;
+
+  padding:
+    0
+    20px;
+
+  border:
+    1px solid
+      rgba(
+        239,
+        75,
+        91,
+        0.42
+      );
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      100deg,
+      rgba(
+        239,
+        75,
+        91,
+        0.15
+      ),
+      rgba(
+        201,
+        49,
+        76,
+        0.08
+      )
+    );
+
+  color: #f6f1e7;
+
+  font-size: 0.75rem;
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  transition:
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.mw-site-footer-register::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      100deg,
+      rgba(
+        239,
+        75,
+        91,
+        0.14
+      ),
+      transparent 62%
+    );
+
+  opacity: 0;
+
+  transition:
+    opacity 180ms ease;
+}
+
+.mw-site-footer-register > span {
+  position: relative;
+  z-index: 1;
+
+  display: inline-grid;
+  place-items: center;
+
+  width: 28px;
+  height: 28px;
+
+  border:
+    1px solid
+      rgba(
+        246,
+        241,
+        231,
+        0.14
+      );
+
+  border-radius: 50%;
+}
+
+.mw-site-footer-register:hover,
+.mw-site-footer-register:focus-visible {
+  border-color:
+    rgba(
+      242,
+      147,
+      159,
+      0.72
+    );
+
+  background:
+    linear-gradient(
+      100deg,
+      rgba(
+        239,
+        75,
+        91,
+        0.22
+      ),
+      rgba(
+        201,
+        49,
+        76,
+        0.1
+      )
+    );
+}
+
+.mw-site-footer-register:hover::before,
+.mw-site-footer-register:focus-visible::before {
+  opacity: 1;
+}
+
+.mw-site-footer-register:focus-visible {
+  outline:
+    2px solid
+      rgba(
+        242,
+        147,
+        159,
+        0.5
+      );
+
+  outline-offset: 4px;
+}
+
+/* Tablet hierarchy */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .mw-site-footer-brand-lockup img {
+    height: 56px;
+  }
+
+  .mw-site-footer-action {
+    align-items: center;
+  }
+
+  .mw-site-footer-register {
+    min-height: 52px;
+  }
+}
+
+/* Mobile hierarchy */
+
+@media (max-width: 767px) {
+  .mw-site-footer-brand-lockup {
+    gap: 12px;
+  }
+
+  .mw-site-footer-brand-lockup img {
+    height: 40px;
+  }
+
+  .mw-site-footer-brand-divider {
+    height: 28px;
+  }
+
+  .mw-site-footer-brand > p {
+    max-width: 310px;
+
+    margin-top: 12px;
+
+    font-size: 0.7rem;
+    line-height: 1.5;
+
+    letter-spacing: 0.08em;
+  }
+
+  .mw-site-footer-navigation {
+    gap: 2px;
+  }
+
+  .mw-site-footer-navigation a {
+    min-height: 34px;
+
+    font-size: 0.78rem;
+
+    letter-spacing: 0.07em;
+  }
+
+  .mw-site-footer-navigation a:hover,
+  .mw-site-footer-navigation a:focus-visible {
+    padding-left: 0;
+  }
+
+  .mw-site-footer-navigation a:hover::before,
+  .mw-site-footer-navigation a:focus-visible::before {
+    width: 14px;
+    margin-right: 7px;
+  }
+
+  .mw-site-footer-event {
+    gap: 5px;
+  }
+
+  .mw-site-footer-event span {
+    font-size: 0.7rem;
+
+    letter-spacing: 0.11em;
+  }
+
+  .mw-site-footer-register {
+    min-height: 48px;
+
+    padding:
+      0
+      16px;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 0.12em;
+  }
+
+  .mw-site-footer-register > span {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Reduced-motion interaction safety */
+
+@media (prefers-reduced-motion: reduce) {
+  .mw-site-footer-navigation a,
+  .mw-site-footer-navigation a::before,
+  .mw-site-footer-register,
+  .mw-site-footer-register::before {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S7-B2D — BOTTOM SIGNATURE + CLOSING RHYTHM
+
+   Finalises the footer closing rail after visual review.
+
+   Removes the temporary mobile credit displacement and gives
+   copyright/development attribution deliberately subordinate
+   editorial authority.
+
+   Floating page utilities remain outside footer authority.
+   ========================================================= */
+
+.mw-site-footer-bottom {
+  position: relative;
+
+  padding-top:
+    clamp(
+      26px,
+      2.6vw,
+      38px
+    );
+}
+
+.mw-site-footer-copyright,
+.mw-site-footer-credit {
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.48
+    );
+
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.5;
+
+  letter-spacing: 0.07em;
+}
+
+.mw-site-footer-credit {
+  text-align: right;
+}
+
+.mw-site-footer-credit a {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  color:
+    rgba(
+      246,
+      241,
+      231,
+      0.7
+    );
+
+  transition:
+    color 180ms ease;
+}
+
+.mw-site-footer-credit a::after {
+  content: "";
+
+  position: absolute;
+
+  right: 0;
+  bottom: -3px;
+  left: 0;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ef4b5b,
+      rgba(
+        239,
+        75,
+        91,
+        0
+      )
+    );
+
+  opacity: 0;
+
+  transition:
+    opacity 180ms ease;
+}
+
+.mw-site-footer-credit a:hover,
+.mw-site-footer-credit a:focus-visible {
+  color: #f6f1e7;
+}
+
+.mw-site-footer-credit a:hover::after,
+.mw-site-footer-credit a:focus-visible::after {
+  opacity: 1;
+}
+
+.mw-site-footer-credit a:focus-visible {
+  outline:
+    1px solid
+      rgba(
+        242,
+        147,
+        159,
+        0.56
+      );
+
+  outline-offset: 5px;
+}
+
+/* Tablet closing rail */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .mw-site-footer-copyright,
+  .mw-site-footer-credit {
+    font-size: 0.66rem;
+  }
+}
+
+/* Mobile closing rail */
+
+@media (max-width: 767px) {
+  .mw-site-footer-inner {
+    padding-bottom:
+      max(
+        72px,
+        calc(
+          env(safe-area-inset-bottom)
+          + 40px
+        )
+      );
+  }
+
+  .mw-site-footer-bottom {
+    gap: 8px;
+
+    padding-top: 22px;
+  }
+
+  .mw-site-footer-copyright,
+  .mw-site-footer-credit {
+    width: 100%;
+    max-width: 100%;
+
+    padding-left: 0;
+
+    font-size: 0.68rem;
+    line-height: 1.5;
+
+    letter-spacing: 0.035em;
+
+    text-align: left;
+  }
+
+  .mw-site-footer-credit {
+    padding-right: 44px;
+  }
+
+  .mw-site-footer-credit a {
+    display: inline-flex;
+
+    max-width: 100%;
+
+    flex-wrap: wrap;
+
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Reduced-motion signature safety */
+
+@media (prefers-reduced-motion: reduce) {
+  .mw-site-footer-credit a,
+  .mw-site-footer-credit a::after {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   MW-HOME-V3-S7-C1C — EXTERNAL OVERLAY COMPENSATION REMOVAL
+
+   C1A/C1B established that the observed floating "N" has no
+   ownership in SiteFooter, homepage root or application source.
+
+   Production footer geometry therefore no longer reserves
+   horizontal space for that external/development overlay.
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .mw-site-footer-credit {
+    padding-right: 0;
+  }
+}

@@ -7,6 +7,7 @@ import { HeroV2 } from "@/components/home-v2/hero";
 import { LiveBillboard } from "@/components/live/live-billboard";
 import { Navbar } from "@/components/home-v2/navbar";
 import { ScheduleV2 } from "@/components/home-v2/schedule";
+import { SiteFooter } from "@/components/home-v2/site-footer";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       />
       <ScheduleV2 />
       <CompactRegistration />
+      <SiteFooter />
     </main>
   );
 }
