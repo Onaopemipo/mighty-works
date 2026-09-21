@@ -66,6 +66,30 @@ export function CompactRegistration() {
       > | null
     >(null);
 
+  /* MW-HOME-V3-S6-P1D-1C-2B — VALIDATION TARGET DERIVATION */
+  type RegistrationValidationTarget =
+    | "fullName"
+    | "email"
+    | "countryCode"
+    | "consentPrivacy"
+    | null;
+
+  const validationTarget:
+    RegistrationValidationTarget =
+      error ===
+      "Please enter your first and last name."
+        ? "fullName"
+        : error ===
+            "Please enter your email address."
+          ? "email"
+          : error ===
+              "Please select your country."
+            ? "countryCode"
+            : error ===
+                "Please accept the privacy consent."
+              ? "consentPrivacy"
+              : null;
+
   async function submit(
     event: FormEvent
   ) {
@@ -204,74 +228,115 @@ export function CompactRegistration() {
   return (
     <section
       id="register-interest"
-      className="homev2-compact-registration"
+      className="homev2-compact-registration mw-registration-v3"
     >
-      <div className="homev2-compact-invitation">
-        <p className="homev2-kicker">
-          8th Edition · Your invitation
-        </p>
-
-        <h2>
-          Come expectant.
-          <br />
-          Leave{" "}
-          <em>inspired.</em>
-        </h2>
-
-        <p>
-          There is a place for you at
-          Mighty Works Conference 2026.
-        </p>
-
-        <strong>
-          Greater Things
-        </strong>
-
-        <blockquote>
-          “He that believeth on me,
-          the works that I do shall he
-          do also; and greater works
-          than these shall he do...”
-        </blockquote>
-
-        <span>
-          John 14:12 · KJV
-        </span>
-      </div>
-
-      <form
-        onSubmit={submit}
-        className="homev2-compact-form"
+      <div
+        className="mw-registration-v3-atmosphere"
+        aria-hidden="true"
       >
-        <div className="homev2-compact-form-heading">
-          <div>
-            <span>
-              Mighty Works Conference ·
-              2026
-            </span>
-
-            <strong>
-              No. 8
-            </strong>
-          </div>
-
-          <h3>
-            Be part of the gathering.
-          </h3>
-
+        <div className="mw-registration-v3-glow" />
+        <div className="mw-registration-v3-grid" />
+        <div className="mw-registration-v3-orbit mw-registration-v3-orbit-one" />
+        <div className="mw-registration-v3-orbit mw-registration-v3-orbit-two" />
+      </div>
+      <header className="mw-registration-v3-opening">
+        <div className="mw-registration-v3-opening-meta">
           <p>
-            Let us know you’re coming.
+            Your place in the gathering
           </p>
+
+          <span>
+            Mighty Works Conference 2026
+          </span>
         </div>
 
-        <label>
+        <h2>
+          Be there.
+          <span>
+            Be part of it.
+          </span>
+        </h2>
+
+        <div className="mw-registration-v3-opening-foot">
+          <p>
+            Two days. One gathering.
+            Come expectant for worship,
+            the Word, prayer and impartation.
+          </p>
+
+          <span>
+            07 — 08 November
+            <br />
+            Brisbane, Australia
+          </span>
+        </div>
+      </header>
+
+      <section className="mw-registration-v3-stage">
+                {/* MW-HOME-V3-S6-V2-B2X-1 — LEGACY MANIFESTO REMOVAL */}
+
+<div className="mw-registration-v3-form-stage">
+          {/* MW-HOME-V3-S6-V2-B2A — NEW EDITORIAL HEADER JSX */}
+          <header className="mw-registration-v4-head">
+            <div className="mw-registration-v4-head-meta">
+              <span>
+                Registration
+              </span>
+
+              <strong>
+                8th Edition
+              </strong>
+            </div>
+
+            <div className="mw-registration-v4-head-main">
+              <h3>
+                Be part of the gathering.
+              </h3>
+
+              <p>
+                Mighty Works Conference 2026
+              </p>
+            </div>
+
+            <div className="mw-registration-v4-head-foot">
+              <p>
+                Complete your details to
+                reserve your place.
+              </p>
+
+              <span>
+                07 — 08 November
+                <br />
+                Brisbane, Australia
+              </span>
+            </div>
+          </header>
+
+                {/* MW-HOME-V3-S6-V2-B1A — LEGACY INVITATION REMOVAL */}
+
+<form
+        onSubmit={submit}
+        className="homev2-compact-form mw-registration-v3-form"
+      >
+                {/* MW-HOME-V3-S6-V2-B2X-4B-1 — DUPLICATE FORM HEADING REMOVAL */}
+
+<label className="mw-registration-v3-field">
           <span>
             Full name
           </span>
 
           <input
+            id="registration-full-name"
             type="text"
             value={fullName}
+            aria-invalid={
+              validationTarget === "fullName"
+            }
+            aria-describedby={
+              validationTarget === "fullName"
+                ? "registration-validation-error"
+                : undefined
+            }
             onChange={(event) =>
               setFullName(
                 event.target.value
@@ -283,14 +348,23 @@ export function CompactRegistration() {
           />
         </label>
 
-        <label>
+        <label className="mw-registration-v3-field">
           <span>
             Email address
           </span>
 
           <input
+            id="registration-email"
             type="email"
             value={email}
+            aria-invalid={
+              validationTarget === "email"
+            }
+            aria-describedby={
+              validationTarget === "email"
+                ? "registration-validation-error"
+                : undefined
+            }
             onChange={(event) =>
               setEmail(
                 event.target.value
@@ -302,7 +376,7 @@ export function CompactRegistration() {
           />
         </label>
 
-        <label>
+        <label className="mw-registration-v3-field">
           <span>
             Phone number
           </span>
@@ -321,13 +395,22 @@ export function CompactRegistration() {
           />
         </label>
 
-        <label>
+        <label className="mw-registration-v3-field">
           <span>
             Country of origin
           </span>
 
           <select
+            id="registration-country"
             value={countryCode}
+            aria-invalid={
+              validationTarget === "countryCode"
+            }
+            aria-describedby={
+              validationTarget === "countryCode"
+                ? "registration-validation-error"
+                : undefined
+            }
             onChange={(event) =>
               setCountryCode(
                 event.target.value
@@ -366,7 +449,7 @@ export function CompactRegistration() {
             How will you join us?
           </legend>
 
-          <div className="homev2-attendance-options">
+          <div className="homev2-attendance-options mw-registration-v3-attendance">
             <button
               type="button"
               onClick={() =>
@@ -415,9 +498,36 @@ export function CompactRegistration() {
           </div>
         </fieldset>
 
-        <label className="homev2-compact-consent">
+        <label className="homev2-compact-consent mw-registration-v3-consent">
           <input
             type="checkbox"
+            id="registration-consent"
+
+
+            aria-invalid={
+
+
+              validationTarget === "consentPrivacy"
+
+
+            }
+
+
+            aria-describedby={
+
+
+              validationTarget === "consentPrivacy"
+
+
+                ? "registration-validation-error"
+
+
+                : undefined
+
+
+            }
+
+
             checked={
               consentPrivacy
             }
@@ -438,7 +548,13 @@ export function CompactRegistration() {
         </label>
 
         {error ? (
-          <div className="homev2-compact-error">
+          <div
+              id="registration-validation-error"
+              className="homev2-compact-error mw-registration-v3-error"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            >
             {error}
           </div>
         ) : null}
@@ -446,7 +562,7 @@ export function CompactRegistration() {
         <button
           type="submit"
           disabled={submitting}
-          className="homev2-form-continue"
+          className="homev2-form-continue mw-registration-v3-submit"
         >
           {submitting ? (
             <>
@@ -465,7 +581,21 @@ export function CompactRegistration() {
         </button>
       </form>
 
+        </div>
+      </section>
+
+            {/* MW-HOME-V3-S6-V2-B2X-4C-1 — RECOVERY BEFORE FINALE */}
       <InvitationRecovery />
+
+      <footer className="mw-registration-v3-finale">
+        <p>
+          Your place is waiting.
+        </p>
+
+        <div className="mw-registration-v3-finale-line">
+          <i />
+        </div>
+      </footer>
     </section>
   );
 }
