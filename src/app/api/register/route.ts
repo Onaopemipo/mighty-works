@@ -406,6 +406,10 @@ export async function POST(
       | string
       | undefined;
 
+    let qrDataUrl:
+      | string
+      | undefined;
+
     let emailStatus:
       | "pending"
       | "sent"
@@ -429,6 +433,9 @@ export async function POST(
 
       invitationUrl =
         delivery?.invitationUrl;
+
+      qrDataUrl =
+        delivery?.qrDataUrl;
 
       emailStatus =
         delivery?.emailStatus;
@@ -459,6 +466,7 @@ export async function POST(
         data.country_code ??
         countryCode,
       invitationUrl,
+      qrDataUrl,
       emailStatus,
     };
 

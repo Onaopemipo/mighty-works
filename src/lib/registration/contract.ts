@@ -40,6 +40,7 @@ export type RegistrationSuccess = {
   countryCode: string;
 
   invitationUrl?: string;
+  qrDataUrl?: string;
   emailStatus?:
     | "pending"
     | "sent"

@@ -203,6 +203,22 @@ export function CompactRegistration() {
         id="register-interest"
         className="homev2-registration-success-section"
       >
+        <div
+          className="mw-registration-success-announcement"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <strong>
+            Registration successful.
+          </strong>
+
+          <span>
+            You’re registered for Mighty Works Conference 2026.
+            Your conference pass and secure check-in QR code are ready below.
+          </span>
+        </div>
+
         <RegistrationInviteCard
           attendeeName={
             fullName.trim() ||
@@ -219,6 +235,9 @@ export function CompactRegistration() {
           }
           invitationUrl={
             success.invitationUrl
+          }
+          qrDataUrl={
+            success.qrDataUrl
           }
         />
       </section>

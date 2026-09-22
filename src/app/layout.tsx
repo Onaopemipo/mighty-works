@@ -81,11 +81,13 @@ const eventJsonLd = {
     "https://schema.org/OfflineEventAttendanceMode",
   location: {
     "@type": "Place",
-    name: "Brisbane, Australia",
+    name: "Faith Center",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Brisbane",
+      streetAddress: "62 Eastern Rd",
+      addressLocality: "Browns Plains",
       addressRegion: "QLD",
+      postalCode: "4118",
       addressCountry: "AU",
     },
   },

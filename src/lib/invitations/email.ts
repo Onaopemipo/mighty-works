@@ -95,7 +95,7 @@ export async function sendInvitationEmail(
               </h1>
 
               <p style="margin:10px 0 0;color:#4e495c;font-size:14px;line-height:1.55;">
-                Your conference pass is ready. Present the QR code below at the entrance.
+                Your registration is confirmed. Your secure check-in QR is available in your digital invitation and is also attached to this email.
               </p>
             </td>
           </tr>
@@ -106,7 +106,7 @@ export async function sendInvitationEmail(
                 <tr>
                   <td align="center" style="padding:14px;">
                     <img
-                      src="cid:mighty-works-checkin-qr"
+                      src="data:image/png;base64,${input.qrPngBase64}"
                       alt="Mighty Works secure check-in QR code"
                       width="190"
                       height="190"
@@ -119,6 +119,12 @@ export async function sendInvitationEmail(
               <div style="margin-top:9px;font-size:10px;text-transform:uppercase;letter-spacing:1.7px;color:#625c6c;">
                 Secure venue check-in
               </div>
+
+              <p style="margin:10px auto 0;max-width:430px;color:#625c6c;font-size:12px;line-height:1.55;">
+                If the QR image is not visible in your email app, use the attached
+                <strong>mighty-works-checkin-qr.png</strong>
+                or open your digital invitation below.
+              </p>
             </td>
           </tr>
 
@@ -196,7 +202,7 @@ export async function sendInvitationEmail(
           <tr>
             <td align="center" style="padding:2px 26px 22px;">
               <a href="${invitationUrl}" style="display:inline-block;background:#c9314c;color:#ffffff;text-decoration:none;padding:13px 22px;border-radius:999px;font-size:13px;font-weight:700;">
-                Open digital invitation
+                Open digital invitation & QR
               </a>
 
             </td>
@@ -240,8 +246,6 @@ export async function sendInvitationEmail(
                 input.qrPngBase64,
               content_type:
                 "image/png",
-              content_id:
-                "mighty-works-checkin-qr",
             },
           ],
         }),
