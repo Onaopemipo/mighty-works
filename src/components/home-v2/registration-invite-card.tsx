@@ -61,7 +61,6 @@ export function RegistrationInviteCard({
                 alt="Everwinning Faith Ministries Australia"
                 width={220}
                 height={110}
-                priority
               />
             </div>
 
@@ -76,7 +75,6 @@ export function RegistrationInviteCard({
                 alt="Mighty Works Conference"
                 width={300}
                 height={140}
-                priority
               />
 
             </div>

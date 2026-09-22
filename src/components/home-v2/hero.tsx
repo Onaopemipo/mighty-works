@@ -105,8 +105,6 @@ export function HeroV2() {
             alt="Pastor Olakunle Akingbehin"
             fill
             priority
-            fetchPriority="high"
-            loading="eager"
             sizes="(max-width: 767px) 55vw, (max-width: 1199px) 38vw, 32vw"
           />
 
@@ -131,8 +129,6 @@ export function HeroV2() {
             alt="Mrs. Foluke Akingbehin"
             fill
             priority
-            fetchPriority="high"
-            loading="eager"
             sizes="(max-width: 767px) 55vw, (max-width: 1199px) 38vw, 32vw"
           />
 

@@ -125,7 +125,7 @@ export function Navbar() {
               alt="Mighty Works Conference 2026"
               width={230}
               height={154}
-              priority
+              loading="eager"
             />
           </span>
 
@@ -140,7 +140,7 @@ export function Navbar() {
               alt="Everwinning Faith Ministries Australia"
               width={230}
               height={154}
-              priority
+              loading="eager"
             />
           </span>
         </Link>

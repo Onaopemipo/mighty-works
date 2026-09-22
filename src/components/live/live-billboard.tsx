@@ -240,7 +240,6 @@ export function LiveBillboard({
                 alt="Everwinning Faith Ministries Australia"
                 width={260}
                 height={120}
-                priority
               />
 
               <div>
