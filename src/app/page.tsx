@@ -4,6 +4,7 @@ import "./home-v3-integration.css";
 import { AboutMightyWorks } from "@/components/home-v2/about-mighty-works";
 import { CompactRegistration } from "@/components/home-v2/compact-registration";
 import { ExperienceGrid } from "@/components/home-v2/experience";
+import { EventCountdown } from "@/components/home-v2/event-countdown";
 import { HeroV2 } from "@/components/home-v2/hero";
 import { LiveBillboard } from "@/components/live/live-billboard";
 import { Navbar } from "@/components/home-v2/navbar";
@@ -17,6 +18,8 @@ export default function Home() {
       <HeroV2 />
       <AboutMightyWorks />
       <ExperienceGrid />
+
+        <EventCountdown />
       <LiveBillboard
         id="nations"
         showHeader={false}
