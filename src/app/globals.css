@@ -2507,3 +2507,34 @@ body {
     animation: none;
   }
 }
+
+/* =========================================================
+   MW-HOME-V3-S10-C-B1 — ACCESSIBLE SKIP NAVIGATION
+   ========================================================= */
+
+.mw-skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 10000;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: #f6f1e7;
+  color: #0a0916;
+  font-weight: 800;
+  text-decoration: none;
+  transform: translateY(-180%);
+  transition: transform 160ms ease;
+}
+
+.mw-skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mw-skip-link {
+    transition: none;
+  }
+}

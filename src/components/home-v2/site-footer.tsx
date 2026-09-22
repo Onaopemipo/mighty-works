@@ -42,7 +42,7 @@ export function SiteFooter() {
       <div className="mw-site-footer-inner">
         <header className="mw-site-footer-intro">
           <p className="mw-site-footer-kicker">
-            8th Edition
+            11th Edition
           </p>
 
           <h2>

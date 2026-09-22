@@ -284,7 +284,7 @@ export function CompactRegistration() {
               </span>
 
               <strong>
-                8th Edition
+                11th Edition
               </strong>
             </div>
 

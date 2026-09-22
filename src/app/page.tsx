@@ -13,7 +13,7 @@ import { SiteFooter } from "@/components/home-v2/site-footer";
 
 export default function Home() {
   return (
-    <main className="homev2">
+    <main id="main-content" className="homev2">
       <Navbar />
       <HeroV2 />
       <AboutMightyWorks />
