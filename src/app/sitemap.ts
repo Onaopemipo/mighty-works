@@ -23,5 +23,10 @@ export default function sitemap():
       changeFrequency: "daily",
       priority: 0.7,
     },
+    {
+      url: `${SITE_URL}/attending`,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ];
 }

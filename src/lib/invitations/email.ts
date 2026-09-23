@@ -60,6 +60,9 @@ export async function sendInvitationEmail(
   const invitationUrl =
     escapeHtml(input.invitationUrl);
 
+  const photoFrameUrl =
+    "https://mwc.everwinningaustralia.com.au/attending";
+
   const html = `
 <!doctype html>
 <html>
@@ -205,6 +208,18 @@ export async function sendInvitationEmail(
                 Open digital invitation & QR
               </a>
 
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center" style="padding:0 26px 24px;">
+              <div style="margin-bottom:8px;color:#625c6c;font-size:11px;line-height:1.5;">
+                Show your friends you’re attending.
+              </div>
+
+              <a href="${photoFrameUrl}" style="display:inline-block;border:1px solid #453b7a;color:#453b7a;text-decoration:none;padding:11px 19px;border-radius:999px;font-size:12px;font-weight:700;">
+                Create Your Photo Frame
+              </a>
             </td>
           </tr>
 

@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import {
   LoaderCircle,
   MapPin,
@@ -240,6 +242,42 @@ export function CompactRegistration() {
             success.qrDataUrl
           }
         />
+
+        <aside
+          className="mw-registration-photo-frame"
+          aria-labelledby="mw-registration-photo-frame-title"
+        >
+          <div className="mw-registration-photo-frame-copy">
+            <span>
+              Photo Frame
+            </span>
+
+            <h3 id="mw-registration-photo-frame-title">
+              You’re registered.
+              <br />
+              Now make it official.
+            </h3>
+
+            <p>
+              Create your Mighty Works 2026
+              Photo Frame and share that
+              you’re attending.
+            </p>
+          </div>
+
+          <Link
+            href="/attending"
+            className="mw-registration-photo-frame-action"
+          >
+            <span>
+              Create Your Photo Frame
+            </span>
+
+            <b aria-hidden="true">
+              →
+            </b>
+          </Link>
+        </aside>
       </section>
     );
   }
@@ -303,7 +341,7 @@ export function CompactRegistration() {
               </span>
 
               <strong>
-                11th Edition
+                8th Edition
               </strong>
             </div>
 

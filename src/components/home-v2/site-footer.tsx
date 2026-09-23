@@ -24,6 +24,10 @@ const footerNavigation = [
     label: "Schedule",
     href: "#schedule",
   },
+  {
+    label: "Photo Frame",
+    href: "/attending",
+  },
 ];
 
 export function SiteFooter() {
@@ -42,7 +46,7 @@ export function SiteFooter() {
       <div className="mw-site-footer-inner">
         <header className="mw-site-footer-intro">
           <p className="mw-site-footer-kicker">
-            11th Edition
+            8th Edition
           </p>
 
           <h2>

@@ -33,6 +33,10 @@ const navigation = [
     label: "Schedule",
     href: "#schedule",
   },
+  {
+    label: "Photo Frame",
+    href: "/attending",
+  },
 ];
 
 export function Navbar() {

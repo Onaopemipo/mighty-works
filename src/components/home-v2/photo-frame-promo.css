@@ -1,0 +1,397 @@
+/* MW-PHOTO-FRAME-V1-I1-B4-R1A */
+
+.mw-photo-frame-promo {
+  position: relative;
+  overflow: hidden;
+
+  padding:
+    clamp(42px, 6vw, 72px)
+    20px;
+
+  color: #f6f1e7;
+  background: #0f0d22;
+}
+
+.mw-photo-frame-promo-glow {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+
+  right: 3%;
+  top: 50%;
+
+  transform: translateY(-50%);
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(239, 75, 91, 0.16),
+      rgba(69, 59, 122, 0.1) 42%,
+      transparent 72%
+    );
+
+  pointer-events: none;
+}
+
+.mw-photo-frame-promo-inner {
+  position: relative;
+  z-index: 1;
+
+  width: min(1120px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.2fr)
+    minmax(250px, 0.8fr);
+
+  align-items: center;
+  gap: clamp(38px, 7vw, 90px);
+}
+
+.mw-photo-frame-promo-copy {
+  max-width: 660px;
+}
+
+.mw-photo-frame-promo-kicker {
+  margin-bottom: 14px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #f2939f;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.mw-photo-frame-promo-copy h2 {
+  margin: 0;
+
+  color: #f6f1e7;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(38px, 5.6vw, 72px);
+
+  font-weight: 500;
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+}
+
+.mw-photo-frame-promo-copy h2 span {
+  display: block;
+
+  color: #f2939f;
+  font-style: italic;
+}
+
+.mw-photo-frame-promo-copy p {
+  max-width: 520px;
+
+  margin: 20px 0 0;
+
+  color:
+    rgba(246, 241, 231, 0.64);
+
+  font-size:
+    clamp(13px, 1.4vw, 15px);
+
+  line-height: 1.7;
+}
+
+.mw-photo-frame-promo-action {
+  width: fit-content;
+  min-height: 51px;
+
+  margin-top: 25px;
+  padding: 0 21px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  border-radius: 999px;
+
+  color: #fff;
+  background: #ef4b5b;
+
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+
+  box-shadow:
+    0 15px 38px
+    rgba(239, 75, 91, 0.2);
+
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.mw-photo-frame-promo-action:hover {
+  transform: translateY(-2px);
+  background: #f15d6c;
+
+  box-shadow:
+    0 18px 44px
+    rgba(239, 75, 91, 0.28);
+}
+
+.mw-photo-frame-promo-action:focus-visible {
+  outline:
+    3px solid
+    rgba(242, 147, 159, 0.48);
+
+  outline-offset: 4px;
+}
+
+.mw-photo-frame-promo-visual {
+  position: relative;
+
+  width: min(310px, 100%);
+  margin-left: auto;
+
+  aspect-ratio: 1;
+}
+
+.mw-photo-frame-promo-frame {
+  position: absolute;
+  inset: 5%;
+
+  overflow: hidden;
+
+  display: grid;
+  grid-template-rows:
+    auto 1fr auto;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.15);
+
+  border-radius: 24px;
+
+  background: #181331;
+
+  transform: rotate(3deg);
+
+  box-shadow:
+    0 30px 75px
+    rgba(0, 0, 0, 0.34);
+}
+
+.mw-photo-frame-promo-frame-top {
+  padding: 17px 18px 13px;
+
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+
+  background: #f6f1e7;
+}
+
+.mw-photo-frame-promo-frame-top span {
+  color: #c9314c;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.mw-photo-frame-promo-frame-top strong {
+  color: #17142b;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 18px;
+}
+
+.mw-photo-frame-promo-photo {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      #453b7a,
+      #221a47 52%,
+      #0f0d22
+    );
+}
+
+.mw-photo-frame-promo-photo::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(242, 147, 159, 0.2),
+      transparent 48%
+    );
+}
+
+.mw-photo-frame-promo-person {
+  position: absolute;
+
+  left: 50%;
+  bottom: -4%;
+
+  width: 58%;
+  height: 82%;
+
+  transform: translateX(-50%);
+}
+
+.mw-photo-frame-promo-person span {
+  position: absolute;
+
+  width: 38%;
+  aspect-ratio: 1;
+
+  left: 50%;
+  top: 3%;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+  background:
+    rgba(246, 241, 231, 0.82);
+}
+
+.mw-photo-frame-promo-person b {
+  position: absolute;
+
+  width: 100%;
+  height: 70%;
+
+  left: 0;
+  bottom: 0;
+
+  border-radius:
+    50% 50% 12% 12%;
+
+  background:
+    rgba(246, 241, 231, 0.74);
+}
+
+.mw-photo-frame-promo-frame-bottom {
+  padding: 15px 18px 17px;
+  background: #17142b;
+}
+
+.mw-photo-frame-promo-frame-bottom strong {
+  display: block;
+
+  color: #f6f1e7;
+
+  font-size: 13px;
+  letter-spacing: 0.03em;
+}
+
+.mw-photo-frame-promo-frame-bottom span {
+  display: block;
+  margin-top: 3px;
+
+  color: #f2939f;
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.mw-photo-frame-promo-chip {
+  position: absolute;
+  z-index: 2;
+
+  padding: 8px 11px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.15);
+
+  border-radius: 999px;
+
+  color: #f6f1e7;
+
+  background:
+    rgba(15, 13, 34, 0.84);
+
+  backdrop-filter: blur(10px);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  box-shadow:
+    0 10px 30px
+    rgba(0, 0, 0, 0.22);
+}
+
+.mw-photo-frame-promo-chip-move {
+  left: -8%;
+  top: 31%;
+}
+
+.mw-photo-frame-promo-chip-share {
+  right: -7%;
+  bottom: 24%;
+}
+
+@media (max-width: 760px) {
+  .mw-photo-frame-promo {
+    padding: 45px 18px 50px;
+  }
+
+  .mw-photo-frame-promo-inner {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .mw-photo-frame-promo-copy {
+    text-align: center;
+  }
+
+  .mw-photo-frame-promo-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mw-photo-frame-promo-action {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mw-photo-frame-promo-visual {
+    width: min(270px, 82vw);
+    margin: 0 auto;
+  }
+}
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+  .mw-photo-frame-promo-action {
+    transition: none;
+  }
+}

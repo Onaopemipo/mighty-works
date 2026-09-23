@@ -1665,3 +1665,76 @@ label.mw-attending-upload-button {
     2px solid
     var(--mw-a-coral);
 }
+
+/* MW-PHOTO-FRAME-V1-I1-B1-R2 — POSITIONING GUIDANCE */
+
+.mw-attending-position-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  z-index: 11;
+
+  transform:
+    translateX(-50%);
+
+  min-width: max-content;
+  padding: 9px 13px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.2);
+
+  border-radius: 999px;
+
+  color: #fff;
+
+  background:
+    rgba(5, 6, 17, 0.72);
+
+  backdrop-filter:
+    blur(8px);
+
+  pointer-events: none;
+
+  box-shadow:
+    0 8px 30px
+    rgba(5, 6, 17, 0.2);
+}
+
+.mw-attending-position-hint span {
+  color:
+    var(--mw-a-coral);
+
+  font-size: 15px;
+  line-height: 1;
+}
+
+.mw-attending-position-hint strong {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 620px) {
+  .mw-attending-position-hint {
+    bottom: 14px;
+    padding: 8px 11px;
+  }
+
+  .mw-attending-position-hint strong {
+    font-size: 9px;
+  }
+}
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+  .mw-attending-position-hint {
+    transition: none;
+  }
+}

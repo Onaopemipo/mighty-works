@@ -8,10 +8,10 @@ import "./attending.css";
 
 export const metadata: Metadata = {
   title:
-    "I Am Attending | Mighty Works Conference 2026",
+    "Photo Frame | Mighty Works Conference 2026",
 
   description:
-    "Upload your photo and create your personal I Am Attending graphic for Mighty Works Conference 2026.",
+    "Create your Mighty Works Conference 2026 Photo Frame. Upload your photo, choose a design and share that you’re attending.",
 
   alternates: {
     canonical: "/attending",
@@ -19,10 +19,10 @@ export const metadata: Metadata = {
 
   openGraph: {
     title:
-      "I Am Attending | Mighty Works Conference 2026",
+      "Photo Frame | Mighty Works Conference 2026",
 
     description:
-      "Create your personal Mighty Works Conference 2026 attendee graphic.",
+      "Create and share your Mighty Works Conference 2026 Photo Frame.",
 
     url: "/attending",
     type: "website",
@@ -32,10 +32,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
 
     title:
-      "I Am Attending | Mighty Works Conference 2026",
+      "Photo Frame | Mighty Works Conference 2026",
 
     description:
-      "Create your personal Mighty Works Conference 2026 attendee graphic.",
+      "Create and share your Mighty Works Conference 2026 Photo Frame.",
   },
 };
 

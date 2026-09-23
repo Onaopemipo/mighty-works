@@ -215,6 +215,11 @@ export function AttendingShell() {
     useState(1);
 
   const [
+    positioningHintVisible,
+    setPositioningHintVisible,
+  ] = useState(true);
+
+  const [
     selectedFrame,
     setSelectedFrame,
   ] = useState<AttendingFrame>(
@@ -376,6 +381,7 @@ export function AttendingShell() {
     });
 
     setPhotoZoom(1);
+    setPositioningHintVisible(true);
   };
 
   const handleInputChange = (
@@ -423,6 +429,7 @@ export function AttendingShell() {
     });
 
     setPhotoZoom(1);
+    setPositioningHintVisible(true);
 
     photoDragRef.current =
       null;
@@ -1699,6 +1706,7 @@ export function AttendingShell() {
     });
 
     setPhotoZoom(1);
+    setPositioningHintVisible(true);
   };
 
   const handlePhotoPointerDown = (
@@ -1708,6 +1716,10 @@ export function AttendingShell() {
     if (!photo) {
       return;
     }
+
+    setPositioningHintVisible(
+      false
+    );
 
     photoDragRef.current = {
       pointerId:
@@ -1899,8 +1911,10 @@ export function AttendingShell() {
         </h1>
 
         <p>
-          Upload your photo and create your
-          personal conference graphic.
+          Create your Mighty Works Photo Frame.
+          Upload your photo, choose your favourite
+          frame and share your excitement for
+          Greater Things.
           <br />
           Let everyone know:
           <em>
@@ -1913,7 +1927,7 @@ export function AttendingShell() {
 
       <section
         className="mw-attending-workspace"
-        aria-label="Attendee graphic generator"
+        aria-label="Mighty Works Photo Frame creator"
       >
         <div className="mw-attending-controls">
           <div
@@ -2064,7 +2078,7 @@ export function AttendingShell() {
                   </strong>
 
                   <span>
-                    Drag the preview and zoom until it looks right.
+                    Drag your photo to centre your face, then use the zoom slider to get the perfect fit.
                   </span>
                 </div>
 
@@ -2091,14 +2105,18 @@ export function AttendingShell() {
                   value={
                     photoZoom
                   }
-                  onChange={(event) =>
+                  onChange={(event) => {
+                    setPositioningHintVisible(
+                      false
+                    );
+
                     setPhotoZoom(
                       Number(
                         event.target
                           .value
                       )
-                    )
-                  }
+                    );
+                  }}
                   aria-label="Photo zoom"
                 />
 
@@ -2255,6 +2273,23 @@ export function AttendingShell() {
               height={OUTPUT_SIZE}
               aria-label="Your Mighty Works Conference attendee graphic preview"
             />
+
+            {photo &&
+            photoReady &&
+            positioningHintVisible ? (
+              <div
+                className="mw-attending-position-hint"
+                aria-hidden="true"
+              >
+                <span>
+                  ↕
+                </span>
+
+                <strong>
+                  Drag photo to reposition
+                </strong>
+              </div>
+            ) : null}
 
             {photo &&
             !photoReady ? (

@@ -8,6 +8,7 @@ import { EventCountdown } from "@/components/home-v2/event-countdown";
 import { HeroV2 } from "@/components/home-v2/hero";
 import { LiveBillboard } from "@/components/live/live-billboard";
 import { Navbar } from "@/components/home-v2/navbar";
+import { PhotoFramePromo } from "@/components/home-v2/photo-frame-promo";
 import { ScheduleV2 } from "@/components/home-v2/schedule";
 import { SiteFooter } from "@/components/home-v2/site-footer";
 
@@ -25,6 +26,7 @@ export default function Home() {
         showHeader={false}
       />
       <ScheduleV2 />
+      <PhotoFramePromo />
       <CompactRegistration />
       <SiteFooter />
     </main>
