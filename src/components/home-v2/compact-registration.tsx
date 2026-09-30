@@ -520,52 +520,59 @@ export function CompactRegistration() {
           </select>
         </label>
 
-        <label className="mw-registration-v3-field">
-          <span>
+        <fieldset
+          className="mw-registration-v3-membership"
+          aria-invalid={
+            validationTarget ===
+            "isEverwinningAustraliaMember"
+          }
+          aria-describedby={
+            validationTarget ===
+            "isEverwinningAustraliaMember"
+              ? "registration-validation-error"
+              : undefined
+          }
+        >
+          <legend>
             Are you a member of Everwinning Australia?
-          </span>
+          </legend>
 
-          <select
-            id="registration-everwinning-member"
-            value={
-              isEverwinningAustraliaMember === null
-                ? ""
-                : isEverwinningAustraliaMember
-                  ? "yes"
-                  : "no"
-            }
-            aria-invalid={
-              validationTarget ===
-              "isEverwinningAustraliaMember"
-            }
-            aria-describedby={
-              validationTarget ===
-              "isEverwinningAustraliaMember"
-                ? "registration-validation-error"
-                : undefined
-            }
-            onChange={(event) =>
-              setIsEverwinningAustraliaMember(
-                event.target.value === "yes"
-                  ? true
-                  : event.target.value === "no"
-                    ? false
-                    : null
-              )
-            }
-            required
-          >
-            <option value="">
-              Select Yes or No
-            </option>
-            <option value="yes">
-              Yes
-            </option>
-            <option value="no">
-              No
-            </option>
-          </select>
-        </label>
+          <div className="mw-registration-v3-membership-options">
+            <label>
+              <input
+                id="registration-everwinning-member-yes"
+                type="radio"
+                name="isEverwinningAustraliaMember"
+                value="yes"
+                checked={
+                  isEverwinningAustraliaMember === true
+                }
+                onChange={() =>
+                  setIsEverwinningAustraliaMember(true)
+                }
+                required
+              />
+              <span>Yes</span>
+            </label>
+
+            <label>
+              <input
+                id="registration-everwinning-member-no"
+                type="radio"
+                name="isEverwinningAustraliaMember"
+                value="no"
+                checked={
+                  isEverwinningAustraliaMember === false
+                }
+                onChange={() =>
+                  setIsEverwinningAustraliaMember(false)
+                }
+                required
+              />
+              <span>No</span>
+            </label>
+          </div>
+        </fieldset>
 
         <fieldset>
           <legend>

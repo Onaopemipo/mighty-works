@@ -32888,6 +32888,83 @@
    authority and submission engine remain frozen.
    ========================================================= */
 
+.mw-registration-v3-membership {
+  display: grid;
+  gap: 16px;
+  padding: clamp(15px, 1.55vw, 22px) 0;
+}
+
+.mw-registration-v3-membership legend {
+  color: rgba(246, 241, 231, 0.68);
+  font-size: clamp(0.68rem, 0.72vw, 0.78rem);
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.mw-registration-v3-membership-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.mw-registration-v3-membership-options label {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  gap: 12px;
+  padding: 0 clamp(18px, 1.8vw, 24px);
+  border: 1px solid rgba(246, 241, 231, 0.12);
+  border-radius: 2px;
+  background: linear-gradient(
+    135deg,
+    rgba(246, 241, 231, 0.045),
+    rgba(93, 80, 163, 0.055)
+  );
+  color: rgba(246, 241, 231, 0.78);
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.mw-registration-v3-membership-options label:has(input:checked) {
+  border-color: rgba(239, 75, 91, 0.72);
+  background: rgba(239, 75, 91, 0.08);
+  color: rgba(246, 241, 231, 0.96);
+  box-shadow: inset 3px 0 0 rgba(239, 75, 91, 0.72);
+}
+
+.mw-registration-v3-membership-options label:has(input:focus-visible) {
+  outline: 2px solid rgba(246, 241, 231, 0.72);
+  outline-offset: 3px;
+}
+
+.mw-registration-v3-membership-options input {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: var(--brand-red);
+}
+
+.mw-registration-v3-membership-options span {
+  font-size: clamp(0.92rem, 1vw, 1.02rem);
+  font-weight: 600;
+}
+
+.mw-registration-v3-membership[aria-invalid="true"]
+  .mw-registration-v3-membership-options label {
+  border-color: rgba(239, 75, 91, 0.72);
+}
+
+@media (max-width: 520px) {
+  .mw-registration-v3-membership-options {
+    grid-template-columns: 1fr;
+  }
+}
+
 .mw-registration-v3-attendance {
   margin-top:
     clamp(
