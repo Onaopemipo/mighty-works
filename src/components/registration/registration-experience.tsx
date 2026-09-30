@@ -40,6 +40,7 @@ type FormState = {
   city: string;
   stateRegion: string;
   churchMinistry: string;
+  isEverwinningAustraliaMember: boolean | null;
   attendeeType: AttendeeType;
   partySize: number;
   consentPrivacy: boolean;
@@ -56,6 +57,7 @@ const INITIAL_FORM: FormState = {
   city: "",
   stateRegion: "",
   churchMinistry: "",
+  isEverwinningAustraliaMember: null,
   attendeeType:
     "General Attendee",
   partySize: 1,
@@ -180,6 +182,13 @@ export function RegistrationExperience() {
       if (!form.countryCode) {
         return "Select the country you are coming from.";
       }
+    }
+
+    if (
+      step === 2 &&
+      form.isEverwinningAustraliaMember === null
+    ) {
+      return "Select Yes or No for Everwinning Australia membership.";
     }
 
     if (step === 3) {
@@ -780,6 +789,43 @@ export function RegistrationExperience() {
                         }
                         placeholder="Your church or ministry"
                       />
+
+                      <label className="registration-field">
+                        <span>
+                          Are you a member of Everwinning Australia?
+                        </span>
+
+                        <select
+                          value={
+                            form.isEverwinningAustraliaMember === null
+                              ? ""
+                              : form.isEverwinningAustraliaMember
+                                ? "yes"
+                                : "no"
+                          }
+                          onChange={(event) =>
+                            patch({
+                              isEverwinningAustraliaMember:
+                                event.target.value === "yes"
+                                  ? true
+                                  : event.target.value === "no"
+                                    ? false
+                                    : null,
+                            })
+                          }
+                          required
+                        >
+                          <option value="">
+                            Select Yes or No
+                          </option>
+                          <option value="yes">
+                            Yes
+                          </option>
+                          <option value="no">
+                            No
+                          </option>
+                        </select>
+                      </label>
 
                       <label className="registration-field">
                         <span>

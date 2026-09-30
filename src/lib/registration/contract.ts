@@ -24,6 +24,7 @@ export type RegistrationPayload = {
   city: string;
   stateRegion: string;
   churchMinistry: string;
+  isEverwinningAustraliaMember: boolean;
   attendeeType: AttendeeType;
   attendanceMode: AttendanceMode;
   partySize: number;

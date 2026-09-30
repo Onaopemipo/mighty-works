@@ -45,6 +45,10 @@ export function AttendeeResults({
             </th>
 
             <th>
+              Everwinning member
+            </th>
+
+            <th>
               Party
             </th>
 
@@ -117,6 +121,14 @@ export function AttendeeResults({
                     "in_person"
                       ? "In person"
                       : "Livestream"}
+                  </span>
+                </td>
+
+                <td>
+                  <span className="mw-admin-mode-pill">
+                    {row.isEverwinningAustraliaMember
+                      ? "Yes"
+                      : "No"}
                   </span>
                 </td>
 

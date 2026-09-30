@@ -83,6 +83,7 @@ export async function GET(
     "Country",
     "Country Code",
     "Attendance Mode",
+    "Everwinning Australia Member",
     "Party Size",
     "Present Now",
     "Remaining",
@@ -108,6 +109,9 @@ export async function GET(
             "in_person"
             ? "In person"
             : "Livestream",
+          row.isEverwinningAustraliaMember
+            ? "Yes"
+            : "No",
           row.partySize,
           row.checkedInCount,
           row.remainingCount,

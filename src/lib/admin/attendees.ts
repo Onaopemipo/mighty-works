@@ -26,6 +26,7 @@ export type AdminAttendeeListRow = {
   countryCode: string | null;
   ticketType: string;
   attendeeType: string | null;
+  isEverwinningAustraliaMember: boolean;
   partySize: number;
   checkedIn: boolean;
   checkedInCount: number;
@@ -56,6 +57,7 @@ export type AdminAttendeeDetail = {
   stateRegion: string | null;
   churchMinistry: string | null;
   attendeeType: string | null;
+  isEverwinningAustraliaMember: boolean;
   ticketType: string;
   partySize: number;
   checkedIn: boolean;
@@ -97,6 +99,7 @@ type RegistrationRow = {
   state_region: string | null;
   church_ministry: string | null;
   attendee_type: string | null;
+  is_everwinning_australia_member: boolean;
   ticket_type: string;
   party_size: number;
   registration_ref: string | null;
@@ -189,6 +192,7 @@ export async function getAdminAttendeeList(
           "state_region",
           "church_ministry",
           "attendee_type",
+          "is_everwinning_australia_member",
           "ticket_type",
           "party_size",
           "registration_ref",
@@ -359,6 +363,8 @@ export async function getAdminAttendeeList(
           registration.ticket_type,
         attendeeType:
           registration.attendee_type,
+        isEverwinningAustraliaMember:
+          registration.is_everwinning_australia_member,
         partySize:
           registration.party_size,
         registrationRef:
@@ -450,6 +456,7 @@ export async function getAdminAttendeeDetail(
         "state_region",
         "church_ministry",
         "attendee_type",
+        "is_everwinning_australia_member",
         "ticket_type",
         "party_size",
         "registration_ref",
@@ -557,6 +564,8 @@ export async function getAdminAttendeeDetail(
       registration.church_ministry,
     attendeeType:
       registration.attendee_type,
+    isEverwinningAustraliaMember:
+      registration.is_everwinning_australia_member,
     ticketType:
       registration.ticket_type,
     partySize:

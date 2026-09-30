@@ -42,6 +42,11 @@ export function CompactRegistration() {
     useState("");
 
   const [
+    isEverwinningAustraliaMember,
+    setIsEverwinningAustraliaMember,
+  ] = useState<boolean | null>(null);
+
+  const [
     attendanceMode,
     setAttendanceMode,
   ] =
@@ -73,6 +78,7 @@ export function CompactRegistration() {
     | "fullName"
     | "email"
     | "countryCode"
+    | "isEverwinningAustraliaMember"
     | "consentPrivacy"
     | null;
 
@@ -88,6 +94,9 @@ export function CompactRegistration() {
               "Please select your country."
             ? "countryCode"
             : error ===
+                "Please select Yes or No for Everwinning Australia membership."
+              ? "isEverwinningAustraliaMember"
+              : error ===
                 "Please accept the privacy consent."
               ? "consentPrivacy"
               : null;
@@ -128,6 +137,15 @@ export function CompactRegistration() {
       return;
     }
 
+    if (
+      isEverwinningAustraliaMember === null
+    ) {
+      setError(
+        "Please select Yes or No for Everwinning Australia membership."
+      );
+      return;
+    }
+
     if (!consentPrivacy) {
       setError(
         "Please accept the privacy consent."
@@ -163,6 +181,7 @@ export function CompactRegistration() {
             city: "",
             stateRegion: "",
             churchMinistry: "",
+            isEverwinningAustraliaMember,
             attendeeType:
               "General Attendee",
             attendanceMode,
@@ -498,6 +517,53 @@ export function CompactRegistration() {
                 </option>
               )
             )}
+          </select>
+        </label>
+
+        <label className="mw-registration-v3-field">
+          <span>
+            Are you a member of Everwinning Australia?
+          </span>
+
+          <select
+            id="registration-everwinning-member"
+            value={
+              isEverwinningAustraliaMember === null
+                ? ""
+                : isEverwinningAustraliaMember
+                  ? "yes"
+                  : "no"
+            }
+            aria-invalid={
+              validationTarget ===
+              "isEverwinningAustraliaMember"
+            }
+            aria-describedby={
+              validationTarget ===
+              "isEverwinningAustraliaMember"
+                ? "registration-validation-error"
+                : undefined
+            }
+            onChange={(event) =>
+              setIsEverwinningAustraliaMember(
+                event.target.value === "yes"
+                  ? true
+                  : event.target.value === "no"
+                    ? false
+                    : null
+              )
+            }
+            required
+          >
+            <option value="">
+              Select Yes or No
+            </option>
+            <option value="yes">
+              Yes
+            </option>
+            <option value="no">
+              No
+            </option>
           </select>
         </label>
 

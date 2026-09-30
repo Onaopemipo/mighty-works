@@ -330,6 +330,20 @@ export default async function AdminRegistrationDetailPage({
             />
 
             <DetailItem
+              label="Everwinning Australia member"
+              value={
+                attendee.isEverwinningAustraliaMember
+                  ? "Yes"
+                  : "No"
+              }
+              icon={
+                <ShieldCheck
+                  size={17}
+                />
+              }
+            />
+
+            <DetailItem
               label="Present now"
               value={
                 `${attendee.checkedInCount} / ${attendee.partySize}`

@@ -200,6 +200,9 @@ export async function POST(
       raw.partySize ?? 1
     );
 
+    const isEverwinningAustraliaMember =
+      raw.isEverwinningAustraliaMember;
+
     if (
       firstName.length < 2 ||
       lastName.length < 2
@@ -264,6 +267,17 @@ export async function POST(
     ) {
       return failure(
         "Attendee count must be between 1 and 10.",
+        "VALIDATION",
+        400
+      );
+    }
+
+    if (
+      typeof isEverwinningAustraliaMember !==
+      "boolean"
+    ) {
+      return failure(
+        "Please select Yes or No for Everwinning Australia membership.",
         "VALIDATION",
         400
       );
@@ -351,6 +365,8 @@ export async function POST(
           stateRegion || null,
         church_ministry:
           churchMinistry || null,
+        is_everwinning_australia_member:
+          isEverwinningAustraliaMember,
         attendee_type:
           attendeeType,
         ticket_type:
