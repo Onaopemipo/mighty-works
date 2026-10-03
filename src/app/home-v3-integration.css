@@ -356,6 +356,46 @@
   outline-offset: 4px;
 }
 
+/* Keep registration available when the standalone desktop CTA
+ * is suppressed inside the tablet and mobile navigation. */
+.homev2 .mw-nav-v3-mobile-register {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .homev2 .mw-nav-v3-links .mw-nav-v3-mobile-register {
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: center;
+    gap: 10px;
+    color: #ffffff;
+    background:
+      linear-gradient(
+        100deg,
+        #ef1478,
+        #b70f61
+      );
+    box-shadow:
+      0 10px 28px
+      rgba(219, 22, 111, 0.22);
+  }
+
+  .homev2 .mw-nav-v3-links .mw-nav-v3-mobile-register::after {
+    display: none;
+  }
+
+  .homev2 .mw-nav-v3-links .mw-nav-v3-mobile-register:hover,
+  .homev2 .mw-nav-v3-links .mw-nav-v3-mobile-register:focus-visible {
+    color: #ffffff;
+    background:
+      linear-gradient(
+        100deg,
+        #ff287f,
+        #c71369
+      );
+  }
+}
+
 
 /* =========================================================
    MW-HOME-V3-S8-C2C-R2 — MOBILE FOOTER VISUAL RHYTHM + HIT AREA

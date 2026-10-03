@@ -171,6 +171,18 @@ export function Navbar() {
               </Link>
             )
           )}
+
+          <Link
+            href="#register-interest"
+            className="mw-nav-v3-mobile-register"
+            onClick={closeMenu}
+          >
+            Register now
+
+            <ArrowRight
+              size={17}
+            />
+          </Link>
         </nav>
 
         <Link
