@@ -190,7 +190,7 @@ export async function sendInvitationEmail(
                     </div>
 
                     <div style="margin-top:5px;color:#17142b;font-size:14px;font-weight:700;">
-                      Faith Center
+                      Faith Centre
                     </div>
 
                     <div style="margin-top:3px;color:#575160;font-size:12px;line-height:1.45;">

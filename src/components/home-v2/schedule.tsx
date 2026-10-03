@@ -143,7 +143,7 @@ export function ScheduleV2() {
 
           <div className="mw-schedule-v3-venue-body">
             <h3>
-              Faith Center
+              Faith Centre
             </h3>
 
             <address>

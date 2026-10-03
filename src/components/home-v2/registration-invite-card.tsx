@@ -228,7 +228,7 @@ export function RegistrationInviteCard({
             </p>
 
             <strong>
-              Faith Center
+              Faith Centre
             </strong>
 
             <span>

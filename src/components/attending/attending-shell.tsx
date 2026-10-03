@@ -732,7 +732,7 @@ export function AttendingShell() {
         "600 18px Arial, sans-serif";
 
       context.fillText(
-        "7-8 NOVEMBER 2026  •  FAITH CENTER  •  BRISBANE",
+        "7-8 NOVEMBER 2026  •  FAITH CENTRE  •  BRISBANE",
         540,
         1008
       );
@@ -931,7 +931,7 @@ export function AttendingShell() {
         "600 17px Arial, sans-serif";
 
       context.fillText(
-        "7-8 NOVEMBER 2026  •  FAITH CENTER",
+        "7-8 NOVEMBER 2026  •  FAITH CENTRE",
         540,
         1010
       );
@@ -1072,7 +1072,7 @@ export function AttendingShell() {
       );
 
       context.fillText(
-        "FAITH CENTER • BRISBANE",
+        "FAITH CENTRE • BRISBANE",
         72,
         1007
       );
@@ -1429,7 +1429,7 @@ export function AttendingShell() {
       "600 19px Arial, sans-serif";
 
     context.fillText(
-      "7-8 NOVEMBER 2026  •  FAITH CENTER  •  BRISBANE",
+      "7-8 NOVEMBER 2026  •  FAITH CENTRE  •  BRISBANE",
       540,
       1021
     );
@@ -2380,7 +2380,7 @@ export function AttendingShell() {
 
           <span>
             <strong>
-              Faith Center
+              Faith Centre
             </strong>
             62 Eastern Rd, Browns Plains QLD 4118
           </span>

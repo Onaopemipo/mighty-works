@@ -81,7 +81,7 @@ const eventJsonLd = {
     "https://schema.org/OfflineEventAttendanceMode",
   location: {
     "@type": "Place",
-    name: "Faith Center",
+    name: "Faith Centre",
     address: {
       "@type": "PostalAddress",
       streetAddress: "62 Eastern Rd",

@@ -284,7 +284,7 @@ export function HeroV2() {
 
             <div>
               <strong>
-                Faith Center
+                Faith Centre
               </strong>
 
               <span>
