@@ -17,23 +17,18 @@ import { flagFromCountryCode } from "@/lib/registration/countries";
 import { createClient } from "@/lib/supabase/client";
 
 type ConferenceStats = {
-  total_registrations: number;
   countries_represented: number;
-  churches_represented: number;
   updated_at: string;
 };
 
 type CountryStat = {
   country: string;
   country_code: string | null;
-  registration_count: number;
   updated_at: string;
 };
 
 const EMPTY_STATS: ConferenceStats = {
-  total_registrations: 0,
   countries_represented: 0,
-  churches_represented: 0,
   updated_at: "",
 };
 
@@ -72,7 +67,7 @@ export function LiveBillboard({
         supabase
           .from("conference_stats")
           .select(
-            "total_registrations,countries_represented,churches_represented,updated_at"
+            "countries_represented,updated_at"
           )
           .eq("id", 1)
           .single(),
@@ -82,11 +77,11 @@ export function LiveBillboard({
             "country_registration_stats"
           )
           .select(
-            "country,country_code,registration_count,updated_at"
+            "country,country_code,updated_at"
           )
           .order(
-            "registration_count",
-            { ascending: false }
+            "country",
+            { ascending: true }
           ),
       ]);
 
@@ -326,50 +321,6 @@ export function LiveBillboard({
           </div>
         </header>
 
-        <section className="mw-nations-v3-monument">
-          <div className="mw-nations-v3-total">
-            <p>
-              Live registrations
-            </p>
-
-            <strong>
-              {stats.total_registrations}
-            </strong>
-
-            <span>
-              people have registered
-              for the gathering
-            </span>
-          </div>
-
-          <div className="mw-nations-v3-metrics">
-            <article>
-              <strong>
-                {
-                  stats.countries_represented
-                }
-              </strong>
-
-              <span>
-                Nations
-              </span>
-            </article>
-
-            <article>
-              <strong>
-                {
-                  stats.churches_represented
-                }
-              </strong>
-
-              <span>
-                Churches
-              </span>
-            </article>
-
-          </div>
-        </section>
-
         <section className="mw-nations-v3-world">
           <div className="mw-nations-v3-world-copy">
             <p>
@@ -493,17 +444,6 @@ export function LiveBillboard({
                               country.country
                             }
                           </strong>
-
-                          <span>
-                            {
-                              country.registration_count
-                            }{" "}
-                            registration
-                            {country.registration_count ===
-                            1
-                              ? ""
-                              : "s"}
-                          </span>
                         </div>
 
                       </article>
