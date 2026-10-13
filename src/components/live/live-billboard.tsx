@@ -18,7 +18,6 @@ import { createClient } from "@/lib/supabase/client";
 
 type ConferenceStats = {
   total_registrations: number;
-  total_attendees: number;
   countries_represented: number;
   churches_represented: number;
   updated_at: string;
@@ -28,13 +27,11 @@ type CountryStat = {
   country: string;
   country_code: string | null;
   registration_count: number;
-  attendee_count: number;
   updated_at: string;
 };
 
 const EMPTY_STATS: ConferenceStats = {
   total_registrations: 0,
-  total_attendees: 0,
   countries_represented: 0,
   churches_represented: 0,
   updated_at: "",
@@ -75,7 +72,7 @@ export function LiveBillboard({
         supabase
           .from("conference_stats")
           .select(
-            "total_registrations,total_attendees,countries_represented,churches_represented,updated_at"
+            "total_registrations,countries_represented,churches_represented,updated_at"
           )
           .eq("id", 1)
           .single(),
@@ -85,10 +82,10 @@ export function LiveBillboard({
             "country_registration_stats"
           )
           .select(
-            "country,country_code,registration_count,attendee_count,updated_at"
+            "country,country_code,registration_count,updated_at"
           )
           .order(
-            "attendee_count",
+            "registration_count",
             { ascending: false }
           ),
       ]);
@@ -370,17 +367,6 @@ export function LiveBillboard({
               </span>
             </article>
 
-            <article>
-              <strong>
-                {
-                  stats.total_attendees
-                }
-              </strong>
-
-              <span>
-                People
-              </span>
-            </article>
           </div>
         </section>
 
@@ -520,11 +506,6 @@ export function LiveBillboard({
                           </span>
                         </div>
 
-                        <em>
-                          {
-                            country.attendee_count
-                          }
-                        </em>
                       </article>
                     )
                   )}
@@ -586,17 +567,6 @@ export function LiveBillboard({
                       {
                         country.country
                       }
-
-                      <small>
-                        {
-                          country.attendee_count
-                        }{" "}
-                        attendee
-                        {country.attendee_count ===
-                        1
-                          ? ""
-                          : "s"}
-                      </small>
                     </span>
                   )
                 )

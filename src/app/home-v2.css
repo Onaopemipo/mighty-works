@@ -16964,8 +16964,7 @@
       minmax(
         0,
         1fr
-      )
-      auto;
+      );
 
     gap: 12px;
 
@@ -21313,7 +21312,6 @@
    Supporting:
    - nations represented
    - churches represented
-   - total attendees
 
    World stage / ranking / ticker / finale remain deferred.
    ========================================================= */
@@ -21528,7 +21526,7 @@
 
   grid-template-rows:
     repeat(
-      3,
+      2,
       minmax(
         0,
         1fr
@@ -22619,8 +22617,7 @@
     minmax(
       0,
       1fr
-    )
-    auto;
+    );
 
   align-items: center;
 
@@ -22731,33 +22728,6 @@
       231,
       0.3
     );
-}
-
-
-/* ---------------------------------------------------------
-   ATTENDEE COUNT
-   --------------------------------------------------------- */
-
-.mw-nations-v3-ranking-row em {
-  min-width: 34px;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(
-      1.4rem,
-      2vw,
-      2rem
-    );
-
-  font-style: normal;
-
-  text-align: right;
-
-  color: #f2939f;
 }
 
 
@@ -23168,29 +23138,6 @@
 
   line-height: 1;
 }
-
-.mw-nations-v3-ticker-track small {
-  font-family:
-    Arial,
-    sans-serif;
-
-  font-size: 0.48rem;
-
-  font-weight: 800;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.16em;
-
-  color:
-    rgba(
-      246,
-      241,
-      231,
-      0.26
-    );
-}
-
 
 /* ---------------------------------------------------------
    ZERO-DATA TICKER
@@ -23819,7 +23766,7 @@
   .mw-nations-v3-metrics {
     grid-template-columns:
       repeat(
-        3,
+        2,
         minmax(
           0,
           1fr
@@ -24136,16 +24083,6 @@
       );
   }
 
-  .mw-nations-v3-ranking-row em {
-    font-size:
-      clamp(
-        1.4rem,
-        3vw,
-        1.9rem
-      );
-  }
-
-
   /* -------------------------------------------------------
      TABLET ZERO STATE
      ------------------------------------------------------- */
@@ -24245,13 +24182,6 @@
   .mw-nations-v3-ticker-track b {
     font-size: 1.2rem;
   }
-
-  .mw-nations-v3-ticker-track small {
-    font-size: 0.44rem;
-
-    letter-spacing: 0.13em;
-  }
-
 
   /* -------------------------------------------------------
      TABLET FINALE
@@ -24692,7 +24622,7 @@
 
     grid-template-columns:
       repeat(
-        3,
+        2,
         minmax(
           0,
           1fr
@@ -25051,8 +24981,7 @@
       minmax(
         0,
         1fr
-      )
-      auto;
+      );
 
     gap: 9px;
 
@@ -25093,18 +25022,6 @@
 
     letter-spacing: 0.11em;
   }
-
-  .mw-nations-v3-ranking-row em {
-    min-width: 26px;
-
-    font-size:
-      clamp(
-        1.25rem,
-        6vw,
-        1.65rem
-      );
-  }
-
 
   /* -------------------------------------------------------
      MOBILE ZERO STATE
@@ -25239,12 +25156,6 @@
 
   .mw-nations-v3-ticker-track b {
     font-size: 1.08rem;
-  }
-
-  .mw-nations-v3-ticker-track small {
-    font-size: 0.4rem;
-
-    letter-spacing: 0.1em;
   }
 
   .mw-nations-v3-ticker-track
