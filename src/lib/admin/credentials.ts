@@ -18,13 +18,87 @@ export function getConfiguredAdminEmail() {
   );
 }
 
-export function verifyAdminPassword(
-  password: string
-) {
-  const stored =
+type AdminCredential = {
+  email: string;
+  passwordHash: string;
+};
+
+function getAdditionalAdminCredentials():
+  AdminCredential[] {
+  const raw =
     process.env
-      .ADMIN_PASSWORD_HASH
+      .ADMIN_ADDITIONAL_ACCOUNTS
       ?.trim();
+
+  if (!raw) {
+    return [];
+  }
+
+  try {
+    const parsed =
+      JSON.parse(raw) as unknown;
+
+    if (!Array.isArray(parsed)) {
+      return [];
+    }
+
+    return parsed.flatMap(
+      (entry) => {
+        if (
+          typeof entry !==
+            "object" ||
+          entry === null
+        ) {
+          return [];
+        }
+
+        const candidate =
+          entry as {
+            email?: unknown;
+            passwordHash?: unknown;
+          };
+
+        if (
+          typeof candidate.email !==
+            "string" ||
+          typeof candidate.passwordHash !==
+            "string"
+        ) {
+          return [];
+        }
+
+        const email =
+          normalizeAdminEmail(
+            candidate.email
+          );
+
+        const passwordHash =
+          candidate.passwordHash.trim();
+
+        if (
+          !email ||
+          !passwordHash
+        ) {
+          return [];
+        }
+
+        return [
+          {
+            email,
+            passwordHash,
+          },
+        ];
+      }
+    );
+  } catch {
+    return [];
+  }
+}
+
+function verifyPasswordHash(
+  password: string,
+  stored: string | undefined
+) {
 
   if (!stored) {
     return false;
@@ -34,7 +108,11 @@ export function verifyAdminPassword(
     version,
     salt,
     encodedHash,
-  ] = stored.split("$");
+  ] = stored.split(
+    stored.includes("$")
+      ? "$"
+      : ":"
+  );
 
   if (
     version !== "scrypt-v1" ||
@@ -72,4 +150,49 @@ export function verifyAdminPassword(
   } catch {
     return false;
   }
+}
+
+export function verifyAdminCredentials(
+  email: string,
+  password: string
+) {
+  const normalizedEmail =
+    normalizeAdminEmail(email);
+
+  const primaryEmail =
+    getConfiguredAdminEmail();
+
+  if (
+    primaryEmail &&
+    normalizedEmail ===
+      primaryEmail &&
+    verifyPasswordHash(
+      password,
+      process.env
+        .ADMIN_PASSWORD_HASH
+        ?.trim()
+    )
+  ) {
+    return primaryEmail;
+  }
+
+  const credential =
+    getAdditionalAdminCredentials()
+      .find(
+        (candidate) =>
+          candidate.email ===
+          normalizedEmail
+      );
+
+  if (
+    !credential ||
+    !verifyPasswordHash(
+      password,
+      credential.passwordHash
+    )
+  ) {
+    return null;
+  }
+
+  return credential.email;
 }

@@ -12,9 +12,8 @@ import {
   adminCookieOptions,
 } from "@/lib/admin/session";
 import {
-  getConfiguredAdminEmail,
   normalizeAdminEmail,
-  verifyAdminPassword,
+  verifyAdminCredentials,
 } from "@/lib/admin/credentials";
 import {
   createAdminClient,
@@ -100,11 +99,8 @@ export async function POST(
         ? body.password
         : "";
 
-    const configuredEmail =
-      getConfiguredAdminEmail();
-
     if (
-      !configuredEmail ||
+      !email ||
       !password
     ) {
       return genericFailure();
@@ -158,24 +154,19 @@ export async function POST(
       return genericFailure();
     }
 
-    if (
-      email !==
-      configuredEmail
-    ) {
-      return genericFailure();
-    }
-
-    if (
-      !verifyAdminPassword(
+    const authenticatedEmail =
+      verifyAdminCredentials(
+        email,
         password
-      )
-    ) {
+      );
+
+    if (!authenticatedEmail) {
       return genericFailure();
     }
 
     const token =
       createAdminSessionToken(
-        configuredEmail
+        authenticatedEmail
       );
 
     const response =
