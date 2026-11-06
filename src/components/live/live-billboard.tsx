@@ -24,6 +24,7 @@ type ConferenceStats = {
 type CountryStat = {
   country: string;
   country_code: string | null;
+  attendee_count: number;
   updated_at: string;
 };
 
@@ -77,7 +78,11 @@ export function LiveBillboard({
             "country_registration_stats"
           )
           .select(
-            "country,country_code,updated_at"
+            "country,country_code,attendee_count,updated_at"
+          )
+          .gt(
+            "attendee_count",
+            0
           )
           .order(
             "country",
@@ -307,10 +312,9 @@ export function LiveBillboard({
 
           <div className="mw-nations-v3-opening-foot">
             <p>
-              Every registration adds
-              another person, church and
-              nation to the story unfolding
-              in real time.
+              Every arrival adds another
+              person and nation to the story
+              unfolding in real time.
             </p>
 
             <span>
