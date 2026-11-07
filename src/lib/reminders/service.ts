@@ -303,6 +303,14 @@ export async function runConferenceReminders(
       );
 
     results.push(...batchResults);
+
+    if (
+      index + 5 < attendees.length
+    ) {
+      await new Promise((resolve) =>
+        setTimeout(resolve, 1_000)
+      );
+    }
   }
 
   return {

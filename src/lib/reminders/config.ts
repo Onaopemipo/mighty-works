@@ -3,6 +3,7 @@ export const REMINDER_KEYS = [
   "3_days",
   "1_day",
   "event_day",
+  "grand_finale",
 ] as const;
 
 export type ReminderKey =
@@ -58,6 +59,16 @@ export const REMINDERS: readonly ReminderDefinition[] = [
     subject: "Today is the day — Mighty Works begins at 5 PM",
     message:
       "The wait is over. Today we step into two days of worship, the Word, prayer and impartation. We cannot wait to welcome you.",
+  },
+  {
+    key: "grand_finale",
+    brisbaneDate: "2026-11-08",
+    scheduledFor: "2026-11-07T20:00:00.000Z",
+    eyebrow: "The grand finale",
+    headline: "Day Two is here. Let’s finish strong together.",
+    subject: "Grand Finale today — join us at 9 AM",
+    message:
+      "Thank you for being part of Mighty Works Conference 2026. This morning we gather for the grand finale—another powerful time of worship, the Word, prayer and impartation. Come expectant, bring someone with you, and let us step into Greater Things together.",
   },
 ] as const;
 
