@@ -73,19 +73,30 @@ export async function sendReminderEmail(
   const isGrandFinale =
     input.reminder.key ===
     "grand_finale";
+  const isConferenceThanks =
+    input.reminder.key ===
+    "conference_thanks";
 
   const destinationTitle =
-    isLivestream
+    isConferenceThanks
+      ? "Our prayer for you"
+      : isLivestream
       ? "Joining by livestream"
       : "Where we gather";
   const destinationCopy =
-    isLivestream
+    isConferenceThanks
+      ? "May everything God began in your life during MWC 2026 continue to grow and produce lasting fruit."
+      : isLivestream
       ? "Keep this email close and visit the conference website for the latest livestream access details."
       : "Faith Centre · 62 Eastern Rd, Browns Plains QLD 4118";
-  const actionUrl = isLivestream
+  const actionUrl = isConferenceThanks
+    ? "https://mwc.everwinningaustralia.com.au"
+    : isLivestream
     ? "https://mwc.everwinningaustralia.com.au/#schedule"
     : "https://www.google.com/maps/search/?api=1&query=Faith+Centre+62+Eastern+Rd+Browns+Plains+QLD+4118";
-  const actionLabel = isLivestream
+  const actionLabel = isConferenceThanks
+    ? "Visit Everwinning Australia"
+    : isLivestream
     ? "View conference details"
     : "Get directions";
 
@@ -122,9 +133,9 @@ export async function sendReminderEmail(
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#181630;border:1px solid #3a3458;border-radius:16px;">
                 <tr>
                   <td style="padding:18px;border-bottom:1px solid #332e50;">
-                    <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#ff829d;">${isGrandFinale ? "Grand finale" : "Conference begins"}</div>
-                    <div style="margin-top:6px;font-family:Georgia,serif;font-size:20px;color:#fff8e9;">${isGrandFinale ? "Sunday · 8 November 2026 · 9:00 AM" : "Saturday · 7 November 2026 · 5:00 PM"}</div>
-                    <div style="margin-top:5px;color:#aaa2b7;font-size:12px;">${isGrandFinale ? "Doors open early · Brisbane time" : "Continues Sunday · 8 November · 9:00 AM · Brisbane time"}</div>
+                    <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#ff829d;">${isConferenceThanks ? "MWC 2026" : isGrandFinale ? "Grand finale" : "Conference begins"}</div>
+                    <div style="margin-top:6px;font-family:Georgia,serif;font-size:20px;color:#fff8e9;">${isConferenceThanks ? "Two powerful days. One unforgettable gathering." : isGrandFinale ? "Sunday · 8 November 2026 · 9:00 AM" : "Saturday · 7 November 2026 · 5:00 PM"}</div>
+                    <div style="margin-top:5px;color:#aaa2b7;font-size:12px;">${isConferenceThanks ? "Thank you for sharing the journey with us." : isGrandFinale ? "Doors open early · Brisbane time" : "Continues Sunday · 8 November · 9:00 AM · Brisbane time"}</div>
                   </td>
                 </tr>
                 <tr>
@@ -159,7 +170,9 @@ export async function sendReminderEmail(
     input.reminder.headline,
     `Hello ${input.attendeeName},`,
     input.reminder.message,
-    isGrandFinale
+    isConferenceThanks
+      ? "Thank you for sharing two powerful days with us. The conference may have ended, but the journey has only just begun."
+      : isGrandFinale
       ? "The grand finale begins Sunday, 8 November 2026 at 9:00 AM (Brisbane time)."
       : "Conference begins Saturday, 7 November 2026 at 5:00 PM and continues Sunday, 8 November at 9:00 AM (Brisbane time).",
     `${destinationTitle}: ${destinationCopy}`,

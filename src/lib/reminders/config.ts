@@ -4,6 +4,7 @@ export const REMINDER_KEYS = [
   "1_day",
   "event_day",
   "grand_finale",
+  "conference_thanks",
 ] as const;
 
 export type ReminderKey =
@@ -70,7 +71,25 @@ export const REMINDERS: readonly ReminderDefinition[] = [
     message:
       "Thank you for being part of Mighty Works Conference 2026. This morning we gather for the grand finale—another powerful time of worship, the Word, prayer and impartation. Come expectant, bring someone with you, and let us step into Greater Things together.",
   },
+  {
+    key: "conference_thanks",
+    brisbaneDate: "2026-11-08",
+    scheduledFor: "2026-11-08T07:56:00.000Z",
+    eyebrow: "With heartfelt appreciation",
+    headline: "Thank you for being part of MWC 2026.",
+    subject: "Thank You for Being Part of MWC 2026",
+    message:
+      "What a remarkable time we shared at Mighty Works Conference 2026! On behalf of Everwinning Faith Ministries Australia, thank you for being part of two powerful days of worship, the Word, prayer, fellowship and impartation. Your presence, faith and expectation helped make this gathering truly special. Whether you joined us in person or online, we are grateful that you chose to share this experience with us. As the conference concludes, we pray that everything God began in your life during MWC 2026 will continue to grow and produce lasting fruit. May you walk boldly into Greater Things, strengthened in faith and ready to fulfil God’s purpose for your life. The conference may have ended, but the journey has only just begun.",
+  },
 ] as const;
+
+export function getReminderByKey(
+  key: string
+) {
+  return REMINDERS.find(
+    (reminder) => reminder.key === key
+  ) ?? null;
+}
 
 export function brisbaneDate(
   date: Date

@@ -38,7 +38,12 @@ export async function GET(
 
   try {
     const result =
-      await runConferenceReminders();
+      await runConferenceReminders(
+        new Date(),
+        new URL(request.url).searchParams.get(
+          "campaign"
+        ) ?? undefined
+      );
 
     return NextResponse.json(
       {

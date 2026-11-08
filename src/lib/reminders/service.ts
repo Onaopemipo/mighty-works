@@ -3,6 +3,7 @@ import {
 } from "@/lib/supabase/admin";
 import {
   getReminderForDate,
+  getReminderByKey,
   type ReminderDefinition,
 } from "@/lib/reminders/config";
 import {
@@ -161,10 +162,13 @@ async function deliverReminder(
 }
 
 export async function runConferenceReminders(
-  now = new Date()
+  now = new Date(),
+  requestedKey?: string
 ): Promise<ReminderRunResult> {
   const reminder =
-    getReminderForDate(now);
+    requestedKey
+      ? getReminderByKey(requestedKey)
+      : getReminderForDate(now);
 
   if (!reminder) {
     return {
