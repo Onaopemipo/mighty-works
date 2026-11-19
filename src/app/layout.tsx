@@ -14,13 +14,13 @@ export const metadata: Metadata = {
 
   title: {
     default:
-      "Mighty Works Conference 2026 | Greater Things",
+      "MWC 2026 Highlights | Greater Things",
     template:
       "%s | Mighty Works Conference 2026",
   },
 
   description:
-    "Mighty Works Conference 2026 is the 8th edition of Everwinning Faith Ministries Australia's international conference, themed Greater Things, taking place 7–8 November 2026 in Brisbane, Australia.",
+    "Relive Mighty Works Conference 2026 — two unforgettable days of worship, the Word, prayer and impartation in Brisbane, Australia.",
 
   applicationName:
     "Mighty Works Conference 2026",
@@ -35,18 +35,18 @@ export const metadata: Metadata = {
     siteName:
       "Mighty Works Conference 2026",
     title:
-      "Mighty Works Conference 2026 | Greater Things",
+      "MWC 2026 Highlights | Greater Things",
     description:
-      "Join the 8th edition of Mighty Works Conference on 7–8 November 2026 in Brisbane, Australia.",
+      "Relive two unforgettable days of worship, the Word, prayer and impartation at Mighty Works Conference 2026.",
     locale: "en_AU",
   },
 
   twitter: {
     card: "summary_large_image",
     title:
-      "Mighty Works Conference 2026 | Greater Things",
+      "MWC 2026 Highlights | Greater Things",
     description:
-      "7–8 November 2026 · Brisbane, Australia · 8th Edition",
+      "Relive MWC 2026 · Brisbane, Australia · 8th Edition",
   },
 
   robots: {
@@ -76,7 +76,7 @@ const eventJsonLd = {
   endDate:
     "2026-11-08",
   eventStatus:
-    "https://schema.org/EventScheduled",
+    "https://schema.org/EventCompleted",
   eventAttendanceMode:
     "https://schema.org/OfflineEventAttendanceMode",
   location: {
