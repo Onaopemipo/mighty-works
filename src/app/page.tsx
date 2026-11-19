@@ -35,7 +35,7 @@ const highlights: Highlight[] = [
     title: "The gathering begins",
     summary:
       "The opening night set the atmosphere for Greater Things through worship, the Word, prayer and a room filled with expectation.",
-    url: "https://www.youtube.com/watch?v=QXF5bd4NPSQ&t=2214s",
+    url: "https://www.youtube.com/watch?v=QXF5bd4NPSQ",
   },
   {
     day: "Day Two",
